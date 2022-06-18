@@ -14,7 +14,8 @@ body {
   line-height: 1.2;
   font-weight: normal;
   background: top url('assets/img/header_img.jpg') no-repeat,
-    bottom url('assets/img/bottom_img.jpg') no-repeat;
+   bottom url('assets/img/bottom_img.jpg') no-repeat;
+
   margin: 0 auto;
 }
 
@@ -312,9 +313,7 @@ body {
 .section-stories {
   margin-top: 200px;
   width: 1201px;
-  height: 1322px;
 }
-
 
 .stories_bg {
   background-color: rgba(255, 255, 255, 0.7);
@@ -325,12 +324,13 @@ body {
 
 .story {
   width: 1200px;
-  display: flex;
   margin: 0 auto;
+  display: flex;
 }
 
 .travelstories {
-  margin: 0;
+  padding-bottom: 15px;
+  margin-left: 220px;
 }
 
 .btn_story {
@@ -344,7 +344,7 @@ body {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 2px 3px rgba(13, 96, 111, 0.16);
   margin-left: 600px;
-  margin-top: 150px;
+  margin-top: 70px;
   font-family: 'Red Hat Text', sans-serif;
   font-weight: 500;
   font-size: 24px;
@@ -357,10 +357,71 @@ body {
   margin: 15px;
 }
 
+.story_text {
+  font-weight: 400;
+  font-size: 20px;
+  color: #0d606f;
+}
+
+.story_title {
+  font-weight: 400;
+  font-size: 35px;
+  color: #0d606f;
+}
+
+.story_img {
+  filter: drop-shadow(0px 4px 4px #0d606f);
+  border-radius: 16px;
+  margin-right: 40px;
+  height: 250px;
+}
+
 
 /* footer */
 
 .footer {
-  width: 1440px;
-  height: 61px;
+  margin: 0 auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.footer_icon {
+  width: 33px;
+  height: 33px;
+  list-style: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.footer_text {
+  font-family: 'Red Hat Text', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.footer-link {
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+}
+
+.rsschool {
+  width: 100px;
+  height: 50px;
+  margin-right: 30px
+}
+
+.my_page {
+  margin-left: 124px;
 }
