@@ -8,7 +8,6 @@ html {
 
 body {
   width: 1440px;
-  Height: 3735px;
   font-family: 'Aleo';
   font-size: 16px;
   font-style: normal;
@@ -32,15 +31,13 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  padding-right: 40px;
-  padding-left: 30px;
+  padding: 0 40px 10px 30px;
 }
 
 .header {
   background: rgba(242, 120, 92, 0.7);
   box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
   width: 1440px;
-  height: 90px;
   margin: 0 auto;
 }
 
@@ -261,10 +258,109 @@ body {
   padding: 700px 0 0 50px;
 }
 
+.dest_bottom {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.round_btn {
+  display: flex;
+  width: 80px;
+  justify-content: space-between;
+  margin-left: 570px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.round {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(242, 120, 92, 0.5);
+}
+
+.round_2 {
+  background: #f2785c;
+}
+
+.btn_dest {
+  display: flex;
+  align-items: center;
+  width: 228px;
+  height: 59px;
+  background-color: #0D606F;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 2px 3px rgba(13, 96, 111, 0.16);
+  margin-left: 500px;
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+  padding-left: 20px;
+}
+
+.dest_icon {
+  padding: 10px, 32px, 10px, 32px;
+  margin: 15px;
+}
+
+
 /* section-stories */
 
 .section-stories {
-  padding-top: 170px;
+  margin-top: 200px;
   width: 1201px;
   height: 1322px;
+}
+
+
+.stories_bg {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 1440px;
+  height: 1270px;
+  padding-bottom: 61px;
+}
+
+.story {
+  width: 1200px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.travelstories {
+  margin: 0;
+}
+
+.btn_story {
+  display: flex;
+  align-items: center;
+  width: 228px;
+  height: 59px;
+  background-color: #0D606F;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 2px 3px rgba(13, 96, 111, 0.16);
+  margin-left: 600px;
+  margin-top: 150px;
+  font-family: 'Red Hat Text', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+  padding-left: 20px;
+}
+
+.story_icon {
+  padding: 10px, 32px, 10px, 32px;
+  margin: 15px;
+}
+
+
+/* footer */
+
+.footer {
+  width: 1440px;
+  height: 61px;
 }
