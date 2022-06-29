@@ -6,12 +6,6 @@ html {
   box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
-  .section {
-    width: 100%;
-  }
-}
-
 body {
   width: 100%;
   font-family: 'Aleo';
@@ -26,7 +20,7 @@ body {
 }
 
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -34,7 +28,7 @@ body {
 /* ------------ header start ------------ */
 
 .header-container {
-  width: 1200px;
+  max-width: 1200px;
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -45,7 +39,7 @@ body {
 .header {
   background: rgba(242, 120, 92, 0.7);
   box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -125,6 +119,10 @@ body {
   color: #a59d9d;
 }
 
+.header_burger {
+  display: none;
+}
+
 /* ------------ header end ------------ */
 
 /* ------------ section-preview start------------ */
@@ -173,6 +171,9 @@ body {
   font-weight: 400;
   font-size: 24px;
   color: #F2785C;
+  width: 560px;
+  height: 25px;
+  margin: 31px 43px 31px 39px;
 }
 
 .btn_plan {
@@ -200,12 +201,6 @@ body {
   color: #ffffff;
 }
 
-.plan {
-  width: 560px;
-  height: 25px;
-  margin: 31px 43px 31px 39px;
-}
-
 ::placeholder {
   font-family: 'Aleo', serif;
   font-style: italic;
@@ -228,7 +223,7 @@ body {
 
 .section-steps {
   padding-top: 5px;
-  width: 1177px;
+  max-width: 1177px;
   height: 247px;
   margin: 0 auto;
 }
@@ -382,7 +377,7 @@ body {
 }
 
 .story {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   margin: 30px 0 30px 120px;
@@ -526,3 +521,72 @@ body {
 }
 
 /* ------------ footer end ------------ */
+
+/* --- media queries start --- */
+
+@media (max-width: 768px) {
+  .section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 390px) {
+  body { 
+    background: top center url('assets/img/header_img_mobile.jpg') no-repeat,
+    bottom center url('assets/img/bottom_img_mobile.jpg') no-repeat;
+  }
+  .header_burger {
+    width: 358px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .header {
+    background: none;
+    box-shadow: none;
+  }
+  .title, .title2, .nav, .login, .portal_text  {
+    display: none;
+  }
+  .plantrip {
+    max-width: 360px;
+    height: 48px;
+    margin-top: -50px;
+    margin-left: -100px;
+  }
+  .plan, ::placeholder {
+    font-size: 14px;
+    margin-left: 15px;
+  }
+  .btn_plan {
+    height: 30px;
+    margin-left: -30px;
+  }
+  .startplan {
+    font-size: 11px;
+  }
+  .section-steps {
+    width: 360px;
+    height: 153px;
+    margin-top: -230px;
+  }
+  .steps_title {
+    font-size: 14px;
+  }
+  .steps_text {
+    font-size: 10px;
+  }
+  .steps_icon {
+    width: 70px;
+    height: 70px;
+  }
+  .steps_item:nth-child(2) {
+    padding-left: 20px;
+  }
+  
+}
+
+@media (max-width: 320px) {
+
+}
+
+/* --- media queries end --- */
