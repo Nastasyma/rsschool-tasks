@@ -242,11 +242,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
-.steps_item:nth-child(2) {
-  padding-left: 68px;
+.step_cont1 {
+  width: 33%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.step_cont2 {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.step_cont3 {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .steps_icon {
@@ -263,6 +276,10 @@ body {
   font-size: 20px;
   color: #0D606F;
   padding-top: 10px;
+}
+
+.textsteps_mobile {
+  display: none;
 }
 
 /* ------------ section-steps end ------------ */
@@ -539,19 +556,25 @@ body {
     width: 358px;
     display: flex;
     justify-content: space-between;
+    margin-top: 27px;
   }
   .header {
-    background: none;
+    background: linear-gradient(to bottom,#0D606F 0%, rgba(13, 96, 111, 0) 70%);
     box-shadow: none;
+    border-radius: 30px;
+
   }
   .title, .title2, .nav, .login, .portal_text  {
     display: none;
   }
+  .section-preview {
+    margin-bottom: 54px;
+  }
   .plantrip {
     max-width: 360px;
     height: 48px;
-    margin-top: -50px;
-    margin-left: -100px;
+    margin-top: -27px;
+    margin-left: -105px;
   }
   .plan, ::placeholder {
     font-size: 14px;
@@ -559,30 +582,64 @@ body {
   }
   .btn_plan {
     height: 30px;
-    margin-left: -30px;
+    margin-right: 11px;
+    padding-bottom: 3px;
   }
   .startplan {
     font-size: 11px;
   }
   .section-steps {
-    width: 360px;
     height: 153px;
-    margin-top: -230px;
   }
   .steps_title {
     font-size: 14px;
   }
-  .steps_text {
-    font-size: 10px;
+  .threesteps {
+    margin-left: 15px;
+    margin-right: 15px;
   }
   .steps_icon {
     width: 70px;
     height: 70px;
+    margin-top: -20px;
+    padding: 19px;
   }
-  .steps_item:nth-child(2) {
-    padding-left: 20px;
+  .ic1 {
+    width: 35px;
+    height: 32px;
   }
-  
+  .ic2 {
+    width: 35px;
+    height: 35px;
+  }
+  .ic3 {
+    width: 40px;
+    height: 30px;
+  }
+  .steps_text {
+    display: none;
+  }
+  .textsteps_mobile {
+    display: flex;
+    font-size: 10px;
+    font-weight: 400;
+    color: #0D606F;
+    padding-top: 10px
+  }
+  .step_mob1 {
+    text-align: left;
+    width: 20%;
+    margin-left: 15px;
+  }
+  .step_mob2 {
+    text-align: center;
+    margin-left: 47px;
+  }
+  .step_mob3 {
+    width: 33%;
+    text-align: right;
+    padding-right: 5px;
+  }
 }
 
 @media (max-width: 320px) {
