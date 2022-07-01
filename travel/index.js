@@ -4,12 +4,17 @@
     const burger = document.querySelector('.burger');
     const menu = document.querySelector('.nav');
     const menuClose = document.querySelector('.close_menu');
+    const menuCloseLink = document.querySelector('.nav-link')
     burger.addEventListener('click', () => {
         menu.classList.add('open_menu');
     })
     menuClose.addEventListener('click', () => {
         menu.classList.remove('open_menu');
     })
+    menuCloseLink.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
+
 }());
 
 
