@@ -1,11 +1,16 @@
 // Burger menu
 
 (function () {
-    const burgerItem = document.querySelector('.burger');
-    burgerItem.addEventListener('click', () => {
-        console.log(1);
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.nav');
+    const menuClose = document.querySelector('.close_menu');
+    burger.addEventListener('click', () => {
+        menu.classList.add('open_menu');
     })
-})
+    menuClose.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
+}());
 
 
 /*console.log(`1. Вёрстка валидная +10; 
