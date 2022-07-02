@@ -1,21 +1,46 @@
 // Burger menu
 
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.nav');
+const menuClose = document.querySelector('.close_menu');
+const menuCloseMenu1 = document.querySelector('.menu1');
+const menuCloseMenu2 = document.querySelector('.menu2');
+const menuCloseMenu3 = document.querySelector('.menu3');
+const menuCloseMenu4 = document.querySelector('.menu4');
+const menuCloseAccount = document.querySelector('.account');
+const menuCloseMedia = document.querySelector('.social_media');
+
 (function () {
-    const burger = document.querySelector('.burger');
-    const menu = document.querySelector('.nav');
-    const menuClose = document.querySelector('.close_menu');
-    const menuCloseLink = document.querySelector('.nav-link')
     burger.addEventListener('click', () => {
         menu.classList.add('open_menu');
     })
     menuClose.addEventListener('click', () => {
         menu.classList.remove('open_menu');
     })
-    menuCloseLink.addEventListener('click', () => {
+    menuCloseMenu1.addEventListener('click', () => {
         menu.classList.remove('open_menu');
     })
-
+    menuCloseMenu2.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
+    menuCloseMenu3.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
+    menuCloseMenu4.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
+    menuCloseAccount.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
+    menuCloseMedia.addEventListener('click', () => {
+        menu.classList.remove('open_menu');
+    })
 }());
+
+document.addEventListener('click', function(e){
+    if(menu !== e.target){
+        menu.classList.remove('open_menu');
+    }}, true);
 
 
 /*console.log(`1. Вёрстка валидная +10; 
