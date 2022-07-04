@@ -10,14 +10,23 @@ const bodyOpacity = document.querySelector('.body_opacity');
     burger.addEventListener('click', () => {
         menu.classList.add('open_menu');
         bodyOpacity.style.display = bodyOpacity.style.display === 'none' ? 'block' : 'none';
+        setTimeout(function () {
+            bodyOpacity.classList.add('body_opacity_active');
+          }, 50);   
     })
     menuClose.addEventListener('click', () => {
         menu.classList.remove('open_menu');
+        setTimeout(function () {
+            bodyOpacity.classList.remove('body_opacity_active');
+          }, 50);  
         bodyOpacity.style.display = bodyOpacity.style.display === 'block' ? 'none' : 'none';
     })
     navList.addEventListener('click', () => {
         menu.classList.remove('open_menu');
-        bodyOpacity.style.display = bodyOpacity.style.display === 'block' ? 'none' : 'none';
+        setTimeout(function () {
+            bodyOpacity.classList.remove('body_opacity_active');
+          }, 50);  
+        bodyOpacity.style.display = bodyOpacity.style.display === 'block' ? 'none' : 'none'; 
     })
 }());
 

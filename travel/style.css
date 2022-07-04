@@ -30,10 +30,13 @@ body {
   top: 0;
   height: 100vh;
   width: 100vw;
-  background:#000;
-  opacity: 0.5;
   z-index: 9;
+  transition: 1s;
 }
+.body_opacity_active {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 
 /* ------------ header start ------------ */
 
@@ -746,8 +749,13 @@ body {
   .portal {
     width: 100%;
   }
+  .mobile_wrapper {
+    max-width: 390px;
+    position: relative;
+    overflow: hidden;
+  }
   .nav {
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     width: 165px;
