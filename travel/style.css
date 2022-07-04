@@ -641,23 +641,26 @@ body {
     margin-right: 40px;
   }
   .dest_item1 {
-    width: 360px;
-    height: 210px;
-    background: url('assets/img/destination_1_mobile.jpg') no-repeat;
+    width: 550px;
+    height: 380px;
+    background-size: 100% 100%;
+    background: url('assets/img/destination_1_mobile.jpg') cover no-repeat;
     border-radius: 16px;
     margin: 15px 15px 0 0;
   }
   .dest_item2 {
-    width: 360px;
-    height: 210px;
-    background: url('assets/img/destination_2_mobile.jpg') no-repeat;
+    width: 550px;
+    height: 380px;
+    background-size: 100% 100%;
+    background: url('assets/img/destination_2_mobile.jpg') cover no-repeat;
     border-radius: 16px;
     margin: 15px 15px 0 15px;
   }  
   .dest_item3 {
-    width: 360px;
-    height: 210px;
-    background: url('assets/img/destination_3_mobile.jpg') no-repeat;
+    width: 550px;
+    height: 380px;
+    background-size: 100% 100%;
+    background: url('assets/img/destination_3_mobile.jpg') cover no-repeat;
     border-radius: 16px;
     margin: 15px 0 0 15px;
   }
@@ -713,6 +716,30 @@ body {
   }
   .plan, ::placeholder {
     font-size: 18px;
+  }
+  .dest_item1 {
+    width: 360px;
+    height: 210px;
+    background-size: 100% 100%;
+    background: url('assets/img/destination_1_mobile.jpg') cover no-repeat;
+    border-radius: 16px;
+    margin: 15px 15px 0 0;
+  }
+  .dest_item2 {
+    width: 360px;
+    height: 210px;
+    background-size: 100% 100%;
+    background: url('assets/img/destination_2_mobile.jpg') cover no-repeat;
+    border-radius: 16px;
+    margin: 15px 15px 0 15px;
+  }  
+  .dest_item3 {
+    width: 360px;
+    height: 210px;
+    background-size: 100% 100%;
+    background: url('assets/img/destination_3_mobile.jpg') cover no-repeat;
+    border-radius: 16px;
+    margin: 15px 0 0 15px;
   }
   .story_text {
     display: none;
