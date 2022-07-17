@@ -102,21 +102,21 @@ slide3.addEventListener('click', moveRight);
 
 caroosel.addEventListener('animationend', (animationEvent) => {
 
-  let active = slide2.innerHTML;
+  let activeSlide = slide2.innerHTML;
 
   if (animationEvent.animationName === 'move-left') {
     caroosel.classList.remove('to-left');
     slide2.innerHTML = slide1.innerHTML;
     slide1.innerHTML = slide0.innerHTML;
-    slide3.innerHTML = active;
-    slide0.innerHTML = active;
+    slide3.innerHTML = activeSlide;
+    slide0.innerHTML = activeSlide;
     slide4.innerHTML = slide1.innerHTML;
   } else if (animationEvent.animationName === 'move-right') {
     caroosel.classList.remove('to-right');
     slide2.innerHTML = slide3.innerHTML;
 		slide3.innerHTML = slide4.innerHTML;
-		slide1.innerHTML = active;
-		slide4.innerHTML = active;
+		slide1.innerHTML = activeSlide;
+		slide4.innerHTML = activeSlide;
 		slide0.innerHTML = slide3.innerHTML;
   }
 

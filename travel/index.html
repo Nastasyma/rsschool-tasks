@@ -8,15 +8,42 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="icon" href="assets/svg/favicon.ico">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Text:wght@500&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Magra:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Red+Hat+Text:regular,500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Aleo:regular,italic,700,700italic&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Magra:700&display=swap" rel="stylesheet">
   <title>Travel Portal</title>
 </head>
 
 <body>
   <div class="mobile_wrapper">
+    <div class="popup">
+      <div class="login_popup">
+        <span class="login_title">Log in to your account</span>
+        <button class="btn_popup btn_fb">
+          <img src="/assets/svg/facebook_logo.svg" class="fb_logo" alt="facebook_logo">
+          <span class="sign_in_facebook">Sign In with Facebook</span>
+        </button>
+        <button class="btn_popup btn_google">
+          <img src="/assets/svg/google_logo.svg" class="ggl_logo" alt="google_logo">
+          <span class="sign_in_google">Sign In with Google</span>
+        </button>
+        <div class="login_popup_line">
+          <div class="popup_line"></div>
+          <div><span class="line_text">or</span></div>
+          <div class="popup_line"></div>
+        </div>
+        <form class="popup_form" action="#" method="post">
+          <label class="popup_login_label" for="login_email_enter"><span>E-mail</span></label>
+            <input class="login_input login_email" type="email" required>
+          <label class="popup_login_label" for="login_password_enter"><span>Password</span></label>
+            <input class="login_input login_password" type="password" minlength="8" required>
+          <button class="btn_popup btn_signin"><span class="sign_in">Sign In</span></button>
+        </form>
+        <a href="#" class="forgot_pass"><span>Forgot Your Password?</span></a>
+        <div class="popup_line_bottom"></div>
+        <span class="popup_register"><span>Don't have an account?</span><a href="#" class="register__link"><span class="register_text">Register</span></a></span>
+      </div>
+    </div>
   <header class="header">
     <div class="container header-container">
       <div class="portal">
