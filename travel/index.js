@@ -45,58 +45,54 @@ let slide1 = document.querySelector('.item1');
 let slide2 = document.querySelector('.item2');
 let slide3 = document.querySelector('.item3');
 let slide4 = document.querySelector('.item4');
-let slider = document.querySelectorAll('.slider');
+let slider_1 = document.querySelector('.slider_1');
+let slider_2 = document.querySelector('.slider_2');
+let slider_3 = document.querySelector('.slider_3');
 
-let moveLeft = () => {
+const moveLeft = () => {
   caroosel.classList.add('to-left');
-  slide1.removeEventListener('click', moveLeft);
-  slide3.removeEventListener('click', moveRight);
   arrowLeft.removeEventListener('click', moveLeft);
   arrowRight.removeEventListener('click', moveRight);
+  slide1.removeEventListener('click', moveLeft);
+  slide3.removeEventListener('click', moveRight);
 
-  for (let i = 0; i < slider.length; i++) {
-      if (slider[i] == document.querySelector('.slider_active')) {
-        if (i == 0) {
-          slider[0].classList.remove('slider_active')
-          slider[2].classList.add('slider_active')
-          return;
-        } else if (i == 1) {
-          slider[1].classList.remove('slider_active')
-          slider[0].classList.add('slider_active')
-          return;
-        } else if (i == 2) {
-          slider[2].classList.remove('slider_active')
-          slider[1].classList.add('slider_active')
-          return;
-        }
-      }
-    }
+  if (slider_1 === document.querySelector('.slider_active')) {
+    slider_1.classList.remove('slider_active')
+    slider_3.classList.add('slider_active')
+    return
+  } else if (slider_2 === document.querySelector('.slider_active')) {
+    slider_2.classList.remove('slider_active')
+    slider_1.classList.add('slider_active')
+    return
+  } else if (slider_3 === document.querySelector('.slider_active')) {
+    slider_3.classList.remove('slider_active')
+    slider_2.classList.add('slider_active')
+    return
+  }
+
   };
 
-let moveRight = () => {
+const moveRight = () => {
   caroosel.classList.add('to-right');
-  slide1.removeEventListener('click', moveRight);
-  slide3.removeEventListener('click', moveLeft);
-  arrowLeft.removeEventListener('click', moveRight);
-  arrowRight.removeEventListener('click', moveLeft);
+  arrowRight.removeEventListener('click', moveRight);
+  arrowLeft.removeEventListener('click', moveLeft);
+  slide3.removeEventListener('click', moveRight);
+  slide1.removeEventListener('click', moveLeft);
+ 
+  if (slider_1 === document.querySelector('.slider_active')) {
+    slider_1.classList.remove('slider_active')
+    slider_2.classList.add('slider_active')
+    return
+  } else if (slider_2 === document.querySelector('.slider_active')) {
+    slider_2.classList.remove('slider_active')
+    slider_3.classList.add('slider_active')
+    return
+  } else if (slider_3 === document.querySelector('.slider_active')) {
+    slider_3.classList.remove('slider_active')
+    slider_1.classList.add('slider_active')
+    return
+  }
 
-  for (let i = 0; i < slider.length; i++) {
-      if (slider[i] == document.querySelector('.slider_active')) {
-        if (i == 0) {
-          slider[0].classList.remove('slider_active')
-          slider[1].classList.add('slider_active')
-          return
-        } else if (i == 1) {
-          slider[1].classList.remove('slider_active')
-          slider[2].classList.add('slider_active')
-          return
-        } else if (i == 2) {
-          slider[2].classList.remove('slider_active')
-          slider[0].classList.add('slider_active')
-          return
-        }
-      }
-    }
   };
 
 arrowLeft.addEventListener('click', moveLeft);
@@ -104,20 +100,18 @@ arrowRight.addEventListener('click', moveRight);
 slide1.addEventListener('click', moveLeft);
 slide3.addEventListener('click', moveRight);
 
-
-
-caroosel.addEventListener('animationend', (animation) => {
+caroosel.addEventListener('animationend', (animationEvent) => {
 
   let active = slide2.innerHTML;
 
-  if (animation.animationName === 'move-left') {
+  if (animationEvent.animationName === 'move-left') {
     caroosel.classList.remove('to-left');
     slide2.innerHTML = slide1.innerHTML;
     slide1.innerHTML = slide0.innerHTML;
     slide3.innerHTML = active;
     slide0.innerHTML = active;
     slide4.innerHTML = slide1.innerHTML;
-  } else {
+  } else if (animationEvent.animationName === 'move-right') {
     caroosel.classList.remove('to-right');
     slide2.innerHTML = slide3.innerHTML;
 		slide3.innerHTML = slide4.innerHTML;
@@ -132,6 +126,7 @@ caroosel.addEventListener('animationend', (animation) => {
   slide3.addEventListener('click', moveRight);
 
 });
+
 
 
 
