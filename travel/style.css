@@ -368,10 +368,16 @@ body {
 .dest_title {
   margin-bottom: 48px;
 }
+
 .dest_photo_wrapper {
-  display: flex;
-  justify-content: center;
+  position: relative;
 }
+.caroosel {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+}
+
 .spain2, .japan2, .usa2 {
   display: none;
 }
@@ -379,6 +385,7 @@ body {
 .dest_item {
   max-height: 800px;
   margin: 0 30px;
+  cursor: pointer;
 }
 .dest_photo {
   border-radius: 16px;
@@ -420,10 +427,12 @@ body {
   height: 20px;
   border-radius: 50%;
   background: rgba(242, 120, 92, 0.5);
+  cursor: pointer;
 }
 
-.slider_2 {
+.slider_active {
   background: #f2785c;
+  transition: 2s;
 }
 
 .btn_dest {
@@ -634,9 +643,38 @@ body {
 
 /* ------------ footer end ------------ */
 
+/* --- animations start --- */
+
+@keyframes move-left {
+	from {left: 0px;}
+  to {left: 860px;}
+}
+@keyframes move-right {
+	from {left: 0px;}
+  to {left: -860px;}
+}
+.to-right {
+  animation-name: move-right;
+  animation-duration: 2s;
+}
+.to-left {
+  animation-name: move-left;
+  animation-duration: 2s;
+}
+
+/* --- animations end --- */
+
 /* --- media queries start --- */
 
 @media (max-width: 1439px) {
+  @keyframes move-left {
+    from {left: 0px;}
+    to {left: 61%;}
+  }
+  @keyframes move-right {
+    from {left: 0px;}
+    to {left: -61%;}
+  }
   .section-stories {
     background: url('assets/img/bottom_img.jpg') top 93px center/cover no-repeat;
   }
@@ -859,6 +897,14 @@ body {
 }
 
 @media (max-width: 390px) {
+  @keyframes move-left {
+    from {left: 0px;}
+    to {left: calc(100vw - 1.65%);}
+  }
+  @keyframes move-right {
+    from {left: 0px;}
+    to {left: calc((-100vw) + 1.65%);}
+  }
   .header_mobile {
     display: flex;
     justify-content: space-between;
@@ -1015,17 +1061,8 @@ body {
     position: relative;
     height: 210px;
   }
-  .item1 {
-    order: 1;
-  }
-  .item2 {
-    order: 2;
-  }
-  .item3 {
-    order: 0;
-  }
   .dest_photo {
-    width: calc(100vw - 30px);
+    width: calc(93vw);
   }
   .spain2, .japan2, .usa2 {
     display: block;
@@ -1051,15 +1088,7 @@ body {
     height: 8px;
     cursor: pointer;
   }
-  .slider_1 {
-    background: #f2785c
-  }
-  .slider_2 {
-    background: rgba(242, 120, 92, 0.5);;
-  }
-  .dest_photo_wrapper {
-    position: relative;
-  }
+
   .dest_navigation_left {
     position: absolute;
 		top: 90px;
@@ -1067,6 +1096,7 @@ body {
     display: block;
     cursor: pointer;
     z-index: 1;
+    transform: rotate(180deg);
   }
   .dest_navigation_right {
     position: absolute;
@@ -1170,7 +1200,6 @@ body {
     position: relative;
     bottom: 3px;
   }
-
 }
 @media (max-width: 365px) {
   .text_hide {
