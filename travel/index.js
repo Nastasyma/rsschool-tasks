@@ -133,25 +133,92 @@ const popup = document.querySelector('.popup');
 const loginBTN = document.querySelector('.login');
 const background = document.querySelector('.body_opacity_popup');
 const account = document.querySelector('.account');
-const signinButton = document.querySelector('.btn_signin');
+const signinBTN = document.querySelector('.btn_signin');
+const signupBTN = document.querySelector('.btn_signup');
+const register = document.querySelector('.register_btn');
+const login = document.querySelector('.login_btn');;
+const titleLogin = document.querySelector('.login_title');
+const titleAccount = document.querySelector('.account_title');
+const haveAcc = document.querySelector('.popup_have_account');
+const dontHaveAcc = document.querySelector('.popup_dont_have_account');
+const fbBTN = document.querySelector('.btn_fb');
+const gglBTN = document.querySelector('.btn_google');
+const line = document.querySelector('.login_popup_line');
+const forgot = document.querySelector('.forgot_pass');
+const bodyHidden = document.querySelector('body');
+
+
+
 
 (function () {
   loginBTN.addEventListener('click', () => {
     popup.classList.add('popup_active');
     background.classList.add('body_opacity_popup_active');
+    bodyHidden.classList.add('body_hidden');
   })
   account.addEventListener('click', () => {
     popup.classList.add('popup_active');
     background.classList.add('body_opacity_popup_active');
+    bodyHidden.classList.add('body_hidden');
   })
   background.addEventListener('click', () => {
     popup.classList.remove('popup_active');
     background.classList.remove('body_opacity_popup_active');
+    setTimeout(function () {
+      bodyHidden.classList.remove('body_hidden');
+      titleLogin.style.display = 'block';
+      titleAccount.style.display = 'none';
+      signinBTN.style.display = 'block';
+      signupBTN.style.display = 'none';
+      dontHaveAcc.style.display = 'block';
+      haveAcc.style.display = 'none';
+      fbBTN.style.display = 'flex';
+      gglBTN.style.display = 'flex';
+      line.style.display = 'flex';
+      forgot.style.display = 'block';
+    }, 1000);   
   })
 }());
 
-(function signIn() {
-  signinButton.addEventListener('click', signIn);
+(function () {
+
+  register.addEventListener('click', () => {
+  titleLogin.style.display = 'none';
+  titleAccount.style.display = 'block';
+  signinBTN.style.display = 'none';
+  signupBTN.style.display = 'block';
+  dontHaveAcc.style.display = 'none';
+  haveAcc.style.display = 'block';
+  fbBTN.style.display = 'none';
+  gglBTN.style.display = 'none';
+  line.style.display = 'none';
+  forgot.style.display = 'none';
+  });
+
+}());
+
+(function () {
+
+  login.addEventListener('click', () => {
+  titleLogin.style.display = 'block';
+  titleAccount.style.display = 'none';
+  signinBTN.style.display = 'block';
+  signupBTN.style.display = 'none';
+  dontHaveAcc.style.display = 'block';
+  haveAcc.style.display = 'none';
+  fbBTN.style.display = 'flex';
+  gglBTN.style.display = 'flex';
+  line.style.display = 'flex';
+  forgot.style.display = 'block';
+  });
+
+}());
+
+
+/*(function signIn() {
+
+  signinBTN.addEventListener('click', signIn);
+  signupBTN.addEventListener('click', signIn);
   let emailForm = document.querySelector('.login_email');
   let passwordForm = document.querySelector('.login_password');
 
@@ -164,36 +231,29 @@ const signinButton = document.querySelector('.btn_signin');
     }
   }
 
-}());
+}());*/
+
+const loginForm = document.querySelector('.popup_form');
+let emailForm = document.querySelector('.login_email');
+let passwordForm = document.querySelector('.login_password');
+
+function correctForm(event) {
+	event.preventDefault();
+  alert(`E-mail: ${emailForm.value}\nPassword: ${passwordForm.value}`)
+}
+
+loginForm.addEventListener('submit', correctForm);
 
 
 
-
-
-
-
-
-
-
-
-
-/*console.log(`Travel#2.
-\n1.Вёрстка соответствует макету. Ширина экрана 390px +48
--блок <header> +6
--секция preview +9
--секция steps +9
--секция destinations +9
--секция stories +9
--блок <footer> +6
-\n2.Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +15
--нет полосы прокрутки при ширине страницы от 1440рх до 390px +7
--нет полосы прокрутки при ширине страницы от 390px до 320рх +8
-\n3.На ширине экрана 390рх и меньше реализовано адаптивное меню +22
--при ширине страницы 390рх панель навигации скрывается, появляется бургер-иконка +2
--при нажатии на бургер-иконку плавно появляется адаптивное меню +4
--адаптивное меню соответствует макету +4
--при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран +4
--ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям +4 (все кроме Account, она пока что просто закрывает меню)
--при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна +4
-\nИтог: 85
-`);*/
+console.log(`Travel#3.
+\n1.Слайдер изображений в секции destinations +50
+ - на десктоп варианте при клике на урезанную картинку слева или справа изображение меняется по принципу карусели (например если нажать правую картинку та что была в центре на уезжает налево, а та что была видна наполовину оказывается справа). Слайдер может быть как конечным так и бесконечным - данный критерий не должен влиять на оценку + 20
+ - Три точки внизу отображают "номер слайда", то есть каждому слайду соответствует свой кружочек, который становится активным при нахождении соответствующего ему слайда в центре. На мобильном варианте картинка одна, но поверх нее появляются стрелочки навигации (можно сделать как карусель или же затемнять кнопку если слайдер достиг края) +20
+ - Анимации плавного перемещения для слайдера +10
+\n2.Нажатие на кнопку Login (кнопка Account в мобильной версии) показывает сверстанный логин попап + 50
+ - логин попап соответствует верстке его закрытие происходит при клике вне попапа +25
+ - логин попап имеет 2 инпута (логин и пароль) при нажатии на кнопку Sign In показывается браузерный алерт с введенными данными (для реализации можно использовать тег ) +25
+\n3.Нажатие на кнопку Register на Login попапе меняет разметку попапа на разметку Sign Up попапа согласно макету (То есть нажатие не закрывает модал а просто меняет его наполнение). +25
+\nИтог: 125
+`);
