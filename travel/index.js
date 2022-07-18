@@ -4,34 +4,34 @@ const burger = document.querySelector('.burger');
 const menu = document.querySelector('.nav');
 const menuClose = document.querySelector('.close_menu');
 const navList = document.querySelector('.nav-list');
-const bodyOpacity = document.querySelector('.body_opacity');
+const bodyOpacityBurger = document.querySelector('.body_opacity_burger');
 
 (function () {
     burger.addEventListener('click', () => {
       menu.classList.add('open_menu');
-      bodyOpacity.classList.add('body_opacity_active');
+      bodyOpacityBurger.classList.add('body_opacity_burger_active');
     })
   /*burger.addEventListener('click', () => {
       menu.classList.add('open_menu');
-      bodyOpacity.style.display = bodyOpacity.style.display === 'none' ? 'block' : 'none';
+      bodyOpacityBurger.style.display = bodyOpacityBurger.style.display === 'none' ? 'block' : 'none';
       setTimeout(function () {
-          bodyOpacity.classList.add('body_opacity_active');
+          bodyOpacityBurger.classList.add('body_opacity_burger_active');
         }, 50);   
     })*/
     menuClose.addEventListener('click', () => { 
       menu.classList.remove('open_menu');
-      bodyOpacity.classList.remove('body_opacity_active');
+      bodyOpacityBurger.classList.remove('body_opacity_burger_active');
     })
     navList.addEventListener('click', () => {
       menu.classList.remove('open_menu');
-      bodyOpacity.classList.remove('body_opacity_active');
+      bodyOpacityBurger.classList.remove('body_opacity_burger_active');
     })
 }());
 
 document.addEventListener('click', function(e){
     if(menu !== e.target){
         menu.classList.remove('open_menu');
-        bodyOpacity.classList.remove('body_opacity_active');
+        bodyOpacityBurger.classList.remove('body_opacity_burger_active');
     }}, true);
 
 
@@ -102,21 +102,21 @@ slide3.addEventListener('click', moveRight);
 
 caroosel.addEventListener('animationend', (animationEvent) => {
 
-  let active = slide2.innerHTML;
+  let activeSlide = slide2.innerHTML;
 
   if (animationEvent.animationName === 'move-left') {
     caroosel.classList.remove('to-left');
     slide2.innerHTML = slide1.innerHTML;
     slide1.innerHTML = slide0.innerHTML;
-    slide3.innerHTML = active;
-    slide0.innerHTML = active;
+    slide3.innerHTML = activeSlide;
+    slide0.innerHTML = activeSlide;
     slide4.innerHTML = slide1.innerHTML;
   } else if (animationEvent.animationName === 'move-right') {
     caroosel.classList.remove('to-right');
     slide2.innerHTML = slide3.innerHTML;
 		slide3.innerHTML = slide4.innerHTML;
-		slide1.innerHTML = active;
-		slide4.innerHTML = active;
+		slide1.innerHTML = activeSlide;
+		slide4.innerHTML = activeSlide;
 		slide0.innerHTML = slide3.innerHTML;
   }
 
@@ -127,8 +127,44 @@ caroosel.addEventListener('animationend', (animationEvent) => {
 
 });
 
+// PopUp menu
 
+const popup = document.querySelector('.popup');
+const loginBTN = document.querySelector('.login');
+const background = document.querySelector('.body_opacity_popup');
+const account = document.querySelector('.account');
+const signinButton = document.querySelector('.btn_signin');
 
+(function () {
+  loginBTN.addEventListener('click', () => {
+    popup.classList.add('popup_active');
+    background.classList.add('body_opacity_popup_active');
+  })
+  account.addEventListener('click', () => {
+    popup.classList.add('popup_active');
+    background.classList.add('body_opacity_popup_active');
+  })
+  background.addEventListener('click', () => {
+    popup.classList.remove('popup_active');
+    background.classList.remove('body_opacity_popup_active');
+  })
+}());
+
+(function signIn() {
+  signinButton.addEventListener('click', signIn);
+  let emailForm = document.querySelector('.login_email');
+  let passwordForm = document.querySelector('.login_password');
+
+  if (popup.classList.contains('popup_active')) {
+    
+    if (!emailForm.value || !passwordForm.value) {
+      alert('Некоторые обязательные поля не заполнены.')
+    } else {
+    alert(`E-mail: ${emailForm.value}\nPassword: ${passwordForm.value}`);
+    }
+  }
+
+}());
 
 
 
