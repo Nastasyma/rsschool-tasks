@@ -23,7 +23,7 @@ body {
   max-width: 1440px;
   margin: 0 auto;
 }
-.body_opacity {
+.body_opacity_burger {
   position: fixed;
   visibility: hidden;
   left: 0;
@@ -35,8 +35,24 @@ body {
   background: black;
   transition: 1s;
 }
-.body_opacity_active {
+.body_opacity_burger_active {
   opacity: 0.4;
+  visibility: visible;
+}
+.body_opacity_popup {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 40;
+  opacity: 0;
+  background: black;
+  transition: 2s;
+}
+.body_opacity_popup_active {
+  opacity: 0.3;
   visibility: visible;
 }
 
@@ -50,18 +66,22 @@ body {
 }
 
 .popup {
-  position: absolute;
-  top: 3%;
+  position: fixed;
+  transform: translate(-50%, -50%);
   left: 50%;
+  top: -100%;
   z-index: 50;
   max-width: 650px;
   max-height: 660px;
   padding: 25px 44px 23px 45px;
-  margin-left: -325px;
   background-color: #ffffff;
   background: linear-gradient(177.09deg, #ffffff 6.15%, #0d606f 202.69%);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 16px;
+  transition: 2s;
+}
+.popup_active {
+  top: 50%;
 }
 .login_popup {
   display: flex;
@@ -947,11 +967,73 @@ body {
   }
 }
 @media (max-width: 768px) {
-  .popup {
-    margin-left: -243px;
-  }
   .popup_line {
-    width: 180px;
+    width: 200px;
+  }
+  .popup {
+    padding: 10px 25px;
+  }
+  .popup_title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .btn_fb {
+    padding: 10px 0;
+    margin-bottom: 15px;
+  }
+  .sign_in_facebook {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .fb_logo {
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+  }
+  .btn_google {
+    padding: 10px 0;
+    margin-bottom: 15px;
+  }
+  .sign_in_google {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .ggl_logo {
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+  }
+  .line_text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .login_popup_line {
+    margin-bottom: 5px;
+  }
+  .popup_line_bottom {
+    margin-bottom: 10px;
+  }
+  .login_input {
+    height: 40px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    }
+  .btn_signin {
+    padding: 10px 0;
+    background: #0d606f;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+  }
+  .btn_signin:hover {
+    background:  #0d202b;
+  }
+  .sign_in {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .forgot_pass {
+    margin-bottom: 15px;
   }
   .title {
     font-size: 40px;
@@ -1052,9 +1134,6 @@ body {
   }
 }
 @media (max-width: 510px) {
-  .popup {
-    margin-left: -208px;
-  }
   .popup_line {
     width: 140px;
   }
@@ -1109,6 +1188,12 @@ body {
     from {left: 0px;}
     to {left: calc((-100vw) + 1.65%);}
   }
+  .popup_line {
+    width: 110px;
+  }
+  .popup_title {
+    font-size: 20px;
+  }
   .header_mobile {
     display: flex;
     justify-content: space-between;
@@ -1140,7 +1225,7 @@ body {
     border-radius: 10px;
     filter: drop-shadow(0px 4px 3px rgba(13, 96, 111, 0.25));
     margin: 0 auto;
-    z-index: 10;
+    z-index: 50;
     transition: 1s;
     transform: translateX(100%);
   }
@@ -1412,6 +1497,9 @@ body {
   }
 }
 @media (max-width: 365px) {
+  .popup_line {
+    width: 90px;
+  }
   .text_hide {
     font-size: 7px;
   }
