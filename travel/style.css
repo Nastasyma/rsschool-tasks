@@ -623,10 +623,17 @@ body {
 .dest_item {
   max-height: 800px;
   margin: 0 30px;
-  cursor: pointer;
 }
 .dest_photo {
   border-radius: 16px;
+}
+.item1:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 3px 10px black);
+}
+.item3:hover {
+  cursor: pointer;
+  filter: drop-shadow(2px 3px 10px black);
 }
 .dest_navigation_left, .dest_navigation_right {
   display: none;
