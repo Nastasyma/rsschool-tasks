@@ -669,7 +669,6 @@ body {
   height: 20px;
   border-radius: 50%;
   background: rgba(242, 120, 92, 0.5);
-  cursor: pointer;
 }
 
 .slider_active {
@@ -1405,6 +1404,14 @@ body {
   .dest_item {
     position: relative;
     height: 210px;
+  }
+  .item1:hover {
+    cursor: default;
+    filter: none;
+  }
+  .item3:hover {
+    cursor: default;
+    filter: none;
   }
   .dest_photo {
     width: calc(93vw);
