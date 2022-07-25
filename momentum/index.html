@@ -16,7 +16,24 @@
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
       </div>
-      <ul class="play-list"></ul>
+      <ul class="play-list">
+        <li class="play-item item-active">
+          <audio src="assets/sounds/Aqua Caelestis.mp3"></audio>
+          <span>Aqua Caelestis</span>
+        </li>
+        <li class="play-item">
+          <audio src="assets/sounds/Ennio Morricone.mp3"></audio>
+          <span>Ennio Morricone</span>
+        </li>
+        <li class="play-item">
+          <audio src="assets/sounds/River Flows In You.mp3"></audio>
+          <span>River Flows In You</span>
+        </li>
+        <li class="play-item">
+          <audio src="assets/sounds/Summer Wind.mp3"></audio>
+          <span>Summer Wind</span>
+        </li>
+      </ul>
     </div>
     <div class="weather">
       <input type="text" class="city" placeholder="[Enter city]"/>
@@ -48,7 +65,16 @@
       <div class="quote"></div>
       <div class="author"></div>
     </div>
+    <div class="my_page">
+      <a href="https://github.com/Nastasyma"><img src="assets/svg/github_logo.svg"
+          class="footer-link" alt="gh_logo"></a>
+      <div class="footer-text"><b>© 2022</b></div>
+      <a href="https://rs.school/js-stage0/"><img src="assets/svg/rs_school_js_logo.svg" class="rsschool"
+          alt="rs_school_js"></a>
+    </div>
   </footer>
   <script src="js/script.js"></script>
+  <script src="./js/enquotes.json"></script>
+  <script src="./js/ruquotes.json"></script>
 </body>
 </html>

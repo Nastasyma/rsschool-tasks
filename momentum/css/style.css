@@ -65,6 +65,9 @@ body {
   font-weight: 900;
 }
 
+.item-active {
+  color: #C5B358;
+}
 .item-active::before {
   color: #C5B358;
 }
@@ -221,7 +224,7 @@ body {
 }
 
 .greeting {
-  flex: 1;  
+  flex: 0.9;  
   padding: 10px;
   text-align: right;
 }
@@ -253,6 +256,38 @@ body {
   height: 30vh;
   min-height: 160px;  
   padding: 20px;
+}
+.my_page {
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.footer-link {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-link:hover {
+  position: relative;
+  bottom: 3px;
+}
+
+.rsschool {
+  width: 70px;
+  height: 35px;
+  margin-left: 20px;
+}
+
+.rsschool:hover {
+  position: relative;
+  bottom: 3px;
+}
+
+.footer-text {
+  margin-left: 20px;
+  align-items: center;
 }
 
 .change-quote {

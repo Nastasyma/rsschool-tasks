@@ -59,7 +59,7 @@ function getName() {
 }
 
 window.addEventListener('beforeunload', setName)
-window.addEventListener('load', getName)
+window.addEventListener('DOMContentLoaded', getName)
 
 // slider
 
@@ -153,12 +153,84 @@ function getCity() {
   getWeather();
 }
 
-document.addEventListener('DOMContentLoaded', getWeather);
+
 city.addEventListener('change', setCity);
-window.addEventListener('beforeunload', setCity)
-window.addEventListener('load', getCity)
+window.addEventListener('beforeunload', setCity);
+window.addEventListener('DOMContentLoaded', getCity);
 
+// quotes
 
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
+
+async function getQuotes() {  
+  const quotes = './js/enquotes.json';
+  const res = await fetch(quotes);
+  const data = await res.json(); 
+
+  function randomQuote(){
+    let n = Math.floor(Math.random() * 20);
+    quote.textContent = data[n].text;
+    author.textContent = data[n].author;  
+  }
+    randomQuote();
+}
+getQuotes();
+
+changeQuote.addEventListener('click', getQuotes);
+
+// audio player
+
+const audio = new Audio();
+const play = document.querySelector('.play.player-icon');
+const playList = document.querySelector('.play-list');
+const playPrev = document.querySelector('.play-prev');
+const playNext = document.querySelector('.play-next');
+let songNum = 0;
+let isPlay = false;
+
+const playlist = [
+  {      
+    title: 'Aqua Caelestis',
+    src: 'assets/sounds/Aqua Caelestis.mp3',
+    duration: '0:39'
+  }, 
+  {      
+    title: 'Ennio Morricone',
+    src: "assets/sounds/Ennio Morricone.mp3",
+    duration: '1:37'
+  }, 
+  {      
+    title: 'River Flows In You',
+    src: 'assets/sounds/River Flows In You.mp3',
+    duration: '1:37'
+  },
+  {      
+    title: 'Summer Wind',
+    src: 'assets/sounds/Summer Wind.mp3',
+    duration: '1:50'
+  }
+]
+
+function toggleBtn() {
+  play.classList.toggle('pause');
+}
+play.addEventListener('click', toggleBtn);
+
+function playAudio() {
+  if (!play.classList.contains('pause')) {
+    audio.pause();
+    isPlay = false;
+  } else {
+    audio.src = playlist[songNum].src;
+    audio.currentTime = 0;
+    audio.play();
+    isPlay = true;
+  }
+}
+
+play.addEventListener('click', playAudio);
 
 
 
