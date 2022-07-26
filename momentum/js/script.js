@@ -209,7 +209,7 @@ playItem[0].classList.add('item-active');
 
 function playAudio() {
   audio.src = playList[songNum].src;
-  playItem[songNum].classList.add('item-active');   
+  playItem[songNum].classList.add('item-active');  
 
   if (!isPlay) {
     audio.currentTime = 0;
@@ -231,7 +231,8 @@ play.addEventListener('click', () => {
 function nextSong() { 
   if (isPlay) {
     playAudio();
-  }
+  } 
+
   if (songNum < 3) {
     songNum = songNum + 1;
     playItem[songNum-1].classList.remove('item-active');   
@@ -245,6 +246,7 @@ function prevSong() {
   if (isPlay) {
     playAudio();
   }
+
   if (songNum > 0) {
     songNum = songNum - 1;
     playItem[songNum+1].classList.remove('item-active'); 
@@ -261,4 +263,24 @@ playPrev.addEventListener('click', prevSong);
 
 audio.addEventListener('ended', nextSong);
 
+playItem.forEach((item, i) => {
+  item.addEventListener('click', () => {
+    if (isPlay) {
+      playAudio();
+    }
+
+    if (songNum === i) {
+      playAudio();
+    }
+    if (songNum !== i) {
+      if (playItem[songNum].classList.contains('item-active')) {
+        playItem[songNum].classList.remove('item-active'); 
+      } else {
+        playItem[songNum].classList.add('item-active'); 
+      }
+      songNum = i;
+      playAudio();
+    } 
+  })
+});
 
