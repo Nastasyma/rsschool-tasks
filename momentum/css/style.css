@@ -218,7 +218,7 @@ body {
   justify-content: stretch;
   align-items: center;
   min-height: 48px;
-  width: 100vw;
+  max-width: 100%;
   font-size: 40px;
   text-shadow: 2px 2px 4px black, 0 0 1em black;
 }
