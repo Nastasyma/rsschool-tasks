@@ -14,7 +14,7 @@ showTime();
 
 function showDate() {
   const options = {weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'};
-  const currentDate = new Date().toLocaleDateString('en-En', options);
+  const currentDate = new Date().toLocaleDateString('en-Gb', options);
   data.textContent = currentDate;
   setTimeout(showDate, 1000);
 }
@@ -113,6 +113,7 @@ const city = document.querySelector('.city');
 const weatherDescription = document.querySelector('.weather-description');
 const humidity = document.querySelector('.humidity');
 const speedWind = document.querySelector('.speedWind');
+const weatherError = document.querySelector('.weather-error');
 
 async function getWeather() {  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=f88d8ce92815ace0f687319f76b83882&units=metric`;
@@ -283,4 +284,25 @@ playItem.forEach((item, i) => {
     } 
   })
 });
+
+// advanced player
+
+const volumeIcon = document.querySelector('.volume_icon');
+const audioVolume = document.getElementById("audioVolume");
+const playerInfo = document.querySelector('.player_info');
+let volumeValue = Math.trunc(audioVolume.value) / 100;
+
+
+volumeIcon.addEventListener('click', () => {
+  audio.muted = !audio.muted;
+
+  if (audio.muted) {
+    volumeIcon.classList.remove('mute');
+    volumeIcon.classList.add('mute');
+  } else {
+    volumeIcon.classList.add('mute');
+    volumeIcon.classList.remove('mute');
+  }
+});
+
 
