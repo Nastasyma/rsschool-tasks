@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Arial-MT';
   src: url("../assets/fonts/Arial-MT.woff"); /* Путь к файлу со шрифтом */
- }
+  }
 
 * {
   box-sizing: border-box;
@@ -20,6 +20,97 @@ body {
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
+.body_wrapper {
+  position: relative;
+}
+.body_opacity_popup {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 8000;
+  backdrop-filter: blur(4px);
+  transition: 0.1s ease-in-out;
+}
+.body_opacity_popup_active {
+  visibility: visible;
+}
+.settings_menu {
+  position: absolute;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 400px;
+  opacity: 0;
+  border-radius: 10px;
+  z-index: 9000;
+  background-color: #fff;
+  transition: 0.3s ease-in-out;
+  padding: 20px;
+}
+.settings_menu_active {
+  visibility: visible;
+  opacity: 0.9;
+}
+.settings_title {
+  font-size: 26px;
+  color: black;
+}
+.settings_item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  text-align: start;
+  padding: 8px;
+  background-color: gray;
+  border-radius: 10px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+}
+.item_title {
+  text-align: center;
+}
+.item_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.switch {
+  display: none;
+}
+.switch + label {
+  display: block;
+  background: #c3c0c0;
+  cursor: pointer;
+  width: 30px;
+  height: 15px;
+  position: relative;
+  border-radius: 10px;
+}
+.switch + label::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  top: 1.5px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  transition: 0.5s;
+}
+.switch:checked + label::before {
+  margin-left: 13px;
+}
+
+.switch:checked + label {
+  background:#ff7b00;
+  opacity: 0.8;
+}
 
 .header {
   display: flex;
@@ -33,7 +124,7 @@ body {
 
 .player {
   display: flex;
-  z-index: 9999;
+  z-index: 5000;
   gap: 20px;
   box-shadow: 2px 2px 6px rgb(255, 255, 255);
   border-radius: 10px;
@@ -81,6 +172,7 @@ body {
   width: 261px;
   cursor: pointer;
 }
+
 .volume_container {
   display: flex;
   align-items: center;
@@ -134,7 +226,7 @@ body {
 }
 
 .item-active {
-  color: #de6039;
+  color: #ff7b00;
 }
 
 .player-icon,
@@ -323,12 +415,34 @@ body {
   min-height: 160px;  
   padding: 20px;
 }
+.footer_bottom {
+  display: flex;
+  width: 95vw;
+  justify-content: space-between;
+}
 .my_page {
   display: flex;
   flex-wrap: nowrap;
-  align-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
+  gap: 20px;
+}
+.settings_wrapper {
+  z-index: 9000;
+}
+
+.settings_btn {
+  background: url(../assets/svg/settings.svg) no-repeat;
+  filter: invert(100%);
+  border: none;
+  background-size: 50px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: 1s ease-in-out;
+}
+.settings_btn_active {
+  transform: rotate(90deg);
 }
 .footer-link {
   width: 30px;
@@ -343,7 +457,6 @@ body {
 .rsschool {
   width: 70px;
   height: 35px;
-  margin-left: 20px;
 }
 
 .rsschool:hover {
@@ -352,7 +465,6 @@ body {
 }
 
 .footer-text {
-  margin-left: 20px;
   align-items: center;
 }
 

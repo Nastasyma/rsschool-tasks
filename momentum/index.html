@@ -9,89 +9,177 @@
   <title>momentum</title>
 </head>
 <body>
-  <header class="header">
-    <div class="player">
-      <div class="player_wrapper">
-      <div class="player_info" >
-        <div class="player-controls">
-          <button class="play-prev player-icon"></button>
-          <button class="play player-icon"></button>
-          <button class="play-next player-icon"></button>
+  <div class="body_wrapper">
+    <div class="settings_menu">
+      <span class="settings_title"><b>Settings</b></span>
+      <div class="settings_item change_language">
+        <span class="item_title">Language</span>
+        <div class="item_wrapper" >
+          <p class="item_text">English</p>
+          <div class="switch_wrapper">
+            <input type="radio" class="switch" name="language" id="en" checked>
+            <label for="en"></label>
+          </div>
         </div>
-          <div class="volume_container">
-            <button class="volume_icon"></button>
+        <div class="item_wrapper">
+          <p>Russian</p>
+          <div class="switch_wrapper">
+            <input type="radio" class="switch" name="language" id="ru">
+            <label for="ru"></label>  
+          </div>
+        </div>
+      </div>
+      <div class="settings_item change_widget">
+        <span class="item_title">Widget</span>
+        <div class="item_wrapper" >
+          <p>Time</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="time" checked>
+            <label for="time"></label>
+          </div>
+        </div>
+        <div class="item_wrapper">
+          <p>Date</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="date" checked>
+            <label for="date"></label>  
+          </div>
+        </div>
+        <div class="item_wrapper" >
+          <p>Weather</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="weather" checked>
+            <label for="weather"></label>
+          </div>
+        </div>
+        <div class="item_wrapper" >
+          <p>Greeting</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="greeting" checked>
+            <label for="greeting"></label>
+          </div>
+        </div>
+        <div class="item_wrapper" >
+          <p>Quote</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="quote" checked>
+            <label for="quote"></label>
+          </div>
+        </div>
+        <div class="item_wrapper" >
+          <p>Audio player</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="audio_player" checked>
+            <label for="audio_player"></label>
+          </div>
+        </div>
+      </div>
+      <div class="settings_item change_language">
+        <span class="item_title">Gallery</span>
+        <div class="item_wrapper" >
+          <p class="item_text">GitHub</p>
+          <div class="switch_wrapper">
+            <input type="radio" class="switch" name="gallery" id="github" checked>
+            <label for="github"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="body_opacity_popup"></div>
+    <header class="header">
+      <div class="player">
+        <div class="player_wrapper">
+        <div class="player_info" >
+          <div class="player-controls">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+          </div>
+            <div class="volume_container">
+              <button class="volume_icon"></button>
+              <input
+                type="range"
+                name="volume"
+                id="audioVolume"
+                value="30"
+                max="100"
+              />
+            </div>
+        </div>
+        <div class="song_info">
+          <div class="song_name">
+            <span class="song_name_title">Aqua Caelestis</span>
+          </div>
+          <div class="progress_container">
             <input
               type="range"
-              name="volume"
-              id="audioVolume"
-              value="40"
-              max="100"
+              name="audio_progress"
+              id="audioProgress"
+              min="0"
+              max=""
+              value="0"
             />
           </div>
-      </div>
-      <div class="song_info">
-        <div class="song_name">
-          <span class="song_name_title">Aqua Caelestis</span>
+          <div class="song_duration">
+            <span class="song_current_time">0:00</span>
+            <span>/</span>
+            <span class="song_duration_time">0:39</span>
+          </div>
         </div>
-        <div class="progress_container">
-          <input
-            type="range"
-            name="audio_progress"
-            id="audioProgress"
-            min="0"
-            max=""
-            value="0"
-          />
         </div>
-        <div class="song_duration">
-          <span class="song_current_time">0:00</span>
-          <span>/</span>
-          <span class="song_duration_time">0:39</span>
+        <ul class="play-list"></ul>
+      </div>
+      <div class="weather">
+        <input type="text" class="city" placeholder="[Enter city]"/>
+        <i class="weather-icon owf"></i>
+        <div class="weather-error"></div>
+        <div class="description-container">
+          <span class="temperature"></span>
+          <span class="weather-description"></span>
+        </div>
+        <span class="humidity"></span>
+        <span class="speedWind"></span>
+      </div>
+    </header>
+    <main class="main">
+      <div class="slider-icons">
+        <button class="slide-prev slider-icon"></button>
+        <button class="slide-next slider-icon"></button>
+      </div>
+      <time class="time"></time>
+      <date class="date"></date>
+      <div class="greeting-container">
+        <span class="greeting"></span>
+        <input type="text" class="name" placeholder="[Enter your name]"/>
+      </div>
+    </main>
+    <footer class="footer">
+      <button class="change-quote"></button>
+      <div>
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+      <div class="footer_bottom">
+        <div class="settings_wrapper">
+          <button class="settings_btn"></button>
+        </div>
+        <div class="my_page">
+          <a href="https://github.com/Nastasyma"><img src="assets/svg/github_logo.svg"
+              class="footer-link" alt="gh_logo"></a>
+          <div class="footer-text"><b>© 2022</b></div>
+          <a href="https://rs.school/js-stage0/"><img src="assets/svg/rs_school_js_logo.svg" class="rsschool"
+              alt="rs_school_js"></a>
         </div>
       </div>
-      </div>
-      <ul class="play-list"></ul>
-    </div>
-    <div class="weather">
-      <input type="text" class="city" placeholder="[Enter city]"/>
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="temperature"></span>
-        <span class="weather-description"></span>
-      </div>
-      <span class="humidity"></span>
-      <span class="speedWind"></span>
-    </div>
-  </header>
-  <main class="main">
-    <div class="slider-icons">
-      <button class="slide-prev slider-icon"></button>
-      <button class="slide-next slider-icon"></button>
-    </div>
-    <time class="time"></time>
-    <date class="date"></date>
-    <div class="greeting-container">
-      <span class="greeting"></span>
-      <input type="text" class="name" placeholder="[Enter your name]"/>
-    </div>
-  </main>
-  <footer class="footer">
-    <button class="change-quote"></button>
-    <div>
-      <div class="quote"></div>
-      <div class="author"></div>
-    </div>
-    <div class="my_page">
-      <a href="https://github.com/Nastasyma"><img src="assets/svg/github_logo.svg"
-          class="footer-link" alt="gh_logo"></a>
-      <div class="footer-text"><b>© 2022</b></div>
-      <a href="https://rs.school/js-stage0/"><img src="assets/svg/rs_school_js_logo.svg" class="rsschool"
-          alt="rs_school_js"></a>
-    </div>
-  </footer>
-  <script src="js/script.js" type="module"></script>
-  <script src="js/enquotes.json"></script>
-  <script src="js/ruquotes.json"></script>
+    </footer>
+  </div>
+  <script src="js/time.js"></script>
+  <script src="js/bgSlider.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/quotes.js"></script>
+  <script src="js/audioPlayer.js" type="module"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/enQuotes.json"></script>
+  <script src="js/ruQuotes.json"></script>
 </body>
 </html>
