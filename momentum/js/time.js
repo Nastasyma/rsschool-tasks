@@ -7,18 +7,18 @@ const data = document.querySelector('.date');
 function showTime() {
   const currentTime = new Date().toLocaleTimeString();
   time.textContent = currentTime;
-  setTimeout(showTime, 1000);
   showDate();
+  setTimeout(showTime, 1000);
+
 }
 showTime();
 
 // отображение даты
 function showDate() {
-  const options = {weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'};
+  const options = {weekday: 'long', month: 'long', day: 'numeric'};
   const currentDate = new Date().toLocaleDateString('en-Gb', options);
   data.textContent = currentDate;
 }
-showDate();
 
 // ------- greeting -------
 

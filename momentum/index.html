@@ -30,57 +30,78 @@
         </div>
       </div>
       <div class="settings_item change_widget">
-        <span class="item_title">Widget</span>
+        <span class="item_title">Widgets</span>
         <div class="item_wrapper" >
           <p>Time</p>
           <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="time" checked>
+            <input type="checkbox" class="switch" name="widget" id="time" value="time" checked>
             <label for="time"></label>
           </div>
         </div>
         <div class="item_wrapper">
           <p>Date</p>
           <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="date" checked>
+            <input type="checkbox" class="switch" name="widget" id="date" value="date" checked>
             <label for="date"></label>  
           </div>
         </div>
         <div class="item_wrapper" >
           <p>Weather</p>
           <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="weather" checked>
+            <input type="checkbox" class="switch" name="widget" id="weather" value="weather" checked>
             <label for="weather"></label>
           </div>
         </div>
         <div class="item_wrapper" >
           <p>Greeting</p>
           <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="greeting" checked>
+            <input type="checkbox" class="switch" name="widget" id="greeting" value="greeting-container" checked>
             <label for="greeting"></label>
           </div>
         </div>
         <div class="item_wrapper" >
           <p>Quote</p>
           <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="quote" checked>
+            <input type="checkbox" class="switch" name="widget" id="quote" value="quote_wrapper" checked>
             <label for="quote"></label>
           </div>
         </div>
         <div class="item_wrapper" >
           <p>Audio player</p>
           <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="audio_player" checked>
+            <input type="checkbox" class="switch" name="widget" id="audio_player" value="player" checked>
             <label for="audio_player"></label>
           </div>
         </div>
+        <div class="item_wrapper" >
+          <p>Logo</p>
+          <div class="switch_wrapper">
+            <input type="checkbox" class="switch" name="widget" id="logo" value="my_page" checked>
+            <label for="logo"></label>
+          </div>
+        </div>
       </div>
-      <div class="settings_item change_language">
+      <div class="settings_item change_bg">
         <span class="item_title">Gallery</span>
         <div class="item_wrapper" >
           <p class="item_text">GitHub</p>
           <div class="switch_wrapper">
             <input type="radio" class="switch" name="gallery" id="github" checked>
             <label for="github"></label>
+          </div>
+        </div>
+        <div class="item_wrapper" >
+          <p class="item_text">Unsplash API</p>
+          <div class="switch_wrapper">
+            <input type="radio" class="switch" name="gallery" id="unsplashApi">
+            <label for="unsplashApi"></label>
+          </div>
+        </div>
+        <div class="item_wrapper" >
+          <p class="item_text">Flickr API</p>
+          <div class="switch_wrapper">
+            <input type="radio" class="switch" name="gallery" id="flickrApi">
+            <label for="flickrApi"></label>
           </div>
         </div>
       </div>
@@ -154,10 +175,12 @@
       </div>
     </main>
     <footer class="footer">
-      <button class="change-quote"></button>
-      <div>
-        <div class="quote"></div>
-        <div class="author"></div>
+      <div class="quote_wrapper">
+        <button class="change-quote"></button>
+        <div>
+          <div class="quote"></div>
+          <div class="author"></div>
+        </div>
       </div>
       <div class="footer_bottom">
         <div class="settings_wrapper">
