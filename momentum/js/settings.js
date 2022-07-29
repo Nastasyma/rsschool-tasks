@@ -3,81 +3,60 @@
 const settingsBTN = document.querySelector('.settings_btn');
 const settingsMenu = document.querySelector('.settings_menu');
 const background = document.querySelector('.body_opacity_popup');
-const langEnSettings = document.getElementById("en");
-const langRuSettings = document.getElementById("ru");
-const checkbox = document.querySelectorAll('.switch');
-const timeSettings = document.querySelector('input[value="time"]');
-const dateSettings = document.querySelector('input[value="date"]');
-const weatherSettings = document.querySelector('input[value="weather"]');
-const greetingSettings = document.querySelector('input[value="greeting-container"]');
-const quoteSettings = document.querySelector('input[value="quote_wrapper"]');
-const playerSettings = document.querySelector('input[value="player"]');
-const logoSettings = document.querySelector('input[value="my_page"]');
-const changeWidgets = document.querySelector('.change_widget');
 const greetingContainer = document.querySelector('.greeting-container');
 const quotesWrapper = document.querySelector('.quote_wrapper');
 const weather = document.querySelector('.weather');
 const player = document.querySelector('.player');
 const logo = document.querySelector('.my_page');
+const changeWidgets = document.querySelectorAll('input[type="checkbox"]');
 
 
 (function () { // вызов попап меню 
   settingsBTN.addEventListener('click', () => {
-    if (settingsBTN.classList.contains('settings_btn_active')) {
-    settingsBTN.classList.remove('settings_btn_active');
-    settingsMenu.classList.remove('settings_menu_active')
-    background.classList.remove('body_opacity_popup_active');
-    } else {
-      settingsBTN.classList.add('settings_btn_active');
+    if (settingsBTN.classList.contains('settings_btn_active')) { // кнопка "настройки" закрывает попап
+      settingsBTN.classList.remove('settings_btn_active');
+      settingsMenu.classList.remove('settings_menu_active')
+      background.classList.remove('body_opacity_popup_active');
+    } else { // кнопка "настройки" открывает попап
+      settingsBTN.classList.add('settings_btn_active'); 
       settingsMenu.classList.add('settings_menu_active')
       background.classList.add('body_opacity_popup_active');
     }
   })
-  background.addEventListener('click', () => { 
+  background.addEventListener('click', () => { // клик вне зоны попапа закрывает его
     settingsBTN.classList.remove('settings_btn_active');
     settingsMenu.classList.remove('settings_menu_active')
     background.classList.remove('body_opacity_popup_active');
   })
 }());
 
-checkbox.forEach(x => { // спрятать элементы по клику на чекбоксы
+changeWidgets.forEach(x => { 
   x.addEventListener('change', (e) => {
-      if (e.target.checked) {
+      if (e.target.checked) { // спрятать элементы по клику на чекбоксы
           document.querySelector(`.${e.target.value}`).style.opacity = "1";
       } else {
           document.querySelector(`.${e.target.value}`).style.opacity = "0";
       }
-      // сохранить класс opacity элементов в Local Storage
-      localStorage.setItem(`${e.target.value}_opacity`, JSON.stringify(document.querySelector(`.${e.target.value}`).style.opacity));
+
+      window.addEventListener('beforeunload', () => {
+        // сохранить класс opacity элементов в Local Storage
+        localStorage.setItem(`${e.target.value}_opacity`, document.querySelector(`.${e.target.value}`).style.opacity);
+        // сохранить статус чекбоксов в Local Storage
+        localStorage.setItem(`${e.target.value}_settings`, e.target.checked);
+      });
     })
 });
 
-function setSettings() { // сохранить статус чекбоксов в Local Storage
-  localStorage.setItem('timeSettings', timeSettings.checked);
-  localStorage.setItem('dateSettings', dateSettings.checked);
-  localStorage.setItem('weatherSettings', weatherSettings.checked);
-  localStorage.setItem('greetingSettings', greetingSettings.checked);
-  localStorage.setItem('quoteSettings', quoteSettings.checked);
-  localStorage.setItem('playerSettings', playerSettings.checked);
-  localStorage.setItem('logoSettings', logoSettings.checked);   
-};
-
-function getSettings() { // получить статус чекбоксов и класс opacity элементов из Local Storage
-  timeSettings.checked = JSON.parse(localStorage.getItem('timeSettings'));
-  dateSettings.checked = JSON.parse(localStorage.getItem('dateSettings'));
-  greetingSettings.checked = JSON.parse(localStorage.getItem('greetingSettings'));
-  quoteSettings.checked = JSON.parse(localStorage.getItem('quoteSettings'));
-  weatherSettings.checked = JSON.parse(localStorage.getItem('weatherSettings')); 
-  playerSettings.checked = JSON.parse(localStorage.getItem('playerSettings'));
-  logoSettings.checked = JSON.parse(localStorage.getItem('logoSettings')); 
-  time.style.opacity = JSON.parse(localStorage.getItem('time_opacity'));
-  data.style.opacity = JSON.parse(localStorage.getItem('date_opacity'));
-  greetingContainer.style.opacity = JSON.parse(localStorage.getItem('greeting-container_opacity'));
-  quotesWrapper.style.opacity = JSON.parse(localStorage.getItem('quote_wrapper_opacity'));
-  weather.style.opacity = JSON.parse(localStorage.getItem('weather_opacity'));
-  player.style.opacity = JSON.parse(localStorage.getItem('player_opacity'));
-  logo.style.opacity = JSON.parse(localStorage.getItem('my_page_opacity'));
-}
-
-window.addEventListener('beforeunload', setSettings);
-window.addEventListener('DOMContentLoaded', getSettings);
+window.addEventListener('DOMContentLoaded', () => {
+  changeWidgets.forEach((element) => { // получить статус чекбоксов из Local Storage
+    element.checked = JSON.parse(localStorage.getItem(`${element.value}_settings`));
+  });
+  // получить класс opacity элементов из Local Storage
+  time.style.opacity = localStorage.getItem('time_opacity');
+  data.style.opacity = localStorage.getItem('date_opacity');
+  greetingContainer.style.opacity = localStorage.getItem('greeting-container_opacity');
+  quotesWrapper.style.opacity = localStorage.getItem('quote_wrapper_opacity');
+  weather.style.opacity = localStorage.getItem('weather_opacity');
+  player.style.opacity = localStorage.getItem('player_opacity');
+  logo.style.opacity = localStorage.getItem('my_page_opacity');
+});
