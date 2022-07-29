@@ -45,13 +45,14 @@ body {
   transform: translateX(-200%);
   left: 6vw;
   bottom: 8vh;
-  width: 400px;
+  width: 350px;
   border-radius: 10px;
   z-index: 9000;
-  background-color: #fff;
+  background-color: black;
   padding: 20px 20px 40px 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
   transition: 0.8s ease-in-out;
+  
 }
 .settings_menu_active {
   transform: translateX(0);
@@ -59,7 +60,6 @@ body {
 }
 .settings_title {
   font-size: 26px;
-  color: black;
 }
 .settings_item {
   display: flex;
@@ -71,6 +71,7 @@ body {
   background-color: gray;
   border-radius: 10px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 .item_title {
   text-align: center;
@@ -191,8 +192,11 @@ body {
   border: none;
   width: 20px;
   height: 20px;
-  filter: invert(50%);
+  filter: invert(80%);
   cursor: pointer;
+}
+.volume_icon:hover {
+  filter: invert(100%);
 }
 .mute {
   background-image: url("../assets/svg/audio_volume_mute.svg");
@@ -205,26 +209,33 @@ body {
 .play-item {
   position: relative;
   padding: 5px;
-  padding-left: 20px;
+  padding-left: 30px;
   list-style: none;
   opacity: .8;
   cursor: pointer;
   transition: .3s;
   font-weight: 600;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
+  background-image: url("../assets/svg/play.svg");
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+.song_pause {
+  background-image: url("../assets/svg/pause.svg");
 }
 
 .play-item:hover {
   opacity: 1;
 }
 
-.play-item::before {
+/* .play-item::before {
   content: "\2713";  
   position: absolute;
   left: 0;
   top: 2px;
   font-weight: 900;
-}
+} */
 
 .item-active {
   color: #ff7b00;
@@ -436,7 +447,6 @@ body {
 .settings_wrapper {
   z-index: 9000;
 }
-
 .settings_btn {
   background: url(../assets/svg/settings.svg) no-repeat;
   filter: invert(100%);
@@ -449,6 +459,16 @@ body {
 }
 .settings_btn_active {
   transform: rotate(90deg);
+}
+.todo_btn {
+  background: url(../assets/svg/todo.svg) no-repeat;
+  filter: invert(100%);
+  border: none;
+  background-size: 50px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: 1s ease-in-out;
 }
 .footer-link {
   width: 30px;

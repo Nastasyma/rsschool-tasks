@@ -9,7 +9,6 @@ function showTime() {
   time.textContent = currentTime;
   showDate();
   setTimeout(showTime, 1000);
-
 }
 showTime();
 

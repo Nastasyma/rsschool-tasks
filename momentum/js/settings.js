@@ -8,6 +8,7 @@ const quotesWrapper = document.querySelector('.quote_wrapper');
 const weather = document.querySelector('.weather');
 const player = document.querySelector('.player');
 const logo = document.querySelector('.my_page');
+const todo = document.querySelector('.todo_wrapper');
 const changeWidgets = document.querySelectorAll('input[type="checkbox"]');
 
 
@@ -33,14 +34,16 @@ const changeWidgets = document.querySelectorAll('input[type="checkbox"]');
 changeWidgets.forEach(x => { 
   x.addEventListener('change', (e) => {
       if (e.target.checked) { // спрятать элементы по клику на чекбоксы
+          document.querySelector(`.${e.target.value}`).style.visibility = "visible";
           document.querySelector(`.${e.target.value}`).style.opacity = "1";
       } else {
+          document.querySelector(`.${e.target.value}`).style.visibility = "hidden";
           document.querySelector(`.${e.target.value}`).style.opacity = "0";
       }
 
       window.addEventListener('beforeunload', () => {
         // сохранить класс opacity элементов в Local Storage
-        localStorage.setItem(`${e.target.value}_opacity`, document.querySelector(`.${e.target.value}`).style.opacity);
+        localStorage.setItem(`${e.target.value}_opacity`, document.querySelector(`.${e.target.value}`).style.visibility);
         // сохранить статус чекбоксов в Local Storage
         localStorage.setItem(`${e.target.value}_settings`, e.target.checked);
       });
@@ -52,11 +55,12 @@ window.addEventListener('DOMContentLoaded', () => {
     element.checked = JSON.parse(localStorage.getItem(`${element.value}_settings`));
   });
   // получить класс opacity элементов из Local Storage
-  time.style.opacity = localStorage.getItem('time_opacity');
-  data.style.opacity = localStorage.getItem('date_opacity');
-  greetingContainer.style.opacity = localStorage.getItem('greeting-container_opacity');
-  quotesWrapper.style.opacity = localStorage.getItem('quote_wrapper_opacity');
-  weather.style.opacity = localStorage.getItem('weather_opacity');
-  player.style.opacity = localStorage.getItem('player_opacity');
-  logo.style.opacity = localStorage.getItem('my_page_opacity');
+  time.style.visibility = localStorage.getItem('time_opacity');
+  data.style.visibility = localStorage.getItem('date_opacity');
+  greetingContainer.style.visibility = localStorage.getItem('greeting-container_opacity');
+  quotesWrapper.style.visibility = localStorage.getItem('quote_wrapper_opacity');
+  weather.style.visibility = localStorage.getItem('weather_opacity');
+  player.style.visibility = localStorage.getItem('player_opacity');
+  logo.style.visibility = localStorage.getItem('my_page_opacity');
+  todo.style.visibility = localStorage.getItem('todo_wrapper_opacity');
 });

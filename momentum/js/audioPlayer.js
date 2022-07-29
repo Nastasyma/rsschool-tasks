@@ -38,11 +38,13 @@ function playAudio() {
     audio.play();  
     isPlay = true; 
     play.classList.add('pause'); // смена иконку с play на pause
+    playItem[songNum].classList.add('song_pause');
   } else {
     audio.pause(); 
     audioCurrentTime = audio.currentTime; // проигрывать трек с того же места 
     isPlay = false; 
     play.classList.remove('pause');
+    playItem[songNum].classList.remove('song_pause');
   } 
 }
 
@@ -154,18 +156,20 @@ function formatTime(seconds) {
 };
 
 // прогресс-бар
-audio.addEventListener("timeupdate", () => {
+  function updateProgressValue() {
+    if (audio.duration) {
+      audioCurrentTime = audio.currentTime;
+      songDuration.innerHTML = `${playList[songNum].duration}`; // продолжительность трека из плейлиста
+      songCurrentTime.innerHTML = (formatTime(audio.currentTime)); // текущее время трека
+      audioProgress.value = 100 * (audio.currentTime / audio.duration); // ползунок двигается
+      if (audioProgress.value === audio.duration) { // после окончания трека играть следующий
+        playNext();
+      }
+    }
+  };
 
-if (audio.duration) {
-  audioCurrentTime = audio.currentTime;
-  songDuration.innerHTML = `${playList[songNum].duration}`; // продолжительность трека из плейлиста
-  songCurrentTime.innerHTML = (formatTime(audio.currentTime)); // текущее время трека
-  audioProgress.value = 100 * (audio.currentTime / audio.duration); // ползунок двигается
-  if (audioProgress.value === audio.duration) { // после окончания трека играть следующий
-    playNext();
-  }
-}
-});
+audio.addEventListener("timeupdate", updateProgressValue);
+
 
 audioProgress.addEventListener("input", () => {
 
