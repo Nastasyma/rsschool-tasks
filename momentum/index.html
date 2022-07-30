@@ -13,16 +13,16 @@
     <div class="settings_menu">
       <span class="settings_title"><b>Settings</b></span>
       <div class="settings_item change_language">
-        <span class="item_title">Language</span>
+        <span class="item_title lang_title">Language</span>
         <div class="item_wrapper" >
-          <p class="item_text">English</p>
+          <p class="en_title">English</p>
           <div class="switch_wrapper">
             <input type="radio" class="switch" name="language" id="en" value="en" checked>
             <label for="en"></label>
           </div>
         </div>
         <div class="item_wrapper">
-          <p>Russian</p>
+          <p class="ru_title">Russian</p>
           <div class="switch_wrapper">
             <input type="radio" class="switch" name="language" id="ru" value="ru">
             <label for="ru"></label>  
@@ -30,16 +30,16 @@
         </div>
       </div>
       <div class="settings_item change_widget">
-        <span class="item_title">Widgets</span>
+        <span class="item_title widget_title">Widgets</span>
         <div class="item_wrapper" >
-          <p>Time</p>
+          <p class="time_title">Time</p>
           <div class="switch_wrapper">
             <input type="checkbox" class="switch" name="widget" id="time" value="time" checked>
             <label for="time"></label>
           </div>
         </div>
         <div class="item_wrapper">
-          <p>Date</p>
+          <p class="date_title">Date</p>
           <div class="switch_wrapper">
             <input type="checkbox" class="switch" name="widget" id="date" value="date" checked>
             <label for="date"></label>  
@@ -209,9 +209,9 @@
   <script src="js/time.js"></script>
   <script src="js/bgSlider.js"></script>
   <script src="js/weather.js"></script>
-  <script src="js/quotes.js"></script>
+  <script src="js/quotes.js" type="module"></script>
   <script src="js/audioPlayer.js" type="module"></script>
-  <script src="js/settings.js"></script>
+  <script src="js/settings.js" type="module"></script>
   <script src="js/enQuotes.json"></script>
   <script src="js/ruQuotes.json"></script>
 </body>
