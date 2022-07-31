@@ -21,6 +21,13 @@ const langTitle = document.querySelector('.lang_title');
 const widgetTitle = document.querySelector('.widget_title');
 const timeTitle = document.querySelector('.time_title');
 const dateTitle = document.querySelector('.date_title');
+const weatherTitle = document.querySelector('.weather_title');
+const greetTitle = document.querySelector('.greeting_title');
+const quoteTitle = document.querySelector('.quote_title');
+const playerTitle = document.querySelector('.player_title');
+const logoTitle = document.querySelector('.logo_title');
+const todoTitle = document.querySelector('.todo_title');
+const galleryTitle = document.querySelector('.gallery_title');
 
 export let language = 'en';
 
@@ -91,21 +98,35 @@ window.addEventListener('DOMContentLoaded', () => {
     language = localStorage.getItem('language');
   }
   // получить перевод меню настроек из Local Storage
-  if (localStorage.getItem('lang_en')) {
+  if (localStorage.getItem('lang_en'))
     enTitle.textContent = localStorage.getItem('lang_en');
-  } else if (localStorage.getItem('lang_ru')) {
+  if (localStorage.getItem('lang_ru'))
     ruTitle.textContent = localStorage.getItem('lang_ru');
-  } else if (localStorage.getItem('settings_title')) {
+  if (localStorage.getItem('settings_title')) 
     setTitle.textContent = localStorage.getItem('settings_title');
-  } else if (localStorage.getItem('change_lang')) {
-    langTitle.textContent = localStorage.getItem('change_lang');
-  } else if (localStorage.getItem('widget')) {
-    widgetTitle.textContent = localStorage.getItem('widget');
-  } else if (localStorage.getItem('time')) {
-    timeTitle.textContent = localStorage.getItem('time');
-  } else if (localStorage.getItem('date')) {
-    dateTitle.textContent = localStorage.getItem('date');
-  }
+  if (localStorage.getItem('change_lang_title')) 
+    langTitle.textContent = localStorage.getItem('change_lang_title');
+  if (localStorage.getItem('widget_title')) 
+    widgetTitle.textContent = localStorage.getItem('widget_title');
+  if (localStorage.getItem('time_title')) 
+    timeTitle.textContent = localStorage.getItem('time_title');
+  if (localStorage.getItem('date_title')) 
+    dateTitle.textContent = localStorage.getItem('date_title');
+  if (localStorage.getItem('weather_title')) 
+    weatherTitle.textContent = localStorage.getItem('weather_title');
+  if (localStorage.getItem('greeting_title')) 
+    greetTitle.textContent = localStorage.getItem('greeting_title');
+  if (localStorage.getItem('quote_title')) 
+    quoteTitle.textContent = localStorage.getItem('quote_title');
+  if (localStorage.getItem('player_title')) 
+    playerTitle.textContent = localStorage.getItem('player_title');
+  if (localStorage.getItem('logo_title')) 
+    logoTitle.textContent = localStorage.getItem('logo_title');
+  if (localStorage.getItem('todo_title')) 
+    todoTitle.textContent = localStorage.getItem('todo_title');
+  if (localStorage.getItem('gallery_title')) 
+    galleryTitle.textContent = localStorage.getItem('gallery_title');
+
   getQuotes();
 });
 
@@ -119,11 +140,17 @@ langs.forEach(el => {
       localStorage.setItem('lang_en', langObject[language].langEn);
       localStorage.setItem('lang_ru', langObject[language].langRu);
       localStorage.setItem('settings_title', langObject[language].settings);
-      localStorage.setItem('change_lang', langObject[language].changeLang);
-      localStorage.setItem('widget', langObject[language].widget);
-      localStorage.setItem('time', langObject[language].time);
-      localStorage.setItem('date', langObject[language].date);
-      
+      localStorage.setItem('change_lang_title', langObject[language].changeLang);
+      localStorage.setItem('widget_title', langObject[language].widget);
+      localStorage.setItem('time_title', langObject[language].time);
+      localStorage.setItem('date_title', langObject[language].date);
+      localStorage.setItem('weather_title', langObject[language].weather);
+      localStorage.setItem('greeting_title', langObject[language].greeting);
+      localStorage.setItem('quote_title', langObject[language].quoteTitle);
+      localStorage.setItem('player_title', langObject[language].player);
+      localStorage.setItem('logo_title', langObject[language].logo);
+      localStorage.setItem('todo_title', langObject[language].todo);
+      localStorage.setItem('gallery_title', langObject[language].gallery);
       getQuotes();
       getTranslationSettings();
   })
@@ -138,14 +165,13 @@ function getTranslationSettings() {
   widgetTitle.textContent = langObject[language].widget;
   timeTitle.textContent = langObject[language].time;
   dateTitle.textContent = langObject[language].date;
+  weatherTitle.textContent = langObject[language].weather;
+  greetTitle.textContent = langObject[language].greeting;
+  quoteTitle.textContent = langObject[language].quoteTitle;
+  playerTitle.textContent = langObject[language].player;
+  logoTitle.textContent = langObject[language].logo;
+  todoTitle.textContent = langObject[language].todo;
+  galleryTitle.textContent = langObject[language].gallery;
 }
 
-
-
-
-
-
-
-
-
-
+export { langs }
