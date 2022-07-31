@@ -1,13 +1,19 @@
+import langObject from './languageObj.js';
+import { language, langs } from './settings.js';
+
 // ------- time -------
 
 const time = document.querySelector('.time');
 const data = document.querySelector('.date');
+const greeting = document.querySelector('.greeting');
+let greetingText;
 
 // отображение времени
 function showTime() {
   const currentTime = new Date().toLocaleTimeString();
   time.textContent = currentTime;
   showDate();
+  getTimeOfDayGreeting();
   setTimeout(showTime, 1000);
 }
 showTime();
@@ -15,41 +21,31 @@ showTime();
 // отображение даты
 function showDate() {
   const options = {weekday: 'long', month: 'long', day: 'numeric'};
-  const currentDate = new Date().toLocaleDateString('en-Gb', options);
+  const currentDate = new Date().toLocaleDateString(langObject[language].locale, options);
   data.textContent = currentDate;
 }
 
 // ------- greeting -------
 
-const greeting = document.querySelector('.greeting');
 const nameEnter = document.querySelector('.name');
 
-// время суток 
-function getTimeOfDay() {
+function getTimeOfDayGreeting() {
   const date = new Date();
   const hours = date.getHours();
 
+  // время суток 
   if (hours >= 6 && hours < 12) {
-    return 'morning';
+    greetingText = langObject[language].morning;
   } else if (hours >= 12 && hours < 18) {
-    return 'afternoon';
+    greetingText = langObject[language].day;
   } else if (hours >= 18 && hours < 24) {
-    return 'evening';
+    greetingText = langObject[language].evening;
   } else if (hours >= 0 && hours < 6) {
-    return 'night';
+    greetingText = langObject[language].night;
   }
-}
-getTimeOfDay();
-
-const timeOfDay = getTimeOfDay();
-
 // приветствие в зависимости от времени суток
-function showGreeting() {
-  const greetingText = `Good ${timeOfDay},`;
   greeting.textContent = greetingText;
-  setTimeout(showGreeting, 1000);
 }
-showGreeting();
 
 // сохранить введенное имя в Local Storage
 function setName() {
@@ -63,5 +59,24 @@ function getName() {
   }
 }
 
+// переключение языка в настройках меняет язык placeholder имени
+langs.forEach(el => {
+  el.addEventListener('change', () => {
+    nameEnter.setAttribute('placeholder', langObject[language].placeholder);
+    localStorage.setItem('name_placeholder', langObject[language].placeholder);
+    getTimeOfDayGreeting();
+    localStorage.setItem('greeting_text', greetingText);
+  })
+})
+
 window.addEventListener('beforeunload', setName);
-window.addEventListener('DOMContentLoaded', getName);
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('name_placeholder')) 
+    nameEnter.placeholder = langObject[language].placeholder;
+  if (localStorage.getItem('greeting_text')) 
+    greeting.textContent = localStorage.getItem('greeting_text');
+  showDate();
+  getName();
+});
+
+export { data, time }

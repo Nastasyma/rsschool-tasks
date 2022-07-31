@@ -1,5 +1,5 @@
 import langObject from './languageObj.js';
-import { language } from './settings.js';
+import { language, langs } from './settings.js';
 
 // ------- quotes -------
 
@@ -34,4 +34,11 @@ changeQuote.addEventListener('click', () => {
   randomQuote = getNumQuote(1, 20);
 });
 
-export { getQuotes };
+// переключение языка в настройках меняет язык цитаты
+langs.forEach(el => {
+  el.addEventListener('change', (e) => {
+    getQuotes();
+  })
+})
+
+window.addEventListener('DOMContentLoaded', getQuotes);

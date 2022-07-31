@@ -1,4 +1,4 @@
-// ------- slider -------
+// ------- slider ------- 
 
 const body = document.querySelector('body');
 const slidePrev = document.querySelector('.slide-prev');
@@ -10,6 +10,24 @@ function getRandomNum(){
 }
 
 let slideNumber = getRandomNum();
+
+function getTimeOfDay() {
+  const date = new Date();
+  const hours = date.getHours();
+
+  if (hours >= 6 && hours < 12) {
+    return 'morning';
+  } else if (hours >= 12 && hours < 18) {
+    return 'afternoon';
+  } else if (hours >= 18 && hours < 24) {
+    return 'evening';
+  } else if (hours >= 0 && hours < 6) {
+    return 'night';
+  }
+}
+getTimeOfDay();
+
+const timeOfDay = getTimeOfDay();
 
 // рандомный background в зависимости от времени суток
 function setBg() {

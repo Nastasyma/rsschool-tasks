@@ -1,5 +1,5 @@
 import langObject from './languageObj.js';
-import { getQuotes } from './quotes.js';
+import { data, time } from './time.js';
 
 // ------- settings -------
 
@@ -127,7 +127,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('gallery_title')) 
     galleryTitle.textContent = localStorage.getItem('gallery_title');
 
-  getQuotes();
+
 });
 
 // изменить язык настроек
@@ -151,13 +151,14 @@ langs.forEach(el => {
       localStorage.setItem('logo_title', langObject[language].logo);
       localStorage.setItem('todo_title', langObject[language].todo);
       localStorage.setItem('gallery_title', langObject[language].gallery);
-      getQuotes();
+
+
       getTranslationSettings();
   })
 });
 
-function getTranslationSettings() {
-  // перевести меню настроек
+// перевести меню настроек
+function getTranslationSettings() {   
   enTitle.textContent = langObject[language].langEn;
   ruTitle.textContent = langObject[language].langRu;
   setTitle.textContent = langObject[language].settings;

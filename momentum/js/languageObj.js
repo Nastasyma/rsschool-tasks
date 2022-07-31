@@ -18,16 +18,17 @@ const langObject = {
       wind: 'Wind speed',
       windMs: 'm/s',
       humidity: 'Humidity ',
-      /*night: 'Good night',
-      day: 'Good day',
-      morning: 'Good morning',
-      evening: 'Good evening',
+      notFound: 'Error! City not found!',
+      cantFind: "Error! Can't find the weather for ",
+      placeholder: '[Enter your name]',
+      placeholderCity: '[Enter city]',
+      morning: 'Good morning,',
+      day: 'Good afternoon,',
+      evening: 'Good evening,',
+      night: 'Good night,',
       locale: 'en-GB',
-      placeHolder: 'Enter your name',
-      defCity: 'Minsk',
-      tag: 'Enter tag for search',*/
-
-  
+      /*placeholderTodo: '[Add new task]',
+      tag: '[Enter tag for search]',*/
     },
     ru: {
       quote: 'js/ruquotes.json',
@@ -48,14 +49,17 @@ const langObject = {
       wind: 'Скорость ветра',
       windMs: 'м/с',
       humidity: 'Влажность ',
-      /*night: 'Доброй ночи',
-      day: 'Доброго дня',
-      morning: 'Доброе утро',
-      evening: 'Добрый вечер',
+      notFound: 'Ошибка! Город не найден!',
+      cantFind: 'Ошибка! Не могу найти погоду для ',
+      placeholder: '[Введите ваше имя]',
+      placeholderCity: '[Введите город]',
+      morning: 'Доброе утро,',
+      day: 'Добрый день,',
+      evening: 'Добрый вечер,',
+      night: 'Доброй ночи,',
       locale: 'ru-RU',
-      placeHolder: 'Введите ваше имя',
-      defCity: 'Минск',
-      tag: 'Введите тег для поиска',*/
+      /*placeholderTodo: '[Добавить задачу]',
+      tag: '[Введите тег для поиска]',*/
     }
   }
 

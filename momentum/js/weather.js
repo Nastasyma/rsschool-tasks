@@ -1,3 +1,6 @@
+import langObject from './languageObj.js';
+import { language, langs } from './settings.js';
+
 // ------- weather -------
 
 const weatherIcon = document.querySelector('.weather-icon');
@@ -9,7 +12,7 @@ const speedWind = document.querySelector('.speedWind');
 
 // получить информацию о погоде
 async function getWeather() {  
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=f88d8ce92815ace0f687319f76b83882&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${language}&appid=f88d8ce92815ace0f687319f76b83882&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
 
@@ -19,15 +22,15 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`); // иконка
     temperature.textContent = `${data.main.temp.toFixed(0)}°C`; // температура
     weatherDescription.textContent = data.weather[0].description; // описание погоды
-    humidity.textContent = `Humidity: ${data.main.humidity.toFixed(0)}%`; // влажность воздуха
-    speedWind.textContent = `Wind speed: ${data.wind.speed.toFixed(0)} m/s`; // скорость ветра 
+    humidity.textContent = `${langObject[language].humidity} :  ${data.main.humidity.toFixed(0)}%`; // влажность воздуха
+    speedWind.textContent =  `${langObject[language].wind}: ${data.wind.speed.toFixed(0)} ${langObject[language].windMs}`; // скорость ветра 
   } else if (city.value === '') { // если пустая строка
-    temperature.textContent = 'City not found!';
+    temperature.textContent = langObject[language].notFound;
     weatherDescription.textContent = '';
     humidity.textContent = '';
     speedWind.textContent = ''; 
   } else { // если такого города не cуществует 
-    temperature.textContent = `Can't find the weather for "${city.value}" !`;
+    temperature.textContent = `${langObject[language].cantFind} "${city.value}" !`;
     weatherDescription.textContent = '';
     humidity.textContent = '';
     speedWind.textContent = ''; 
@@ -46,12 +49,26 @@ function getCity() {
   if (localStorage.getItem('city')) {
     city.value = localStorage.getItem("city");
   } else { 
-    city.value = 'Minsk'; // если не введен город, по умолчанию город - Минск
-} 
+    city.value = 'Minsk' // если не введен город, по умолчанию город - Минск
+  }  
   getWeather();
 }
 
+// переключение языка в настройках меняет язык виджета погоды и placeholder
+langs.forEach(el => {
+  el.addEventListener('change', (e) => {
+    city.setAttribute('placeholder', langObject[language].placeholderCity);
+    localStorage.setItem('city_placeholder', langObject[language].placeholderCity);
+    getWeather();
+  })
+})
 
 city.addEventListener('change', setCity);
 window.addEventListener('beforeunload', setCity);
-window.addEventListener('DOMContentLoaded', getCity);
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('city_placeholder')) {
+    city.placeholder = langObject[language].placeholderCity;
+  } 
+  getCity();
+});
+
