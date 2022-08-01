@@ -10,109 +10,7 @@
 </head>
 <body>
   <div class="body_wrapper">
-    <div class="settings_menu">
-      <span class="settings_title"><b>Settings</b></span>
-      <div class="settings_item change_language">
-        <span class="item_title lang_title">Language</span>
-        <div class="item_wrapper" >
-          <p class="en_title">English</p>
-          <div class="switch_wrapper">
-            <input type="radio" class="switch" name="language" id="en" value="en" checked>
-            <label for="en"></label>
-          </div>
-        </div>
-        <div class="item_wrapper">
-          <p class="ru_title">Russian</p>
-          <div class="switch_wrapper">
-            <input type="radio" class="switch" name="language" id="ru" value="ru">
-            <label for="ru"></label>  
-          </div>
-        </div>
-      </div>
-      <div class="settings_item change_widget">
-        <span class="item_title widget_title">Widgets</span>
-        <div class="item_wrapper" >
-          <p class="time_title">Time</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="time" value="time" checked>
-            <label for="time"></label>
-          </div>
-        </div>
-        <div class="item_wrapper">
-          <p class="date_title">Date</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="date" value="date" checked>
-            <label for="date"></label>  
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="weather_title">Weather</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="weather" value="weather" checked>
-            <label for="weather"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="greeting_title">Greeting</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="greeting" value="greeting-container" checked>
-            <label for="greeting"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="quote_title">Quote</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="quote" value="quote_wrapper" checked>
-            <label for="quote"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="player_title">Audio player</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="audio_player" value="player" checked>
-            <label for="audio_player"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="logo_title">Logo</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="logo" value="my_page" checked>
-            <label for="logo"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="todo_title">ToDo List</p>
-          <div class="switch_wrapper">
-            <input type="checkbox" class="switch" name="widget" id="todo" value="todo_wrapper" checked>
-            <label for="todo"></label>
-          </div>
-        </div>
-      </div>
-      <div class="settings_item change_bg">
-        <span class="item_title gallery_title">Background image</span>
-        <div class="item_wrapper" >
-          <p class="item_text">GitHub</p>
-          <div class="switch_wrapper">
-            <input type="radio" class="switch" name="gallery" id="github" checked>
-            <label for="github"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="item_text">Unsplash API</p>
-          <div class="switch_wrapper">
-            <input type="radio" class="switch" name="gallery" id="unsplashApi">
-            <label for="unsplashApi"></label>
-          </div>
-        </div>
-        <div class="item_wrapper" >
-          <p class="item_text">Flickr API</p>
-          <div class="switch_wrapper">
-            <input type="radio" class="switch" name="gallery" id="flickrApi">
-            <label for="flickrApi"></label>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <div class="body_opacity_popup"></div>
     <header class="header">
       <div class="player">
@@ -191,7 +89,110 @@
       </div>
       <div class="footer_bottom">
         <div class="settings_wrapper">
-          <button class="settings_btn"></button>
+          <div class="settings_btn"></div>
+        </div>
+        <div class="settings_menu">
+          <span class="settings_title"><b>Settings</b></span>
+          <div class="settings_item change_language">
+            <span class="item_title lang_title">Language</span>
+            <div class="item_wrapper" >
+              <p class="en_title">English</p>
+              <div class="switch_wrapper">
+                <input type="radio" class="switch" name="language" id="en" value="en" checked>
+                <label for="en"></label>
+              </div>
+            </div>
+            <div class="item_wrapper">
+              <p class="ru_title">Russian</p>
+              <div class="switch_wrapper">
+                <input type="radio" class="switch" name="language" id="ru" value="ru">
+                <label for="ru"></label>  
+              </div>
+            </div>
+          </div>
+          <div class="settings_item change_widget">
+            <span class="item_title widget_title">Widgets</span>
+            <div class="item_wrapper" >
+              <p class="time_title">Time</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="time" value="time" checked>
+                <label for="time"></label>
+              </div>
+            </div>
+            <div class="item_wrapper">
+              <p class="date_title">Date</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="date" value="date" checked>
+                <label for="date"></label>  
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="weather_title">Weather</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="weather" value="weather" checked>
+                <label for="weather"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="greeting_title">Greeting</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="greeting" value="greeting-container" checked>
+                <label for="greeting"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="quote_title">Quote</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="quote" value="quote_wrapper" checked>
+                <label for="quote"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="player_title">Audio player</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="audio_player" value="player" checked>
+                <label for="audio_player"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="logo_title">Logo</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="logo" value="my_page" checked>
+                <label for="logo"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="todo_title">ToDo List</p>
+              <div class="switch_wrapper">
+                <input type="checkbox" class="switch" name="widget" id="todo" value="todo_wrapper" checked>
+                <label for="todo"></label>
+              </div>
+            </div>
+          </div>
+          <div class="settings_item change_bg">
+            <span class="item_title gallery_title">Background image</span>
+            <div class="item_wrapper" >
+              <p class="item_text">GitHub</p>
+              <div class="switch_wrapper">
+                <input type="radio" class="switch" name="gallery" id="github" checked>
+                <label for="github"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="item_text">Unsplash API</p>
+              <div class="switch_wrapper">
+                <input type="radio" class="switch" name="gallery" id="unsplashApi">
+                <label for="unsplashApi"></label>
+              </div>
+            </div>
+            <div class="item_wrapper" >
+              <p class="item_text">Flickr API</p>
+              <div class="switch_wrapper">
+                <input type="radio" class="switch" name="gallery" id="flickrApi">
+                <label for="flickrApi"></label>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="my_page">
           <a href="https://github.com/Nastasyma"><img src="assets/svg/github_logo.svg"
@@ -201,8 +202,37 @@
               alt="rs_school_js"></a>
         </div>
         <div class="todo_wrapper">
-          <button class="todo_btn"></button>
+          <div class="todo_btn"></div>
+          <div class="todo_widget">
+            <div class="todo_title_wrapper">
+              <div class="todo_text">Todo list</div>
+              <div class="todo_close"></div>
+            </div>
+            <div class="todo_container">
+              <form class="todo_item" onsubmit='return false'>
+                <input type="text" class="todo_addtask" id="todo_input" placeholder="[Add new task]" required>
+                <button type="submit" id="add" class="add_btn">Add</button>
+              </form>
+              <ul class="tasks">
+                <li class="tasks_item">
+                  <div class="task_container">
+                    <input type="checkbox" class="task_input">
+                    <span>Check mail</span>
+                  </div>
+                  <div class="cancel_icon" id="cancel"></div>
+                </li>
+                <li class="tasks_item">
+                  <div class="task_container">
+                    <input type="checkbox" class="task_input">
+                    <span>Buy plane tickets</span>
+                  </div>
+                  <div class="cancel_icon" id="cancel"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
+        
       </div>
     </footer>
   </div>
@@ -211,6 +241,7 @@
   <script src="js/weather.js" type="module"></script>
   <script src="js/quotes.js" type="module"></script>
   <script src="js/audioPlayer.js" type="module"></script>
+  <script src="js/todo.js" type="module"></script>
   <script src="js/settings.js" type="module"></script>
 </body>
 </html>

@@ -48,9 +48,9 @@ function setCity() {
 function getCity() {
   if (localStorage.getItem('city')) {
     city.value = localStorage.getItem("city");
-  } else { 
-    city.value = 'Minsk' // если не введен город, по умолчанию город - Минск
-  }  
+  } else {
+    city.value = langObject[language].defaultCity; // если не введен город, по умолчанию город - 'Минск'
+  }
   getWeather();
 }
 
@@ -59,6 +59,11 @@ langs.forEach(el => {
   el.addEventListener('change', (e) => {
     city.setAttribute('placeholder', langObject[language].placeholderCity);
     localStorage.setItem('city_placeholder', langObject[language].placeholderCity);
+    if (city.value === 'Minsk') { // перевести дефолтный город "Минск"
+      city.value = langObject.ru.defaultCity;
+    } else if (city.value === 'Минск') {
+      city.value = langObject.en.defaultCity;
+    }
     getWeather();
   })
 })

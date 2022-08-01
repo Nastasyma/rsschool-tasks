@@ -12,7 +12,7 @@ const weather = document.querySelector('.weather');
 const player = document.querySelector('.player');
 const logo = document.querySelector('.my_page');
 const todo = document.querySelector('.todo_wrapper');
-const changeWidgets = document.querySelectorAll('input[type="checkbox"]');
+const changeWidgets = document.querySelectorAll('input[name="widget"]');
 const langs = document.querySelectorAll('input[name="language"]');
 const enTitle = document.querySelector('.en_title');
 const ruTitle = document.querySelector('.ru_title');
@@ -151,7 +151,6 @@ langs.forEach(el => {
       localStorage.setItem('logo_title', langObject[language].logo);
       localStorage.setItem('todo_title', langObject[language].todo);
       localStorage.setItem('gallery_title', langObject[language].gallery);
-
 
       getTranslationSettings();
   })
