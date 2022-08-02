@@ -59,12 +59,14 @@ function getName() {
   }
 }
 
-// переключение языка в настройках меняет язык placeholder имени
+
 langs.forEach(el => {
   el.addEventListener('change', () => {
+    // переключение языка в настройках меняет язык placeholder имени
     nameEnter.setAttribute('placeholder', langObject[language].placeholder);
     localStorage.setItem('name_placeholder', langObject[language].placeholder);
     getTimeOfDayGreeting();
+    // переключение языка в настройках меняет язык приветствия
     localStorage.setItem('greeting_text', greetingText);
   })
 })

@@ -31,9 +31,10 @@ const galleryTitle = document.querySelector('.gallery_title');
 
 export let language = 'en';
 
-(function () { // вызов попап меню 
+(function () { // вызов settings popup 
   settingsBTN.addEventListener('click', () => {
-    if (settingsBTN.classList.contains('settings_btn_active')) { // кнопка "настройки" закрывает попап
+    // кнопка "настройки" закрывает попап
+    if (settingsBTN.classList.contains('settings_btn_active')) { 
       settingsBTN.classList.remove('settings_btn_active');
       settingsMenu.classList.remove('settings_menu_active')
       background.classList.remove('body_opacity_popup_active');
@@ -43,7 +44,8 @@ export let language = 'en';
       background.classList.add('body_opacity_popup_active');
     }
   })
-  background.addEventListener('click', () => { // клик вне зоны попапа закрывает его
+  // клик вне зоны попапа закрывает его
+  background.addEventListener('click', () => { 
     settingsBTN.classList.remove('settings_btn_active');
     settingsMenu.classList.remove('settings_menu_active')
     background.classList.remove('body_opacity_popup_active');
@@ -77,10 +79,8 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   if (localStorage.getItem('language_settings') === 'ru') { // получить статус радио кнопок (язык) из Local Storage 
-    // ruLang.value = localStorage.getItem('language_settings');
     document.querySelector('input[value="ru"]').setAttribute('checked', 'true');
   } else if (localStorage.getItem('language_settings') === 'en') {
-    // enLang.value = localStorage.getItem('language_settings');
     document.querySelector('input[value="en"]').setAttribute('checked', 'true');
   }
 

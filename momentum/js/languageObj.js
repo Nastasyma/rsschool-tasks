@@ -22,14 +22,15 @@ const langObject = {
       cantFind: "Error! Can't find the weather for ",
       placeholder: '[Enter your name]',
       placeholderCity: '[Enter city]',
+      placeholderTodo: '[Add new task]',
       defaultCity: 'Minsk',
       morning: 'Good morning,',
       day: 'Good afternoon,',
       evening: 'Good evening,',
       night: 'Good night,',
       locale: 'en-GB',
-      /*placeholderTodo: '[Add new task]',
-      tag: '[Enter tag for search]',*/
+      addBtn: 'Add',
+      /*tag: '[Enter tag for search]',*/
     },
     ru: {
       quote: 'js/ruquotes.json',
@@ -54,14 +55,15 @@ const langObject = {
       cantFind: 'Ошибка! Не могу найти погоду для ',
       placeholder: '[Введите ваше имя]',
       placeholderCity: '[Введите город]',
+      placeholderTodo: '[Добавить задачу]',
       defaultCity: 'Минск',
       morning: 'Доброе утро,',
       day: 'Добрый день,',
       evening: 'Добрый вечер,',
       night: 'Доброй ночи,',
       locale: 'ru-RU',
-      /*placeholderTodo: '[Добавить задачу]',
-      tag: '[Введите тег для поиска]',*/
+      addBtn: 'Добавить',
+      /*tag: '[Введите тег для поиска]',*/
     }
   }
 
