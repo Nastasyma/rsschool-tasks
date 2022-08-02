@@ -29,39 +29,37 @@ const todoTitleWidget = document.querySelector('.todo_text');
     li.classList.add('tasks_item');
     let div = document.createElement("div");
     div.classList.add('task_container');
-    let divIcon = document.createElement("div");
+    let divIcon = document.createElement("button");
     divIcon.classList.add('cancel_icon');
-    divIcon.id = 'cancel';
     li.appendChild(div);
     li.appendChild(divIcon);
-    let checkbox = document.createElement("input");
-    checkbox.classList.add('task_input');
-    checkbox.type = "checkbox";
-    div.appendChild(checkbox);
-    let span = document.createElement("span");
-    div.appendChild(span);
+    let divCheck = document.createElement("span");
+    divCheck.classList.add('check_task');
+    div.appendChild(divCheck);
     let inputValue = document.getElementById("todo_input").value;
     let textValue = document.createTextNode(inputValue);
-    span.appendChild(textValue);
+    div.appendChild(textValue);
     if (!inputValue == "") {
       tasksList.appendChild(li);
     }
     localStorage.setItem('tasks_content', tasksList.innerHTML);
   }
-  addBTN.addEventListener("click", addNewTask);
+  addBTN.addEventListener("click", () => {
+    addNewTask();
+    document.querySelector('input[id="todo_input"]').value = "";
+  });
 
   // зачеркнуть задачу / закрыть задачу по крестику
   tasksList.addEventListener("click", function (e) { 
     console.log(e.target);
     
     let checkedItem = e.target.parentNode;
-    if (e.target.checked) { 
-      checkedItem.classList.toggle("item_checked", true);
-    } else {
-      checkedItem.classList.toggle("item_checked", false);
-    }
     
-    if (e.target.id === "cancel") { 
+    if (e.target.tagName === "SPAN") {
+      checkedItem.classList.toggle("item_checked");
+      e.target.classList.toggle('task_checked');
+    }
+    if (e.target.tagName === "BUTTON") { 
       checkedItem.remove();
     }
     

@@ -139,6 +139,7 @@ volumeIcon.addEventListener('click', () => {
 audioVolume.addEventListener("input", () => {
 
   audio.volume = Math.trunc(audioVolume.value) / 100;
+  audioVolume.style.background = `linear-gradient(to right, #c76000 0%, #c76000 ${audioVolume.value}%, #c4c4c4 ${audioVolume.value}%, #c4c4c4 100%)`;
   if (audioVolume.value == 0) {
     volumeIcon.classList.add('mute');
   } else { 
@@ -162,6 +163,7 @@ function formatTime(seconds) {
       songDuration.innerHTML = `${playList[songNum].duration}`; // продолжительность трека из плейлиста
       songCurrentTime.innerHTML = (formatTime(audio.currentTime)); // текущее время трека
       audioProgress.value = 100 * (audio.currentTime / audio.duration); // ползунок двигается
+      audioProgress.style.background = `linear-gradient(to right, #c76000 ${audioProgress.value}%, #c4c4c4 ${audioProgress.value}%)`;
       if (audioProgress.value === audio.duration) { // после окончания трека играть следующий
         playNext();
       }

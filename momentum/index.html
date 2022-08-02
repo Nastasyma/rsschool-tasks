@@ -42,7 +42,7 @@
               name="audio_progress"
               id="audioProgress"
               min="0"
-              max=""
+              max="100"
               value="0"
             />
           </div>
@@ -210,23 +210,23 @@
             </div>
             <div class="todo_container">
               <form class="todo_item" onsubmit='return false'>
-                <input type="text" class="todo_addtask" id="todo_input" placeholder="[Add new task]" required>
+                <input type="text" class="todo_addtask" id="todo_input" placeholder="[Add new task]">
                 <button type="submit" id="add" class="add_btn">Add</button>
               </form>
               <ul class="tasks">
                 <li class="tasks_item">
                   <div class="task_container">
-                    <input type="checkbox" class="task_input">
-                    <span>Check mail</span>
+                    <span class="check_task"></span>
+                    Check mail
                   </div>
-                  <div class="cancel_icon" id="cancel"></div>
+                  <button class="cancel_icon"></button>
                 </li>
                 <li class="tasks_item">
                   <div class="task_container">
-                    <input type="checkbox" class="task_input">
-                    <span>Buy plane tickets</span>
+                    <span class="check_task"></span>
+                    Buy plane tickets
                   </div>
-                  <div class="cancel_icon" id="cancel"></div>
+                  <button class="cancel_icon"></button>
                 </li>
               </ul>
             </div>
