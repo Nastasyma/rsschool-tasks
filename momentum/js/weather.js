@@ -18,7 +18,7 @@ async function getWeather() {
 
   weatherIcon.className = 'weather-icon owf';
   
-  if (data.cod !== '404' && data.cod !== '400') { // вывести виджет с погодой в зависимости от введенного города
+  if (res.status !== '404' && res.status !== '400') { // вывести виджет с погодой в зависимости от введенного города
     weatherIcon.classList.add(`owf-${data.weather[0].id}`); // иконка
     temperature.textContent = `${data.main.temp.toFixed(0)}°C`; // температура
     weatherDescription.textContent = data.weather[0].description; // описание погоды

@@ -59,7 +59,6 @@ function getName() {
   }
 }
 
-
 langs.forEach(el => {
   el.addEventListener('change', () => {
     // переключение языка в настройках меняет язык placeholder имени

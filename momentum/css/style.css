@@ -451,6 +451,13 @@ body {
   display: flex;
   justify-content: space-between;
 }
+.bg_tags {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 700;
+  outline-color: #ff7b00;
+  margin-top: 5px;
+}
 .switch {
 	position: absolute;
 	z-index: -1;

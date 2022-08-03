@@ -14,6 +14,8 @@ const logo = document.querySelector('.my_page');
 const todo = document.querySelector('.todo_wrapper');
 const changeWidgets = document.querySelectorAll('input[name="widget"]');
 const langs = document.querySelectorAll('input[name="language"]');
+const imgSource = document.querySelectorAll('input[name="gallery"]');
+const tagsInput = document.querySelector('.bg_tags');
 const enTitle = document.querySelector('.en_title');
 const ruTitle = document.querySelector('.ru_title');
 const setTitle = document.querySelector('.settings_title');
@@ -78,10 +80,22 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  if (localStorage.getItem('language_settings') === 'ru') { // получить статус радио кнопок (язык) из Local Storage 
+  // получить статус радио кнопок (язык) из Local Storage 
+  if (localStorage.getItem('language_settings') === 'ru') { 
     document.querySelector('input[value="ru"]').setAttribute('checked', 'true');
   } else if (localStorage.getItem('language_settings') === 'en') {
     document.querySelector('input[value="en"]').setAttribute('checked', 'true');
+  }
+
+  // получить статус радио кнопок (галлерея) из Local Storage 
+  if (localStorage.getItem('gallery_settings') === 'github') { 
+    document.querySelector('input[value="github"]').setAttribute('checked', 'true');
+  } else if (localStorage.getItem('gallery_settings') === 'unsplashApi') {
+    document.querySelector('input[value="unsplashApi"]').setAttribute('checked', 'true');
+    tagsInput.removeAttribute("disabled", "disabled");
+  } else if (localStorage.getItem('gallery_settings') === 'flickrApi') {
+    document.querySelector('input[value="flickrApi"]').setAttribute('checked', 'true');
+    tagsInput.removeAttribute("disabled", "disabled");
   }
 
   // получить класс opacity элементов из Local Storage
@@ -135,6 +149,7 @@ langs.forEach(el => {
   el.addEventListener('change', (e) => {
       language = e.target.value;
       localStorage.setItem('language', language);
+      // сохранить статус радиокнопок (язык) в Local Storage
       localStorage.setItem(`${e.target.name}_settings`, e.target.value);
       // сохранить перевод меню настроек в Local Storage
       localStorage.setItem('lang_en', langObject[language].langEn);
@@ -174,4 +189,11 @@ function getTranslationSettings() {
   galleryTitle.textContent = langObject[language].gallery;
 }
 
-export { langs }
+imgSource.forEach(el => {
+  el.addEventListener('change', (e) => {
+    // сохранить статус радиокнопок (галлерея) в Local Storage
+    localStorage.setItem(`${e.target.name}_settings`, e.target.value);
+  })
+});
+
+export { langs, imgSource, tagsInput }

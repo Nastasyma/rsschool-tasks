@@ -50,9 +50,7 @@ const todoTitleWidget = document.querySelector('.todo_text');
   });
 
   // зачеркнуть задачу / закрыть задачу по крестику
-  tasksList.addEventListener("click", function (e) { 
-    console.log(e.target);
-    
+  tasksList.addEventListener("click", function (e) {     
     let checkedItem = e.target.parentNode;
     
     if (e.target.tagName === "SPAN") {
