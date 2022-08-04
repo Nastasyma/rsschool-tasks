@@ -1,6 +1,6 @@
 const langObject = {
     en: {
-      quote: 'js/enquotes.json',
+      quote: 'js/ENquotes.json',
       langEn: 'English',
       langRu: 'Russian',
       settings: 'Settings',
@@ -34,7 +34,7 @@ const langObject = {
       /*tag: '[Enter tag for search]',*/
     },
     ru: {
-      quote: 'js/ruquotes.json',
+      quote: 'js/RUquotes.json',
       langEn: 'Английский',
       langRu: 'Русский',
       settings: 'Настройки',

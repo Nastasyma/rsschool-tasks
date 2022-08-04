@@ -36,9 +36,12 @@ const todoTitleWidget = document.querySelector('.todo_text');
     let divCheck = document.createElement("span");
     divCheck.classList.add('check_task');
     div.appendChild(divCheck);
+    let myTask = document.createElement("p");
+    myTask.classList.add('my_task');
+    div.appendChild(myTask);
     let inputValue = document.getElementById("todo_input").value;
-    let textValue = document.createTextNode(inputValue);
-    div.appendChild(textValue);
+    let text = document.createTextNode(inputValue);
+    myTask.appendChild(text);
     if (!inputValue == "") {
       tasksList.appendChild(li);
     }

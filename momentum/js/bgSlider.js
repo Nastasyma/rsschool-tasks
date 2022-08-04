@@ -71,7 +71,6 @@ async function getFlickrImg() {
   }
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data.length);
   let flickrNumber = getRandomNum(1, 99);
   if (data.cod !== '403' && data.cod !== '404' && data.cod !== '400') {
     img.src = `${data.photos.photo[flickrNumber].url_l}`;

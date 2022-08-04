@@ -32,6 +32,7 @@ function playAudio() {
   audio.src = playList[songNum].src; // найти трек в playList.js
   playItem[songNum].classList.add('item-active'); // добавить стиль активному треку
   songName.innerHTML = playList[songNum].title; // выввести название трека в продвинутый плеер
+  songAuthor.innerHTML = playList[songNum].author;
   audio.currentTime = audioCurrentTime; // запомнить место проигрывания трека
 
   if (!isPlay) {
@@ -121,6 +122,7 @@ const audioProgress = document.getElementById("audioProgress");
 let songDuration = document.querySelector('.song_duration_time');
 let songCurrentTime = document.querySelector('.song_current_time');
 let songName = document.querySelector('.song_name_title');
+let songAuthor = document.querySelector('.song_name_author');
 
 // заглушение звука, смена иконки 
 volumeIcon.addEventListener('click', () => {
@@ -161,7 +163,7 @@ function formatTime(seconds) {
     if (audio.duration) {
       audioCurrentTime = audio.currentTime;
       songDuration.innerHTML = `${playList[songNum].duration}`; // продолжительность трека из плейлиста
-      songCurrentTime.innerHTML = (formatTime(audio.currentTime)); // текущее время трека
+      songCurrentTime.innerHTML = formatTime(audio.currentTime); // текущее время трека
       audioProgress.value = 100 * (audio.currentTime / audio.duration); // ползунок двигается
       audioProgress.style.background = `linear-gradient(to right, #c76000 ${audioProgress.value}%, #c4c4c4 ${audioProgress.value}%)`;
       if (audioProgress.value === audio.duration) { // после окончания трека играть следующий
@@ -172,11 +174,11 @@ function formatTime(seconds) {
 
 audio.addEventListener("timeupdate", updateProgressValue);
 
-
 audioProgress.addEventListener("input", () => {
-
-  audio.currentTime = (audioProgress.value * audio.duration) / 100; // при нажатии на прогресс бар, трек играет с этого места
-  if (audioProgress.value === audio.duration) {
-    playNext();
+  if (audio.duration) {
+    audio.currentTime = (audioProgress.value * audio.duration) / 100; // при нажатии на прогресс бар, трек играет с этого места
+    if (audioProgress.value === audio.duration) {
+      playNext();
+    }
   }
 });

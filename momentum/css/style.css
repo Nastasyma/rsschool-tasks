@@ -575,9 +575,19 @@ body {
   background-color: #ff7b00;
 }
 .tasks {
+  max-height: 300px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+.tasks::-webkit-scrollbar {
+  width: 5px;
+  background-color: black;
+}
+.tasks::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: gray;
 }
 .tasks_item {
   display: flex;
@@ -587,6 +597,7 @@ body {
   padding: 5px;
   border: 1px solid white;
   border-radius: 5px;
+  overflow-wrap: break-word;
   background-color: gray;
   border-radius: 10px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
@@ -619,6 +630,9 @@ body {
   cursor: pointer;
   border: none;
   margin: 0;
+}
+.my_task {
+  max-width: 210px;
 }
 .cancel_icon {
   border: none;
