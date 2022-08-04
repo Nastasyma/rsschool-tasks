@@ -32,7 +32,6 @@ function playAudio() {
   audio.src = playList[songNum].src; // найти трек в playList.js
   playItem[songNum].classList.add('item-active'); // добавить стиль активному треку
   songName.innerHTML = playList[songNum].title; // выввести название трека в продвинутый плеер
-  songAuthor.innerHTML = playList[songNum].author;
   audio.currentTime = audioCurrentTime; // запомнить место проигрывания трека
 
   if (!isPlay) {
@@ -58,10 +57,10 @@ function nextSong() {
     playAudio();
   } 
 
-  if (songNum < 3) {
+  if (songNum < 4) {
     songNum = songNum + 1;
     playItem[songNum-1].classList.remove('item-active');   
-  } else if (songNum === 3) {
+  } else if (songNum === 4) {
     playItem[songNum].classList.remove('item-active');    
     songNum = 0;          
   }  
@@ -80,7 +79,7 @@ function prevSong() {
   }
   else if (songNum === 0) {
     playItem[songNum].classList.remove('item-active'); 
-    songNum = 3;
+    songNum = 4;
   }   
   playAudio(); 
 }

@@ -5,6 +5,11 @@ const playList = [
   duration: '0:39'
 }, 
 {      
+  title: 'Requiem for a dream',
+  src: 'assets/sounds/Requiem for a dream.mp3',
+  duration: '4:05'
+},
+{      
   title: 'Ennio Morricone',
   src: "assets/sounds/Ennio Morricone.mp3",
   duration: '1:37'
