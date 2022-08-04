@@ -47,6 +47,13 @@ function getTimeOfDayGreeting() {
   greeting.textContent = greetingText;
 }
 
+// подставить "!" в конце имени 
+nameEnter.addEventListener('change', () => {
+  if (nameEnter.value !== '') {
+    nameEnter.value = `${nameEnter.value}!`;
+  }
+});
+
 // сохранить введенное имя в Local Storage
 function setName() {
   localStorage.setItem('name', nameEnter.value);

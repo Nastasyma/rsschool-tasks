@@ -14,7 +14,8 @@ async function getQuotes() {
   const quotes = langObject[language].quote;
   const res = await fetch(quotes);
   const data = await res.json(); 
-  randomQuote = getRandomNum(1, 20);
+  randomQuote = getRandomNum(1, data.length);
+  console.log(data.length);
   quote.textContent = data[randomQuote].text;
   author.textContent = data[randomQuote].author;  
 }

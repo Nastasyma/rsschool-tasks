@@ -54,7 +54,7 @@ async function getUnsplashImg() {
   }
   const res = await fetch(url);
   const data = await res.json();
-  if (res.status !== '403' && res.status !== '404' && res.status !== '400') {
+  if (data.cod !== '403' && data.cod !== '404' && data.cod !== '400') {
     img.src = `${data.urls.regular}`;
     img.onload = () => {
     body.style.backgroundImage = `url(${data.urls.regular})`;
@@ -63,7 +63,6 @@ async function getUnsplashImg() {
 }
 // background источник - Flickr API
 async function getFlickrImg() {  
-  let flickrNumber = getRandomNum(1, 99);
   let url;
   if (flickrBtnSettings.checked && tagsInput.value.length !== 0) {
     url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=318c6cfa9de7a2eed7ad2b9c2b30ca3d&tags=${tagsInput.value}&extras=url_l&format=json&nojsoncallback=1`;
@@ -72,7 +71,9 @@ async function getFlickrImg() {
   }
   const res = await fetch(url);
   const data = await res.json();
-  if (res.status !== '403' && res.status !== '404' && res.status !== '400') {
+  console.log(data.length);
+  let flickrNumber = getRandomNum(1, 99);
+  if (data.cod !== '403' && data.cod !== '404' && data.cod !== '400') {
     img.src = `${data.photos.photo[flickrNumber].url_l}`;
     img.onload = () => {
     body.style.backgroundImage = `url(${data.photos.photo[flickrNumber].url_l})`;
@@ -116,6 +117,7 @@ slidePrev.addEventListener('click', getSlidePrev);
 
 // менять источник фона в меню настроек
 githubBtnSettings.addEventListener('click', () => {
+    // сбросить введенный тег при смене bg source в настройках
     tagsInput.value = '';
     // если выбран github - сделать input tags неактивным
     tagsInput.setAttribute("disabled", "disabled"); 
