@@ -65,7 +65,7 @@ changeWidgets.forEach(el => {
       }
 
       window.addEventListener('beforeunload', () => {
-        // сохранить класс opacity элементов в Local Storage
+        // сохранить класс visibility элементов в Local Storage
         localStorage.setItem(`${e.target.value}_opacity`, document.querySelector(`.${e.target.value}`).style.visibility);
         // сохранить статус чекбоксов в Local Storage
         localStorage.setItem(`${e.target.value}_settings`, e.target.checked);

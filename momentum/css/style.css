@@ -159,30 +159,31 @@ body {
   padding-left: 30px;
   list-style: none;
   opacity: .8;
-  cursor: pointer;
   transition: .3s;
   font-weight: 600;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
-  background-image: url("../assets/svg/play.svg");
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-.song_pause {
-  background-image: url("../assets/svg/pause.svg");
 }
 
 .play-item:hover {
   opacity: 1;
 }
 
-/* .play-item::before {
-  content: "\2713";  
+.play-item::before {
+  content: "";  
   position: absolute;
   left: 0;
-  top: 2px;
-  font-weight: 900;
-} */
+  top: 4px;
+  background: url("../assets/svg/play.svg") no-repeat center/contain;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+} 
+.play-item.song_pause::before {
+  background-image: url("../assets/svg/pause.svg");
+}
+.song_title {
+  cursor: pointer;
+}
 
 .item-active {
   color: #ff7b00;

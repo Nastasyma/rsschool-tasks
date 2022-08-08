@@ -20,7 +20,10 @@ play.addEventListener('click', toggleBtn);*/
 for (let i = 0; i < playList.length; i++) {
   const li = document.createElement('li');  
   li.classList.add('play-item');
-  li.textContent = playList[i].title;
+  const span = document.createElement('span');
+  span.classList.add('song_title');
+  span.textContent = playList[i].title;
+  li.appendChild(span); 
   songsList.append(li); 
   }
 
@@ -94,14 +97,14 @@ audio.addEventListener('ended', nextSong);
 playItem.forEach((item, i) => {
   item.addEventListener('click', () => {
     audioCurrentTime = 0;
-    if (isPlay) {
-      playAudio();
-    }
 
     if (songNum === i) { // если кликать на активный трек
       playAudio();
     }
     if (songNum !== i) { // если кликать на неактивный трек
+      if (isPlay) {
+        playAudio();
+      }
       if (playItem[songNum].classList.contains('item-active')) {
         playItem[songNum].classList.remove('item-active'); 
       } else {
