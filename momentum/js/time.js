@@ -28,6 +28,7 @@ function showDate() {
 // ------- greeting -------
 
 const nameEnter = document.querySelector('.name');
+const nameRepeat = document.querySelector('.name_repeat');
 
 function getTimeOfDayGreeting() {
   const date = new Date();
@@ -47,11 +48,20 @@ function getTimeOfDayGreeting() {
   greeting.textContent = greetingText;
 }
 
-// подставить "!" в конце имени 
+function updateSize() {
+  nameRepeat.innerText = nameEnter.value;
+  if (!nameEnter.value) {
+  nameRepeat.innerText = '[Enter your name]';
+  } 
+}
+
+// подставить "!" в конце имени и сделать имя с заглавной буквы
 nameEnter.addEventListener('change', () => {
   if (nameEnter.value !== '') {
-    nameEnter.value = `${nameEnter.value}!`;
+    nameEnter.value = `${nameEnter.value[0].toUpperCase()}${nameEnter.value.slice(1)}!`;
+    nameRepeat.innerText = `${nameEnter.value}!`;
   }
+
 });
 
 // сохранить введенное имя в Local Storage
@@ -85,6 +95,8 @@ window.addEventListener('DOMContentLoaded', () => {
     greeting.textContent = localStorage.getItem('greeting_text');
   showDate();
   getName();
+  nameEnter.oninput = updateSize;
+  updateSize();
 });
 
 export { data, time }

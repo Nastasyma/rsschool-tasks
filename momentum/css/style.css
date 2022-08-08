@@ -337,7 +337,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  min-height: 48px;
+  min-height: 6px;
   width: 100vw;
   font-size: 40px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
@@ -345,22 +345,41 @@ body {
 }
 
 .greeting {
-  flex: 1;  
   padding: 10px;
   text-align: right;
 }
 
-.name {
-  flex: 1;
-  max-width: 50%;
+.name_wrapper {
+  position: relative;
+  min-width: 1em;
+  height: 100%;
+  width: min-content;
+}
+.name_repeat {
+  visibility: hidden;
+  white-space: pre;
+}
+.name,
+.name_repeat {
+  height: 100%;
   padding: 10px;
   font-size: 40px;
   text-align: left;
   color: #fff;
   background-color: transparent;
+}
+.name {
+  width: 100%;
+  font-size: 40px;
+  color: #fff;
+  background-color: transparent;
+  text-shadow: 2px 2px 4px black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   border: 0;
   outline: 0;
-  text-shadow: 2px 2px 4px black;
 }
 
 .name::placeholder {

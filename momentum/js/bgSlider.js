@@ -39,7 +39,7 @@ let slideNumber = getRandomNum(1, 20);
 // рандомный background в зависимости от времени суток (источник - github)
 function setBg() {
   let bgNum  = String(slideNumber).padStart(2,'0');
-    img.src = `https://raw.githubusercontent.com/Nastasyma/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`
+    img.src = `https://raw.githubusercontent.com/Nastasyma/momentum-backgrounds/main/${timeOfDay}/${bgNum}.webp`
     img.onload = () => {
       body.style.backgroundImage = `url(${img.src})`;
   }
