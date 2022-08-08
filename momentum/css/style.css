@@ -512,7 +512,7 @@ body {
   border-radius: 30px;
   background-color: black;
   transform: translateX(150%);
-  padding: 10px 20px 20px 20px;
+  padding: 10px 10px 20px 20px;
   border: 1px solid white;
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
   transition: 0.8s ease-in-out;
@@ -551,6 +551,7 @@ body {
   gap: 3px;
   width: 100%;
   margin: 0 auto;
+  padding-right: 10px;
 }
 .todo_addtask {
   padding: 10px;
@@ -782,6 +783,22 @@ body {
   }
 }
 @media (max-width: 430px) {
+  .settings_menu {
+    width: 250px;
+  }
+  .todo_widget {
+    width: 250px;
+  }
+  .todo_addtask {
+    min-width: 100px;
+    padding: 5px;
+  }
+  .add_btn {
+    padding: 5px;
+  }
+  .my_task {
+    max-width: 135px;
+  }
   #audioProgress {
     width: 110px;
   }
