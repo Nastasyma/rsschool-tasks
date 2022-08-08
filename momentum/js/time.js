@@ -50,9 +50,12 @@ function getTimeOfDayGreeting() {
 
 function updateSize() {
   nameRepeat.innerText = nameEnter.value;
-  if (!nameEnter.value) {
+  if (!nameEnter.value && localStorage.getItem('language_settings') === 'en') {
   nameRepeat.innerText = '[Enter your name]';
   } 
+  if (!nameEnter.value && localStorage.getItem('language_settings') === 'ru') {
+    nameRepeat.innerText = '[Введите ваше имя]';
+  }
 }
 
 // подставить "!" в конце имени и сделать имя с заглавной буквы
