@@ -28,7 +28,7 @@ function showDate() {
 // ------- greeting -------
 
 const nameEnter = document.querySelector('.name');
-const nameRepeat = document.querySelector('.name_repeat');
+const nameCopy = document.querySelector('.name_copy');
 
 function getTimeOfDayGreeting() {
   const date = new Date();
@@ -49,12 +49,12 @@ function getTimeOfDayGreeting() {
 }
 
 function updateSize() {
-  nameRepeat.innerText = nameEnter.value;
-  if (!nameEnter.value && localStorage.getItem('language_settings') === 'en') {
-  nameRepeat.innerText = '[Enter your name]';
-  } 
-  if (!nameEnter.value && localStorage.getItem('language_settings') === 'ru') {
-    nameRepeat.innerText = '[Введите ваше имя]';
+  nameCopy.innerText = nameEnter.value;
+  if (!nameEnter.value) {
+    nameCopy.innerText = '[Enter your name]';
+  }
+  if (localStorage.getItem('language_settings') === 'ru') {
+    nameCopy.innerText = '[Введите ваше имя]';
   }
 }
 
@@ -62,7 +62,7 @@ function updateSize() {
 nameEnter.addEventListener('change', () => {
   if (nameEnter.value !== '') {
     nameEnter.value = `${nameEnter.value[0].toUpperCase()}${nameEnter.value.slice(1)}!`;
-    nameRepeat.innerText = `${nameEnter.value}!`;
+    nameCopy.innerText = `${nameEnter.value}!`;
   }
 
 });
@@ -83,6 +83,7 @@ langs.forEach(el => {
   el.addEventListener('change', () => {
     // переключение языка в настройках меняет язык placeholder имени
     nameEnter.setAttribute('placeholder', langObject[language].placeholder);
+    nameCopy.innerText = langObject[language].placeholder;
     localStorage.setItem('name_placeholder', langObject[language].placeholder);
     getTimeOfDayGreeting();
     // переключение языка в настройках меняет язык приветствия

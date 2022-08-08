@@ -355,12 +355,12 @@ body {
   height: 100%;
   width: min-content;
 }
-.name_repeat {
+.name_copy {
   visibility: hidden;
   white-space: pre;
 }
 .name,
-.name_repeat {
+.name_copy {
   height: 100%;
   padding: 10px;
   font-size: 40px;
