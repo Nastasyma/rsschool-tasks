@@ -65,9 +65,9 @@ async function getUnsplashImg() {
 async function getFlickrImg() {  
   let url;
   if (flickrBtnSettings.checked && tagsInput.value.length !== 0) {
-    url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=318c6cfa9de7a2eed7ad2b9c2b30ca3d&tags=${tagsInput.value}&extras=url_l&format=json&nojsoncallback=1`;
+    url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=318c6cfa9de7a2eed7ad2b9c2b30ca3d&tags=${tagsInput.value}&extras=url_l&format=json&nojsoncallback=1&safe_search=1`;
   } else {
-    url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=318c6cfa9de7a2eed7ad2b9c2b30ca3d&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1`;
+    url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=318c6cfa9de7a2eed7ad2b9c2b30ca3d&tags=${timeOfDay}&extras=url_l&format=json&nojsoncallback=1&safe_search=1`;
   }
   const res = await fetch(url);
   const data = await res.json();

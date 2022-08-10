@@ -730,7 +730,8 @@ body {
   .greeting {
     padding: 5px;
   }
-  .name {
+  .name,
+  .name_copy {
     font-size: 32px;
     padding: 5px;
   }
@@ -774,7 +775,8 @@ body {
     min-height: 30px;
     font-size: 24px;
   }
-  .name {
+  .name,
+  .name_copy {
     font-size: 24px;
   }
   .date {
@@ -830,10 +832,17 @@ body {
     min-height: 30px;
     font-size: 20px;
   }
-  .name {
+  .name,
+  .name_copy {
     font-size: 20px;
   }
   .date {
     font-size: 16px;
+  }
+  .player {
+    max-width: 160px;
+  }
+  .song_name {
+    font-size: 12px;
   }
 }

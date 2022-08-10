@@ -22,8 +22,8 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`); // иконка
     temperature.textContent = `${data.main.temp.toFixed(0)}°C`; // температура
     weatherDescription.textContent = data.weather[0].description; // описание погоды
-    humidity.textContent = `${langObject[language].humidity} :  ${data.main.humidity.toFixed(0)}%`; // влажность воздуха
-    speedWind.textContent =  `${langObject[language].wind}: ${data.wind.speed.toFixed(0)} ${langObject[language].windMs}`; // скорость ветра 
+    humidity.textContent = `${langObject[language].humidity}: ${data.main.humidity.toFixed(0)}%`; // влажность воздуха
+    speedWind.textContent = `${langObject[language].wind}: ${data.wind.speed.toFixed(0)} ${langObject[language].windMs}`; // скорость ветра 
   } else if (city.value === '') { // если пустая строка
     temperature.textContent = langObject[language].notFound;
     weatherDescription.textContent = '';
