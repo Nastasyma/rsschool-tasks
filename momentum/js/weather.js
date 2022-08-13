@@ -68,6 +68,8 @@ langs.forEach(el => {
   })
 })
 
+setInterval(getWeather, 300000);
+
 city.addEventListener('change', setCity);
 window.addEventListener('beforeunload', setCity);
 window.addEventListener('DOMContentLoaded', () => {

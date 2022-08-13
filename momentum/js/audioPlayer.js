@@ -96,12 +96,13 @@ audio.addEventListener('ended', nextSong);
 // клик по названию трека запускает трек
 playItem.forEach((item, i) => {
   item.addEventListener('click', () => {
-    audioCurrentTime = 0;
 
     if (songNum === i) { // если кликать на активный трек
       playAudio();
     }
     if (songNum !== i) { // если кликать на неактивный трек
+      audioCurrentTime = 0;
+      
       if (isPlay) {
         playAudio();
       }
@@ -124,7 +125,6 @@ const audioProgress = document.getElementById("audioProgress");
 let songDuration = document.querySelector('.song_duration_time');
 let songCurrentTime = document.querySelector('.song_current_time');
 let songName = document.querySelector('.song_name_title');
-let songAuthor = document.querySelector('.song_name_author');
 
 // заглушение звука, смена иконки 
 volumeIcon.addEventListener('click', () => {

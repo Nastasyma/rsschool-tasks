@@ -15,12 +15,15 @@ const todoTitleWidget = document.querySelector('.todo_text');
   todoBTN.addEventListener('click', () => {
     if (todoMenu.style.transform === "translateX(150%)") {
       todoMenu.style.transform = "translateX(0px)";
+      todoBTN.classList.add('todo_btn_active');
     } else {
       todoMenu.style.transform = "translateX(150%)";
+      todoBTN.classList.remove('todo_btn_active');
     }
   })
   closeTodo.addEventListener('click', () => {
     todoMenu.style.transform = "translateX(150%)";
+    todoBTN.classList.remove('todo_btn_active');
   })
   }());
 
@@ -53,7 +56,8 @@ const todoTitleWidget = document.querySelector('.todo_text');
   });
 
   // зачеркнуть задачу / закрыть задачу по крестику
-  tasksList.addEventListener("click", function (e) {     
+  tasksList.addEventListener("click", function (e) {  
+    // console.log(e.target);   
     let checkedItem = e.target.parentNode;
     
     if (e.target.tagName === "SPAN") {

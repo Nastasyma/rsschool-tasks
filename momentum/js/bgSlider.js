@@ -10,6 +10,7 @@ const githubBtnSettings = document.querySelector('input[value="github"]');
 const unsplashBtnSettings = document.querySelector('input[value="unsplashApi"]');
 const flickrBtnSettings = document.querySelector('input[value="flickrApi"]');
 const img = new Image();
+let isJump = true;
 
 // получить рандомное число от min до max
 function getRandomNum(min, max) {
@@ -59,7 +60,7 @@ async function getUnsplashImg() {
     img.onload = () => {
     body.style.backgroundImage = `url(${data.urls.regular})`;
     };
-  }
+  } 
 }
 // background источник - Flickr API
 async function getFlickrImg() {  
@@ -80,8 +81,17 @@ async function getFlickrImg() {
   }
 }
 
+function setJump() {
+  isJump = true;
+};
+
 // стрелка вправо листает background по порядку
 function getSlideNext(){
+  if (!isJump) {
+    return;
+  }
+  isJump = false;
+
   if (slideNumber < 20) {
     slideNumber = slideNumber + 1;
   } else if (slideNumber === 20) {
@@ -94,9 +104,15 @@ function getSlideNext(){
   } else {
     setBg();
   } 
+  setTimeout(setJump, 2000); // задержка на перелистывание фото
 };
 // стрелка влево листает background по порядку
 function getSlidePrev(){
+  if (!isJump) {
+    return;
+  }
+  isJump = false;
+
   if (slideNumber > 1) {
     slideNumber = slideNumber - 1;
   } else if (slideNumber === 1) {
@@ -109,6 +125,7 @@ function getSlidePrev(){
   } else {
     setBg();
   } 
+  setTimeout(setJump, 2000); // задержка на перелистывание фото
 };
 
 slideNext.addEventListener('click', getSlideNext);
