@@ -51,7 +51,7 @@ const langObject = {
       gallery: 'Фоновое изображение',
       wind: 'Скорость ветра',
       windMs: 'м/с',
-      humidity: 'Влажность',
+      humidity: 'Влажность воздуха',
       notFound: 'Ошибка! Город не найден!',
       cantFind: 'Ошибка! Не могу найти погоду для ',
       placeholder: '[Введите ваше имя]',
