@@ -10,6 +10,7 @@ const addBTN = document.querySelector('.add_btn');
 const tasksList = document.querySelector('.tasks');
 const addTask = document.querySelector('.todo_addtask');
 const todoTitleWidget = document.querySelector('.todo_text');
+const todoDelete = document.querySelector('.todo_delete');
 
 (function () { // вызов todo list popup
   todoBTN.addEventListener('click', () => {
@@ -82,7 +83,13 @@ const todoTitleWidget = document.querySelector('.todo_text');
       // переключение языка в настройках меняет язык todo title
       todoTitleWidget.textContent = langObject[language].todo;
     })
-  })
+  });
+
+  // кнопка "урна" удаляет все задачи
+  todoDelete.addEventListener('click', () => {
+    tasksList.innerHTML = ' ';
+    localStorage.setItem('tasks_content', tasksList.innerHTML);
+  });
 
   // Local Storage для todo list
   window.addEventListener('beforeunload', () => {

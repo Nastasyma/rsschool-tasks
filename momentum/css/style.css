@@ -569,6 +569,19 @@ body {
 .todo_close:hover {
   filter: invert(40%) sepia(90%) saturate(1000%);
 }
+.todo_delete {
+  background-image: url("../assets/svg/delete_all.svg");
+  background-position: center;
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.todo_delete:hover {
+  filter: invert(40%) sepia(90%) saturate(1000%);
+}
 .todo_container {
   display: flex;
   flex-direction: column;
@@ -581,7 +594,6 @@ body {
   gap: 3px;
   width: 100%;
   margin: 0 auto;
-  padding-right: 10px;
 }
 .todo_addtask {
   padding: 10px;
@@ -610,7 +622,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  padding-right: 10px ;
+  padding-right: 10px;
+  transition: 0.8s ease-in-out;
 }
 .tasks::-webkit-scrollbar {
   width: 5px;
@@ -618,7 +631,7 @@ body {
 }
 .tasks::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color:#ff7b00;
+  background-color: gray;
 }
 .tasks_item {
   display: flex;
