@@ -16,7 +16,7 @@ let isJump = true;
 function getRandomNum(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function getTimeOfDay() {
@@ -43,6 +43,7 @@ function setBg() {
     img.src = `https://raw.githubusercontent.com/Nastasyma/momentum-backgrounds/main/${timeOfDay}/${bgNum}.webp`
     img.onload = () => {
       body.style.backgroundImage = `url(${img.src})`;
+    // console.log('bgNum =', bgNum);
   }
 }
 // background источник - Unsplash API
@@ -104,6 +105,7 @@ function getSlideNext(){
   } else {
     setBg();
   } 
+  // console.log(slideNumber);
   setTimeout(setJump, 2000); // задержка на перелистывание фото
 };
 // стрелка влево листает background по порядку
@@ -125,6 +127,7 @@ function getSlidePrev(){
   } else {
     setBg();
   } 
+  // console.log(slideNumber);
   setTimeout(setJump, 2000); // задержка на перелистывание фото
 };
 

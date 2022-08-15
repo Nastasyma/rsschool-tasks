@@ -9,6 +9,7 @@ const city = document.querySelector('.city');
 const weatherDescription = document.querySelector('.weather-description');
 const humidity = document.querySelector('.humidity');
 const speedWind = document.querySelector('.speedWind');
+const error = document.querySelector('.weather-error');
 
 // получить информацию о погоде
 async function getWeather() {  
@@ -21,16 +22,19 @@ async function getWeather() {
   if (data.cod !== '404' && data.cod !== '400') { // вывести виджет с погодой в зависимости от введенного города
     weatherIcon.classList.add(`owf-${data.weather[0].id}`); // иконка
     temperature.textContent = `${data.main.temp.toFixed(0)}°C`; // температура
-    weatherDescription.textContent = data.weather[0].description; // описание погоды
+    weatherDescription.textContent = data.weather[0].description.slice(0, 1).toUpperCase() + data.weather[0].description.slice(1); // описание погоды
     humidity.textContent = `${langObject[language].humidity}: ${data.main.humidity.toFixed(0)}%`; // влажность воздуха
     speedWind.textContent = `${langObject[language].wind}: ${data.wind.speed.toFixed(0)} ${langObject[language].windMs}`; // скорость ветра 
+    error.textContent = '';
   } else if (city.value === '') { // если пустая строка
-    temperature.textContent = langObject[language].notFound;
+    error.textContent = langObject[language].notFound;
+    temperature.textContent = '';
     weatherDescription.textContent = '';
     humidity.textContent = '';
     speedWind.textContent = ''; 
   } else { // если такого города не cуществует 
-    temperature.textContent = `${langObject[language].cantFind} "${city.value}" !`;
+    error.textContent = `${langObject[language].cantFind} "${city.value}" !`;
+    temperature.textContent = '';
     weatherDescription.textContent = '';
     humidity.textContent = '';
     speedWind.textContent = ''; 

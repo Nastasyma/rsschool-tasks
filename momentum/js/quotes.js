@@ -14,17 +14,17 @@ async function getQuotes() {
   const quotes = langObject[language].quote;
   const res = await fetch(quotes);
   const data = await res.json(); 
-  randomQuote = getRandomNum(1, data.length);
-  console.log(data.length);
+  randomQuote = getRandomNum(0, data.length-1);
+  // console.log('quote.json length =',data.length);
   quote.textContent = data[randomQuote].text;
   author.textContent = data[randomQuote].author;  
+  // console.log('quote =', randomQuote)
 }
 getQuotes();
 
 // вывести рандомно цитату по номеру от 1 до 20 при клике на кнопку 
 changeQuote.addEventListener('click', () => {
   getQuotes();
-  randomQuote = getRandomNum(1, 20);
 });
 
 // переключение языка в настройках меняет язык цитаты
