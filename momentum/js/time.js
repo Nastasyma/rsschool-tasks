@@ -93,7 +93,7 @@ langs.forEach(el => {
     // переключение языка в настройках меняет язык приветствия
     localStorage.setItem('greeting_text', greetingText);
   })
-})
+});
 
 window.addEventListener('beforeunload', setName);
 window.addEventListener('DOMContentLoaded', () => {

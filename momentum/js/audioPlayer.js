@@ -60,10 +60,10 @@ function nextSong() {
     playAudio();
   } 
 
-  if (songNum < 4) {
+  if (songNum < playList.length-1) {
     songNum = songNum + 1;
     playItem[songNum-1].classList.remove('item-active');   
-  } else if (songNum === 4) {
+  } else if (songNum === playList.length-1) {
     playItem[songNum].classList.remove('item-active');    
     songNum = 0;          
   }  
@@ -82,7 +82,7 @@ function prevSong() {
   }
   else if (songNum === 0) {
     playItem[songNum].classList.remove('item-active'); 
-    songNum = 4;
+    songNum = playList.length-1;
   }   
   playAudio(); 
 }
@@ -142,7 +142,7 @@ audioVolume.addEventListener("input", () => {
 
   audio.volume = Math.trunc(audioVolume.value) / 100;
   audioVolume.style.background = `linear-gradient(to right, #c76000 0%, #c76000 ${audioVolume.value}%, #c4c4c4 ${audioVolume.value}%, #c4c4c4 100%)`;
-  if (audioVolume.value == 0) {
+  if (audioVolume.value === 0) {
     volumeIcon.classList.add('mute');
   } else { 
     volumeIcon.classList.remove('mute');
