@@ -90,8 +90,7 @@ langs.forEach(el => {
     }
     localStorage.setItem('name_placeholder', langObject[language].placeholder);
     getTimeOfDayGreeting();
-    // переключение языка в настройках меняет язык приветствия
-    localStorage.setItem('greeting_text', greetingText);
+    showDate();
   })
 });
 
@@ -99,8 +98,7 @@ window.addEventListener('beforeunload', setName);
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('name_placeholder')) 
     nameEnter.placeholder = langObject[language].placeholder;
-  if (localStorage.getItem('greeting_text')) 
-    greeting.textContent = localStorage.getItem('greeting_text');
+  getTimeOfDayGreeting();
   showDate();
   getName();
   nameEnter.oninput = updateSize;
