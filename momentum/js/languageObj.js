@@ -29,9 +29,8 @@ const langObject = {
       day: 'Good afternoon,',
       evening: 'Good evening,',
       night: 'Good night,',
-      locale: 'en-GB',
+      locale: 'en-EN',
       addBtn: 'Add',
-      /*tag: '[Enter tag for search]',*/
     },
     ru: {
       quote: 'js/RU-quotes.json',
@@ -65,7 +64,6 @@ const langObject = {
       night: 'Доброй ночи,',
       locale: 'ru-RU',
       addBtn: 'Добавить',
-      /*tag: '[Введите тег для поиска]',*/
     }
   }
 

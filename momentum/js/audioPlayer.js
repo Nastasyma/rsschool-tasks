@@ -131,10 +131,8 @@ volumeIcon.addEventListener('click', () => {
 
   audio.muted = !audio.muted;
   if (audio.muted) {
-    volumeIcon.classList.remove('mute');
     volumeIcon.classList.add('mute');
   } else {
-    volumeIcon.classList.add('mute');
     volumeIcon.classList.remove('mute');
   }
 });
