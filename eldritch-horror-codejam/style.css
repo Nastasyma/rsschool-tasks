@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("assets/img/home.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+}
+
+.main_container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.ancients_cards_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+  min-width: 40%;
+  padding: 20px;
+}
+.card1 {
+  background-image: url("assets/img/Ancients/Azathoth.png");
+}
+.card2 {
+  background-image: url("assets/img/Ancients/Cthulthu.png");
+}
+.card3 {
+  background-image: url("assets/img/Ancients/IogSothoth.png");
+}
+.card4 {
+  background-image: url("assets/img/Ancients/ShubNiggurath.png");
+}
+.card {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  width: 200px;
+  height: 250px;
+}
+.difficulty_level_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  justify-content: center;
+  color: white;
+}
+.difficulty_level {
+  border: 2px solid white;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+}
+.cards_wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  min-width: 30%;
+  color: white;
+}
+.cards_button {
+  border: 2px solid white;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+}
