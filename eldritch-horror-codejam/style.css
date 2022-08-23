@@ -120,13 +120,13 @@ body {
   justify-content: center;
   width: 30px;
 }
-.green_dot {
+.green {
   background-color: green;
 }
-.brown_dot {
+.brown {
   background-color: brown;
 }
-.blue_dot {
+.blue {
   background-color: blue;
 }
 .cards_deck {
@@ -138,11 +138,9 @@ body {
   border-radius: 15px;
 }
 .current_card {
-  background-image: url("assets/img/MythicCards/blue/blue3.png");
   background-size: cover;
   height: 190px;
   width: 130px;
   cursor: pointer;
   border-radius: 15px;
-  visibility: hidden;
 }
