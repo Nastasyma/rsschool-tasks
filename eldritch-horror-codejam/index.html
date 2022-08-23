@@ -18,15 +18,46 @@
     </div>
     <div class="difficulty_level_wrapper">
       <div class="difficulty_title">Уровень сложности</div>
-      <div class="difficulty_level">Очень легкий</div>
-      <div class="difficulty_level">Легкий</div>
-      <div class="difficulty_level">Средний</div>
-      <div class="difficulty_level">Высокий</div>
-      <div class="difficulty_level">Очень высокий</div>
+      <div class="difficulty_level level1">Очень легкий</div>
+      <div class="difficulty_level level2">Легкий</div>
+      <div class="difficulty_level level3">Средний</div>
+      <div class="difficulty_level level4">Высокий</div>
+      <div class="difficulty_level level5">Очень высокий</div>
     </div>
     <div class="cards_wrapper">
       <div class="cards_button">Замешать колоду</div>
+      <div class="deck_wrapper">
+        <div class="current_state">
+          <div class="stage_wrapper">
+            <span class="stage_title">Первая стадия</span>
+            <div class="dots_wrapper">
+              <div class="dot green_dot">1</div>
+              <div class="dot brown_dot">2</div>
+              <div class="dot blue_dot">1</div>
+            </div>
+          </div>
+          <div class="stage_wrapper">
+            <span class="stage_title">Вторая стадия</span>
+            <div class="dots_wrapper">
+              <div class="dot green_dot">2</div>
+              <div class="dot brown_dot">3</div>
+              <div class="dot blue_dot">1</div>
+            </div>
+          </div>
+          <div class="stage_wrapper">
+            <span class="stage_title">Третья стадия</span>
+            <div class="dots_wrapper">
+              <div class="dot green_dot">2</div>
+              <div class="dot brown_dot">4</div>
+              <div class="dot blue_dot">0</div>
+            </div>
+          </div>
+        </div>
+        <div class="cards_deck"></div>
+        <div class="current_card"></div>
+      </div>
     </div>
   </div>
+  <script src="js/index.js" type="module"></script>
 </body>
 </html>

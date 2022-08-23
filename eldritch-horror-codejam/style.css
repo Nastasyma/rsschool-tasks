@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url("assets/img/home.png");
+  background-image: url("assets/img/home_cthulthu.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
@@ -23,12 +23,14 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 30px;
   min-width: 40%;
   padding: 20px;
 }
 .card1 {
   background-image: url("assets/img/Ancients/Azathoth.png");
+  border: 2px solid red;
 }
 .card2 {
   background-image: url("assets/img/Ancients/Cthulthu.png");
@@ -45,7 +47,9 @@ body {
   background-size: contain;
   cursor: pointer;
   width: 200px;
-  height: 250px;
+  height: 260px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px rgba(255,255,255,0.5);
 }
 .difficulty_level_wrapper {
   display: flex;
@@ -62,6 +66,9 @@ body {
   padding: 5px;
   text-align: center;
 }
+.level3 {
+  background-color: brown;
+}
 .cards_wrapper {
   align-items: center;
   display: flex;
@@ -71,10 +78,71 @@ body {
   min-width: 30%;
   color: white;
 }
+.deck_wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  display: none;
+}
 .cards_button {
   border: 2px solid white;
   box-sizing: border-box;
   cursor: pointer;
   padding: 5px;
   text-align: center;
+  display: none;
+}
+.current_state {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 30%;
+}
+.stage_wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.dots_wrapper {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.dot {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+}
+.green_dot {
+  background-color: green;
+}
+.brown_dot {
+  background-color: brown;
+}
+.blue_dot {
+  background-color: blue;
+}
+.cards_deck {
+  background-image: url("assets/img/mythicCardBackground.png");
+  background-size: cover;
+  height: 190px;
+  width: 130px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.current_card {
+  background-image: url("assets/img/MythicCards/blue/blue3.png");
+  background-size: cover;
+  height: 190px;
+  width: 130px;
+  cursor: pointer;
+  border-radius: 15px;
+  visibility: hidden;
 }
