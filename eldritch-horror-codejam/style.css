@@ -9,6 +9,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50%;
+  transition: background-image 0.5s ease-in-out;
 }
 
 .main_container {
@@ -40,9 +41,6 @@ body {
 .card4 {
   background-image: url("assets/img/Ancients/ShubNiggurath.jpg");
 }
-.card_active {
-  border: 2px solid red;
-}
 .card {
   background-position: 50%;
   background-repeat: no-repeat;
@@ -52,6 +50,9 @@ body {
   height: 260px;
   border-radius: 15px;
   box-shadow: 2px 2px 8px rgba(255,255,255,0.5);
+}
+.card_active {
+  border: 3px solid brown;
 }
 .difficulty_level_wrapper {
   display: flex;
@@ -69,7 +70,7 @@ body {
   padding: 5px;
   text-align: center;
 }
-.level3 {
+.level_active {
   background-color: brown;
 }
 .cards_wrapper {
