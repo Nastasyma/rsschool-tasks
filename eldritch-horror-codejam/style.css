@@ -29,17 +29,19 @@ body {
   padding: 20px;
 }
 .card1 {
-  background-image: url("assets/img/Ancients/Azathoth.png");
-  border: 2px solid red;
+  background-image: url("assets/img/Ancients/Azathoth.jpg");
 }
 .card2 {
-  background-image: url("assets/img/Ancients/Cthulthu.png");
+  background-image: url("assets/img/Ancients/Cthulthu.jpg");
 }
 .card3 {
-  background-image: url("assets/img/Ancients/IogSothoth.png");
+  background-image: url("assets/img/Ancients/IogSothoth.jpg");
 }
 .card4 {
-  background-image: url("assets/img/Ancients/ShubNiggurath.png");
+  background-image: url("assets/img/Ancients/ShubNiggurath.jpg");
+}
+.card_active {
+  border: 2px solid red;
 }
 .card {
   background-position: 50%;
@@ -58,6 +60,7 @@ body {
   height: 100vh;
   justify-content: center;
   color: white;
+  display: none;
 }
 .difficulty_level {
   border: 2px solid white;
@@ -130,7 +133,7 @@ body {
   background-color: blue;
 }
 .cards_deck {
-  background-image: url("assets/img/mythicCardBackground.png");
+  background-image: url("assets/img/mythicCardBackground.jpg");
   background-size: cover;
   height: 190px;
   width: 130px;
