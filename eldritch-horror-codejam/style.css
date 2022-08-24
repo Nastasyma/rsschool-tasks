@@ -110,6 +110,9 @@ body {
   flex-direction: column;
   gap: 5px;
 }
+.title_active {
+  color: brown;
+}
 .dots_wrapper {
   align-items: center;
   display: flex;
