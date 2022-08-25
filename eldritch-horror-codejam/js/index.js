@@ -3,6 +3,7 @@ import cardsDataBrown from './cardsDataBrown.js';
 import cardsDataBlue from './cardsDataBlue.js';
 import ancientsData from './ancientsData.js';
 
+const body = document.querySelector('body');
 const cardsBTN = document.querySelector('.cards_button');
 const levelVeryEasy = document.querySelector('.level_1');
 const levelEasy = document.querySelector('.level_2');
@@ -12,7 +13,7 @@ const levelVeryHard = document.querySelector('.level_5');
 const deckWrapper = document.querySelector('.deck_wrapper');
 const currentCard = document.querySelector('.current_card');
 const cardsDeck = document.querySelector('.cards_deck');
-const anchCards = document.querySelectorAll('.card');
+const ancientsCards = document.querySelectorAll('.card');
 const levels = document.querySelectorAll('.difficulty_level');
 const levelsWrapper = document.querySelector('.difficulty_level_wrapper');
 const greenSt1 = document.querySelector('.green_st1');
@@ -28,6 +29,7 @@ const card1 = document.querySelector('.card1');
 const card2 = document.querySelector('.card2');
 const card3 = document.querySelector('.card3');
 const card4 = document.querySelector('.card4');
+const cardClose = document.querySelectorAll('.card_close');
 const img = new Image();
 
 levelVeryEasy.addEventListener('click', () => { 
@@ -64,7 +66,6 @@ levelEasy.addEventListener('click', () => {
     pushDotShubNiggurath();
   }
 });
-
 levelMid.addEventListener('click', () => { 
   reset();
   if (card1.classList.contains('card_active')) {
@@ -85,12 +86,16 @@ levelHard.addEventListener('click', () => {
   reset();
   sortDifficulty();
   if (card1.classList.contains('card_active')) {
+    pushCardsAzathothHard();
     pushDotsAzathoth();
   } else if (card2.classList.contains('card_active')) {
+    pushCardsCthulthuHard();
     pushDotCthulthu();
   } else if (card3.classList.contains('card_active')) {
+    pushCardsIogSothothHard();
     pushDotIogSothoth();
   } else if (card4.classList.contains('card_active')) {
+    pushCardsShubNiggurathHard();
     pushDotShubNiggurath();
   }
 });
@@ -116,23 +121,76 @@ cardsBTN.addEventListener('click', () => {
   deckWrapper.style.display = "flex";
 });
 
-anchCards.forEach(el => {
+ancientsCards.forEach(el => {
   el.addEventListener('click', (e) => {
     // console.clear();
+    // console.log(e.target)
     card1.classList.remove('card_active');
     card2.classList.remove('card_active');
     card3.classList.remove('card_active');
-    card4.classList.remove('card_active');
+    card4.classList.remove('card_active');   
     levelVeryEasy.classList.remove('level_active');
     levelEasy.classList.remove('level_active');
     levelMid.classList.remove('level_active');
     levelHard.classList.remove('level_active');
     levelVeryHard.classList.remove('level_active');
+    document.querySelector('.select_ancient').style.display = "none";
     levelsWrapper.style.display = "flex";
     deckWrapper.style.display = "none";
     cardsBTN.style.display = "none";
     e.target.classList.add('card_active');
+    if (card1.classList.contains('card_active')) {
+      card2.style.display = "none";
+      card3.style.display = "none";
+      card4.style.display = "none";
+      document.querySelector('.close1').style.display = "block";
+      body.style.backgroundImage = 'url("assets/img/home_azathoth.jpg")';
+    } else if (card2.classList.contains('card_active')) {
+      card1.style.display = "none";
+      card3.style.display = "none";
+      card4.style.display = "none";
+      document.querySelector('.close2').style.display = "block";
+      body.style.backgroundImage = 'url("assets/img/home_cthulthu.png")';
+    } else if (card3.classList.contains('card_active')) {
+      card1.style.display = "none";
+      card2.style.display = "none";
+      card4.style.display = "none";
+      document.querySelector('.close3').style.display = "block";
+      body.style.backgroundImage = 'url("assets/img/home_iogsothoth.jpg")';
+    } else if (card4.classList.contains('card_active')) {
+      card1.style.display = "none";
+      card3.style.display = "none";
+      card2.style.display = "none";
+      document.querySelector('.close4').style.display = "block";
+      body.style.backgroundImage = 'url("assets/img/home_shubniggurath.jpg")';
+    }
+    if (e.target === document.querySelector('.close1') || 
+        e.target === document.querySelector('.close2') || 
+        e.target === document.querySelector('.close3') || 
+        e.target === document.querySelector('.close4')) {
+        
+        e.target.classList.remove('card_active');
+        document.querySelector('.select_ancient').style.display = "flex";
+        body.style.backgroundImage = 'url("assets/img/home_eldritch_horror.jpg")';
+        levelsWrapper.style.display = "none";
+    }
   })
+});
+cardClose.forEach(el => {
+  el.addEventListener('click', () => {
+    card1.classList.remove('card_active');
+    card2.classList.remove('card_active');
+    card3.classList.remove('card_active');
+    card4.classList.remove('card_active'); 
+    card1.style.display = "block";
+    card2.style.display = "block";
+    card3.style.display = "block";
+    card4.style.display = "block";
+    document.querySelector('.close1').style.display = "none";
+    document.querySelector('.close2').style.display = "none";
+    document.querySelector('.close3').style.display = "none";
+    document.querySelector('.close4').style.display = "none";
+  });
 });
 levels.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -181,6 +239,10 @@ let blueEasySt = [];
 let arrayGreen = [];
 let arrayBrown = [];
 let arrayBlue = [];
+
+let indexGreen;
+let indexBrown;
+let indexBlue;
 
 function getRandomNum(min, max) {
   min = Math.ceil(min);
@@ -233,7 +295,6 @@ function reset() {
   document.querySelector('.title_2').classList.remove('title_active');
   document.querySelector('.title_3').classList.remove('title_active');
 };
-
 function sortDifficulty() {
   for (let i=0; i<cardsDataGreen.length; i++) {
     if (cardsDataGreen[i].difficulty === 'easy') {
@@ -263,16 +324,13 @@ function sortDifficulty() {
     }
   }
 }
-
-let indexGreen;
-let indexBrown;
-let indexBlue;
-
 function pushCardsAzathothVeryEasy() {
   greenVeryEasy.push(easyGreen);
   brownVeryEasy.push(easyBrown);
   for (let i=0; i<4; i++) {
     indexBrown = getRandomNum(0, normalBrown.length-1);
+    // console.log("indexBrown =", indexBrown);
+    // console.log("cardBrown =", normalBrown[indexBrown].id);
     if (brownVeryEasy.includes(normalBrown[indexBrown])) {
       i--
     } else {
@@ -281,6 +339,8 @@ function pushCardsAzathothVeryEasy() {
   }
   for (let i=0; i<2; i++) {
     indexBlue = getRandomNum(0, easyBlue.length-1);
+    // console.log("indexBlue =", indexBlue);
+    // console.log("cardBlue =", normalBlue[indexBlue].id);
     if (blueVeryEasy.includes(easyBlue[indexBlue])) {
       i--
     } else {
@@ -582,6 +642,126 @@ function pushCardsAzathothMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsAzathothMid = ", arrayCards);
+}
+function pushCardsAzathothHard() {
+  arrayGreen.push(hardGreen);
+  arrayGreen.push(normalGreen);
+  arrayBrown.push(hardBrown);
+  arrayBrown.push(normalBrown);
+  arrayBlue.push(hardBlue);
+  arrayBlue.push(normalBlue);
+  arrayGreen = arrayGreen.flat(Infinity);
+  arrayBrown = arrayBrown.flat(Infinity);
+  arrayBlue = arrayBlue.flat(Infinity);
+
+  for (let i=0; i<5; i++) {
+    indexGreen = getRandomNum(0, arrayGreen.length-1);
+    if (greenHardSt.includes(arrayGreen[indexGreen])) {
+      i--
+    } else {
+      greenHardSt.push(arrayGreen[indexGreen]);
+    }
+  }
+  for (let i=0; i<9; i++) {
+    indexBrown = getRandomNum(0, arrayBrown.length-1);
+    if (brownHardSt.includes(arrayBrown[indexBrown])) {
+      i--
+    } else {
+    brownHardSt.push(arrayBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, arrayBlue.length-1);
+    if (blueHardSt.includes(arrayBlue[indexBlue])) {
+      i--
+    } else {
+    blueHardSt.push(arrayBlue[indexBlue]);
+    }
+  }
+  greenHardSt = greenHardSt.flat(Infinity);
+  brownHardSt = brownHardSt.flat(Infinity);
+  blueHardSt = blueHardSt.flat(Infinity);
+  console.log("greenHardSt =", greenHardSt);
+  console.log("brownHardSt =", brownHardSt);
+  console.log("blueHardSt =", blueHardSt);
+
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageOne.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+    stageOne.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageOneAzathothHard = ", stageOne);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageTwo.includes(greenHardSt[indexGreen]) || stageOne.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue]) || stageTwo.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageTwo.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageTwoAzathothHard = ", stageTwo);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageOne.includes(greenHardSt[indexGreen]) || stageTwo.includes(greenHardSt[indexGreen]) || stageThree.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown]) || stageThree.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownHardSt[indexBrown]);
+    }
+  }
+  console.log("stageThreeAzathothHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsAzathothHard = ", arrayCards);
 }
 function pushCardsAzathothVeryHard() {
   greenVeryHard.push(hardGreen);
@@ -956,6 +1136,110 @@ function pushCardsCthulthuMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuMid = ", arrayCards);
+}
+function pushCardsCthulthuHard() {
+  arrayGreen.push(hardGreen);
+  arrayGreen.push(normalGreen);
+  arrayBrown.push(hardBrown);
+  arrayBrown.push(normalBrown);
+  arrayBlue.push(hardBlue);
+  arrayBlue.push(normalBlue);
+  arrayGreen = arrayGreen.flat(Infinity);
+  arrayBrown = arrayBrown.flat(Infinity);
+  arrayBlue = arrayBlue.flat(Infinity);
+
+  for (let i=0; i<4; i++) {
+    indexGreen = getRandomNum(0, arrayGreen.length-1);
+    if (greenHardSt.includes(arrayGreen[indexGreen])) {
+      i--
+    } else {
+      greenHardSt.push(arrayGreen[indexGreen]);
+    }
+  }
+  for (let i=0; i<9; i++) {
+    indexBrown = getRandomNum(0, arrayBrown.length-1);
+    if (brownHardSt.includes(arrayBrown[indexBrown])) {
+      i--
+    } else {
+    brownHardSt.push(arrayBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, arrayBlue.length-1);
+    if (blueHardSt.includes(arrayBlue[indexBlue])) {
+      i--
+    } else {
+    blueHardSt.push(arrayBlue[indexBlue]);
+    }
+  }
+  greenHardSt = greenHardSt.flat(Infinity);
+  brownHardSt = brownHardSt.flat(Infinity);
+  blueHardSt = blueHardSt.flat(Infinity);
+  console.log("greenHardSt =", greenHardSt);
+  console.log("brownHardSt =", brownHardSt);
+  console.log("blueHardSt =", blueHardSt);
+
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageOneCthulthuHard = ", stageOne);
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageTwo.includes(greenHardSt[indexGreen]) || stageOne.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownHardSt[indexBrown]);
+    }
+  }
+  console.log("stageTwoCthulthuHard = ", stageTwo);
+  for (let i=0; i<3; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageOne.includes(greenHardSt[indexGreen]) || stageTwo.includes(greenHardSt[indexGreen]) || stageThree.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown]) || stageThree.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownHardSt[indexBrown]);
+    }
+  }
+  console.log("stageThreeCthulthuHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsCthulthuHard = ", arrayCards);
 }
 function pushCardsCthulthuVeryHard() {
 
@@ -1339,6 +1623,118 @@ function pushCardsIogSothothMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothMid = ", arrayCards);
+}
+function pushCardsIogSothothHard() {
+  arrayGreen.push(hardGreen);
+  arrayGreen.push(normalGreen);
+  arrayBrown.push(hardBrown);
+  arrayBrown.push(normalBrown);
+  arrayBlue.push(hardBlue);
+  arrayBlue.push(normalBlue);
+  arrayGreen = arrayGreen.flat(Infinity);
+  arrayBrown = arrayBrown.flat(Infinity);
+  arrayBlue = arrayBlue.flat(Infinity);
+
+  for (let i=0; i<5; i++) {
+    indexGreen = getRandomNum(0, arrayGreen.length-1);
+    if (greenHardSt.includes(arrayGreen[indexGreen])) {
+      i--
+    } else {
+      greenHardSt.push(arrayGreen[indexGreen]);
+    }
+  }
+  for (let i=0; i<9; i++) {
+    indexBrown = getRandomNum(0, arrayBrown.length-1);
+    if (brownHardSt.includes(arrayBrown[indexBrown])) {
+      i--
+    } else {
+    brownHardSt.push(arrayBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, arrayBlue.length-1);
+    if (blueHardSt.includes(arrayBlue[indexBlue])) {
+      i--
+    } else {
+    blueHardSt.push(arrayBlue[indexBlue]);
+    }
+  }
+  greenHardSt = greenHardSt.flat(Infinity);
+  brownHardSt = brownHardSt.flat(Infinity);
+  blueHardSt = blueHardSt.flat(Infinity);
+  console.log("greenHardSt =", greenHardSt);
+  console.log("brownHardSt =", brownHardSt);
+  console.log("blueHardSt =", blueHardSt);
+
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageOneIogSothothHard = ", stageOne);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageTwo.includes(greenHardSt[indexGreen]) || stageOne.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue]) || stageTwo.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageTwo.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageTwoIogSothothHard = ", stageTwo);
+  for (let i=0; i<3; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageOne.includes(greenHardSt[indexGreen]) || stageTwo.includes(greenHardSt[indexGreen]) || stageThree.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown]) || stageThree.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownHardSt[indexBrown]);
+    }
+  }
+  console.log("stageThreeIogSothothHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsIogSothothHard = ", arrayCards);
 }
 function pushCardsIogSothothVeryHard() {
   greenVeryHard.push(hardGreen);
@@ -1756,6 +2152,126 @@ function pushCardsShubNiggurathMid() {
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsShubNiggurathMid = ", arrayCards);
 }
+function pushCardsShubNiggurathHard() {
+  arrayGreen.push(hardGreen);
+  arrayGreen.push(normalGreen);
+  arrayBrown.push(hardBrown);
+  arrayBrown.push(normalBrown);
+  arrayBlue.push(hardBlue);
+  arrayBlue.push(normalBlue);
+  arrayGreen = arrayGreen.flat(Infinity);
+  arrayBrown = arrayBrown.flat(Infinity);
+  arrayBlue = arrayBlue.flat(Infinity);
+
+  for (let i=0; i<6; i++) {
+    indexGreen = getRandomNum(0, arrayGreen.length-1);
+    if (greenHardSt.includes(arrayGreen[indexGreen])) {
+      i--
+    } else {
+      greenHardSt.push(arrayGreen[indexGreen]);
+    }
+  }
+  for (let i=0; i<8; i++) {
+    indexBrown = getRandomNum(0, arrayBrown.length-1);
+    if (brownHardSt.includes(arrayBrown[indexBrown])) {
+      i--
+    } else {
+    brownHardSt.push(arrayBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, arrayBlue.length-1);
+    if (blueHardSt.includes(arrayBlue[indexBlue])) {
+      i--
+    } else {
+    blueHardSt.push(arrayBlue[indexBlue]);
+    }
+  }
+  greenHardSt = greenHardSt.flat(Infinity);
+  brownHardSt = brownHardSt.flat(Infinity);
+  blueHardSt = blueHardSt.flat(Infinity);
+  console.log("greenHardSt =", greenHardSt);
+  console.log("brownHardSt =", brownHardSt);
+  console.log("blueHardSt =", blueHardSt);
+
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageOne.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+    stageOne.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageOneShubNiggurathHard = ", stageOne);
+  for (let i=0; i<3; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageTwo.includes(greenHardSt[indexGreen]) || stageOne.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownHardSt[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueHardSt.length-1);
+    if (stageOne.includes(blueHardSt[indexBlue]) || stageTwo.includes(blueHardSt[indexBlue])) {
+      i--
+    } else {
+      stageTwo.push(blueHardSt[indexBlue]);
+    }
+  }
+  console.log("stageTwoShubNiggurathHard = ", stageTwo);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenHardSt.length-1);
+    if (stageOne.includes(greenHardSt[indexGreen]) || stageTwo.includes(greenHardSt[indexGreen]) || stageThree.includes(greenHardSt[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenHardSt[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownHardSt.length-1);
+    if (stageOne.includes(brownHardSt[indexBrown]) || stageTwo.includes(brownHardSt[indexBrown]) || stageThree.includes(brownHardSt[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownHardSt[indexBrown]);
+    }
+  }
+  console.log("stageThreeShubNiggurathHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsShubNiggurathHard = ", arrayCards);
+}
 function pushCardsShubNiggurathVeryHard() {
   greenVeryHard.push(hardGreen);
   brownVeryHard.push(hardBrown);
@@ -1939,7 +2455,7 @@ function pushDotShubNiggurath() {
 
 function setCard() {
     for (let i = 0; i < 1; i++) {
-      console.log("card =", arrayCards[i].id, arrayCards[i].difficulty);
+      console.log("card =", arrayCards[i].id, "-" ,arrayCards[i].difficulty);
         if (arrayCards[i].color === "green") {
           img.src = `assets/img/MythicCards/green/${arrayCards[i].id}.jpg`;
           img.onload = () => {
@@ -1986,14 +2502,14 @@ function setCard() {
         if (greenSt3.textContent === '0' && brownSt3.textContent === '0' && blueSt3.textContent === '0') {
           document.querySelector('.title_3').classList.add('title_active');
         }
+
         arrayCards.shift();
         if (arrayCards.length === 0) {
           cardsDeck.style.visibility = "hidden";
         }
   }
 }
-
-deckWrapper.addEventListener('click', () => { 
+cardsDeck.addEventListener('click', () => { 
   if (arrayCards.length !== 0) {
   setCard();
   }
