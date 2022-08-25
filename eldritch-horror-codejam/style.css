@@ -49,10 +49,10 @@ body {
   width: 200px;
   height: 260px;
   border-radius: 15px;
-  box-shadow: 2px 2px 8px rgba(255,255,255,0.5);
 }
 .card_active {
-  border: 3px solid brown;
+  border: 3px solid  rgba(255, 0, 0, 0.5);
+  box-shadow: 2px 2px 40px rgba(255, 0, 0, 0.5);
 }
 .difficulty_level_wrapper {
   display: flex;
@@ -69,9 +69,13 @@ body {
   cursor: pointer;
   padding: 5px;
   text-align: center;
+  border-radius: 10px;
 }
+
 .level_active {
   background-color: brown;
+  box-shadow: 2px 2px 40px rgba(255, 0, 0, 0.5);
+  border: 2px solid rgb(134, 34, 34);
 }
 .cards_wrapper {
   align-items: center;
@@ -94,9 +98,10 @@ body {
   border: 2px solid white;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
   text-align: center;
   display: none;
+  border-radius: 10px;
 }
 .current_state {
   display: flex;
@@ -112,6 +117,7 @@ body {
 }
 .title_active {
   color: brown;
+  text-shadow: 2px 2px 4px black, 0 0 5px red;
 }
 .dots_wrapper {
   align-items: center;

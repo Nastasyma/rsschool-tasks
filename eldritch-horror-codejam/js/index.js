@@ -7,8 +7,8 @@ const cardsBTN = document.querySelector('.cards_button');
 const levelVeryEasy = document.querySelector('.level_1');
 const levelEasy = document.querySelector('.level_2');
 const levelMid = document.querySelector('.level_3');
-const levelHigh = document.querySelector('.level_4');
-const levelVeryHigh = document.querySelector('.level_5');
+const levelHard = document.querySelector('.level_4');
+const levelVeryHard = document.querySelector('.level_5');
 const deckWrapper = document.querySelector('.deck_wrapper');
 const currentCard = document.querySelector('.current_card');
 const cardsDeck = document.querySelector('.cards_deck');
@@ -77,7 +77,7 @@ levelMid.addEventListener('click', () => {
     pushDotShubNiggurath();
   }
 });
-levelHigh.addEventListener('click', () => { 
+levelHard.addEventListener('click', () => { 
   reset();
   sortDifficulty();
   if (card1.classList.contains('card_active')) {
@@ -90,16 +90,20 @@ levelHigh.addEventListener('click', () => {
     pushDotShubNiggurath();
   }
 });
-levelVeryHigh.addEventListener('click', () => { 
+levelVeryHard.addEventListener('click', () => { 
   reset();
   sortDifficulty();
   if (card1.classList.contains('card_active')) {
+    pushCardsAzathothVeryHard();
     pushDotsAzathoth();
   } else if (card2.classList.contains('card_active')) {
+    pushCardsCthulthuVeryHard();
     pushDotCthulthu();
   } else if (card3.classList.contains('card_active')) {
+    pushCardsIogSothothVeryHard();
     pushDotIogSothoth();
   } else if (card4.classList.contains('card_active')) {
+    pushCardsShubNiggurathVeryHard();
     pushDotShubNiggurath();
   }
 });
@@ -118,8 +122,8 @@ anchCards.forEach(el => {
     levelVeryEasy.classList.remove('level_active');
     levelEasy.classList.remove('level_active');
     levelMid.classList.remove('level_active');
-    levelHigh.classList.remove('level_active');
-    levelVeryHigh.classList.remove('level_active');
+    levelHard.classList.remove('level_active');
+    levelVeryHard.classList.remove('level_active');
     levelsWrapper.style.display = "flex";
     deckWrapper.style.display = "none";
     cardsBTN.style.display = "none";
@@ -136,8 +140,8 @@ levels.forEach(el => {
     levelVeryEasy.classList.remove('level_active');
     levelEasy.classList.remove('level_active');
     levelMid.classList.remove('level_active');
-    levelHigh.classList.remove('level_active');
-    levelVeryHigh.classList.remove('level_active');
+    levelHard.classList.remove('level_active');
+    levelVeryHard.classList.remove('level_active');
     e.target.classList.add('level_active');
   })
 });
@@ -161,6 +165,15 @@ let hardBlue = [];
 let greenVeryEasy = [];
 let brownVeryEasy = [];
 let blueVeryEasy = [];
+let greenVeryHard = [];
+let brownVeryHard = [];
+let blueVeryHard = [];
+let greenHardSt = [];
+let brownHardSt = [];
+let blueHardSt = [];
+let greenEasySt = [];
+let brownEasySt = [];
+let blueEasySt = [];
 
 function getRandomNum(min, max) {
   min = Math.ceil(min);
@@ -197,6 +210,15 @@ function reset() {
   greenVeryEasy.length = 0;
   brownVeryEasy.length = 0;
   blueVeryEasy.length = 0;
+  greenVeryHard.length = 0;
+  brownVeryHard.length = 0;
+  blueVeryHard.length = 0;
+  greenHardSt.length = 0;
+  brownHardSt.length = 0;
+  blueHardSt.length = 0;
+  greenEasySt.length = 0;
+  brownEasySt.length = 0;
+  blueEasySt.length = 0;
   document.querySelector('.title_1').classList.remove('title_active');
   document.querySelector('.title_2').classList.remove('title_active');
   document.querySelector('.title_3').classList.remove('title_active');
@@ -430,6 +452,111 @@ function pushCardsAzathothMid() {
   console.log("arrayCardsAzathothMid = ", arrayCards);
 }
 
+function pushCardsAzathothVeryHard() {
+  greenVeryHard.push(hardGreen);
+  brownVeryHard.push(hardBrown);
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, normalBrown.length-1);
+    if (brownVeryHard.includes(normalBrown[indexBrown])) {
+      i--
+    } else {
+    brownVeryHard.push(normalBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, hardBlue.length-1);
+    if (blueVeryHard.includes(hardBlue[indexBlue])) {
+      i--
+    } else {
+    blueVeryHard.push(hardBlue[indexBlue]);
+    }
+  }
+  greenVeryHard = greenVeryHard.flat(Infinity);
+  brownVeryHard = brownVeryHard.flat(Infinity);
+  blueVeryHard = blueVeryHard.flat(Infinity);
+  console.log("greenVeryHard =", greenVeryHard);
+  console.log("brownVeryHard =", brownVeryHard);
+  console.log("blueVeryHard =", blueVeryHard);
+
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageOne.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+    stageOne.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageOneAzathothVeryHard = ", stageOne);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageTwo.includes(greenVeryHard[indexGreen]) || stageOne.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue]) || stageTwo.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageTwo.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageTwoAzathothVeryHard = ", stageTwo);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageOne.includes(greenVeryHard[indexGreen]) || stageTwo.includes(greenVeryHard[indexGreen]) || stageThree.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown]) || stageThree.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownVeryHard[indexBrown]);
+    }
+  }
+  console.log("stageThreeAzathothVeryHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsAzathothVeryHard = ", arrayCards);
+}
+
 function pushCardsCthulthuVeryEasy() {
 
   for (let i=0; i<4; i++) {
@@ -596,6 +723,103 @@ function pushCardsCthulthuMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuMid = ", arrayCards);
+}
+
+function pushCardsCthulthuVeryHard() {
+
+  for (let i=0; i<4; i++) {
+    indexGreen = getRandomNum(0, hardGreen.length-1);
+    if (greenVeryHard.includes(hardGreen[indexGreen])) {
+      i--
+    } else {
+      greenVeryHard.push(hardGreen[indexGreen]);
+    }
+  }
+  brownVeryHard.push(hardBrown);
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, normalBrown.length-1);
+    if (brownVeryHard.includes(normalBrown[indexBrown])) {
+      i--
+    } else {
+    brownVeryHard.push(normalBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, hardBlue.length-1);
+    if (blueVeryHard.includes(hardBlue[indexBlue])) {
+      i--
+    } else {
+    blueVeryHard.push(hardBlue[indexBlue]);
+    }
+  }
+  greenVeryHard = greenVeryHard.flat(Infinity);
+  brownVeryHard = brownVeryHard.flat(Infinity);
+  blueVeryHard = blueVeryHard.flat(Infinity);
+  console.log("greenVeryHard =", greenVeryHard);
+  console.log("brownVeryHard =", brownVeryHard);
+  console.log("blueVeryHard =", blueVeryHard);
+
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageOneCthulthuVeryHard = ", stageOne);
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageTwo.includes(greenVeryHard[indexGreen]) || stageOne.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownVeryHard[indexBrown]);
+    }
+  }
+  console.log("stageTwoCthulthuVeryHard = ", stageTwo);
+  for (let i=0; i<3; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageOne.includes(greenVeryHard[indexGreen]) || stageTwo.includes(greenVeryHard[indexGreen]) || stageThree.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown]) || stageThree.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownVeryHard[indexBrown]);
+    }
+  }
+  console.log("stageThreeCthulthuVeryHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsCthulthuVeryHard = ", arrayCards);
 }
 
 function pushCardsIogSothothVeryEasy() {
@@ -773,6 +997,103 @@ function pushCardsIogSothothMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothMid = ", arrayCards);
+}
+
+function pushCardsIogSothothVeryHard() {
+  greenVeryHard.push(hardGreen);
+  brownVeryHard.push(hardBrown);
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, normalBrown.length-1);
+    if (brownVeryHard.includes(normalBrown[indexBrown])) {
+      i--
+    } else {
+    brownVeryHard.push(normalBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, hardBlue.length-1);
+    if (blueVeryHard.includes(hardBlue[indexBlue])) {
+      i--
+    } else {
+    blueVeryHard.push(hardBlue[indexBlue]);
+    }
+  }
+  greenVeryHard = greenVeryHard.flat(Infinity);
+  brownVeryHard = brownVeryHard.flat(Infinity);
+  blueVeryHard = blueVeryHard.flat(Infinity);
+  console.log("greenVeryHard =", greenVeryHard);
+  console.log("brownVeryHard =", brownVeryHard);
+  console.log("blueVeryHard =", blueVeryHard);
+
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageOneIogSothothVeryHard = ", stageOne);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageTwo.includes(greenVeryHard[indexGreen]) || stageOne.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue]) || stageTwo.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageTwo.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageTwoIogSothothVeryHard = ", stageTwo);
+  for (let i=0; i<3; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageOne.includes(greenVeryHard[indexGreen]) || stageTwo.includes(greenVeryHard[indexGreen]) || stageThree.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown]) || stageThree.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownVeryHard[indexBrown]);
+    }
+  }
+  console.log("stageThreeIogSothothVeryHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsIogSothothVeryHard = ", arrayCards);
 }
 
 function pushCardsShubNiggurathVeryEasy() {
@@ -977,6 +1298,119 @@ function pushCardsShubNiggurathMid() {
   console.log("arrayCardsShubNiggurathMid = ", arrayCards);
 }
 
+function pushCardsShubNiggurathVeryHard() {
+  greenVeryHard.push(hardGreen);
+  brownVeryHard.push(hardBrown);
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, normalGreen.length-1);
+    if (greenVeryHard.includes(normalGreen[indexGreen])) {
+      i--
+    } else {
+    greenVeryHard.push(normalGreen[indexGreen]);
+    }
+  }
+  for (let i=0; i<3; i++) {
+    indexBrown = getRandomNum(0, normalBrown.length-1);
+    if (brownVeryHard.includes(normalBrown[indexBrown])) {
+      i--
+    } else {
+    brownVeryHard.push(normalBrown[indexBrown]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBlue = getRandomNum(0, hardBlue.length-1);
+    if (blueVeryHard.includes(hardBlue[indexBlue])) {
+      i--
+    } else {
+    blueVeryHard.push(hardBlue[indexBlue]);
+    }
+  }
+  greenVeryHard = greenVeryHard.flat(Infinity);
+  brownVeryHard = brownVeryHard.flat(Infinity);
+  blueVeryHard = blueVeryHard.flat(Infinity);
+  console.log("greenVeryHard =", greenVeryHard);
+  console.log("brownVeryHard =", brownVeryHard);
+  console.log("blueVeryHard =", blueVeryHard);
+
+  for (let i=0; i<1; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageOne.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+    stageOne.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageOne.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageOne.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageOneShubNiggurathVeryHard = ", stageOne);
+  for (let i=0; i<3; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageTwo.includes(greenVeryHard[indexGreen]) || stageOne.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageTwo.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<2; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageTwo.push(brownVeryHard[indexBrown]);
+    }
+  }
+  for (let i=0; i<1; i++) {
+    indexBlue = getRandomNum(0, blueVeryHard.length-1);
+    if (stageOne.includes(blueVeryHard[indexBlue]) || stageTwo.includes(blueVeryHard[indexBlue])) {
+      i--
+    } else {
+      stageTwo.push(blueVeryHard[indexBlue]);
+    }
+  }
+  console.log("stageTwoShubNiggurathVeryHard = ", stageTwo);
+  for (let i=0; i<2; i++) {
+    indexGreen = getRandomNum(0, greenVeryHard.length-1);
+    if (stageOne.includes(greenVeryHard[indexGreen]) || stageTwo.includes(greenVeryHard[indexGreen]) || stageThree.includes(greenVeryHard[indexGreen])) {
+      i--
+    } else {
+      stageThree.push(greenVeryHard[indexGreen]);
+    }
+  }
+  for (let i=0; i<4; i++) {
+    indexBrown = getRandomNum(0, brownVeryHard.length-1);
+    if (stageOne.includes(brownVeryHard[indexBrown]) || stageTwo.includes(brownVeryHard[indexBrown]) || stageThree.includes(brownVeryHard[indexBrown])) {
+      i--
+    } else {
+      stageThree.push(brownVeryHard[indexBrown]);
+    }
+  }
+  console.log("stageThreeShubNiggurathVeryHard = ", stageThree);
+
+  sort(stageOne);
+  sort(stageTwo);
+  sort(stageThree);
+
+  arrayCards.push(stageOne);
+  arrayCards.push(stageTwo);
+  arrayCards.push(stageThree);
+  arrayCards = arrayCards.flat(Infinity);
+  console.log("arrayCardsShubNiggurathVeryHard = ", arrayCards);
+}
+
 function pushDotsAzathoth() {
   stageOneDots.push(ancientsData[0].firstStage);
   greenSt1.textContent = `${ancientsData[0].firstStage.greenCards}`;
@@ -1048,7 +1482,7 @@ function pushDotShubNiggurath() {
 
 function setCard() {
     for (let i = 0; i < 1; i++) {
-      console.log("card =", arrayCards[i].id);
+      console.log("card =", arrayCards[i].id, arrayCards[i].difficulty);
         if (arrayCards[i].color === "green") {
           img.src = `assets/img/MythicCards/green/${arrayCards[i].id}.jpg`;
           img.onload = () => {
