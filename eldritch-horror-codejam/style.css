@@ -43,6 +43,7 @@ body:before {
   justify-content: center;
   gap: 30px;
   min-width: 40%;
+  height: 100vh;
   padding: 10px;
   padding-left: 20px;
   position: relative;
@@ -164,7 +165,6 @@ body:before {
   justify-content: center;
   display: none;
 }
-
 .cards_button {
   border: 2px solid white;
   box-sizing: border-box;
@@ -178,6 +178,7 @@ body:before {
 }
 .cards_button:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 10px #ffea00, 0 0 25px #ffea00;
 }
 .current_state {
   display: flex;
@@ -227,8 +228,10 @@ body:before {
   border-radius: 15px;
   box-shadow: 0 0 10px #ffea00;
 }
+.cards_deck:active {
+  transform: scale(0.97);
+}
 .cards_deck:hover {
-  transform: scale(1.1);
   box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
 }
 .current_card {
