@@ -11,9 +11,7 @@
 }
 
 body {
-  background: url("assets/img/home_eldritch_horror.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url("assets/img/home_eldritch_horror.jpg") center/cover no-repeat;
   font-family: 'Special Elite';
   font-size: 16px;
   transition: background-image 0.5s ease-in-out;
@@ -45,9 +43,10 @@ body:before {
   justify-content: center;
   gap: 30px;
   min-width: 40%;
-  padding: 20px;
+  padding: 10px;
+  padding-left: 20px;
   position: relative;
-  z-index: 999;
+  z-index: 99999;
 }
 .card1 {
   background-image: url("assets/img/Ancients/Azathoth.jpg");
@@ -107,6 +106,7 @@ body:before {
   align-items: center;
   color: white;
   font-size: 64px;
+  padding: 10px;
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
   z-index: 999;
 }
@@ -114,6 +114,7 @@ body:before {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
   justify-content: center;
   align-items: center;
   color: white;
@@ -148,6 +149,8 @@ body:before {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding: 10px;
+  padding-right: 20px;
   justify-content: center;
   min-width: 30%;
   color: white;
@@ -259,6 +262,7 @@ body:before {
     height: 360px;
   }
   .select_ancient {
+    max-width: 10%;
     color: transparent;
     text-shadow: none;
   }
@@ -297,8 +301,17 @@ body:before {
     height: 15px;
     left: 85%;
   }
-  .deck_wrapper {
-    gap: 10px;
+  .cards_deck {
+    width: 90px;
+    height: 131px;
+  }
+  .current_card {
+    width: 90px;
+    height: 131px;
+  }
+  .dot {
+    width: 20px;
+    height: 20px;
   }
 }
 @media (max-width: 400px) {
@@ -313,5 +326,8 @@ body:before {
   }
   .cards_button {
     width: 50px;
+  }
+  .ancients_cards_wrapper {
+    padding-left: 10px;
   }
 }
