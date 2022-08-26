@@ -120,6 +120,11 @@ cardsBTN.addEventListener('click', () => {
   cardsBTN.style.display = "none";
   deckWrapper.style.display = "flex";
 });
+cardsDeck.addEventListener('click', () => { 
+  if (arrayCards.length !== 0) {
+  setCard();
+  }
+})
 
 ancientsCards.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -2455,7 +2460,7 @@ function pushDotShubNiggurath() {
 
 function setCard() {
     for (let i = 0; i < 1; i++) {
-      console.log("card =", arrayCards[i].id, "-" ,arrayCards[i].difficulty);
+      console.log("%cCard:","color: darkgreen; font-style: italic; text-decoration: underline;", `${arrayCards[i].id}, ${arrayCards[i].difficulty}`);
         if (arrayCards[i].color === "green") {
           img.src = `assets/img/MythicCards/green/${arrayCards[i].id}.jpg`;
           img.onload = () => {
@@ -2509,10 +2514,5 @@ function setCard() {
         }
   }
 }
-cardsDeck.addEventListener('click', () => { 
-  if (arrayCards.length !== 0) {
-  setCard();
-  }
-})
 
 
