@@ -134,6 +134,7 @@ body:before {
 }
 .difficulty_level:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 10px #ffea00, 0 0 25px #ffea00;
 }
 .difficulty_title {
   font-size: 20px;
