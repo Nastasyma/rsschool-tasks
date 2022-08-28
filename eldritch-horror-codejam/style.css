@@ -1,0 +1,337 @@
+@font-face {
+  font-family: 'Special Elite';
+  src: url("assets/fonts/SpecialElite-Regular.ttf");
+  font-weight: 400
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("assets/img/home_eldritch_horror.jpg") center/cover no-repeat;
+  font-family: 'Special Elite';
+  font-size: 16px;
+  transition: background-image 0.5s ease-in-out;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+}
+body:before {
+	content: '';
+  height: 100vh;
+  width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(0, 0, 0, .5);
+}
+.main_container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.ancients_cards_wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  min-width: 40%;
+  height: 100vh;
+  padding: 10px;
+  padding-left: 20px;
+  position: relative;
+  z-index: 99999;
+}
+.card1 {
+  background-image: url("assets/img/Ancients/Azathoth.jpg");
+}
+.card2 {
+  background-image: url("assets/img/Ancients/Cthulthu.jpg");
+}
+.card3 {
+  background-image: url("assets/img/Ancients/IogSothoth.jpg");
+}
+.card4 {
+  background-image: url("assets/img/Ancients/ShubNiggurath.jpg");
+}
+.card {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  width: 200px;
+  height: 260px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #ffea00;
+}
+.card:hover {
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 45px #ffea00;
+}
+.card_active {
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 45px #ffea00;
+  width: 400px;
+  height: 520px;
+  position: relative;
+  top: 0;
+  left: 5vw;
+  z-index: 999;
+}
+.card_close {
+  background-image: url("assets/svg/close_menu.svg");
+  background-position: center;
+  background-size: 30px;
+  position: absolute;
+  left: 90%;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  filter: invert(100%);
+  cursor: pointer;
+  transition: 0.2s;
+  display: none;
+  z-index: 9999;
+}
+.card_close:hover {
+  transform: scale(1.4);
+}
+.select_ancient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 64px;
+  padding: 10px;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
+  z-index: 999;
+}
+.difficulty_level_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  display: none;
+  z-index: 999;
+}
+.difficulty_level {
+  border: 2px solid white;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: black;
+  width: 150px;
+}
+.difficulty_level:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 10px #ffea00, 0 0 25px #ffea00;
+}
+.difficulty_title {
+  font-size: 20px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+  text-align: center;
+}
+.level_active {
+  background-color: #ff5e00;
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
+  border: 2px solid #ff5e00;
+}
+.cards_wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+  padding-right: 20px;
+  justify-content: center;
+  min-width: 30%;
+  color: white;
+  z-index: 999;
+}
+.deck_wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  display: none;
+}
+.cards_button {
+  border: 2px solid white;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 5px;
+  text-align: center;
+  display: none;
+  border-radius: 10px;
+  background-color: black;
+  width: 150px;
+}
+.cards_button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 10px #ffea00, 0 0 25px #ffea00;
+}
+.current_state {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.stage_wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.title_active {
+  color: gray;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+}
+.dots_wrapper {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.dot {
+  align-items: center;
+  border-radius: 50%;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 30px;
+  border: 1px solid white;
+}
+.green {
+  background-color: green;
+}
+.brown {
+  background-color: orangered;
+}
+.blue {
+  background-color: blue;
+}
+.cards_deck {
+  background-image: url("assets/img/mythicCardBackground.jpg");
+  background-size: cover;
+  height: 190px;
+  width: 130px;
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0 0 10px #ffea00;
+}
+.cards_deck:active {
+  transform: scale(0.97);
+}
+.cards_deck:hover {
+  box-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
+}
+.current_card {
+  background-size: cover;
+  height: 190px;
+  width: 130px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+@media (max-width: 1100px) {
+  .card {
+    width: 166px;
+    height: 216px;
+  }
+  .card_active {
+    width: 333px;
+    height: 433px;
+  }
+  .cards_wrapper {
+    min-width: 20%;
+  }
+}
+@media (max-width: 900px) {
+  .card {
+    width: 138px;
+    height: 180px;
+  }
+  .card_active {
+    width: 277px;
+    height: 360px;
+  }
+  .select_ancient {
+    max-width: 10%;
+    color: transparent;
+    text-shadow: none;
+  }
+  body {
+    font-size: 12px;
+  }
+  .difficulty_title {
+    font-size: 12px;
+  }
+  .difficulty_level {
+    width: 80px;
+  }
+  .cards_button {
+    width: 80px;
+  }
+  .cards_deck {
+    width: 108px;
+    height: 158px;
+  }
+  .current_card {
+    width: 108px;
+    height: 158px;
+  }
+  .dots_wrapper {
+    gap: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .card_active {
+    width: 138px;
+    height: 180px;
+  }
+  .card_close {
+    background-size: 15px;
+    width: 15px;
+    height: 15px;
+    left: 85%;
+  }
+  .cards_deck {
+    width: 90px;
+    height: 131px;
+  }
+  .current_card {
+    width: 90px;
+    height: 131px;
+  }
+  .dot {
+    width: 20px;
+    height: 20px;
+  }
+}
+@media (max-width: 400px) {
+  body {
+    font-size: 8px;
+  }
+  .difficulty_title {
+    font-size: 8px;
+  }
+  .difficulty_level {
+    width: 50px;
+  }
+  .cards_button {
+    width: 50px;
+  }
+  .ancients_cards_wrapper {
+    padding-left: 10px;
+  }
+}
