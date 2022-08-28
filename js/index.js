@@ -124,7 +124,7 @@ cardsDeck.addEventListener('click', () => {
   if (arrayCards.length !== 0) {
   setCard();
   }
-})
+});
 
 ancientsCards.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -254,7 +254,6 @@ function getRandomNum(min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
 function sort(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -262,7 +261,6 @@ function sort(array) {
   }
   return array;
 };
-
 function reset() {
   console.clear();
   stageOneDots.length = 0;
@@ -328,7 +326,7 @@ function sortDifficulty() {
       hardBlue.push(cardsDataBlue[i]);
     }
   }
-}
+};
 function pushCardsAzathothVeryEasy() {
   greenVeryEasy.push(easyGreen);
   brownVeryEasy.push(easyBrown);
@@ -436,7 +434,7 @@ function pushCardsAzathothVeryEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsAzathothVeryEasy = ", arrayCards);
-}
+};
 function pushCardsAzathothEasy() {
   arrayGreen.push(easyGreen);
   arrayGreen.push(normalGreen);
@@ -559,7 +557,7 @@ function pushCardsAzathothEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsAzathothEasy = ", arrayCards);
-}
+};
 function pushCardsAzathothMid() {
 
   for (let i=0; i<1; i++) {
@@ -647,7 +645,7 @@ function pushCardsAzathothMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsAzathothMid = ", arrayCards);
-}
+};
 function pushCardsAzathothHard() {
   arrayGreen.push(hardGreen);
   arrayGreen.push(normalGreen);
@@ -767,7 +765,7 @@ function pushCardsAzathothHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsAzathothHard = ", arrayCards);
-}
+};
 function pushCardsAzathothVeryHard() {
   greenVeryHard.push(hardGreen);
   brownVeryHard.push(hardBrown);
@@ -871,7 +869,7 @@ function pushCardsAzathothVeryHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsAzathothVeryHard = ", arrayCards);
-}
+};
 function pushCardsCthulthuVeryEasy() {
 
   for (let i=0; i<4; i++) {
@@ -967,7 +965,7 @@ function pushCardsCthulthuVeryEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuVeryEasy = ", arrayCards);
-}
+};
 function pushCardsCthulthuEasy() {
   arrayGreen.push(easyGreen);
   arrayGreen.push(normalGreen);
@@ -1071,7 +1069,7 @@ function pushCardsCthulthuEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuEasy = ", arrayCards);
-}
+};
 function pushCardsCthulthuMid() {
 
   for (let i=0; i<2; i++) {
@@ -1141,7 +1139,7 @@ function pushCardsCthulthuMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuMid = ", arrayCards);
-}
+};
 function pushCardsCthulthuHard() {
   arrayGreen.push(hardGreen);
   arrayGreen.push(normalGreen);
@@ -1245,7 +1243,7 @@ function pushCardsCthulthuHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuHard = ", arrayCards);
-}
+};
 function pushCardsCthulthuVeryHard() {
 
   for (let i=0; i<4; i++) {
@@ -1341,7 +1339,7 @@ function pushCardsCthulthuVeryHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsCthulthuVeryHard = ", arrayCards);
-}
+};
 function pushCardsIogSothothVeryEasy() {
   greenVeryEasy.push(easyGreen);
   brownVeryEasy.push(easyBrown);
@@ -1437,7 +1435,7 @@ function pushCardsIogSothothVeryEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothVeryEasy = ", arrayCards);
-}
+};
 function pushCardsIogSothothEasy() {
   arrayGreen.push(easyGreen);
   arrayGreen.push(normalGreen);
@@ -1549,7 +1547,7 @@ function pushCardsIogSothothEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothEasy = ", arrayCards);
-}
+};
 function pushCardsIogSothothMid() {
 
   for (let i=0; i<2; i++) {
@@ -1628,7 +1626,7 @@ function pushCardsIogSothothMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothMid = ", arrayCards);
-}
+};
 function pushCardsIogSothothHard() {
   arrayGreen.push(hardGreen);
   arrayGreen.push(normalGreen);
@@ -1740,7 +1738,7 @@ function pushCardsIogSothothHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothHard = ", arrayCards);
-}
+};
 function pushCardsIogSothothVeryHard() {
   greenVeryHard.push(hardGreen);
   brownVeryHard.push(hardBrown);
@@ -1836,7 +1834,7 @@ function pushCardsIogSothothVeryHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsIogSothothVeryHard = ", arrayCards);
-}
+};
 function pushCardsShubNiggurathVeryEasy() {
   greenVeryEasy.push(easyGreen);
   brownVeryEasy.push(easyBrown);
@@ -1948,7 +1946,7 @@ function pushCardsShubNiggurathVeryEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsShubNiggurathVeryEasy = ", arrayCards);
-}
+};
 function pushCardsShubNiggurathEasy() {
   arrayGreen.push(easyGreen);
   arrayGreen.push(normalGreen);
@@ -2068,7 +2066,7 @@ function pushCardsShubNiggurathEasy() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsShubNiggurathEasy = ", arrayCards);
-}
+};
 function pushCardsShubNiggurathMid() {
 
   for (let i=0; i<1; i++) {
@@ -2156,7 +2154,7 @@ function pushCardsShubNiggurathMid() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsShubNiggurathMid = ", arrayCards);
-}
+};
 function pushCardsShubNiggurathHard() {
   arrayGreen.push(hardGreen);
   arrayGreen.push(normalGreen);
@@ -2276,7 +2274,7 @@ function pushCardsShubNiggurathHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsShubNiggurathHard = ", arrayCards);
-}
+};
 function pushCardsShubNiggurathVeryHard() {
   greenVeryHard.push(hardGreen);
   brownVeryHard.push(hardBrown);
@@ -2388,7 +2386,7 @@ function pushCardsShubNiggurathVeryHard() {
   arrayCards.push(stageThree);
   arrayCards = arrayCards.flat(Infinity);
   console.log("arrayCardsShubNiggurathVeryHard = ", arrayCards);
-}
+};
 function pushDotsAzathoth() {
   stageOneDots.push(ancientsData[0].firstStage);
   greenSt1.textContent = `${ancientsData[0].firstStage.greenCards}`;
@@ -2405,7 +2403,7 @@ function pushDotsAzathoth() {
   brownSt3.textContent = `${ancientsData[0].thirdStage.brownCards}`;
   blueSt3.textContent = `${ancientsData[0].thirdStage.blueCards}`;
   // console.log("stageThreeDotsAzathoth =", stageThreeDots);
-}
+};
 function pushDotCthulthu() {
   stageOneDots.push(ancientsData[1].firstStage);
   greenSt1.textContent = `${ancientsData[1].firstStage.greenCards}`;
@@ -2422,7 +2420,7 @@ function pushDotCthulthu() {
   brownSt3.textContent = `${ancientsData[1].thirdStage.brownCards}`;
   blueSt3.textContent = `${ancientsData[1].thirdStage.blueCards}`;
   // console.log("stageThreeDotsCthulthu =", stageThreeDots);
-}
+};
 function pushDotIogSothoth() {
   stageOneDots.push(ancientsData[2].firstStage);
   greenSt1.textContent = `${ancientsData[2].firstStage.greenCards}`;
@@ -2439,7 +2437,7 @@ function pushDotIogSothoth() {
   brownSt3.textContent = `${ancientsData[2].thirdStage.brownCards}`;
   blueSt3.textContent = `${ancientsData[2].thirdStage.blueCards}`;
   // console.log("stageThreeDotsIogSothoth =", stageThreeDots);
-}
+};
 function pushDotShubNiggurath() {
   stageOneDots.push(ancientsData[3].firstStage);
   greenSt1.textContent = `${ancientsData[3].firstStage.greenCards}`;
@@ -2456,7 +2454,7 @@ function pushDotShubNiggurath() {
   brownSt3.textContent = `${ancientsData[3].thirdStage.brownCards}`;
   blueSt3.textContent = `${ancientsData[3].thirdStage.blueCards}`;
   // console.log("stageThreeDotsShubNiggurath =", stageThreeDots);
-}
+};
 
 function setCard() {
     for (let i = 0; i < 1; i++) {
@@ -2513,6 +2511,6 @@ function setCard() {
           cardsDeck.style.visibility = "hidden";
         }
   }
-}
+};
 
 
