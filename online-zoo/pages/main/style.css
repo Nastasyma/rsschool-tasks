@@ -1,0 +1,197 @@
+/* roboto-300 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../../assets/fonts/roboto-v30-latin-300.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/fonts/roboto-v30-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/fonts/roboto-v30-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-300.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/fonts/roboto-v30-latin-300.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/fonts/roboto-v30-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/fonts/roboto-v30-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/fonts/roboto-v30-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/* roboto-500 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../../assets/fonts/roboto-v30-latin-500.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/fonts/roboto-v30-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/fonts/roboto-v30-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/fonts/roboto-v30-latin-500.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+/* roboto-700 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../assets/fonts/roboto-v30-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/fonts/roboto-v30-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/fonts/roboto-v30-latin-700.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: normal;
+}
+.container {
+  margin: 0 auto;
+}
+
+/* ------------ header start ------------ */
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  height: 80px;
+  position: relative;
+}
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  max-width: 1160px;
+}
+
+.zoo_logo {
+  width: 82px;
+  height: 52px;
+  text-align: center;
+  border: 1px solid white;
+  padding-top: 3px;
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.petstory_logo {
+  position: absolute;
+  top: 24px;
+  left: 9px;
+}
+
+.nav_list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 58px;
+  margin-right: 374px;
+}
+
+.nav_link, .logo_title {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.about_link {
+  color: orange;
+}
+
+.figma_link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* ------------ header end ------------ */
+
+/* ------------ section_watch_animal start------------ */
+
+.section_watch_animal {
+  background: url('../../assets/images/giant_panda.png') center/cover no-repeat;
+  margin-top: -80px;
+  padding-top: 80px;
+  height: 780px;
+}
+
+.watch_online {
+  max-width: 1161px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: center;
+  margin-top: 85px;
+  text-transform: uppercase;
+}
+
+.watch_title_wrapper {
+  text-align: center;
+  position: relative;
+  width: 500px;
+}
+
+h2 {
+  font-weight: 700;
+  color:#ffffff;
+  font-size: 106px;
+  line-height: 80px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.orange_circle {
+  position: absolute;
+  width: 465px;
+  height: 465px;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 50%;
+  top: -73px;
+  left: -73px;
+}
+
+.btn {
+  margin-right: 100px;
+  margin-top: 461px;
+  text-transform: uppercase;
+  color:#ffffff;
+  border: none;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 16px 0px 16px 5px;
+  width: 298px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+/* ------------ section_watch_animal end ----------- */
