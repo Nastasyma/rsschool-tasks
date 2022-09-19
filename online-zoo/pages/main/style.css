@@ -183,8 +183,6 @@ h1 {
 }
 
 .btn {
-  margin-right: 100px;
-  margin-top: 462px;
   text-transform: uppercase;
   color:#ffffff;
   border: none;
@@ -195,6 +193,11 @@ h1 {
   width: 298px;
   font-weight: 500;
   line-height: 22px;
+}
+
+.watch_online_btn {
+  margin-right: 100px;
+  margin-top: 462px;
 }
 
 /* ------------ section_watch_animal end ----------- */
@@ -255,3 +258,287 @@ h2 {
 
 /* ------------ section_backstage end ----------- */
 
+/* ------------ section_pets end ----------- */
+
+.section_pets {
+  position: relative;
+}
+
+.palm_foto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.strelitzia_photo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.pets_wrapper {
+  max-width: 1161px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+  padding-bottom: 100px;
+}
+
+.pets_photo_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 97px;
+  row-gap: 20px;
+  column-gap: 30px;
+  position: relative;
+}
+
+.arrow_wrapper {
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.left_btn {
+  position: absolute;
+  left: -82px;
+  top: 500px;
+}
+
+.right_btn {
+  position: absolute;
+  right: -82px;
+  top: 500px;
+}
+
+.arrow_icon {
+  width: 16px;
+  height: 8px;
+  margin: 0 auto;
+}
+.pet_card {
+  border: 1px solid #FA6F32;
+  border-radius: 5px;
+}
+
+.card {
+  width: 364px;
+  height: 364px;
+}
+
+.pet_description {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0 13px 16px;
+}
+
+.banana_icon {
+  padding-right: 9px;
+}
+
+.meet-fish_icon {
+  padding-right: 7px;
+}
+
+.pet_description_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.pet_title {
+  font-weight: 500;
+  line-height: 22.4px;
+  text-transform: uppercase;
+}
+
+.pet_location {
+  font-size: 15px;
+  font-size: 300;
+  line-height: 15px;
+}
+
+.choose_favorite {
+  margin: 0 auto;
+}
+
+/* ------------ section_pets end ----------- */
+
+/* ------------ section_pick_feed_friend start ----------- */
+
+.section_pick_feed_friend {
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+  opacity: 0.9;
+  padding: 69px 220px 100px 220px;
+}
+
+.feed_friend_wrapper {
+  max-width: 1161px;
+  margin: 0 auto;
+  background: rgba(253, 253, 255, 0.52);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+  padding: 41px 0 59px 99px;
+  display: flex;
+  flex-direction: column;
+  color: #333B41;
+}
+
+.feed_friend_title {
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
+  color: #FE9013;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
+  padding-right: 99px;
+}
+
+.feed_text1 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 40px;
+}
+
+.feed_text2 {
+  font-weight: 500;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+
+.feed_text3 {
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 60px;
+  padding-right: 198px;
+}
+
+.donate_work {
+  margin: 0 auto;
+  text-align: center;
+  padding-right: 99px;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 46.8px;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.donate_description {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feed_friend_card {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  text-align: start;
+  max-width: 168px;
+}
+
+.bold_arrow_icon1 {
+  margin-bottom: 84px;
+}
+
+.bold_arrow_icon2 {
+  margin-bottom: 91px;
+}
+
+.pay_icon {
+  padding: 53px 30px;
+  border: 1px solid #F9804B;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.zoo_icon {
+  padding: 35px 41px;
+  border: 1px solid #F9804B;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.monkey_icon {
+  padding: 47px 20px;
+  border: 1px solid #F9804B;
+  background: #FFFFFF;
+  border-radius: 5px;
+}
+
+.feed_card_description {
+  font-weight: 400;
+  line-height: 22.4px;
+}
+
+.support_link {
+  text-decoration: none;
+  color: #333B41;
+  border-bottom: 1px solid #FE9013;
+}
+
+.donate_link_btn {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/* ------------ section_pick_feed_friend end ----------- */
+
+/* ------------ section_testimonials start ----------- */
+
+.testimonials_wrapper {
+  max-width: 1161px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 140px 0 180px 0;
+}
+
+.testimonials_title {
+  margin: 0 auto;
+  margin-bottom: 47px;
+}
+
+.testimonials_cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.card_top {
+  display: flex;
+  gap: 10px;
+}
+
+.user_card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 268px;
+  padding: 15px 15px 19px 16px;
+  border: 2px solid #FE9013;
+  border-radius: 10px;
+  margin-bottom: 21px;
+}
+
+.user_location_wrapper {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  color: #BDBDBD;
+  display: flex;
+  gap: 5px;
+  text-align: center;
+}
+
+/* ------------ section_testimonials end ----------- */
