@@ -747,6 +747,16 @@ h3 {
   line-height: 22px;
 }
 
+.soc_web {
+  text-decoration: none;
+  color: #ffffff;
+  padding-top: 4px;
+}
+
+.soc_web:hover {
+  color: orange;
+}
+
 .footer_icon_wrapper {
   background: rgba(196, 196, 196, 0.5);
   width: 26px;
@@ -759,10 +769,6 @@ h3 {
 
 .social_logo {
   margin: 0 auto;
-}
-
-.social_title {
-  padding-top: 4px;
 }
 
 .footer_nav {
@@ -781,7 +787,7 @@ h3 {
   flex-direction: column;
   justify-content: flex-end;
   font-weight: 100;
-  line-height: 21px;
+  line-height: 22px;
   gap: 10px;
   opacity: 0.5;
 }
