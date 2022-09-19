@@ -385,7 +385,7 @@ h2 {
   background-color:#FFFFFF;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .2s, visibility .2s, transform .2s;
+  transition: opacity .3s, visibility .3s, transform .3s;
   z-index: -1;
 }
 
@@ -751,6 +751,7 @@ h3 {
 
 .enter_email {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 

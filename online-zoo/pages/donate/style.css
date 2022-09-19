@@ -1,3 +1,16 @@
+/* roboto-100 - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: url('../../assets/fonts/roboto-v30-latin-100.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('../../assets/fonts/roboto-v30-latin-100.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../assets/fonts/roboto-v30-latin-100.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-100.woff') format('woff'), /* Modern Browsers */
+       url('../../assets/fonts/roboto-v30-latin-100.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../../assets/fonts/roboto-v30-latin-100.svg#Roboto') format('svg'); /* Legacy iOS */
+}
 /* roboto-300 - latin */
 @font-face {
   font-family: 'Roboto';
@@ -59,6 +72,7 @@ html {
 }
 
 body {
+  width: 100%;
   font-family: 'Roboto';
   font-size: 16px;
   font-style: normal;
@@ -67,3 +81,84 @@ body {
 .container {
   margin: 0 auto;
 }
+
+p {
+  margin: 0;
+}
+
+/* ------------ header start ------------ */
+.header {
+  background-color: #000000;
+  color: #ffffff;
+  position: relative;
+}
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 10px 12px 10px;
+  max-width: 1180px;
+}
+
+.logonav_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.zoo_logo {
+  width: 82px;
+  height: 52px;
+  text-align: center;
+  border: 1px solid white;
+  padding-top: 2px;
+  position: relative;
+  margin-right: 64px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 23px;
+}
+
+.petstory_logo {
+  position: absolute;
+  top: 24px;
+  left: 9px;
+}
+
+.nav_list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 58px;
+}
+
+.nav_link, .logo_title, .figma_link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav_link:hover, .figma_link:hover {
+  color: orange;
+}
+
+.donate_link {
+  color: orange;
+}
+
+/* ------------ header end ------------ */
+
+/* ------------ section_watch_animal start------------ */
+
+.section_watch_animal {
+  background: url('../../assets/images/giant_panda.png') center/cover no-repeat;
+  margin-top: -80px;
+  padding-top: 80px;
+  height: 780px;
+  margin-bottom: 12px;
+}
+
+/* ------------ section_watch_animal end ----------- */
