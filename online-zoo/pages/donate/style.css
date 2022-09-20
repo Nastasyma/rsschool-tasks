@@ -230,6 +230,122 @@ h3 {
   font-size: 24px;
   margin-bottom: 60px;
 }
+
+.panda_diet {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding-right: 15px;
+  margin-bottom: 48px;
+}
+
+.diets_count {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 48px;
+}
+
+.amount_of_days_donate {
+  width: 82px;
+  height: 58px;
+}
+
+.x_icon {
+  width: 14px;
+  height: 14px;
+  margin: 25px 64px 0 11px;
+}
+
+.donate_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_gray {
+  width: 976px;
+  height: 27px;
+  margin: 17px 0 7px 0;
+  background: #404950;
+}
+
+.amount {
+  padding-left: 4px;
+  color: #000000;
+}
+
+.donate_money {
+  width: 976px;
+  height: 36px;
+  border: 1px solid black;
+  margin-bottom: 55px;
+}
+
+.another_amount {
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.another_amount_input {
+  padding: 17px 70px 17px 9px;
+  border-radius: 5px;
+  background: transparent;
+  border-color: #929699;
+}
+
+.dollars_gray {
+  position: absolute;
+  top: 17px;
+  right: 10px;
+}
+
+.pay_days {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 28px;
+  padding: 3px 14px 0 0;
+  gap: 50px;
+}
+
+.radiobtn_wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.pay_radiobtn {
+	position: absolute;
+	z-index: -1;
+  opacity: 0;
+}
+
+.pay_radiobtn + label::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid #FE9013;
+}
+
+.pay_radiobtn:checked + label::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #FE9013;
+  display: inline-block;
+  visibility: visible;
+}
+
 .btn {
   text-transform: uppercase;
   color:#ffffff;
@@ -238,9 +354,194 @@ h3 {
   border-radius: 25px;
   cursor: pointer;
   padding: 16px 0px 16px 6px;
+  margin: 0 auto;
+  margin-bottom: 32px;
   width: 298px;
   font-weight: 500;
   line-height: 22px;
 }
 
+.btn:hover {
+  background: #E47209;
+  transform: scale(1.05);
+}
+
+.share {
+  margin: 0 auto;
+}
+
 /* ------------ section_donate end ----------- */
+
+/* ------------ footer start ----------- */
+
+.footer {
+  background-color: #000000;
+  color: #ffffff;
+  position: relative;
+}
+
+.footer_container {
+  max-width: 1181px;
+  padding: 41px 10px 50px 10px;
+}
+
+.petstory_logo_wrapper {
+  width: 82px;
+  height: 52px;
+  text-align: center;
+  border: 1px solid white;
+  padding-top: 2px;
+  position: relative;
+  margin-right: 64px;
+  transition: .1s;
+}
+
+.petstory_logo_wrapper:hover {
+  transform: scale(1.05);
+  filter: invert(40%) sepia(90%) saturate(1000%);
+}
+
+.petstory_logo {
+  position: absolute;
+  top: 24px;
+  left: 10px;
+}
+
+.logo_title2 {
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.donate_volunteers_btn {
+  border-radius: 5px;
+  margin-bottom: 44px;
+}
+
+.footer_top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_top_left {
+  display: flex;
+  flex-direction: column;
+  gap: 68px;
+}
+
+.footer_top_right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.subtitle2 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.enter_email {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.email {
+  border: 1px solid orange;
+  border-radius: 5px;
+  outline: none;
+  appearance: none;
+  background: none;
+  color: #BDBDBD;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  padding-right: 33px;
+}
+
+.submit_btn {
+  padding: 10px 39px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: green;
+  border-radius: 5px;
+  border: 1px solid green;
+  transition: .2s;
+}
+
+.submit_btn:hover {
+  transform: scale(1.05);
+}
+
+.footer_bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.social_nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.social_nav_link {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.soc_web {
+  text-decoration: none;
+  color: #ffffff;
+  padding-top: 4px;
+  transition: .1s;
+}
+
+.soc_web:hover {
+  color: orange;
+}
+
+.footer_icon_wrapper {
+  background: rgba(196, 196, 196, 0.5);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.social_logo {
+  margin: 0 auto;
+}
+
+.footer_nav {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  padding: 0;
+  margin: 0;
+  margin-left: 121px;
+  gap: 58px;
+}
+
+.project_author {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-weight: 100;
+  line-height: 22px;
+  gap: 10px;
+  opacity: 0.5;
+}
+
+/* ------------ footer end ----------- */
