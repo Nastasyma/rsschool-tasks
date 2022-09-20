@@ -113,6 +113,12 @@ p {
   padding-top: 2px;
   position: relative;
   margin-right: 64px;
+  transition: .1s;
+}
+
+.zoo_logo:hover {
+  transform: scale(1.05);
+  filter: invert(40%) sepia(90%) saturate(1000%);
 }
 
 h1 {
@@ -136,6 +142,10 @@ h1 {
   gap: 58px;
 }
 
+.nav_link, .figma_link {
+  transition: .2s;
+}
+
 .nav_link, .logo_title, .figma_link {
   text-decoration: none;
   color: #ffffff;
@@ -157,7 +167,7 @@ h1 {
   background: url('../../assets/images/giant_panda.png') center/cover no-repeat;
   margin-top: -80px;
   padding-top: 80px;
-  height: 780px;
+  min-height: 780px;
   margin-bottom: 12px;
 }
 
@@ -216,6 +226,11 @@ h1 {
 .watch_online_btn {
   margin-right: 100px;
   margin-top: 462px;
+}
+
+.btn:hover {
+  background: #E47209;
+  transform: scale(1.05);
 }
 
 /* ------------ section_watch_animal end ----------- */
@@ -390,13 +405,13 @@ h2 {
 }
 
 .card_photo_discription {
-  transition: 0.3s;
+  transition: .3s;
   position: relative;
 }
 
 .card_photo_discription:hover {
   filter: brightness(50%);
-  transform: scale(1.05);
+  transform: scale(1.08);
   cursor: pointer;
 }
 
@@ -404,6 +419,11 @@ h2 {
   visibility: visible;
   opacity: 1;
   transform: translateY(90%);
+}
+
+.card_photo_discription:hover .pet_about_text_hide {
+  visibility: visible;
+  opacity: 1;
 }
 
 .pet_description {
@@ -705,6 +725,12 @@ h3 {
   padding-top: 2px;
   position: relative;
   margin-right: 64px;
+  transition: .1s;
+}
+
+.petstory_logo_wrapper:hover {
+  transform: scale(1.05);
+  filter: invert(40%) sepia(90%) saturate(1000%);
 }
 
 .petstory_logo {
@@ -806,6 +832,7 @@ h3 {
   text-decoration: none;
   color: #ffffff;
   padding-top: 4px;
+  transition: .1s;
 }
 
 .soc_web:hover {
