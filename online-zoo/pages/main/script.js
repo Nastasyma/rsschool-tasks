@@ -1,24 +1,27 @@
+const email = document.querySelector('.email');
+const submitBTN = document.querySelector('.submit_btn');
+const emailForm = document.querySelector('.enter_email');
+
 function correctForm(event) {
 	event.preventDefault();
-  document.querySelector('input[id="email"]').value = "";
+  email.value = "";
 }
-document.querySelector('.enter_email').addEventListener('submit', correctForm);
+emailForm .addEventListener('submit', correctForm);
 
 function validate() {
-  let email = document.querySelector('.email').value;
   let pattern = /\S+@\S+/;
 
-  if(email.match(pattern))
+  if(email.value.match(pattern))
   {
-    document.querySelector('.submit_btn').style.color = 'black';
-    document.querySelector('.submit_btn').style.border = '1px solid black';
+    submitBTN.style.color = 'black';
+    submitBTN.style.border = '1px solid black';
   }
   else{
-    document.querySelector('.submit_btn').style.color = 'red';
-    document.querySelector('.submit_btn').style.border = '1px solid red';
+    submitBTN.style.color = 'red';
+    submitBTN.style.border = '1px solid red';
   }
-  if (email === "") {
-    document.querySelector('.submit_btn').style.color = 'green';
-    document.querySelector('.submit_btn').style.border = '1px solid green';
+  if (email.value === "") {
+    submitBTN.style.color = 'green';
+    submitBTN.style.border = '1px solid green';
   }
 }
