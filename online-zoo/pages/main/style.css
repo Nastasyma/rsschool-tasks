@@ -652,7 +652,7 @@ h3 {
   list-style: none;
   padding-left: 0;
   margin: 0;
-  margin-bottom: 4px;
+  margin-bottom: 13px;
 }
 
 .card_top {
@@ -699,7 +699,39 @@ h3 {
   text-align: start;
 }
 
-.scroll_bar_wrapper {
+.slider_scroll_wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+#scrollBar {
+  width: 600px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  height: 8px;
+  border: 0.5px solid transparent;
+  background:
+    linear-gradient(315.75deg,
+    rgba(254, 189, 171, 0.74) 30.06%,
+    rgba(243, 169, 248, 0.66) 50.74%,
+    #E0D8F0 80.49%, #EAF7FE 127.9%,
+    #EAF7FE 149.54%);
+  box-shadow: inset 0px 0px 0px 100vw #F5F7F6;
+  border-radius: 5px;
+}
+
+#scrollBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
+  width: 19%;
+  height: 6px;
+  background: #FE9013;
+  border-radius: 5px;
+}
+
+/*.scroll_bar_wrapper {
   max-width: 600px;
   overflow-x: auto;
   margin: 0 auto;
@@ -724,7 +756,7 @@ h3 {
 .scroll_bar_wrapper::-webkit-scrollbar-thumb {
   background: #FE9013;
   border-radius: 5px;
-}
+}*/
 
 .feedback_btn {
   border-radius: 5px;
