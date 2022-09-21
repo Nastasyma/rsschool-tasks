@@ -297,6 +297,9 @@ h3 {
   width: 94.3%;
   top: 8px;
   left: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .input_point {
@@ -307,6 +310,13 @@ h3 {
   border-radius: 50%;
   position: relative;
   z-index: 6;
+  transition: .2s;
+}
+.input_point:hover {
+  cursor: pointer;
+  z-index: 4;
+  background:#72828E;
+  transform: scale(1.5);
 }
 
 .amount {

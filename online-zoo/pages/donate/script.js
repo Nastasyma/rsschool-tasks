@@ -32,3 +32,9 @@ amountInput.oninput = function () {
   }
 }
 
+amountInput.addEventListener('keydown', function(e) {
+  if (e.keyCode === 13) {
+    amountInput.value = "";
+  }
+})
+
