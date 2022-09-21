@@ -10,17 +10,17 @@ function correctForm(event) {
   submitBTN.style.color = 'black';
   submitBTN.style.border = '1px solid black';
 }
-emailForm .addEventListener('submit', correctForm);
+emailForm.addEventListener('submit', correctForm);
 
 function validate() {
   let pattern = /\S+@\S+/;
 
-  if(email.value.match(pattern)) {
+  if (email.value.match(pattern)) {
     email.style.border = '1px solid green';
     submitBTN.style.color = 'green';
     submitBTN.style.border = '1px solid green';
   }
-  else{
+  else {
     email.style.border = '1px solid red';
     submitBTN.style.color = 'red';
     submitBTN.style.border = '1px solid red';

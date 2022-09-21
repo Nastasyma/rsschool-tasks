@@ -612,6 +612,12 @@ h3 {
   text-decoration: none;
   color: #333B41;
   border-bottom: 1px solid #FE9013;
+  transition: .2s;
+}
+
+.support_link:hover {
+  color: green;
+  border-bottom: 1px solid green;
 }
 
 .donate_link_btn {
@@ -750,7 +756,7 @@ h3 {
   height: 52px;
   text-align: center;
   border: 1px solid white;
-  padding-top: 2px;
+  padding-top: 1px;
   position: relative;
   margin-right: 64px;
   transition: .1s;
@@ -777,7 +783,7 @@ h3 {
 
 .donate_volunteers_btn {
   border-radius: 5px;
-  margin-bottom: 44px;
+  margin-bottom: 45px;
 }
 
 .footer_top {
@@ -861,7 +867,7 @@ h3 {
 .soc_web {
   text-decoration: none;
   color: #ffffff;
-  padding-top: 4px;
+  padding-top: 3px;
   transition: .1s;
 }
 
@@ -877,10 +883,15 @@ h3 {
   cursor: pointer;
   display: flex;
   align-items: center;
+  transition: .1s;
 }
 
 .footer_icon_wrapper:hover {
-  background: orange;
+  background: rgb(206, 134, 0);
+}
+
+.footer_icon_wrapper:hover .social_logo {
+  filter: invert(100%);
 }
 
 .social_logo {
@@ -898,6 +909,9 @@ h3 {
   gap: 58px;
 }
 
+.footer_nav_item {
+  padding-bottom: 2px;
+}
 .project_author {
   display: flex;
   flex-direction: column;
