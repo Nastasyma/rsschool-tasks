@@ -233,6 +233,11 @@ h1 {
   transform: scale(1.05);
 }
 
+.btn:focus, .btn:active {
+  background: #4B9200;
+  transform: scale(1.05);
+}
+
 /* ------------ section_watch_animal end ----------- */
 
 /* ------------ section_backstage start ----------- */
@@ -794,9 +799,9 @@ h3 {
   padding: 10px 39px;
   cursor: pointer;
   background-color: #ffffff;
-  color: green;
+  color: black;
   border-radius: 5px;
-  border: 1px solid green;
+  border: 1px solid black;
   transition: .2s;
 }
 

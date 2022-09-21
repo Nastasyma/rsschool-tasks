@@ -272,9 +272,9 @@ h3 {
 }
 
 #donate_input_value {
-  width: 93.5%;
+  width: 97.5%;
   height: 2px;
-  margin: 0 30px;
+  margin-left: 10px;
   cursor: pointer;
   -webkit-appearance: none;
   background: #72828E;
@@ -287,7 +287,6 @@ h3 {
   background-image: url('../../assets/images/roller_icon.png');
   width: 40px;
   height: 40px;
-  margin-left: -20px;
   border-radius: 50%;
 }
 
@@ -396,13 +395,14 @@ h3 {
 
 .pay_radiobtn:checked + label::before {
   content: '';
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   top: -2px;
   left: -1px;
   position: relative;
-  background-color: #FE9013;
+  background-color: green;
+  border: none;
   display: inline-block;
   visibility: visible;
 }
@@ -422,8 +422,17 @@ h3 {
   line-height: 22px;
 }
 
+.donate_link_btn {
+  margin: 0 auto;
+}
+
 .btn:hover {
   background: #E47209;
+  transform: scale(1.05);
+}
+
+.btn:focus, .btn:active {
+  background: #4B9200;
   transform: scale(1.05);
 }
 
@@ -526,9 +535,9 @@ h3 {
   padding: 10px 39px;
   cursor: pointer;
   background-color: #ffffff;
-  color: green;
+  color: black;
   border-radius: 5px;
-  border: 1px solid green;
+  border: 1px solid black;
   transition: .2s;
 }
 
