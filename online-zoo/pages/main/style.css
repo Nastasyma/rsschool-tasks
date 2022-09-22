@@ -235,13 +235,14 @@ h1 {
   text-transform: uppercase;
   color:#ffffff;
   border: none;
-  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  background: #F9804B linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   border-radius: 25px;
   cursor: pointer;
   padding: 16px 0px 16px 6px;
   width: 298px;
   font-weight: 500;
   line-height: 22px;
+  transition: .3s;
 }
 
 .watch_online_btn {
@@ -394,7 +395,7 @@ h2 {
 }
 
 .arrow_wrapper {
-  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  background: #F9804B linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   width: 62px;
   height: 62px;
   border-radius: 50%;
@@ -406,10 +407,11 @@ h2 {
 
 .arrow_wrapper:hover {
   transform: scale(1.1);
+  background: #E47209;
 }
 
 .arrow_wrapper:active, .arrow_wrapper:focus {
-  background: linear-gradient(113.96deg, #4B9200 1.49%, #4B9200 101.44%);
+  background: #4B9200 linear-gradient(113.96deg, #4B9200 1.49%, #4B9200 101.44%);
   transform: scale(1.1);
 }
 
@@ -435,86 +437,80 @@ h2 {
   background: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
   box-shadow: inset 0px 0px 0px 100vw #ffffff;
   border-radius: 5px;
+  transition: all .3s;
 }
 
 .card {
   width: 364px;
   height: 364px;
-}
-
-/*
-[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  width: 364px;
-  height: 60px;
-  left: 0;
-  bottom: -30px;
-  background: #FFFFFF;
-  color: #000;
-  pointer-events: none;
-  opacity: 0;
-  transition: .2s;
-  }
-[data-tooltip]:hover::after {
-  opacity: 1;
-  bottom: -55px;
-}*/
-
-.pet_text_hide {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-weight: 500;
-  left: 0;
-  bottom: 0;
-  padding: 6px;
-  transform: translateY(0);
-  width: 100%;
-  background-color:#a7a7a7;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity .3s, visibility .3s, transform .3s;
-  z-index: -1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .card_photo_discription {
-  transition: .3s;
+  transition: all .3s;
   position: relative;
+  height: 364px;
+  overflow: hidden;
 }
 
-.card_photo_discription::before {
-  position: absolute;
+.card_photo_discription::after {
   content: '';
+  white-space: pre;
+  position: absolute;
   left: 0;
-  top: 0;
-  width: 100%;
-  height: 99%;
-  background-color: #000000;
-  opacity: 0;
-  z-index: 333;
-  transition: .5s;
+  bottom: 0;
+  width: calc(100% - 28px);
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 15px;
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: all .3s;
 }
 
-.card_photo_discription:hover {
-  transform: scale(1.08);
+.discription1::after {
+  content: 'GIANT PANDAS \A Native to Southwest China';
+}
+
+.discription2::after {
+  content: 'EAGLES \A Native to South America';
+}
+
+.discription3::after {
+  content: 'GORILLAS \A Native to Congo';
+}
+
+.discription4::after {
+  content: 'TWO-TOED SLOTH \A Mesoamerica, South America';
+}
+
+.discription5::after {
+  content: 'CHEETAHS \A Native to Africa';
+}
+
+.discription6::after {
+  content: 'PENGUINS \A Native to Antarctica';
+}
+
+.pet_card:hover .pet_description {
+  visibility: hidden;
+}
+
+.pet_card:hover .card_photo_discription {
+  transform: scale(1.055);
   cursor: pointer;
 }
 
-.card_photo_discription:hover::before {
-  opacity: 0.5;
+.pet_card:hover .card_photo_discription::after {
+  visibility: visible;
+  transform: translateY(0%);
 }
 
-.card_photo_discription:hover .pet_text_hide {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(90%);
-}
-
-.card_photo_discription:hover .pet_about_text_hide {
-  visibility: visible;
-  opacity: 1;
+.pet_card:hover {
+  border: none;
+  background: transparent;
 }
 
 .pet_description {
@@ -560,6 +556,53 @@ h5 {
   line-height: 22.4px;
   text-transform: uppercase;
 }
+/*
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  width: 364px;
+  height: 60px;
+  left: 0;
+  bottom: -30px;
+  background: #FFFFFF;
+  color: #000;
+  pointer-events: none;
+  opacity: 0;
+  transition: .2s;
+  }
+[data-tooltip]:hover::after {
+  opacity: 1;
+  bottom: -55px;
+}
+
+.pet_text_hide {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 500;
+  left: 0;
+  bottom: 0;
+  padding: 6px;
+  transform: translateY(0);
+  width: 100%;
+  background-color:#a7a7a7;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s, visibility .3s, transform .3s;
+  z-index: -1;
+}
+
+.card_photo_discription:hover .pet_text_hide {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(90%);
+}
+
+.card_photo_discription:hover .pet_about_text_hide {
+  visibility: visible;
+  opacity: 1;
+}*/
 
 /* ------------ section_pets end ----------- */
 
