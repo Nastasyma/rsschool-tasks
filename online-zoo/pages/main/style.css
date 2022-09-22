@@ -1003,6 +1003,20 @@ h3 {
   filter: invert(100%);
 }
 
+.social_nav_link:active .soc_web,
+.social_nav_link:focus .soc_web {
+  color: green;
+}
+.social_nav_link:active .footer_icon_wrapper,
+.social_nav_link:focus .footer_icon_wrapper {
+  background: green;
+}
+
+.social_nav_link:active .social_logo,
+.social_nav_link:focus .social_logo {
+  filter: invert(0%);
+}
+
 /*.soc_web:hover {
   color: orange;
 }
