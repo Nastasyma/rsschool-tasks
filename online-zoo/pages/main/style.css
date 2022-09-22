@@ -142,22 +142,41 @@ h1 {
   gap: 58px;
 }
 
-.nav_link, .figma_link {
-  transition: .2s;
-}
-
-.nav_link, .logo_title, .figma_link {
+.nav_link,
+.logo_title,
+.figma_link {
   text-decoration: none;
   color: #ffffff;
+  position: relative;
+  transition: .3s ease-out;
 }
 
-.nav_link:hover, .figma_link:hover {
-  color: orange;
+.nav_link:after,
+.figma_link:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: orange;
+	content: "";
+	transition: width .3s ease-out;
+}
+
+.nav_link:hover:after,
+.nav_link:focus:after,
+.figma_link:focus:after,
+.figma_link:hover:after {
+	width: 100%;
 }
 
 .about_link {
   color: orange;
   cursor: default;
+}
+.about_link:hover:after,
+.about_link:focus:after {
+	width: 0%
 }
 
 /* ------------ header end ------------ */
@@ -527,6 +546,7 @@ h2 {
   font-size: 15px;
   font-size: 300;
   line-height: 15px;
+  letter-spacing: -0.1px;
 }
 
 .choose_favorite {
@@ -571,7 +591,7 @@ h5 {
   margin: 0 auto;
   text-align: center;
   margin-bottom: 30px;
-  padding-right: 99px;
+  padding-right: 95px;
 }
 
 .feed_text1 {
@@ -579,12 +599,14 @@ h5 {
   font-size: 24px;
   line-height: 29px;
   margin-bottom: 40px;
+  letter-spacing: 0.02px;
 }
 
 .feed_text2 {
   font-weight: 500;
   line-height: 21px;
   margin-bottom: 10px;
+  letter-spacing: 0.01px;
 }
 
 .feed_text3 {
@@ -592,6 +614,7 @@ h5 {
   line-height: 21px;
   margin-bottom: 60px;
   padding-right: 198px;
+  letter-spacing: 0.02px;
 }
 
 .donate_work {
@@ -639,14 +662,14 @@ h3 {
 }
 
 .zoo_icon {
-  padding: 35px 41px;
+  padding: 35px 40px;
   border: 1px solid #F9804B;
   background: #FFFFFF;
   border-radius: 5px;
 }
 
 .monkey_icon {
-  padding: 47px 20px;
+  padding: 46px 20px;
   border: 1px solid #F9804B;
   background: #FFFFFF;
   border-radius: 5px;
@@ -696,7 +719,7 @@ h3 {
   list-style: none;
   padding-left: 0;
   margin: 0;
-  margin-bottom: 13px;
+  margin-bottom: 15px;
 }
 
 .card_top {
@@ -746,7 +769,7 @@ h3 {
 .slider_scroll_wrapper {
   max-width: 600px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 #scrollBar {
@@ -773,6 +796,10 @@ h3 {
   height: 6px;
   background: #FE9013;
   border-radius: 5px;
+}
+
+#scrollBar::-webkit-slider-thumb:hover {
+  background: #E47209;
 }
 
 /*.scroll_bar_wrapper {

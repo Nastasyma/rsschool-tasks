@@ -142,22 +142,41 @@ h1 {
   gap: 58px;
 }
 
-.nav_link, .figma_link {
-  transition: .2s;
-}
-
-.nav_link, .logo_title, .figma_link {
+.nav_link,
+.logo_title,
+.figma_link {
   text-decoration: none;
   color: #ffffff;
+  position: relative;
+  transition: .3s ease-out;
 }
 
-.nav_link:hover, .figma_link:hover {
-  color: orange;
+.nav_link:after,
+.figma_link:after {
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: orange;
+	content: "";
+	transition: width .3s ease-out;
+}
+
+.nav_link:hover:after,
+.nav_link:focus:after,
+.figma_link:focus:after,
+.figma_link:hover:after {
+	width: 100%;
 }
 
 .donate_link {
   color: orange;
   cursor: default;
+}
+.donate_link:hover:after,
+.donate_link:focus:after {
+	width: 0%
 }
 
 /* ------------ header end ------------ */
@@ -356,10 +375,28 @@ h3 {
 }
 
 .another_amount_input {
-  padding: 17px 70px 17px 9px;
+  padding: 17px 75px 17px 10px;
   border-radius: 5px;
   background: transparent;
   border-color: #929699;
+}
+
+.another_amount::after {
+  content: "Введите число от 0 до 9999";
+  position: absolute;
+  left: 0;
+  top: 110%;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #929699;
+  text-align: center;
+  visibility: var(--visibility);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px 0;
+  width: 100%;
+  z-index: 555;
 }
 
 .dollars_gray {

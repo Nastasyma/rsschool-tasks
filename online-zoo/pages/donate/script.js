@@ -3,6 +3,8 @@ const submitBTN = document.querySelector('.submit_btn');
 const emailForm = document.querySelector('.enter_email');
 const amountInput = document.querySelector('.another_amount_input');
 
+document.documentElement.style.setProperty('--visibility', "hidden");
+
 function correctForm(event) {
 	event.preventDefault();
   email.value = "";
@@ -34,7 +36,10 @@ function validate() {
 
 amountInput.oninput = function () {
   if (this.value.length > 4) {
-      this.value = this.value.slice(0,4);
+    this.value = this.value.slice(0,4);
+    document.documentElement.style.setProperty('--visibility', "visible");
+  } else {
+    document.documentElement.style.setProperty('--visibility', "hidden");
   }
 }
 
@@ -43,4 +48,3 @@ amountInput.addEventListener('keydown', function(e) {
     amountInput.value = "";
   }
 })
-
