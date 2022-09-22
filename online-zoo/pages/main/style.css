@@ -157,6 +157,7 @@ h1 {
 
 .about_link {
   color: orange;
+  cursor: default;
 }
 
 /* ------------ header end ------------ */
@@ -197,6 +198,7 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
+  margin: 0;
   z-index: 2;
 }
 
@@ -237,6 +239,43 @@ h1 {
   background: #4B9200;
   transform: scale(1.05);
 }
+
+/*.btn::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border-radius: 25px;
+  transition: .2s;
+  z-index: -1;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: .2s;
+}
+
+.btn:hover::before {
+  background-color: #E47209;
+  opacity: 1;
+  transition: .2s;
+}
+
+.btn:focus::before, .btn:active::before {
+  background-color: #4B9200;
+  transition: .2s;
+}
+
+.feedback_btn::before {
+  border-radius: 5px;
+}
+
+.donate_volunteers_btn::before {
+  border-radius: 5px;
+}*/
 
 /* ------------ section_watch_animal end ----------- */
 
@@ -295,7 +334,7 @@ h2 {
 
 /* ------------ section_backstage end ----------- */
 
-/* ------------ section_pets end ----------- */
+/* ------------ section_pets start ----------- */
 
 .section_pets {
   position: relative;
@@ -357,13 +396,13 @@ h2 {
 
 .left_btn {
   position: absolute;
-  left: -82px;
+  left: -7%;
   top: 500px;
 }
 
 .right_btn {
   position: absolute;
-  right: -82px;
+  right: -7%;
   top: 500px;
 }
 
@@ -373,7 +412,9 @@ h2 {
   margin: 0 auto;
 }
 .pet_card {
-  border: 1px solid #FA6F32;
+  border: 1px solid transparent;
+  background: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
+  box-shadow: inset 0px 0px 0px 100vw #ffffff;
   border-radius: 5px;
 }
 
@@ -431,7 +472,7 @@ h2 {
   top: 0;
   width: 100%;
   height: 99%;
-  background-color: rgba(0, 0, 0, 5);
+  background-color: #000000;
   opacity: 0;
   z-index: 333;
   transition: .5s;
@@ -490,6 +531,14 @@ h2 {
 
 .choose_favorite {
   margin: 0 auto;
+}
+
+h5 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22.4px;
+  text-transform: uppercase;
 }
 
 /* ------------ section_pets end ----------- */
@@ -618,11 +667,6 @@ h3 {
 .support_link:hover {
   color: green;
   border-bottom: 1px solid green;
-}
-
-.donate_link_btn {
-  text-decoration: none;
-  color: #FFFFFF;
 }
 
 /* ------------ section_pick_feed_friend end ----------- */
