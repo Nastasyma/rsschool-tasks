@@ -974,10 +974,6 @@ h3 {
   transition: .1s;
 }
 
-.soc_web:hover {
-  color: orange;
-}
-
 .footer_icon_wrapper {
   background: rgba(196, 196, 196, 0.5);
   width: 26px;
@@ -989,13 +985,35 @@ h3 {
   transition: .1s;
 }
 
+
+.social_nav_link:hover {
+  cursor: pointer;
+}
+
+.social_nav_link:hover .soc_web {
+  color: orange;
+}
+
+.social_nav_link:hover .footer_icon_wrapper {
+  background: rgb(206, 134, 0);
+  transform: scale(1.1);
+}
+
+.social_nav_link:hover .social_logo {
+  filter: invert(100%);
+}
+
+/*.soc_web:hover {
+  color: orange;
+}
+
 .footer_icon_wrapper:hover {
   background: rgb(206, 134, 0);
 }
 
 .footer_icon_wrapper:hover .social_logo {
   filter: invert(100%);
-}
+}*/
 
 .social_logo {
   margin: 0 auto;

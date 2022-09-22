@@ -618,10 +618,6 @@ h3 {
   transition: .1s;
 }
 
-.soc_web:hover {
-  color: orange;
-}
-
 .footer_icon_wrapper {
   background: rgba(196, 196, 196, 0.5);
   width: 26px;
@@ -633,11 +629,20 @@ h3 {
   transition: .1s;
 }
 
-.footer_icon_wrapper:hover {
-  background: rgb(206, 134, 0);
+.social_nav_link:hover {
+  cursor: pointer;
 }
 
-.footer_icon_wrapper:hover .social_logo {
+.social_nav_link:hover .soc_web {
+  color: orange;
+}
+
+.social_nav_link:hover .footer_icon_wrapper {
+  background: rgb(206, 134, 0);
+  transform: scale(1.1);
+}
+
+.social_nav_link:hover .social_logo {
   filter: invert(100%);
 }
 
