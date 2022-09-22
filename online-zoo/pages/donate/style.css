@@ -282,6 +282,15 @@ h3 {
   position: relative;
 }
 
+.input_gray_line {
+  position: absolute;
+  height: 2px;
+  top: 12px;
+  right: 30px;
+  width: 94.2%;
+  background: #72828E;
+}
+
 .donate_input {
   display: flex;
   flex-direction: column;
@@ -293,7 +302,7 @@ h3 {
   margin-left: 10px;
   cursor: pointer;
   -webkit-appearance: none;
-  background: #72828E;
+  background: transparent;
   position: relative;
   z-index: 5;
 }
