@@ -135,13 +135,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 87px;
+}
+
+.bamboo_cap {
+  flex: 0 0 52.5%;
+}
+
+.bamboo_cap_img {
+  width: 100%;
 }
 
 .backstage_text {
   display: flex;
   flex-direction: column;
   color: #333B41;
+  flex: 0 0 40%;
 }
 
 h2 {
@@ -190,7 +198,7 @@ h2 {
 }
 
 .pets_wrapper {
-  max-width: 1181px;
+  max-width: 1179px;
   margin: 0 auto;
   padding: 0 10px;
   display: flex;
@@ -203,12 +211,22 @@ h2 {
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   list-style: none;
   margin: 0;
   padding-left: 0;
   padding-top: 97px;
   row-gap: 20px;
-  column-gap: 30px;
+}
+
+.pets_btns_wrapper {
+  display: flex;
+  position: absolute;
+  width: 82.8%;
+  margin: 0 auto;
+  justify-content: space-between;
+  top: 41.5%;
+  left: 8.6%;
 }
 
 .arrow_wrapper {
@@ -232,7 +250,7 @@ h2 {
   transform: scale(1.1);
 }
 
-.left_btn {
+/*.left_btn {
   position: absolute;
   left: -7%;
   top: 500px;
@@ -242,24 +260,28 @@ h2 {
   position: absolute;
   right: -7%;
   top: 500px;
-}
+}*/
 
 .arrow_icon {
   width: 16px;
   height: 8px;
   margin: 0 auto;
 }
+
 .pet_card {
   border: 1px solid transparent;
   background: linear-gradient(113.96deg, #FA6F32 1.49%, #FE9013 101.44%);
   box-shadow: inset 0px 0px 0px 100vw #ffffff;
   border-radius: 5px;
   transition: all .3s;
+  max-width: 366px;
+  overflow: hidden;
+  flex: 0 0 33%;
 }
 
 .card {
-  max-width: 364px;
-  max-height: 364px;
+  width: 100%;
+  height: 100%;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -281,34 +303,34 @@ h2 {
   font-weight: 500;
   background-color: rgba(0, 0, 0, 0.7);
   color: #ffffff;
-  padding: 15px;
+  padding: 10px 25px;
   transform: translateY(100%);
   visibility: hidden;
   transition: all .3s;
 }
 
 .discription1::after {
-  content: url("../../assets/images/banana-bamboo_icon.png") '\A \A GIANT PANDAS \A Native to Southwest China';
+  content: url("../../assets/images/banana-bamboo_icon.png") '\A GIANT PANDAS \A Native to Southwest China';
 }
 
 .discription2::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A \A EAGLES \A Native to South America';
+  content: url("../../assets/images/meet-fish_icon.png") '\A EAGLES \A Native to South America';
 }
 
 .discription3::after {
-  content: url("../../assets/images/banana-bamboo_icon.png") '\A \A GORILLAS \A Native to Congo';
+  content: url("../../assets/images/banana-bamboo_icon.png") '\A GORILLAS \A Native to Congo';
 }
 
 .discription4::after {
-  content: url("../../assets/images/banana-bamboo_icon.png") '\A \A TWO-TOED SLOTH \A Mesoamerica, South America';
+  content: url("../../assets/images/banana-bamboo_icon.png") '\A TWO-TOED SLOTH \A Mesoamerica, South America';
 }
 
 .discription5::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A \A CHEETAHS \A Native to Africa';
+  content: url("../../assets/images/meet-fish_icon.png") '\A CHEETAHS \A Native to Africa';
 }
 
 .discription6::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A \A PENGUINS \A Native to Antarctica';
+  content: url("../../assets/images/meet-fish_icon.png") '\A PENGUINS \A Native to Antarctica';
 }
 
 .pet_card:hover .pet_description {
@@ -428,7 +450,7 @@ h5 {
 .section_pick_feed_friend {
   background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
   opacity: 0.9;
-  padding: 69px 0 100px 0;
+  padding: 69px 0 101px 0;
 }
 
 .feed_friend_wrapper {
@@ -565,7 +587,7 @@ h3 {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 140px 10px 180px 10px;
+  padding: 140px 10px 178px 10px;
 }
 
 .testimonials_title {
@@ -575,7 +597,8 @@ h3 {
 
 .testimonials_cards {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
   list-style: none;
   padding-left: 0;
   margin: 0;
@@ -584,14 +607,15 @@ h3 {
 
 .card_top {
   display: flex;
-  gap: 10px;
+  width: 100%;
+  gap: 4%;
 }
 
 .user_card {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 268px;
+  width: 23%;
   border: 2px solid transparent;
   background:
     linear-gradient(315.75deg,
@@ -614,6 +638,7 @@ h3 {
   line-height: 18px;
   color: #BDBDBD;
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   text-align: center;
 }
@@ -715,3 +740,15 @@ h3 {
 }
 
 /* ------------ footer end ----------- */
+
+/* --- media queries start --- */
+
+@media (max-width: 1555px) {
+
+  .pets_photo_wrapper {
+    row-gap: 92px;
+  }
+
+}
+
+/* --- media queries end --- */

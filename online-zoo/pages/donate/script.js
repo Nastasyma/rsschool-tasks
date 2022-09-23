@@ -38,8 +38,12 @@ amountInput.oninput = function () {
   if (this.value.length > 4) {
     this.value = this.value.slice(0,4);
     document.documentElement.style.setProperty('--visibility', "visible");
+    amountInput.style.border = '1px solid red';
+    amountInput.style.outline = '1px solid red';
   } else {
     document.documentElement.style.setProperty('--visibility', "hidden");
+    amountInput.style.border = '#929699';
+    amountInput.style.outline = '1px solid black';
   }
 }
 
