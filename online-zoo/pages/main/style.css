@@ -347,10 +347,9 @@ h2 {
   transform: translateY(0%);
 }
 
-/*.pet_card:hover {
-  border: none;
-  background: transparent;
-}*/
+.pet_card:hover .card {
+  filter: brightness(80%);
+}
 
 .pet_description {
   display: flex;
