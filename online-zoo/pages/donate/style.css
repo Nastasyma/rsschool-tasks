@@ -71,7 +71,7 @@ h3 {
   font-weight: 400;
   line-height: 28.8px;
   font-size: 24px;
-  margin-bottom: 60px;
+  margin-bottom: 58px;
 }
 
 .panda_diet {
@@ -90,8 +90,8 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 15px;
-  padding-top: 48px;
+  gap: 10px;
+  padding-top: 55px;
 }
 
 .amount_of_days_donate {
@@ -181,24 +181,30 @@ h3 {
 
 .donate_money {
   width: 100%;
-  margin-bottom: 45px;
+  margin-bottom: 47px;
   display: flex;
   justify-content: space-between;
 }
 
 .pay_number {
-  display: flex;
-  align-items: flex-end;
-  width: 67px;
+  width: 72px;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 36px;
+  transition: all .2s;
 }
 
-.dollars_black {
-  margin-bottom: 8px;
-  margin-right: 2px;
+.pay_number:nth-child(1) {
+  margin-left: -2px;
+}
+
+.pay_number:hover {
+  color: #FE9013;
 }
 
 .active_number {
-  filter: invert(40%) sepia(90%) saturate(1000%);
+  color: #FE9013;
 }
 /*.pay_number:nth-child(1) {
   margin-right: -15px;
@@ -212,12 +218,6 @@ h3 {
 .pay_number:nth-child(7) {
   margin-right: 15px;
 }*/
-
-.money_amount {
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 36px;
-}
 
 .another_amount {
   margin: 0 auto;

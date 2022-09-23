@@ -51,7 +51,7 @@
               <div class="panda_icon_wrapper"><img src="../../assets/images/animals-widget.png" class="panda_widget" alt="panda_widget"></div>
             </div>
             <div class="donate_input">
-              <span class="amount">Amount</span>
+              <label for="donate_input_gray" class="amount">Amount</label>
               <div class="input_gray">
                 <div class="input_gray_line"></div>
                 <input
@@ -74,40 +74,16 @@
                   <li class="input_point"></li>
                 </ul>
               </div>
-              <div class="donate_money">
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">5000</span>
-                </div>
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">2000</span>
-                </div>
-                <div class="pay_number active_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">1000</span>
-                </div>
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">500</span>
-                </div>
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">250</span>
-                </div>
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">100</span>
-                </div>
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">50</span>
-                </div>
-                <div class="pay_number">
-                  <img src="../../assets/icons/dollars_black.svg" class="dollars_black" alt="dollars_black_icon">
-                  <span class="money_amount">25</span>
-                </div>
-              </div>
+              <datalist id="donate_money" class="donate_money">
+                <option class="pay_number" value="1">$5000</option>
+                <option class="pay_number" value="2">$2000</option>
+                <option class="pay_number active_number" value="3">$1000</option>
+                <option class="pay_number" value="4">$500</option>
+                <option class="pay_number" value="5">$250</option>
+                <option class="pay_number" value="6">$100</option>
+                <option class="pay_number" value="7">$50</option>
+                <option class="pay_number" value="8">$25</option>
+              </datalist>
             </div>
             <div class="another_amount">
               <input type="number" class="another_amount_input" placeholder="Another amount"/>
