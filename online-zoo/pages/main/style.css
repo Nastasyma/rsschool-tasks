@@ -383,15 +383,15 @@ h2 {
 }
 
 .pets_photo_wrapper {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  margin: 0;
   padding-left: 0;
   padding-top: 97px;
-  margin: 0;
   row-gap: 20px;
   column-gap: 30px;
-  position: relative;
 }
 
 .arrow_wrapper {
@@ -441,8 +441,8 @@ h2 {
 }
 
 .card {
-  width: 364px;
-  height: 364px;
+  max-width: 364px;
+  max-height: 364px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
@@ -450,7 +450,7 @@ h2 {
 .card_photo_discription {
   transition: all .3s;
   position: relative;
-  height: 364px;
+  max-height: 368px;
   overflow: hidden;
 }
 
@@ -459,7 +459,7 @@ h2 {
   white-space: pre;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 1%;
   width: calc(100% - 28px);
   font-weight: 500;
   background-color: rgba(0, 0, 0, 0.7);
@@ -471,27 +471,27 @@ h2 {
 }
 
 .discription1::after {
-  content: 'GIANT PANDAS \A Native to Southwest China';
+  content: url("../../assets/images/banana-bamboo_icon.png") '\A \A GIANT PANDAS \A Native to Southwest China';
 }
 
 .discription2::after {
-  content: 'EAGLES \A Native to South America';
+  content: url("../../assets/images/meet-fish_icon.png") '\A \A EAGLES \A Native to South America';
 }
 
 .discription3::after {
-  content: 'GORILLAS \A Native to Congo';
+  content: url("../../assets/images/banana-bamboo_icon.png") '\A \A GORILLAS \A Native to Congo';
 }
 
 .discription4::after {
-  content: 'TWO-TOED SLOTH \A Mesoamerica, South America';
+  content: url("../../assets/images/banana-bamboo_icon.png") '\A \A TWO-TOED SLOTH \A Mesoamerica, South America';
 }
 
 .discription5::after {
-  content: 'CHEETAHS \A Native to Africa';
+  content: url("../../assets/images/meet-fish_icon.png") '\A \A CHEETAHS \A Native to Africa';
 }
 
 .discription6::after {
-  content: 'PENGUINS \A Native to Antarctica';
+  content: url("../../assets/images/meet-fish_icon.png") '\A \A PENGUINS \A Native to Antarctica';
 }
 
 .pet_card:hover .pet_description {
@@ -508,10 +508,10 @@ h2 {
   transform: translateY(0%);
 }
 
-.pet_card:hover {
+/*.pet_card:hover {
   border: none;
   background: transparent;
-}
+}*/
 
 .pet_description {
   display: flex;
@@ -1098,8 +1098,17 @@ h3 {
   justify-content: flex-end;
   font-weight: 100;
   line-height: 22px;
+  cursor: pointer;
   gap: 10px;
   opacity: 0.5;
+}
+
+.project_author:hover {
+  color:#E47209;
+}
+
+.project_author:active {
+  color:#4B9200;
 }
 
 /* ------------ footer end ----------- */
