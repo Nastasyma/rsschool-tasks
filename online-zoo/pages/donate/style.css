@@ -1,3 +1,13 @@
+
+.donate_link {
+  color: orange;
+  cursor: default;
+}
+.donate_link:hover:after,
+.donate_link:focus:after {
+	width: 0%
+}
+
 /* ------------ section_donate start ----------- */
 
 .panda_bg {
@@ -330,6 +340,8 @@ h3 {
 }
 
 .donate_volunteers_btn {
+  border-radius: 5px;
+  margin-bottom: 45px;
   padding-top: 17px;
   padding-left: 0;
 }
