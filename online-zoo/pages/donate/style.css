@@ -1,13 +1,3 @@
-
-.donate_link {
-  color: orange;
-  cursor: default;
-}
-.donate_link:hover:after,
-.donate_link:focus:after {
-	width: 0%
-}
-
 /* ------------ section_donate start ----------- */
 
 .panda_bg {

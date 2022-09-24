@@ -345,7 +345,7 @@ h2 {
 
 .pet_card:hover .card_photo_discription::after {
   visibility: visible;
-  transform: translateY(0%);
+  transform: translateY(0);
 }
 
 .pet_card:hover .card {

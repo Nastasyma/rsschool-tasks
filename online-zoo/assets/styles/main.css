@@ -170,12 +170,16 @@ h1 {
 	width: 100%;
 }
 
-.about_link {
-  color: orange;
+.active_link {
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
   cursor: default;
 }
-.about_link:hover:after,
-.about_link:focus:after {
+.active_link:hover:after,
+.active_link:focus:after {
 	width: 0%
 }
 
@@ -210,8 +214,8 @@ h1 {
 
 .petstory_logo {
   position: absolute;
-  top: 24px;
-  left: 10px;
+  top: 21px;
+  left: 11px;
 }
 
 .logo_title2 {
@@ -252,8 +256,8 @@ h1 {
 }
 
 .email {
-  border: 1px solid orange;
-  border-radius: 5px;
+  border: 0.7px solid #FE9013;
+  border-radius: 2px;
   outline: none;
   appearance: none;
   background: none;
