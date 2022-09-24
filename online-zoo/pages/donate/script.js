@@ -2,6 +2,8 @@ const email = document.querySelector('.email');
 const submitBTN = document.querySelector('.submit_btn');
 const emailForm = document.querySelector('.enter_email');
 const amountInput = document.querySelector('.another_amount_input');
+const payNumber = document.querySelectorAll('.pay_number');
+const amount = document.querySelector('.amount');
 
 document.documentElement.style.setProperty('--visibility', "hidden");
 
@@ -51,4 +53,13 @@ amountInput.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     amountInput.value = "";
   }
+})
+
+payNumber.forEach(el => {
+  el.addEventListener('click', (e) => {
+    for (let i=0; i<payNumber.length; i++) {
+      payNumber[i].classList.remove('active_number');
+    }
+    e.target.classList.add('active_number');
+  })
 })
