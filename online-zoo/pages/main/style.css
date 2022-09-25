@@ -155,14 +155,14 @@
 h2 {
   font-weight: 400;
   font-size: 48px;
-  line-height: 60px;
+  line-height: 58px;
   margin: 0 0 20px 0;
 }
 
 .backstage_text_part1 {
   font-weight: 400;
   margin-bottom: 54px;
-  line-height: 21px;
+  line-height: 22px;
 }
 
 .subtitle {
@@ -198,7 +198,7 @@ h2 {
 }
 
 .pets_wrapper {
-  max-width: 1179px;
+  max-width: 1178px;
   margin: 0 auto;
   padding: 0 10px;
   display: flex;
@@ -381,7 +381,7 @@ h2 {
   font-size: 15px;
   font-size: 300;
   line-height: 15px;
-  letter-spacing: -0.1px;
+  letter-spacing: -0.2px;
 }
 
 .choose_favorite {
@@ -718,6 +718,7 @@ h3 {
 
 .feedback_btn {
   border-radius: 5px;
+  padding: 16px 0px 16px 0;
 }
 
 .leav_foto {
@@ -730,13 +731,10 @@ h3 {
 
 /* ------------ footer start ----------- */
 
-.soc_web {
-  padding-left: 3px;
-}
-
 .donate_volunteers_btn {
   border-radius: 5px;
   margin-bottom: 45px;
+  padding-left: 0;
 }
 
 /* ------------ footer end ----------- */

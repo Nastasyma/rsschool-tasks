@@ -3,8 +3,7 @@ const submitBTN = document.querySelector('.submit_btn');
 const emailForm = document.querySelector('.enter_email');
 const amountInput = document.querySelector('.another_amount_input');
 const payNumber = document.querySelectorAll('.pay_number');
-const amount = document.querySelector('.amount');
-
+const amount = document.getElementById('donate_input_value');
 document.documentElement.style.setProperty('--visibility', "hidden");
 
 function correctForm(event) {
@@ -37,7 +36,7 @@ function validate() {
 }
 
 amountInput.oninput = function () {
-  if (this.value.length > 4) {
+  if (this.value.length > 4 || this.value < 0) {
     this.value = this.value.slice(0,4);
     document.documentElement.style.setProperty('--visibility', "visible");
     amountInput.style.border = '1px solid red';
@@ -52,10 +51,13 @@ amountInput.oninput = function () {
 amountInput.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     amountInput.value = "";
+    document.documentElement.style.setProperty('--visibility', "hidden");
+    amountInput.style.border = '#929699';
+    amountInput.style.outline = '1px solid black';
   }
 })
 
-payNumber.forEach(el => {
+/* payNumber.forEach(el => {
   el.addEventListener('click', (e) => {
     for (let i=0; i<payNumber.length; i++) {
       payNumber[i].classList.remove('active_number');
@@ -63,3 +65,7 @@ payNumber.forEach(el => {
     e.target.classList.add('active_number');
   })
 })
+
+amount.addEventListener("change", function() {
+  console.log(this.value);
+}); */

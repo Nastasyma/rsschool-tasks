@@ -321,7 +321,6 @@ h1 {
   transition: .1s;
 }
 
-
 .social_nav_link:hover {
   cursor: pointer;
 }
@@ -381,7 +380,7 @@ h1 {
 }
 
 .footer_nav_item {
-  padding-bottom: 2px;
+  padding-bottom: 3px;
 }
 .project_author {
   display: flex;
