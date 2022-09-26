@@ -4,7 +4,8 @@
   background: url('../../assets/images/giant_panda_donat_pg.png');
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 386px;
+  min-height: 390px;
+  margin-top: -4px;
 }
 
 .section_donate {

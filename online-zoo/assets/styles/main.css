@@ -96,7 +96,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 10px 12px 10px;
+  padding: 15px 12px 13px 10px;
   max-width: 1180px;
 }
 
@@ -212,10 +212,10 @@ h1 {
   filter: invert(40%) sepia(90%) saturate(1000%);
 }
 
-.petstory_logo {
+.petstory_logo2 {
   position: absolute;
   top: 21px;
-  left: 11px;
+  left: 10px;
 }
 
 .logo_title2 {

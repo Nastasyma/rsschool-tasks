@@ -156,12 +156,12 @@ h2 {
   font-weight: 400;
   font-size: 48px;
   line-height: 58px;
-  margin: 0 0 20px 0;
+  margin: 0 0 22px 0;
 }
 
 .backstage_text_part1 {
   font-weight: 400;
-  margin-bottom: 54px;
+  margin-bottom: 52px;
   line-height: 22px;
 }
 
@@ -355,7 +355,7 @@ h2 {
 .pet_description {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0 13px 16px;
+  padding: 5px 0 13px 13px;
 }
 
 .banana_icon {
@@ -381,7 +381,6 @@ h2 {
   font-size: 15px;
   font-size: 300;
   line-height: 15px;
-  letter-spacing: -0.2px;
 }
 
 .choose_favorite {
@@ -588,7 +587,7 @@ h3 {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  padding: 140px 10px 178px 10px;
+  padding: 140px 10px 179px 10px;
 }
 
 .testimonials_title {
@@ -626,11 +625,19 @@ h3 {
     #EAF7FE 149.54%);
   box-shadow: inset 0px 0px 0px 100vw #F1F3F2;
   border-radius: 20px;
-  padding: 14px 11px 19px 16px;
+  padding: 14px 11px 19px 15px;
 }
 
-.user_card:nth-child(2) {
-  padding: 14px 10px 19px 16px;
+.user_card:nth-child(1) {
+  padding: 14px 13px 19px 14px;
+}
+
+.user_card:nth-child(3) {
+  padding: 15px 14px 19px 13px;
+}
+
+.user_card:nth-child(4) {
+  padding: 15px 14px 19px 14px;
 }
 
 .user_location_wrapper {
@@ -657,7 +664,7 @@ h3 {
 .slider_scroll_wrapper {
   max-width: 600px;
   margin: 0 auto;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
 }
 
 #scrollBar {
