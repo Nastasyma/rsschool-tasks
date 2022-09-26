@@ -386,6 +386,7 @@ h2 {
 
 .choose_favorite {
   margin: 0 auto;
+  background: #FE9013;
 }
 
 h5 {
@@ -745,6 +746,10 @@ h3 {
 
   .pets_photo_wrapper {
     row-gap: 92px;
+  }
+
+  #scrollBar {
+    width: 37vw;
   }
 
 }

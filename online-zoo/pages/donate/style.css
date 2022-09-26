@@ -217,14 +217,22 @@ h3 {
 .another_amount {
   margin: 0 auto;
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 23px;
 }
 
 .another_amount_input {
-  padding: 17px 75px 17px 10px;
+  width: 268px;
+  padding: 17px 10px 17px 6px;
   border-radius: 5px;
   background: transparent;
   border-color: #929699;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.another_amount_input::-webkit-outer-spin-button,
+.another_amount_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .another_amount::after {
@@ -254,7 +262,7 @@ h3 {
 .pay_days {
   display: flex;
   margin: 0 auto;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   padding: 3px 14px 0 0;
   gap: 50px;
 }
