@@ -140,6 +140,18 @@ h3 {
   margin-top: -20px;
 }
 
+#donate_input_value::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  background-image: url('../../assets/images/roller_icon.png');
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: -20px;
+}
+
 .yellow_points {
   position: absolute;
   display: flex;

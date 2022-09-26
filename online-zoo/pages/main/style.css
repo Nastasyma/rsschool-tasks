@@ -690,6 +690,17 @@ h3 {
   background: #E47209;
 }
 
+#scrollBar::-moz-range-thumb {
+  width: 19%;
+  height: 6px;
+  background: #FE9013;
+  border-radius: 5px;
+}
+
+#scrollBar::-moz-range-thumb:hover {
+  background: #E47209;
+}
+
 /*.scroll_bar_wrapper {
   max-width: 600px;
   overflow-x: auto;
