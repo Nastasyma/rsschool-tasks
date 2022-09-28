@@ -145,6 +145,10 @@
   width: 100%;
 }
 
+.bamboo_cap_img2 {
+  display: none;
+}
+
 .backstage_text {
   display: flex;
   flex-direction: column;
@@ -190,11 +194,18 @@ h2 {
   bottom: 0;
   left: 0;
 }
+.palm_foto2 {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 
 .strelitzia_photo {
   position: absolute;
   bottom: 0;
   right: 0;
+  width: 23%;
 }
 
 .pets_wrapper {
@@ -279,6 +290,10 @@ h2 {
   flex: 0 0 33%;
 }
 
+.card__alligator {
+  display: none;
+}
+
 .card {
   width: 100%;
   height: 100%;
@@ -332,6 +347,10 @@ h2 {
 
 .discription6::after {
   content: url("../../assets/images/meet-fish_icon.png") '\A PENGUINS \A Native to Antarctica';
+}
+
+.discription7::after {
+  content: url("../../assets/images/meet-fish_icon.png") '\A ALLIGATORS \A Native to Southeastern U. S.';
 }
 
 .pet_card:hover .pet_description {
@@ -611,6 +630,14 @@ h3 {
   gap: 4%;
 }
 
+.name22 {
+  display: none;
+}
+
+.user_icon22 {
+  display: none;
+}
+
 .user_card {
   display: flex;
   flex-direction: column;
@@ -765,11 +792,206 @@ h3 {
   .pets_photo_wrapper {
     row-gap: 92px;
   }
-
   #scrollBar {
     width: 37vw;
   }
 
 }
+
+@media (max-width: 1000px) {
+
+  .watch_online {
+    max-width: 960px;
+    margin-top: 42px;
+  }
+  .backstage_wrapper {
+    max-width: 960px;
+    padding-top: 87px;
+    padding-bottom: 45px;
+  }
+  .pets_wrapper {
+    max-width: 960px;
+    padding-bottom: 140px;
+  }
+  .feed_friend_wrapper {
+    max-width: 940px;
+  }
+  .testimonials_wrapper {
+    max-width: 960px;
+  }
+  .section_watch_animal {
+    min-height: 584px;
+    margin-bottom: 12px;
+  }
+  .watch_title {
+    font-size: 85.2px;
+    line-height: 63.9px;
+    padding-right: 13px;
+  }
+  .orange_circle {
+    width: 367px;
+    height: 367px;
+    top: -52px;
+    left: -14px;
+  }
+  .watch_online_btn {
+    margin-right: 11.5%;
+    margin-top: 38.5%;
+  }
+  .flower_foto {
+    display: none;
+  }
+  .bamboo_cap {
+    flex: 0 0 48.3%;
+  }
+  .backstage_text {
+    flex: 0 0 48.3%;
+  }
+  .bamboo_cap_img {
+    display: none;
+  }
+  .bamboo_cap_img2 {
+    width: 100%;
+    display: block;
+  }
+  .card__alligator {
+    display: block;
+  }
+  .card__sloth {
+    display: none;
+  }
+  .pet_card {
+    flex: 0 0 31.16%;
+  }
+  .pet_card:nth-child(1) {
+    order: 1;
+  }
+  .pet_card:nth-child(2) {
+    order: 2;
+  }
+  .pet_card:nth-child(3) {
+    order: 4;
+  }
+  .pet_card:nth-child(5) {
+    order: 3;
+  }
+  .pet_card:nth-child(6) {
+    order: 5;
+  }
+  .pet_card:nth-child(7) {
+    order: 6;
+  }
+  .pets_btns_wrapper {
+    width: 29.6%;
+    top: 39.7%;
+    left: 35.3%;
+    z-index: 55;
+  }
+  .palm_foto {
+    display: none;
+  }
+  .palm_foto2 {
+    display: block;
+    width: 19.2%;
+  }
+  .strelitzia_photo {
+    width: 24%;
+  }
+  .section_pick_feed_friend {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .feed_friend_wrapper {
+    padding-top: 30px;
+    padding-left: 49px;
+    padding-bottom: 50px;
+  }
+  .feed_friend_title {
+    padding-right: 52px;
+    margin-bottom: 20px;
+  }
+  .feed_text1 {
+    margin-bottom: 20px;
+  }
+  .feed_text2 {
+    padding-right: 80px;
+  }
+  .feed_text3 {
+    padding-right: 50px;
+    letter-spacing: 0;
+    margin-bottom: 41px;
+  }
+  .donate_work {
+    padding-right: 50px;
+  }
+  .donate_description {
+    margin-bottom: 70px;
+  }
+  .bold_arrow_icon2 {
+    margin-bottom: 84px;
+  }
+  .monkey_icon {
+    padding: 47px 19px;
+  }
+  .testimonials_wrapper {
+    padding-top: 100px;
+    padding-bottom: 140px;
+  }
+  .testimonials_title {
+    margin-bottom: 30px;
+  }
+  .user_card:nth-child(1) {
+    padding-right: 17px;
+  }
+  .user_card:nth-child(2) {
+    padding: 10px 25px 18px 15px;
+    gap: 17px;
+  }
+  .user_card:nth-child(2) > .card_top {
+    gap: 2.1%;
+  }
+  .user_card:nth-child(2) > .user_review {
+    height: 290px;
+  }
+  .user_card:nth-child(3) {
+    padding: 15px 19px 19px 13px;
+  }
+  .user_card:nth-child(4) {
+    display: none;
+  }
+  .user_card {
+    width: 31.2%;
+  }
+  .p_31 {
+    display: none;
+  }
+  .name21 {
+    display: none;
+  }
+  .name22 {
+    display: block;
+  }
+  .user_icon2 {
+    display: none;
+  }
+  .user_icon22 {
+    display: block;
+  }
+  .testimonials_cards {
+    margin-bottom: 14px;
+  }
+  .slider_scroll_wrapper {
+    padding-right: 10px;
+    margin-bottom: 47px;
+  }
+  #scrollBar {
+    width: 390px;
+  }
+  .leav_foto {
+    width: 19.9%;
+    bottom: -88px;
+  }
+}
+
 
 /* --- media queries end --- */

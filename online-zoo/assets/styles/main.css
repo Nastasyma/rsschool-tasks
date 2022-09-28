@@ -91,6 +91,7 @@ p {
   background-color: #000000;
   color: #ffffff;
   position: relative;
+  z-index: 50;
 }
 .header_container {
   display: flex;
@@ -404,6 +405,29 @@ h1 {
 /* ------------ footer end ----------- */
 
 /* --- media queries start --- */
+
+@media (max-width: 1000px) {
+
+  .header_container {
+    max-width: 960px;
+  }
+  .footer_container {
+    max-width: 960px;
+    padding: 40px 0 50px 23px;
+  }
+  .footer_nav {
+    gap: 48px;
+  }
+  .nav_list {
+    gap: 48px;
+  }
+  .footer_top_right {
+    padding-right: 29px;
+  }
+  .footer_nav {
+    margin-left: 95px;
+  }
+}
 
 @media (max-width: 640px) {
 

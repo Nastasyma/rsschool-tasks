@@ -3,7 +3,7 @@
 .panda_bg {
   background: url('../../assets/images/giant_panda_donat_pg.png');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: center/cover;
   min-height: 390px;
   margin-top: -4px;
 }
@@ -121,9 +121,14 @@ h3 {
   flex-direction: column;
 }
 
+.input2 {
+  display: none;
+}
+
 #donate_input_value {
   width: 97.5%;
-  height: 2px;
+  height: 45px;
+  top: -10px;
   margin-left: 10px;
   cursor: pointer;
   -webkit-appearance: none;
@@ -138,7 +143,6 @@ h3 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-top: -20px;
 }
 
 #donate_input_value::-moz-range-thumb {
@@ -150,7 +154,6 @@ h3 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-top: -20px;
 }
 
 .yellow_points {
@@ -368,6 +371,91 @@ h3 {
 /* ------------ footer end ----------- */
 
 /* --- media queries start --- */
+
+@media (max-width: 1000px) {
+
+  .panda_bg {
+    margin-top: 0;
+    margin-left: -172px;
+  }
+  .donate_wrapper {
+    max-width: 960px;
+    padding-bottom: 29px;
+  }
+  h3 {
+    padding-right: 100px;
+  }
+  .donate_description {
+    margin-top: 30px;
+  }
+  h2 {
+    padding-right: 14px;
+    margin-bottom: 10px;
+  }
+  .donate_pay_wrapper {
+    margin-top: 40px;
+    padding: 20px 44px 48px 47px;
+  }
+  .panda_diet {
+    padding-right: 17px;
+    margin-bottom: 47px;
+  }
+  .diets_count {
+    padding-top: 50px;
+  }
+  .donate_input {
+    padding: 0 20px 0 18px;
+  }
+  .amount {
+    padding-left: 0;
+  }
+  .input_point:nth-child(1) {
+    display: none;
+  }
+  .pay_number:nth-child(1) {
+    display: none;
+  }
+  .input1 {
+    display: none;
+  }
+  .input2 {
+    display: block;
+    top: 50%;
+    left: 0;
+  }
+  .yellow_points {
+    width: 97.4%;
+    left: 10px;
+  }
+  #donate_input_value {
+    margin-left: -5px;
+    width: 101.1%;
+  }
+  .input_gray_line {
+    width: 96%;
+    left: 12px;
+  }
+  .donate_money {
+    margin-left: -4px;
+    width: 105%;
+  }
+  .another_amount {
+    margin-bottom: 20px;
+  }
+  .pay_days {
+    padding: 8px 17px 0 0;
+    margin-bottom: 28px;
+  }
+  .share {
+    padding-left: 0;
+  }
+  .footer_top_right {
+    padding-right: 31px;
+  }
+  .footer_nav {
+    margin-left: 119px;
+  }
+}
 
 @media (max-width: 640px) {
 
