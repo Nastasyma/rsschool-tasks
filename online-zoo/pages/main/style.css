@@ -252,13 +252,13 @@ h2 {
 }
 
 .arrow_wrapper:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   background: #E47209;
 }
 
 .arrow_wrapper:active, .arrow_wrapper:focus {
   background: #4B9200 linear-gradient(113.96deg, #4B9200 1.49%, #4B9200 101.44%);
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 /*.left_btn {
@@ -309,7 +309,7 @@ h2 {
   overflow: hidden;
 }
 
-.card_photo_discription::after {
+/*.card_photo_discription::after {
   content: '';
   white-space: pre;
   position: absolute;
@@ -351,10 +351,13 @@ h2 {
 
 .discription7::after {
   content: url("../../assets/images/meet-fish_icon.png") '\A ALLIGATORS \A Native to Southeastern U. S.';
-}
+}*/
 
 .pet_card:hover .pet_description {
-  visibility: hidden;
+  /*visibility: hidden;*/
+  transform: translateY(-90%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .pet_card:hover .card_photo_discription {
@@ -362,19 +365,20 @@ h2 {
   cursor: pointer;
 }
 
-.pet_card:hover .card_photo_discription::after {
+/*.pet_card:hover .card_photo_discription::after {
   visibility: visible;
   transform: translateY(0);
-}
+}*/
 
 .pet_card:hover .card {
-  filter: brightness(80%);
+  filter: brightness(70%);
 }
 
 .pet_description {
   display: flex;
   justify-content: space-between;
   padding: 5px 0 13px 13px;
+  transition: all .3s;
 }
 
 .banana_icon {
