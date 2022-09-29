@@ -142,6 +142,34 @@ h1 {
   padding: 0;
   gap: 58px;
 }
+.burger_menu {
+  width: 18px;
+  height: 10px;
+  position: relative;
+  cursor: pointer;
+}
+.burger_menu:hover, .burger_menu:focus, .burger_menu:active {
+  filter: invert(50%) drop-shadow(2px 3px 5px black);
+}
+.burger_line {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+.line_first {
+  top: 0;
+}
+.line_second {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.line_third {
+  bottom: 0;
+}
 
 .nav_link,
 .logo_title,
@@ -426,6 +454,31 @@ h1 {
   }
   .footer_nav {
     margin-left: 95px;
+  }
+}
+
+@media (max-width: 870px) {
+  .nav {
+    display: none;
+  }
+  .disigned_by {
+    display: none;
+  }
+  .zoo_logo {
+    width: 46.86px;
+    height: 29.03px;
+    border: none;
+  }
+  h1 {
+    font-size: 12px;
+    line-height: 14.75px;
+  }
+  .petstory_logo {
+    position: absolute;
+    width: 6px;
+    height: 16px;
+    top: 14px;
+    left: 5px;
   }
 }
 
