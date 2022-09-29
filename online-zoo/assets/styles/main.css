@@ -325,6 +325,9 @@ h1 {
   padding-left: 0;
   margin: 0;
 }
+.nav2 {
+  display: none;
+}
 
 .social_nav_link {
   display: flex;
@@ -488,13 +491,35 @@ h1 {
 
 @media (max-width: 640px) {
 
-  .footer_top_right {
-    display: none;
-  }
   .header_container {
     padding: 2.5px 20px;
   }
-
+  .footer_container {
+    padding: 13px 20px 12px 20px;
+  }
+  .subtitle2 {
+    display: none;
+  }
+  .enter_email {
+    display: none;
+  }
+  .nav1 {
+    display: none;
+  }
+  .nav2 {
+    display: flex;
+    gap: 20px;
+  }
+  .footer_top_right {
+    padding-right: 0;
+  }
+  .footer_top_left {
+    gap: 32px;
+  }
+  .footer_nav {
+    margin-left: 0;
+    gap: 37px;
+  }
 }
 
 /* --- media queries end --- */

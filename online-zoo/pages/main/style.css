@@ -1058,7 +1058,7 @@ h3 {
   }
   .pets_btns_wrapper {
     width: 24.3%;
-    top: 35.5%;
+    top: 37.5%;
     left: 37.9%;
     z-index: 55;
   }
@@ -1131,13 +1131,17 @@ h3 {
   }
   .user_card:nth-child(2) {
     gap: 10px;
-    padding: 9px 29px 11px 12px;
+    padding: 6px 29px 12px 12px;
   }
   .user_card:nth-child(2) > .user_review {
     height: 38px;
   }
   .user_card:nth-child(2) > .card_top {
     gap: 6px;
+    margin-left: -3px;
+  }
+  .user_card:nth-child(2) > .card_top > .card_top_name {
+    padding-top: 2px;
   }
   .user_card:nth-child(2) > .user_review {
     padding-left: 7px;
@@ -1162,6 +1166,9 @@ h3 {
     bottom: -68px;
     right: -6px;
     width: 19%;
+  }
+  .donate_volunteers_btn {
+    margin-bottom: 67px;
   }
 }
 
