@@ -23,7 +23,7 @@
 .watch_title_wrapper {
   text-align: center;
   position: relative;
-  width: 500px;
+  min-width: 500px;
 }
 
 .watch_title {
@@ -89,6 +89,12 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+.flower_foto2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
 }
 
 .backstage_wrapper {
@@ -156,8 +162,15 @@ h2 {
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 18.2%;
 }
 .palm_foto2 {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.palm_foto3 {
   display: none;
   position: absolute;
   bottom: 0;
@@ -239,6 +252,7 @@ h2 {
   max-width: 366px;
   overflow: hidden;
   flex: 0 0 33%;
+  transition: all .3s;
 }
 
 .card__alligator {
@@ -305,7 +319,6 @@ h2 {
   /*visibility: hidden;*/
   transform: translateY(-90%);
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .pet_card:hover .card_photo_discription {
@@ -314,7 +327,7 @@ h2 {
 }
 
 .pet_card:hover .card {
-  filter: brightness(70%);
+  filter: brightness(50%);
 }
 
 .pet_description {
@@ -930,6 +943,225 @@ h3 {
     top: -17px;
     right: -57px;
     z-index: 22;
+  }
+}
+@media (max-width: 870px) {
+  .watch_online {
+    max-width: 620px;
+    margin-top: 48px;
+    padding-right: 6px;
+  }
+  .backstage_wrapper {
+    max-width: 620px;
+    padding-top: 60px;
+    padding-right: 120px;
+  }
+  .pets_wrapper {
+    max-width: 620px;
+    gap: 60px;
+    padding-bottom: 100px;
+  }
+  .feed_friend_wrapper {
+    max-width: 640px;
+  }
+  .testimonials_wrapper {
+    max-width: 620px;
+    padding-top: 61px;
+    padding-bottom: 80px;
+  }
+  .section_watch_animal {
+    background: url('../../assets/images/giant_panda_small.png') center/cover no-repeat;
+    margin-top: -34px;
+    padding-top: 34px;
+    min-height: 373px;
+    margin-bottom: 0;
+  }
+  .watch_title_wrapper {
+    min-width: 255.64px;
+  }
+  .watch_title {
+    font-size: 54.42px;
+    line-height: 40.81px;
+    padding-right: 0;
+  }
+  .orange_circle {
+    width: 237.6px;
+    height: 237.6px;
+    top: -38px;
+    left: -38px;
+  }
+  .watch_online_btn {
+    margin-right: 50.7%;
+    margin-top: 32.7%;
+  }
+  .bamboo_cap {
+    flex: 0 0 0;
+  }
+  .backstage_text {
+    flex-basis: 100%;
+  }
+  .bamboo_cap_img2 {
+    display: none;
+  }
+  h2 {
+    padding-left: 3px;
+    margin-bottom: 20px;
+  }
+  .backstage_text_part1 {
+    margin-bottom: 28px;
+  }
+  .subtitle {
+    margin-bottom: 20px;
+    padding-left: 5px;
+  }
+  .flower_foto2 {
+    display: block;
+    top: -5px;
+  }
+  .pets_photo_wrapper {
+    padding-top: 35px;
+  }
+  .pet_card:nth-child(5) {
+    display: none;
+  }
+  .pet_card:nth-child(7) {
+    display: none;
+  }
+  .pet_card {
+    flex: 0 0 47.7%;
+  }
+  h5 {
+    font-size: 12.47px;
+    line-height: 17.46px;
+  }
+  .pet_title {
+    font-size: 12.47px;
+    line-height: 17.46px;
+  }
+  .pet_location {
+    font-size: 11.69px;
+    line-height: 14.03px;
+  }
+  .banana_icon {
+    width: 28.72px;
+    height: 30.84px;
+    padding-right: 3px;
+    padding-top: 2px;
+  }
+  .meet-fish_icon {
+    width: 37.41px;
+    height: 29.62px;
+    padding-right: 0;
+  }
+  .pet_description {
+    padding: 0 6px 10px 12px;
+  }
+  .pets_btns_wrapper {
+    width: 24.3%;
+    top: 35.5%;
+    left: 37.9%;
+    z-index: 55;
+  }
+  .palm_foto3 {
+    display: block;
+    width: 21%;
+  }
+  .palm_foto2 {
+    display: none;
+  }
+  .strelitzia_photo {
+    width: 27%;
+  }
+  .section_pick_feed_friend {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .feed_friend_wrapper {
+    padding-top: 10px;
+  }
+  .feed_friend_title {
+    font-size: 42px;
+    line-height: 50.4px;
+    padding-right: 0;
+  }
+  .feed_text1 {
+    font-size: 22px;
+    line-height: 26.4px;
+    margin-bottom: 20px;
+  }
+  .feed_text2 {
+    margin-bottom: 10px;
+    padding-right: 0;
+  }
+  .feed_text3 {
+    padding-right: 0;
+    margin-bottom: 28px;
+  }
+  h3 {
+    padding-left: 11px;
+    margin-bottom: 20px;
+  }
+  .donate_description {
+    margin-bottom: 40px;
+  }
+  .feed_friend_btn {
+    margin-left: 10px;
+  }
+  .testimonials_title {
+    padding-left: 0;
+  }
+  .testimonials_cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 38px;
+  }
+  .user_card {
+    width: 100%;
+  }
+  .user_review {
+    height: 38px;
+  }
+  .user_card:nth-child(1) {
+    padding: 14px 29px 8px 9px;
+  }
+  .user_card:nth-child(1) > .user_review {
+    padding-left: 7px;
+  }
+  .user_card:nth-child(2) {
+    gap: 10px;
+    padding: 9px 29px 11px 12px;
+  }
+  .user_card:nth-child(2) > .user_review {
+    height: 38px;
+  }
+  .user_card:nth-child(2) > .card_top {
+    gap: 6px;
+  }
+  .user_card:nth-child(2) > .user_review {
+    padding-left: 7px;
+  }
+  .user_card:nth-child(3) {
+    padding: 13px 29px 7px 11px;
+  }
+  .user_card:nth-child(3) > .user_review {
+    padding-left: 6px;
+  }
+  .slider_scroll_wrapper {
+    display: none;
+  }
+  .card_top {
+    gap: 10px;
+  }
+  .feedback_btn {
+    width: 240px;
+    margin: 0 auto;
+  }
+  .leav_foto {
+    bottom: -68px;
+    right: -6px;
+    width: 19%;
   }
 }
 

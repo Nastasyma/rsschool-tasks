@@ -147,6 +147,7 @@ h1 {
   height: 10px;
   position: relative;
   cursor: pointer;
+  display: none;
 }
 .burger_menu:hover, .burger_menu:focus, .burger_menu:active {
   filter: invert(50%) drop-shadow(2px 3px 5px black);
@@ -464,6 +465,9 @@ h1 {
   .disigned_by {
     display: none;
   }
+  .burger_menu {
+    display: block;
+  }
   .zoo_logo {
     width: 46.86px;
     height: 29.03px;
@@ -486,6 +490,9 @@ h1 {
 
   .footer_top_right {
     display: none;
+  }
+  .header_container {
+    padding: 2.5px 20px;
   }
 
 }
