@@ -490,7 +490,13 @@ h1 {
 }
 
 @media (max-width: 640px) {
-
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+  }
   .header_container {
     padding: 2.5px 20px;
   }
@@ -519,6 +525,28 @@ h1 {
   .footer_nav {
     margin-left: 0;
     gap: 37px;
+  }
+}
+@media (max-width: 460px) {
+  .footer_top {
+    position: relative;
+  }
+  .footer_top_right {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+  }
+  .footer_top_left {
+    gap: 86px;
+  }
+  .nav2 {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+@media (max-width: 320px) {
+  .header_container {
+    padding: 2.5px 10px;
   }
 }
 

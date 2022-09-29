@@ -473,6 +473,7 @@ h3 {
     margin-left: 0;
     background: url('../../assets/images/giant_panda_donat_bg_small.png');
     min-height: 335px;
+    margin-top: 34px;
   }
   .donate_wrapper {
     max-width: 620px;

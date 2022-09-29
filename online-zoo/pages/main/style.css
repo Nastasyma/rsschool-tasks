@@ -66,6 +66,9 @@
   margin-right: 100px;
   margin-top: 462px;
 }
+.btn22 {
+  display: none;
+}
 
 .btn:hover {
   background: #E47209;
@@ -91,6 +94,12 @@
   right: 0;
 }
 .flower_foto2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+.flower_foto3 {
   position: absolute;
   top: 0;
   right: 0;
@@ -693,6 +702,12 @@ h3 {
   bottom: -134px;
   right: 0;
 }
+.leav_foto2 {
+  position: absolute;
+  bottom: -134px;
+  right: 0;
+  display: none;
+}
 
 /* ------------ section_testimonials end ----------- */
 
@@ -944,8 +959,6 @@ h3 {
     right: -57px;
     z-index: 22;
   }
-}
-@media (max-width: 870px) {
   .watch_online {
     max-width: 620px;
     margin-top: 48px;
@@ -963,11 +976,6 @@ h3 {
   }
   .feed_friend_wrapper {
     max-width: 640px;
-  }
-  .testimonials_wrapper {
-    max-width: 620px;
-    padding-top: 61px;
-    padding-bottom: 80px;
   }
   .section_watch_animal {
     background: url('../../assets/images/giant_panda_small.png') center/cover no-repeat;
@@ -1002,6 +1010,38 @@ h3 {
   }
   .bamboo_cap_img2 {
     display: none;
+  }
+}
+@media (max-width: 640px) {
+  .section_watch_animal {
+    background: url('../../assets/images/giant_panda_small.png') center/cover no-repeat;
+    margin-top: 0;
+    padding-top: 34px;
+    min-height: 373px;
+    margin-bottom: 0;
+  }
+  .watch_online {
+    max-width: 620px;
+    margin-top: 48px;
+    padding-right: 6px;
+  }
+  .backstage_wrapper {
+    max-width: 620px;
+    padding-top: 60px;
+    padding-right: 120px;
+  }
+  .pets_wrapper {
+    max-width: 620px;
+    gap: 60px;
+    padding-bottom: 100px;
+  }
+  .feed_friend_wrapper {
+    max-width: 640px;
+  }
+  .testimonials_wrapper {
+    max-width: 620px;
+    padding-top: 61px;
+    padding-bottom: 80px;
   }
   h2 {
     padding-left: 3px;
@@ -1163,12 +1203,108 @@ h3 {
     margin: 0 auto;
   }
   .leav_foto {
-    bottom: -68px;
-    right: -6px;
-    width: 19%;
+    display: none;
+  }
+  .leav_foto2 {
+    display: block;
+    bottom: -10.5%;
+    width: 18.2%;
   }
   .donate_volunteers_btn {
     margin-bottom: 67px;
+  }
+}
+@media (max-width: 610px) {
+  .btn11 {
+    display: none;
+  }
+  .btn22 {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 460px) {
+  .arrow_green_icon1 {
+    right: -20px;
+  }
+  .arrow_green_icon2 {
+    right: -20px;
+  }
+  .feed_friend_btn {
+    margin-left: 0;
+  }
+  .feed_friend_wrapper {
+    padding: 30px 5px 60px 5px;
+  }
+}
+@media (max-width: 320px) {
+  .section_watch_animal {
+    background: url('../../assets/images/giant_panda_very_small.png') center/cover no-repeat;
+    margin-top: 34px;
+    min-height: 187px;
+  }
+  .watch_title {
+    font-size: 28px;
+    line-height: 21px;
+  }
+  .watch_title_wrapper {
+    min-width: 128.13px;
+  }
+  .watch_online {
+    max-width: 620px;
+    margin-top: 7px;
+    padding-right: 11px;
+  }
+  .orange_circle {
+    width: 119.09px;
+    height: 119.09px;
+    top: -18px;
+    left: -18px;
+  }
+  .backstage_wrapper {
+    padding-top: 31px;
+    padding-right: 17px;
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 28.8px;
+    padding-left: 0;
+    margin-bottom: 9px;
+  }
+  .backstage_text_part1 {
+    padding-left: 2px;
+    line-height: 21px;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    margin-bottom: 10px;
+    padding-left: 2px;
+  }
+  .flower_foto2 {
+    display: none;
+  }
+  .flower_foto3 {
+    display: block;
+    top: 18px;
+  }
+  .pets_photo_wrapper {
+    padding-top: 20px;
+    row-gap: 20px;
+  }
+  .pet_card {
+    flex: 0 0 94.8%;
+  }
+  .pets_btns_wrapper {
+    display: none;
+  }
+  .pet_description {
+    padding: 2px 6px 10px 12px;
+  }
+  .pets_wrapper {
+    gap: 20px;
+    padding-bottom: 60px;
   }
 }
 
