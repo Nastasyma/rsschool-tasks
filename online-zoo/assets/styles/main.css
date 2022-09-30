@@ -106,6 +106,37 @@ p {
   justify-content: space-between;
 }
 
+.zoo_logo_wrapper {
+  width: 65.6px;
+  height: 41.6px;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 2px;
+  position: relative;
+  filter: invert(40%) sepia(90%) saturate(1000%);
+  transition: all .1s;
+  display: none;
+}
+
+.zoo_logo_wrapper:hover {
+  filter: invert(50%);
+}
+
+.petstory_logo3 {
+  position: absolute;
+  width: 7px;
+  height: 20px;
+  top: 15px;
+  left: 9.5px;
+}
+
+.logo_title3 {
+  font-size: 15.21px;
+  font-weight: 400;
+  line-height: 18.25px;
+  text-decoration: none;
+}
+
 .zoo_logo {
   width: 82px;
   height: 52px;
@@ -142,6 +173,9 @@ h1 {
   padding: 0;
   gap: 58px;
 }
+.nav_item:nth-child(6) {
+  display: none;
+}
 .burger_menu {
   width: 18px;
   height: 10px;
@@ -149,8 +183,10 @@ h1 {
   cursor: pointer;
   display: none;
 }
-.burger_menu:hover, .burger_menu:focus, .burger_menu:active {
-  filter: invert(50%) drop-shadow(2px 3px 5px black);
+.burger_menu:hover .burger_line,
+.burger_menu:focus .burger_line,
+.burger_menu:active .burger_line {
+  background-color: #FE9013;
 }
 .burger_line {
   position: absolute;
@@ -160,6 +196,7 @@ h1 {
   height: 2px;
   background-color: #ffffff;
   border-radius: 5px;
+  transition: all 0.3s ease-in-out;
 }
 .line_first {
   top: 0;
@@ -170,6 +207,17 @@ h1 {
 }
 .line_third {
   bottom: 0;
+}
+.is_active2 {
+  opacity: 0;
+}
+
+.is_active1 {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.is_active3 {
+  transform: translateY(-4px) rotate(-45deg);
 }
 
 .nav_link,
@@ -445,7 +493,7 @@ h1 {
   }
   .footer_container {
     max-width: 960px;
-    padding: 40px 0 50px 23px;
+    padding: 42px 10px 49px 10px;
   }
   .footer_nav {
     gap: 48px;
@@ -463,13 +511,67 @@ h1 {
 
 @media (max-width: 870px) {
   .nav {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    background-color: #ffffff;
+    min-width: 100vw;
+    min-height: 329px;
+    z-index: 50;
+    transition: all 1s;
+    transform: translateY(-100%);
+  }
+  .open_menu {
+    transform: translateY(0);
+  }
+  .burger_active {
+    top: 0;
+    right: 0;
+    z-index: 100;
+    filter: invert(100%);
+  }
+  .nav {
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  .nav_link {
+    color: #000000;
+  }
+  .active_link {
+    background: black;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  .active_link:hover::after {
+    width: 100%;
+  }
+  .nav_list {
+    flex-direction: column;
+    gap: 18.2px;
+    margin: 0;
+  }
+  .nav_item:nth-child(6) {
+    display: block;
+  }
+  .figma_link {
+    color: #000000;
   }
   .disigned_by {
     display: none;
   }
   .burger_menu {
     display: block;
+  }
+  .zoo_logo_wrapper {
+    display: block;
+    margin-bottom: 15px;
   }
   .zoo_logo {
     width: 46.86px;

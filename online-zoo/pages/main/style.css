@@ -750,7 +750,9 @@ h3 {
 }
 
 @media (max-width: 1000px) {
-
+  .footer_container {
+    padding: 40px 13px 49px 10px;
+  }
   .watch_online {
     max-width: 960px;
     margin-top: 42px;
@@ -1025,6 +1027,9 @@ h3 {
   }
 }
 @media (max-width: 640px) {
+  .footer_container {
+    padding: 13px 20px 12px 20px;
+  }
   .section_watch_animal {
     background: url('../../assets/images/giant_panda_small.png') center/cover no-repeat;
     margin-top: 0;
@@ -1251,6 +1256,9 @@ h3 {
   }
 }
 @media (max-width: 430px) {
+  .footer_container {
+    padding: 22px 11px 20px 10px;
+  }
   .section_watch_animal {
     background: url('../../assets/images/giant_panda_very_small.png') center/cover no-repeat;
     margin-top: 34px;
