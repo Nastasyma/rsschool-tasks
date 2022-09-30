@@ -377,7 +377,9 @@ h3 {
 
   .panda_bg {
     margin-top: 0;
-    margin-left: -172px;
+    margin-left: 0;
+    background: url('../../assets/images/giant_panda_donat_bg_1000.png') no-repeat center/cover;
+    min-height: 390px;
   }
   .donate_wrapper {
     max-width: 960px;
