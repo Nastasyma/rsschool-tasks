@@ -548,6 +548,43 @@ h1 {
   .header_container {
     padding: 2.5px 10px;
   }
+  .footer_container {
+    padding: 22px 11px 20px 10px;
+  }
+  .petstory_logo_wrapper {
+    width: 128px;
+    height: 23px;
+    border: none;
+    margin: 0 auto;
+  }
+  .petstory_logo2 {
+    position: absolute;
+    top: -5px;
+    left: 72px;
+  }
+  .footer_top_right {
+    top: 27%;
+    left: 18%;
+  }
+  .footer_bottom {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+  .footer_nav {
+    gap: 30px;
+  }
+  .project_author {
+    text-align: end;
+    font-size: 15px;
+    line-height: 18px;
+    gap: 13px;
+  }
+  .project_author > span:nth-child(1) {
+    padding-right: 7px;
+  }
+  .footer_nav {
+    margin: 0 auto;
+  }
 }
 
 /* --- media queries end --- */
