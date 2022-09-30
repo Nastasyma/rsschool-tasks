@@ -580,5 +580,128 @@ h3 {
     margin-left: 0;
   }
 }
-
+@media (max-width: 430px) {
+  .panda_bg {
+    margin-top: 0;
+    margin-left: 0;
+    background: url('../../assets/images/giant_panda_donat_bg_verysmall.png');
+    min-height: 187px;
+    margin-top: 34px;
+  }
+  .donate_wrapper {
+    padding-right: 9px;
+    padding-bottom: 22px;
+  }
+  .donate_info {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+  .donate_pay_wrapper {
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 28.8px;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    line-height: 22.4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .footer_container {
+    padding: 22px 11px 20px 10px;
+  }
+  .footer_top_right {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+  }
+  .footer_nav {
+    gap: 30px;
+  }
+  .diets_count {
+    flex: 0 0 32%;
+    padding-top: 28px;
+    gap: 3px;
+  }
+  .diets_count > span {
+    font-size: 9.02px;
+    line-height: 12.63px;
+  }
+  .amount_of_days_donate {
+    padding-left: 20px;
+    width: 75%;
+  }
+  .x_icon {
+    width: 7.89px;
+    height: 7.89px;
+    margin: 13px 38px 0 3px;
+  }
+  .panda_icon_wrapper {
+    flex: 0 0 55.5%
+  }
+  .panda_diet {
+    margin-bottom: 3px;
+  }
+  .amount {
+    padding-left: 0;
+  }
+  .input_gray {
+    height: 13.5px;
+    margin: 10px 0 6px 0;
+  }
+  .pay_number {
+    width: 28.5px;
+    font-size: 13px;
+    line-height: 18.2px;
+  }
+  #donate_input_value::-webkit-slider-thumb {
+    background-image: url('../../assets/images/roller_icon_small.png');
+    width: 20px;
+    height: 20px;
+  }
+  .input_point {
+    width: 5px;
+    height: 5px;
+  }
+  .yellow_points {
+    width: 88.2%;
+    left: 17px;
+    top: 3px;
+  }
+  #donate_input_value {
+    width: 92%;
+    height: 25px;
+    top: -7px;
+    margin-left: 10px;
+  }
+  .input_gray_line {
+    height: 1px;
+    top: 5px;
+    left: 17px;
+    width: 88%;
+  }
+  .donate_money {
+    margin-left: 5px;
+    width: 96.3%;
+    margin-bottom: 22px;
+  }
+  .another_amount {
+    margin-bottom: 25px;
+  }
+  .donate_volunteers_btn {
+    margin-bottom: 30px;
+  }
+  .footer_nav {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 320px) {
+  #donate_input_value {
+    width: 93.1%;
+  }
+}
 /* --- media queries end --- */
