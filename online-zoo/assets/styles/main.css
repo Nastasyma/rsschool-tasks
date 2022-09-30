@@ -183,10 +183,6 @@ h1 {
   cursor: pointer;
   display: none;
 }
-.burger_menu:hover .burger_line,
-.burger_menu:focus .burger_line {
-  background-color: #FE9013;
-}
 .burger_line {
   position: absolute;
   right: 0;
@@ -195,7 +191,7 @@ h1 {
   height: 2px;
   background-color: #ffffff;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 .line_first {
   top: 0;
@@ -208,15 +204,17 @@ h1 {
   bottom: 0;
 }
 .is_active2 {
+  background-color: #000000;
   opacity: 0;
 }
-
 .is_active1 {
   transform: translateY(4px) rotate(45deg);
+  background-color: #000000;
 }
 
 .is_active3 {
   transform: translateY(-4px) rotate(-45deg);
+  background-color: #000000;
 }
 
 .nav_link,
@@ -531,7 +529,6 @@ h1 {
     top: 0;
     right: 0;
     z-index: 100;
-    filter: invert(100%);
   }
   .nav {
     padding-left: 10px;

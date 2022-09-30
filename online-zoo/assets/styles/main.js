@@ -7,10 +7,22 @@ const burgerLine3 = document.querySelector('.line_third');
 
 (function () {
   burger.addEventListener('click', () => {
-    menu.classList.toggle('open_menu');
-    burger.classList.toggle('burger_active');
-    burgerLine1.classList.toggle('is_active1');
-    burgerLine2.classList.toggle('is_active2');
-    burgerLine3.classList.toggle('is_active3');
-  })
+
+  if (menu.classList.contains('open_menu')) {
+    menu.classList.remove('open_menu');
+    burgerLine1.classList.remove('is_active1');
+    burgerLine2.classList.remove('is_active2');
+    burgerLine3.classList.remove('is_active3');
+    setTimeout(function () {
+      burger.classList.remove('burger_active');
+    }, 500);
+
+  } else {
+    menu.classList.add('open_menu');
+    burger.classList.add('burger_active');
+    burgerLine1.classList.add('is_active1');
+    burgerLine2.classList.add('is_active2');
+    burgerLine3.classList.add('is_active3');
+  }
+})
 }());
