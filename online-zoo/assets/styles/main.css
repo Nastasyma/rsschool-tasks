@@ -523,6 +523,9 @@ h1 {
 }
 
 @media (max-width: 870px) {
+  .header{
+    z-index: 1000;
+  }
   .nav {
     position: absolute;
     top: 0;

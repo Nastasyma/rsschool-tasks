@@ -670,7 +670,7 @@ h3 {
   .yellow_points {
     width: 88.2%;
     left: 17px;
-    top: 3px;
+    top: 4px;
   }
   #donate_input_value {
     width: 92%;
@@ -680,7 +680,7 @@ h3 {
   }
   .input_gray_line {
     height: 1px;
-    top: 5px;
+    top: 6px;
     left: 17px;
     width: 88%;
   }
@@ -701,7 +701,7 @@ h3 {
 }
 @media (max-width: 320px) {
   #donate_input_value {
-    width: 93.1%;
+    width: 92.9%;
   }
 }
 /* --- media queries end --- */
