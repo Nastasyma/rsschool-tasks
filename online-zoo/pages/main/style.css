@@ -293,49 +293,7 @@ h2 {
   overflow: hidden;
 }
 
-/*.card_photo_discription::after {
-  content: '';
-  white-space: pre;
-  position: absolute;
-  left: 0;
-  bottom: 1%;
-  width: calc(100% - 28px);
-  font-weight: 500;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #ffffff;
-  padding: 10px 25px;
-  transform: translateY(100%);
-  visibility: hidden;
-  transition: all .3s;
-}
-.discription1::after {
-  content: url("../../assets/images/banana-bamboo_icon.png") '\A GIANT PANDAS \A Native to Southwest China';
-}
-.discription2::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A EAGLES \A Native to South America';
-}
-.discription3::after {
-  content: url("../../assets/images/banana-bamboo_icon.png") '\A GORILLAS \A Native to Congo';
-}
-.discription4::after {
-  content: url("../../assets/images/banana-bamboo_icon.png") '\A TWO-TOED SLOTH \A Mesoamerica, South America';
-}
-.discription5::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A CHEETAHS \A Native to Africa';
-}
-.discription6::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A PENGUINS \A Native to Antarctica';
-}
-.discription7::after {
-  content: url("../../assets/images/meet-fish_icon.png") '\A ALLIGATORS \A Native to Southeastern U. S.';
-}
-.pet_card:hover .card_photo_discription::after {
-  visibility: visible;
-  transform: translateY(0);
-}*/
-
 .pet_card:hover .pet_description {
-  /*visibility: hidden;*/
   transform: translateY(-90%);
   color: white;
 }
@@ -362,6 +320,10 @@ h2 {
 
 .meet-fish_icon {
   padding-right: 7px;
+}
+
+.allig2 {
+  display: none;
 }
 
 .pet_description_text {
@@ -819,7 +781,7 @@ h3 {
     display: none;
   }
   .pet_card {
-    flex: 0 0 31.16%;
+    flex: 0 0 31.15%;
   }
   .pet_card:nth-child(1) {
     order: 1;
@@ -1075,6 +1037,12 @@ h3 {
   }
   .pet_card {
     flex: 0 0 47.7%;
+  }
+  .allig1 {
+    display: none;
+  }
+  .allig2 {
+    display: block;
   }
   h5 {
     font-size: 12.47px;

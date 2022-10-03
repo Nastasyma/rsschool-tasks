@@ -392,7 +392,7 @@ h3 {
     margin-top: 30px;
   }
   h2 {
-    padding-right: 14px;
+    padding-right: 16px;
     margin-bottom: 10px;
   }
   .donate_pay_wrapper {
@@ -431,7 +431,7 @@ h3 {
     left: 10px;
   }
   #donate_input_value {
-    margin-left: -5px;
+    margin-left: -4px;
     width: 101.1%;
   }
   .input_gray_line {
@@ -443,9 +443,19 @@ h3 {
     width: 105%;
     margin-bottom: 48px;
   }
+  .another_amount_input {
+    padding-bottom: 16px;
+    margin-right: 3px;
+  }
+  .dollars_gray {
+    right: 12px;
+  }
   .pay_days {
-    padding: 4px 17px 0 0;
+    padding: 5px 18px 0 0;
     margin-bottom: 28px;
+  }
+  .feed_friend_btn {
+    padding: 16px 0px 16px 7px;
   }
   .share {
     padding-left: 0;
@@ -581,6 +591,9 @@ h3 {
   }
 }
 @media (max-width: 430px) {
+  .footer_container {
+    padding: 20px 11px 20px 10px;
+  }
   .panda_bg {
     margin-top: 0;
     margin-left: 0;
@@ -599,7 +612,7 @@ h3 {
   .donate_pay_wrapper {
     margin-top: 30px;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 22px;
   }
   h2 {
     font-size: 24px;
@@ -610,9 +623,6 @@ h3 {
     line-height: 22.4px;
     font-size: 16px;
     margin-bottom: 10px;
-  }
-  .footer_container {
-    padding: 22px 11px 20px 10px;
   }
   .footer_top_right {
     position: absolute;
@@ -691,6 +701,15 @@ h3 {
   }
   .another_amount {
     margin-bottom: 25px;
+  }
+  .another_amount_input {
+    margin-right: 0;
+    padding-top: 11px;
+    padding-bottom: 10px;
+  }
+  .pay_days {
+    padding: 2px 20px 0 0;
+    margin-bottom: 26px;
   }
   .donate_volunteers_btn {
     margin-bottom: 30px;

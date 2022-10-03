@@ -535,7 +535,7 @@ h1 {
     justify-content: flex-start;
     gap: 30px;
     background-color: #ffffff;
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 329px;
     z-index: 9999;
     transition: all .5s;
