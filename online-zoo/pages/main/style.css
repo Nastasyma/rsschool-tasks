@@ -970,7 +970,7 @@ h3 {
   }
   .watch_online_btn {
     margin-right: 50.7%;
-    margin-top: 32.7%;
+    margin-top: 24.7%;
   }
   .bamboo_cap {
     flex: 0 0 0;
@@ -980,6 +980,68 @@ h3 {
   }
   .bamboo_cap_img2 {
     display: none;
+  }
+
+  .pets_btns_wrapper {
+    top: 40.7%;
+  }
+}
+@media (max-width: 830px) {
+  .testimonials_cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 38px;
+  }
+  .testimonials_wrapper {
+    max-width: 620px;
+    padding-top: 61px;
+    padding-bottom: 80px;
+  }
+  .testimonials_title {
+    padding-left: 0;
+  }
+  .user_card {
+    width: 100%;
+  }
+  .user_review {
+    height: 38px;
+  }
+  .user_card:nth-child(1) {
+    padding: 14px 29px 8px 9px;
+  }
+  .user_card:nth-child(1) > .user_review {
+    padding-left: 7px;
+  }
+  .user_card:nth-child(2) {
+    gap: 10px;
+    padding: 6px 29px 12px 12px;
+  }
+  .user_card:nth-child(2) > .user_review {
+    height: 38px;
+  }
+  .user_card:nth-child(2) > .card_top {
+    gap: 6px;
+    margin-left: -3px;
+  }
+  .user_card:nth-child(2) > .card_top > .card_top_name {
+    padding-top: 2px;
+  }
+  .user_card:nth-child(2) > .user_review {
+    padding-left: 7px;
+  }
+  .user_card:nth-child(3) {
+    padding: 13px 29px 7px 11px;
+  }
+  .user_card:nth-child(3) > .user_review {
+    padding-left: 6px;
+  }
+  .slider_scroll_wrapper {
+    display: none;
+  }
+  .card_top {
+    gap: 10px;
   }
 }
 @media (max-width: 640px) {
@@ -996,6 +1058,10 @@ h3 {
   .watch_online {
     max-width: 620px;
   }
+  .watch_online_btn {
+    margin-right: 50.7%;
+    margin-top: 32.7%;
+  }
   .backstage_wrapper {
     max-width: 620px;
   }
@@ -1004,11 +1070,6 @@ h3 {
   }
   .feed_friend_wrapper {
     max-width: 640px;
-  }
-  .testimonials_wrapper {
-    max-width: 620px;
-    padding-top: 61px;
-    padding-bottom: 80px;
   }
   h2 {
     padding-left: 3px;
@@ -1070,7 +1131,7 @@ h3 {
     padding: 0 6px 10px 12px;
   }
   .pets_btns_wrapper {
-    width: 24.3%;
+    width: 155px;
     top: 37.5%;
     left: 37.9%;
     z-index: 55;
@@ -1121,57 +1182,6 @@ h3 {
   .feed_friend_btn {
     margin-left: 10px;
   }
-  .testimonials_title {
-    padding-left: 0;
-  }
-  .testimonials_cards {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 15px;
-    margin-bottom: 38px;
-  }
-  .user_card {
-    width: 100%;
-  }
-  .user_review {
-    height: 38px;
-  }
-  .user_card:nth-child(1) {
-    padding: 14px 29px 8px 9px;
-  }
-  .user_card:nth-child(1) > .user_review {
-    padding-left: 7px;
-  }
-  .user_card:nth-child(2) {
-    gap: 10px;
-    padding: 6px 29px 12px 12px;
-  }
-  .user_card:nth-child(2) > .user_review {
-    height: 38px;
-  }
-  .user_card:nth-child(2) > .card_top {
-    gap: 6px;
-    margin-left: -3px;
-  }
-  .user_card:nth-child(2) > .card_top > .card_top_name {
-    padding-top: 2px;
-  }
-  .user_card:nth-child(2) > .user_review {
-    padding-left: 7px;
-  }
-  .user_card:nth-child(3) {
-    padding: 13px 29px 7px 11px;
-  }
-  .user_card:nth-child(3) > .user_review {
-    padding-left: 6px;
-  }
-  .slider_scroll_wrapper {
-    display: none;
-  }
-  .card_top {
-    gap: 10px;
-  }
   .feedback_btn {
     width: 240px;
     margin: 0 auto;
@@ -1189,6 +1199,15 @@ h3 {
   }
 }
 @media (max-width: 639px) {
+  .donate_work {
+    padding-right: 0;
+  }
+  .feed_friend_wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+@media (max-width: 630px) {
   .feed_friend_btn {
     margin-left: 0;
   }
@@ -1255,6 +1274,12 @@ h3 {
     display: block;
     margin: 0 auto;
     margin-top: 20px;
+  }
+}
+@media (max-width: 530px) {
+  .pets_btns_wrapper {
+    top: 35.3%;
+    left: 34.3%;
   }
 }
 @media (max-width: 430px) {

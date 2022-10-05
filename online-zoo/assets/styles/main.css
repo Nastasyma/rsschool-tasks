@@ -516,9 +516,13 @@ h1 {
   }
   .footer_top_right {
     padding-right: 29px;
+    padding-left: 15px;
   }
   .footer_nav {
-    margin-left: 95px;
+    margin-left: 105px;
+  }
+  .project_author {
+    padding-left: 10px;
   }
 }
 
@@ -635,6 +639,7 @@ h1 {
   }
   .footer_top_right {
     padding-right: 0;
+    padding-left: 0;
   }
   .footer_top_left {
     gap: 32px;
