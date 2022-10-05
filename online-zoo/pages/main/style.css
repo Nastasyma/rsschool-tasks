@@ -1,7 +1,7 @@
 /* ------------ section_watch_animal start------------ */
 
 .section_watch_animal {
-  background: url('../../assets/images/giant_panda.png') center/cover no-repeat;
+  background: url('../../assets/images/giant-panda.webp') center/cover no-repeat;
   margin-top: -80px;
   padding-top: 80px;
   min-height: 780px;
@@ -538,6 +538,10 @@ h3 {
 .user_icon22 {
   display: none;
 }
+.user_icon {
+  width: 37px;
+  height: 37px;
+}
 
 .user_card {
   display: flex;
@@ -710,7 +714,7 @@ h3 {
   }
   .palm_foto2 {
     display: block;
-    width: 19.2%;
+    width: 15.2%;
   }
   .strelitzia_photo {
     width: 23%;
@@ -744,6 +748,7 @@ h3 {
   .section_watch_animal {
     min-height: 584px;
     margin-bottom: 12px;
+    background: url('../../assets/images/giant_panda_1000.png') center/cover no-repeat;
   }
   .watch_title {
     font-size: 85.2px;
@@ -772,6 +777,9 @@ h3 {
   .bamboo_cap_img2 {
     width: 100%;
     display: block;
+  }
+  .palm_foto2 {
+    width: 19.2%;
   }
   .card__alligator {
     display: block;
@@ -1212,8 +1220,8 @@ h3 {
     margin-left: 0;
   }
   .feed_friend_wrapper {
-    max-width: 300px;
-    padding: 21px 0 39px 0;
+    margin: 0 20px;
+    padding: 21px 10px 39px 10px;
     text-align: center;
   }
   .feed_friend_title {
@@ -1353,6 +1361,11 @@ h3 {
     gap: 20px;
     padding-bottom: 60px;
   }
+  .feed_friend_wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 21px 0 39px 0;
+  }
   .testimonials_wrapper {
     padding-top: 30px;
     padding-bottom: 60px;
@@ -1381,8 +1394,6 @@ h3 {
   .donate_volunteers_btn {
     margin-bottom: 30px;
   }
-}
-@media (max-width: 320px) {
   .palm_foto4 {
     display: block;
   }
@@ -1397,6 +1408,8 @@ h3 {
     width: 23%;
     bottom: -4px
   }
+}
+@media (max-width: 320px) {
   .leav_foto2 {
     display: block;
     bottom: -7%;
