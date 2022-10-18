@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="normalize.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles/normalize.css" />
+  <link rel="stylesheet" href="styles/style.css" />
   <link rel="icon" href="assets/favicon.ico">
   <title>Gem puzzle</title>
 </head>
@@ -27,27 +27,10 @@
         </div>
         <div class="time_wrapper">
           <span>Time:</span>
-          <span>00:00</span>
+          <span>00:00:00</span>
         </div>
       </div>
-      <div class="game_field">
-        <div class="game_number"><span>1</span></div>
-        <div class="game_number">2</div>
-        <div class="game_number">3</div>
-        <div class="game_number">4</div>
-        <div class="game_number">5</div>
-        <div class="game_number">6</div>
-        <div class="game_number">7</div>
-        <div class="game_number">8</div>
-        <div class="game_number">9</div>
-        <div class="game_number">10</div>
-        <div class="game_number">11</div>
-        <div class="game_number">12</div>
-        <div class="game_number">13</div>
-        <div class="game_number">14</div>
-        <div class="game_number">15</div>
-        <div class="game_number"></div>
-      </div>
+      <div class="game_field"></div>
       <div class="current_field_size">
         <span>Frame size:</span>
         <span>4x4</span>
@@ -58,14 +41,15 @@
     <div class="footer_container">
       <span>Other sizes:</span>
       <div class="sizes_wrapper">
-        <span>3x3</span>
-        <span>4x4</span>
-        <span>5x5</span>
-        <span>6x6</span>
-        <span>7x7</span>
-        <span>8x8</span>
+        <button>3x3</button>
+        <button>4x4</button>
+        <button>5x5</button>
+        <button>6x6</button>
+        <button>7x7</button>
+        <button>8x8</button>
       </div>
     </div>
   </footer>
+  <script src="js/index.js" type="module"></script>
 </body>
 </html>
