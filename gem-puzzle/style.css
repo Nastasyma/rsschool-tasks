@@ -1,0 +1,89 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-weight: 700;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  background-color: bisque;
+}
+
+.header_container,
+.main_container,
+.footer_container {
+  max-width: 700px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.header_container {
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game_stats {
+  max-width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.game_field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 700px;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.game_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25%;
+  background-color: rgb(0, 0, 189);
+  color: white;
+  font-size: 54px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+  flex-basis: 25%;
+  border-width: 7px;
+  border-style: outset;
+  border-color: rgb(59, 59, 187);
+  cursor: pointer;
+}
+
+.game_number:nth-child(16) {
+  background-color: rgb(59, 59, 187);
+  border: none;
+  justify-content: space-around;
+}
+
+.current_field_size {
+  max-width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.footer_container {
+  max-width: 300px;
+  display: flex;
+}
+
+.sizes_wrapper {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
