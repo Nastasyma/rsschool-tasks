@@ -10,17 +10,13 @@ body {
   width: 100vw;
   height: 100vh;
   font-weight: 700;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: bisque;
 }
 
 .header_container,
 .main_container,
 .footer_container {
-  max-width: 600px;
-  padding: 10px;
+  max-width: 404px;
   margin: 0 auto;
 }
 
@@ -37,43 +33,35 @@ body {
   margin: 0 auto;
   padding-bottom: 15px;
 }
-
-.game_field {
+canvas { 
+  border: 2px solid black;
+  cursor: pointer;
+}
+/*.game_field {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  height: 600px;
+  height: 310px;
   margin: 0 auto;
-  border: 1px solid rgb(160, 130, 93);
-}
+  border: 5px solid black;
+}*/
 
 .game_number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24%;
-  margin: 0.5%;
-  flex-basis: 24%;
+  position: absolute;
+  width: 75px;
+  height: 75px;
   background-color: rgb(0, 0, 189);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: white;
-  font-size: 68px;
+  font-size: 32px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
   border: 7px outset rgb(59, 59, 187);
-  border-radius: 5px;
+  border-radius: 3px;
+  transition: all .5s;
   cursor: pointer;
-}
-
-.move_left {
-  transform: translateX(-104%);
-}
-.move_right {
-  transform: translateX(104%);
-}
-.move_top {
-  transform: translateY(-104%);
-}
-.move_bottom {
-  transform: translateY(104%);
 }
 
 .current_field_size {
