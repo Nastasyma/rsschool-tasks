@@ -14,12 +14,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-image: url('../assets/bg.jpg');
 }
 
 .header_container,
 .main_container,
 .footer_container {
-  max-width: 404px;
+  max-width: 320px;
   margin: 0 auto;
 }
 
@@ -32,6 +33,29 @@ body {
 
 .main_container {
   margin-bottom: 20px;
+  position: relative;
+}
+
+.start_btn,
+.pause_btn,
+.save_btn,
+.results_btn,
+.field_3_3,
+.field_4_4, 
+.field_5_5,
+.field_6_6,
+.field_7_7,
+.field_8_8 {
+  background-color: midnightblue;
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn_active {
+  background-color: orange;
+  color: black;
+  font-weight: 900;
 }
 
 .game_stats {
@@ -44,6 +68,47 @@ body {
 canvas {
   border: 2px solid black;
   cursor: pointer;
+  box-shadow: 2px 2px 6px black;
+  border-radius: 10px;
+}
+.game_field {
+  max-width: 304px;
+  margin: 0 auto;
+}
+.victory_popup {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 200px;
+  height: 100px;
+  padding: 20px 10px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  background-color: orange;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition: all .3s;
+}
+.popup_active {
+  opacity: 1;
+  visibility: visible;
+}
+.hidden_wrapper {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  transition: all .3s;
+}
+.hidden_wrapper_active {
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
 }
 /*.game_field {
   position: relative;
@@ -81,12 +146,16 @@ canvas {
 }
 
 .footer_container {
-  max-width: 400px;
+  max-width: 300px;
   display: flex;
   justify-content: space-around;
+}
+.footer_container > span {
+  display: flex;
+  align-items: center;
 }
 
 .sizes_wrapper {
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
