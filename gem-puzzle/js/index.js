@@ -207,6 +207,7 @@ let click = 0;
 let arrayNums3 = [];
 let arrayNums8 = [];
 let arrayNums15 = [];
+let arrayNums24 = [];
 
 const save_btn = document.querySelector('.save_btn');
 const btn_22 = document.querySelector('.field_2_2');
@@ -319,7 +320,7 @@ function setGame3() {
         && arrayNums3[2] === 3
         && arrayNums3[3] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
         hidden_wrapper.classList.add('hidden_wrapper_active');
       }
     }
@@ -446,7 +447,7 @@ function setGame8() {
       && arrayNums8[7] === 8
       && arrayNums8[8] === 0) {
       victory_popup.classList.add('popup_active');
-      victory_popup.textContent = `Hooray! You solved the puzzle in ${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
       hidden_wrapper.classList.add('hidden_wrapper_active');
     }
   });
@@ -603,7 +604,7 @@ function setGame15() {
         && arrayNums15[14] === 15
         && arrayNums15[15] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
         hidden_wrapper.classList.add('hidden_wrapper_active');
       }
   });
@@ -639,6 +640,197 @@ canvas.onmouseup = myUp;*/
 }
 setGame15();
 
+function setGame24() {
+  canvas.width  = 300;
+  canvas.height = 300;
+  arrayNums24 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
+                  17, 18, 19, 20, 21, 22, 23, 24];
+  sort(arrayNums24);
+  //console.log(arrayNums24);
+  const drawBox = function(x, y, value) {
+    context.fillStyle = "bisque";
+    context.fillRect(x, y, 60, 60);
+    context.shadowOffsetX = 2;
+    context.shadowOffsetY = 2;
+    context.shadowBlur = 2;
+    context.shadowColor = "black";
+    if (value === 0) {
+      context.fillStyle = "bisque";
+      context.shadowOffsetX = 0;
+      context.shadowOffsetY = 0;
+      context.shadowBlur = 0;
+      context.shadowColor = "none";
+    } else {
+      context.fillStyle = "midnightblue";
+    }
+    context.fillRect(x + 2.5, y + 2.5, 55, 55)
+    context.font = "32px Arial";
+    context.fillStyle = "bisque";
+    if (value < 10) {
+      context.fillText(value, x + 20, y + 40);
+    } else {
+      context.fillText(value, x + 12, y + 40);
+    }
+  }
+
+  const drawCell = function(position, value) {
+    if(position === 0) { drawBox(0, 0, value); }
+    else if (position === 1) { drawBox(60, 0, value); }
+    else if (position === 2) { drawBox(120, 0, value); }
+    else if (position === 3) { drawBox(180, 0, value); }
+    else if (position === 4) { drawBox(240, 0, value); }
+    else if (position === 5) { drawBox(0, 60, value); }
+    else if (position === 6) { drawBox(60, 60, value); }
+    else if (position === 7) { drawBox(120, 60, value); }
+    else if (position === 8) { drawBox(180, 60, value); }
+    else if (position === 9) { drawBox(240, 60, value); }
+    else if (position === 10) { drawBox(0, 120, value); }
+    else if (position === 11) { drawBox(60, 120, value); }
+    else if (position === 12) { drawBox(120, 120, value); }
+    else if (position === 13) { drawBox(180, 120, value); }
+    else if (position === 14) { drawBox(240, 120, value); }
+    else if (position === 15) { drawBox(0, 180, value); }
+    else if (position === 16) { drawBox(60, 180, value); }
+    else if (position === 17) { drawBox(120, 180, value); }
+    else if (position === 18) { drawBox(180, 180, value); }
+    else if (position === 19) { drawBox(240, 180, value); }
+    else if (position === 20) { drawBox(0, 240, value); }
+    else if (position === 21) { drawBox(60, 240, value); }
+    else if (position === 22) { drawBox(120, 240, value); }
+    else if (position === 23) { drawBox(180, 240, value); }
+    else if (position === 24) { drawBox(240, 240, value); }
+  }
+
+  for (let i = 0; i<=24; i++) {
+    drawCell(i, arrayNums24[i])
+  }
+
+  const checkClientX = function(e) {
+    if (e < 60) { return 1; }
+    if (e < 120) { return 2; }
+    if (e < 180) { return 3; }
+    if (e < 240) { return 4; }
+    if (e < 300) { return 5; }
+  }
+
+  canvas.addEventListener("click", function(e) {
+    //console.log(e);
+    let check = checkClientX(e.offsetX);
+    if (e.offsetY < 60) {
+      switch(check) {
+        case 1: click = 0; break;
+        case 2: click = 1; break;
+        case 3: click = 2; break;
+        case 4: click = 3; break;
+        case 5: click = 4; break;
+      }
+    }
+    if (e.offsetY > 60 && e.offsetY < 120) {
+      switch(check) {
+        case 1: click = 5; break;
+        case 2: click = 6; break;
+        case 3: click = 7; break;
+        case 4: click = 8; break;
+        case 5: click = 9; break;
+      }
+    }
+    if (e.offsetY > 120 && e.offsetY < 180) {
+      switch(check) {
+        case 1: click = 10; break;
+        case 2: click = 11; break;
+        case 3: click = 12; break;
+        case 4: click = 13; break;
+        case 5: click = 14; break;
+      }
+    }
+    if (e.offsetY > 180 && e.offsetY < 240) {
+      switch(check) {
+        case 1: click = 15; break;
+        case 2: click = 16; break;
+        case 3: click = 17; break;
+        case 4: click = 18; break;
+        case 5: click = 19; break;
+      }
+    }
+    if (e.offsetY > 240 && e.offsetY < 300) {
+      switch(check) {
+        case 1: click = 20; break;
+        case 2: click = 21; break;
+        case 3: click = 22; break;
+        case 4: click = 23; break;
+        case 5: click = 24; break;
+      }
+    }
+
+    if (arrayNums24[click - 5] === 0) {
+      arrayNums24[click - 5] = arrayNums24[click];
+      arrayNums24[click] = 0;
+      counterMoves++;
+      counter_moves.textContent = counterMoves;
+    }
+    for (let i = 0; i<=24; i++) {
+      drawCell(i, arrayNums24[i])
+    }
+    if (arrayNums24[click + 5] === 0) {
+      arrayNums24[click + 5] = arrayNums24[click];
+      arrayNums24[click] = 0;
+      counterMoves++;
+      counter_moves.textContent = counterMoves;
+    }
+    for (let i = 0; i<=24; i++) {
+      drawCell(i, arrayNums24[i])
+    }
+    if (arrayNums24[click - 1] === 0 && click !== 5 && click !== 10 && click !== 15 && click !== 20) {
+      arrayNums24[click - 1] = arrayNums24[click];
+      arrayNums24[click] = 0;
+      counterMoves++;
+      counter_moves.textContent = counterMoves;
+    }
+    for (let i = 0; i<=24; i++) {
+      drawCell(i, arrayNums24[i])
+    }
+    if (arrayNums24[click + 1] === 0 && click !== 4 && click !== 9 && click !== 14 && click !== 19) {
+      arrayNums24[click + 1] = arrayNums24[click];
+      arrayNums24[click] = 0;
+      counterMoves++;
+      counter_moves.textContent = counterMoves;
+    }
+    for (let i = 0; i<=24; i++) {
+      drawCell(i, arrayNums24[i])
+    }
+      //console.log(arrayNums15);
+      if (arrayNums24[0] === 1
+        && arrayNums24[1] === 2
+        && arrayNums24[2] === 3
+        && arrayNums24[3] === 4
+        && arrayNums24[4] === 5
+        && arrayNums24[5] === 6
+        && arrayNums24[6] === 7
+        && arrayNums24[7] === 8
+        && arrayNums24[8] === 9
+        && arrayNums24[9] === 10
+        && arrayNums24[10] === 11
+        && arrayNums24[11] === 12
+        && arrayNums24[12] === 13
+        && arrayNums24[13] === 14
+        && arrayNums24[14] === 15
+        && arrayNums24[15] === 16
+        && arrayNums24[15] === 17
+        && arrayNums24[17] === 18
+        && arrayNums24[18] === 19
+        && arrayNums24[19] === 20
+        && arrayNums24[20] === 21
+        && arrayNums24[21] === 22
+        && arrayNums24[22] === 23
+        && arrayNums24[23] === 24
+        && arrayNums24[24] === 0) {
+        victory_popup.classList.add('popup_active');
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        hidden_wrapper.classList.add('hidden_wrapper_active');
+      }
+  });
+}
+
 function reset() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   counterMoves = 0;
@@ -649,6 +841,7 @@ function reset() {
   arrayNums3 = [];
   arrayNums8 = [];
   arrayNums15 = [];
+  arrayNums24 = [];
 }
 btn_22.addEventListener('click', () => {
   reset();
@@ -666,6 +859,8 @@ btn_44.addEventListener('click', () => {
   change_size.textContent = '4x4';
 });
 btn_55.addEventListener('click', () => {
+  reset();
+  setGame24();
   change_size.textContent = '5x5';
 });
 btn_66.addEventListener('click', () => {
@@ -690,6 +885,10 @@ function restartGame() {
   if(btn_44.classList.contains('btn_active')) {
     reset();
     setGame15();
+  }
+  if(btn_55.classList.contains('btn_active')) {
+    reset();
+    setGame24();
   }
 }
 restart_btn.addEventListener('click', restartGame);
