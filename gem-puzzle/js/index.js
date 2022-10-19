@@ -1,5 +1,13 @@
 const body = document.querySelector('body');
 
+function createSounds () {
+  const audio = document.createElement('audio');
+  audio.classList.add('audio');
+  audio.src = "assets/click.mp3";
+  body.append(audio);
+}
+createSounds ();
+
 function sort(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -91,8 +99,15 @@ function createMain() {
   const span6 = document.createElement('span');
   span6.classList.add('change_size');
   span6.textContent = '4x4';
+  const volume_btn = document.createElement('div');
+  volume_btn.classList.add('volume_btn');
+  let image = new Image();
+  image.classList.add('volume_icon');
+  image.src = 'assets/audio_volume.svg';
+  volume_btn.appendChild(image);
   current_field_size.appendChild(span5);
   current_field_size.appendChild(span6);
+  current_field_size.appendChild(volume_btn);
   const hidden_wrapper = document.createElement('div');
   hidden_wrapper.classList.add('hidden_wrapper');
   main_container.appendChild(hidden_wrapper);
@@ -165,6 +180,7 @@ const victory_popup = document.querySelector('.victory_popup');
 const hidden_wrapper = document.querySelector('.hidden_wrapper');
 const restart_btn = document.querySelector('.restart_btn');
 const change_size = document.querySelector('.change_size');
+const audio = document.querySelector('.audio');
 
 size_btns.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -176,6 +192,7 @@ size_btns.forEach(el => {
 })
 
 let counterMoves = 0;
+let isPlay = true;
 const counter_moves = document.querySelector('.counter_moves');
 const mins = document.querySelector('.mins');
 const sec = document.querySelector('.sec');
@@ -282,6 +299,9 @@ function setGame3() {
       arrayNums3[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=3; i++) {
       drawCell(i, arrayNums3[i])
@@ -291,6 +311,9 @@ function setGame3() {
       arrayNums3[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=3; i++) {
       drawCell(i, arrayNums3[i])
@@ -300,6 +323,9 @@ function setGame3() {
       arrayNums3[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=3; i++) {
       drawCell(i, arrayNums3[i])
@@ -309,6 +335,9 @@ function setGame3() {
       arrayNums3[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=3; i++) {
       drawCell(i, arrayNums3[i]);
@@ -405,6 +434,9 @@ function setGame8() {
       arrayNums8[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=8; i++) {
       drawCell(i, arrayNums8[i])
@@ -414,6 +446,9 @@ function setGame8() {
       arrayNums8[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=8; i++) {
       drawCell(i, arrayNums8[i])
@@ -423,6 +458,9 @@ function setGame8() {
       arrayNums8[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=8; i++) {
       drawCell(i, arrayNums8[i])
@@ -432,6 +470,9 @@ function setGame8() {
       arrayNums8[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=8; i++) {
       drawCell(i, arrayNums8[i])
@@ -555,6 +596,9 @@ function setGame15() {
       arrayNums15[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=15; i++) {
       drawCell(i, arrayNums15[i])
@@ -564,6 +608,9 @@ function setGame15() {
       arrayNums15[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=15; i++) {
       drawCell(i, arrayNums15[i])
@@ -573,6 +620,9 @@ function setGame15() {
       arrayNums15[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=15; i++) {
       drawCell(i, arrayNums15[i])
@@ -582,6 +632,9 @@ function setGame15() {
       arrayNums15[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=15; i++) {
       drawCell(i, arrayNums15[i])
@@ -767,6 +820,9 @@ function setGame24() {
       arrayNums24[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=24; i++) {
       drawCell(i, arrayNums24[i])
@@ -776,6 +832,9 @@ function setGame24() {
       arrayNums24[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=24; i++) {
       drawCell(i, arrayNums24[i])
@@ -785,6 +844,9 @@ function setGame24() {
       arrayNums24[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=24; i++) {
       drawCell(i, arrayNums24[i])
@@ -794,6 +856,9 @@ function setGame24() {
       arrayNums24[click] = 0;
       counterMoves++;
       counter_moves.textContent = counterMoves;
+      if(isPlay) {
+        audio.play();
+      }
     }
     for (let i = 0; i<=24; i++) {
       drawCell(i, arrayNums24[i])

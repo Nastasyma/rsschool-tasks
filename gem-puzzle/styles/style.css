@@ -40,7 +40,8 @@ body {
 .pause_btn,
 .save_btn,
 .results_btn,
-.size_btn {
+.size_btn,
+.volume_btn {
   background-color: midnightblue;
   color: white;
   padding: 5px;
@@ -59,7 +60,23 @@ body {
   color: black;
   font-weight: 900;
 }
+.volume_btn:hover  {
+  background-color: orange;
+}
+.volume_btn:hover .volume_icon {
+  filter: invert(0);
+}
+.volume_btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid gray;
+}
 
+.volume_icon {
+  filter: invert(100%);
+  width: 20px;
+  height: 15px;
+}
 .btn_active {
   background-color: orange;
   color: black;
@@ -146,12 +163,17 @@ canvas {
 }*/
 
 .current_field_size {
-  max-width: 150px;
+  max-width: 300px;
   font-size: 18px;
   display: flex;
-  justify-content: space-around;
-  margin: 0 auto;
+  align-items: center;
+  margin-left: 100px;
   padding-top: 10px;
+}
+
+.change_size {
+  margin-left: 10px;
+  margin-right: 50px;
 }
 
 .footer_container {
