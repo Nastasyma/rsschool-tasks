@@ -47,6 +47,7 @@ body {
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
+  border: 2px solid black;
 }
 .restart_btn:hover,
 .pause_btn:hover,
@@ -64,21 +65,35 @@ body {
 .volume_btn:hover  {
   background-color: orange;
 }
-.volume_btn:hover .volume_icon {
+.volume_btn:hover:before {
   filter: invert(0);
 }
 .volume_btn {
+  position: relative;
   width: 30px;
   height: 30px;
-  border: 2px solid black;
+}
+.volume_btn:before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  background: url("../assets/audio_volume.svg") no-repeat center/contain;
+  width: 20px;
+  height: 15px;
+  filter: invert(100%);
+}
+.volume_btn.click_mute::before {
+  background-image: url("../assets/audio_volume_mute.svg");
 }
 
-.volume_icon {
+/*.volume_icon {
   filter: invert(100%);
   width: 20px;
   height: 15px;
   padding-right: 2px;
-}
+}*/
+
 .btn_active {
   background-color: orange;
   color: black;
@@ -175,7 +190,10 @@ canvas {
 
 .change_size {
   margin-left: 10px;
-  margin-right: 50px;
+  margin-right: 45px;
+}
+.frame_size {
+  min-width: 95px;
 }
 
 .footer_container {

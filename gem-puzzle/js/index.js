@@ -95,16 +95,17 @@ function createMain() {
   current_field_size.classList.add('current_field_size');
   main_container.appendChild(current_field_size);
   const span5 = document.createElement('span');
+  span5.classList.add('frame_size');
   span5.textContent = 'Frame size:';
   const span6 = document.createElement('span');
   span6.classList.add('change_size');
   span6.textContent = '4x4';
   const volume_btn = document.createElement('div');
   volume_btn.classList.add('volume_btn');
-  let image = new Image();
+  /*let image = new Image();
   image.classList.add('volume_icon');
   image.src = 'assets/audio_volume.svg';
-  volume_btn.appendChild(image);
+  volume_btn.appendChild(image);*/
   current_field_size.appendChild(span5);
   current_field_size.appendChild(span6);
   current_field_size.appendChild(volume_btn);
@@ -181,6 +182,7 @@ const hidden_wrapper = document.querySelector('.hidden_wrapper');
 const restart_btn = document.querySelector('.restart_btn');
 const change_size = document.querySelector('.change_size');
 const audio = document.querySelector('.audio');
+const volume_btn = document.querySelector('.volume_btn');
 
 size_btns.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -197,6 +199,18 @@ const counter_moves = document.querySelector('.counter_moves');
 const mins = document.querySelector('.mins');
 const sec = document.querySelector('.sec');
 const hours = document.querySelector('.hours');
+
+volume_btn.addEventListener('click', () => {
+  if (isPlay) {
+    audio.pause();
+    isPlay = false;
+    volume_btn.classList.add('click_mute')
+  } else {
+    audio.play();
+    volume_btn.classList.remove('click_mute')
+    isPlay = true;
+  }
+})
 
 function drawTimer () {
   function setZero (n) {
@@ -225,6 +239,9 @@ let arrayNums3 = [];
 let arrayNums8 = [];
 let arrayNums15 = [];
 let arrayNums24 = [];
+let arrayNums35 = [];
+let arrayNums48 = [];
+let arrayNums63 = [];
 
 const save_btn = document.querySelector('.save_btn');
 const btn_22 = document.querySelector('.field_2_2');
@@ -661,38 +678,8 @@ function setGame15() {
         hidden_wrapper.classList.add('hidden_wrapper_active');
       }
   });
-
-/*let isMove = false;
-let x = 75;
-let y = 75;
-
-function myMove(e){
-  if (isMove){
-    x = e.offsetX - canvas.offsetLeft;
-    y = e.offsetY - canvas.offsetTop;
-  }
-}
-function myDown(e){
-  if (e.offsetX < x + 15 + canvas.offsetLeft && e.offsetX > x - 15 +
-  canvas.offsetLeft && e.pageY < y + 15 + canvas.offsetTop &&
-  e.offsetY > y -15 + canvas.offsetTop) {
-    x = e.offsetX - canvas.offsetLeft;
-    y = e.offsetY - canvas.offsetTop;
-    isMove = true;
-  canvas.onmousemove = myMove;
-  }
-  }
-
-function myUp(){
-  isMove = false;
-  canvas.onmousemove = null;
-}
-
-canvas.onmousedown = myDown;
-canvas.onmouseup = myUp;*/
 }
 setGame15();
-
 function setGame24() {
   canvas.width  = 300;
   canvas.height = 300;
@@ -907,6 +894,9 @@ function reset() {
   arrayNums8 = [];
   arrayNums15 = [];
   arrayNums24 = [];
+  arrayNums35 = [];
+  arrayNums48 = [];
+  arrayNums63 = [];
 }
 btn_22.addEventListener('click', () => {
   reset();
@@ -963,3 +953,32 @@ hidden_wrapper.addEventListener('click', () => {
   victory_popup.classList.remove('popup_active');
   restartGame();
 })
+
+/*let isMove = false;
+let x = 75;
+let y = 75;
+
+function myMove(e){
+  if (isMove){
+    x = e.offsetX - canvas.offsetLeft;
+    y = e.offsetY - canvas.offsetTop;
+  }
+}
+function myDown(e){
+  if (e.offsetX < x + 15 + canvas.offsetLeft && e.offsetX > x - 15 +
+  canvas.offsetLeft && e.pageY < y + 15 + canvas.offsetTop &&
+  e.offsetY > y -15 + canvas.offsetTop) {
+    x = e.offsetX - canvas.offsetLeft;
+    y = e.offsetY - canvas.offsetTop;
+    isMove = true;
+  canvas.onmousemove = myMove;
+  }
+  }
+
+function myUp(){
+  isMove = false;
+  canvas.onmousemove = null;
+}
+
+canvas.onmousedown = myDown;
+canvas.onmouseup = myUp;*/
