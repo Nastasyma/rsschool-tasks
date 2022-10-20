@@ -133,11 +133,49 @@ canvas {
   border: 2px solid black;
   transition: all .3s;
 }
+.results_popup {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 290px;
+  min-height: 200px;
+  padding: 20px 10px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  background-color: bisque;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition: all .3s;
+}
 .popup_active {
   opacity: 1;
   visibility: visible;
 }
+.results_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.results_list {
+  display: flex;
+  flex-direction: column;
+}
+.results_item {
+  max-width: 270px;
+}
 .hidden_wrapper {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  transition: all .3s;
+}
+.hidden_wrapper_victory {
   position: fixed;
   visibility: hidden;
   left: 0;

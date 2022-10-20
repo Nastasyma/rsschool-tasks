@@ -48,6 +48,20 @@ function createMain() {
   const victory_popup = document.createElement('div');
   victory_popup.classList.add('victory_popup');
   main_container.appendChild(victory_popup);
+  const results_popup = document.createElement('div');
+  results_popup.classList.add('results_popup');
+  const span7 = document.createElement('span');
+  span7.classList.add('results_title');
+  span7.textContent = "Results";
+  const results_list = document.createElement('div');
+  results_list.classList.add('results_list');
+  const results_list_item1 = document.createElement('div');
+  results_list_item1.classList.add('results_list_item1');
+  results_list_item1.textContent = "Win your first game!";
+  results_popup.appendChild(span7);
+  results_popup.appendChild(results_list);
+  results_list.appendChild(results_list_item1);
+  main_container.appendChild(results_popup);
   const game_stats = document.createElement('div');
   game_stats.classList.add('game_stats');
   main_container.appendChild(game_stats);
@@ -109,6 +123,9 @@ function createMain() {
   current_field_size.appendChild(span5);
   current_field_size.appendChild(span6);
   current_field_size.appendChild(volume_btn);
+  const hidden_wrapper_victory = document.createElement('div');
+  hidden_wrapper_victory.classList.add('hidden_wrapper_victory');
+  main_container.appendChild(hidden_wrapper_victory);
   const hidden_wrapper = document.createElement('div');
   hidden_wrapper.classList.add('hidden_wrapper');
   main_container.appendChild(hidden_wrapper);
@@ -178,6 +195,11 @@ createFooter();
 
 const size_btns = document.querySelectorAll('.size_btn');
 const victory_popup = document.querySelector('.victory_popup');
+const results_popup = document.querySelector('.results_popup');
+const results_btn = document.querySelector('.results_btn');
+const results_list = document.querySelector('.results_list');
+const results_list_item1 = document.querySelector('.results_list_item1');
+const hidden_wrapper_victory = document.querySelector('.hidden_wrapper_victory');
 const hidden_wrapper = document.querySelector('.hidden_wrapper');
 const restart_btn = document.querySelector('.restart_btn');
 const change_size = document.querySelector('.change_size');
@@ -359,7 +381,6 @@ function setGame3() {
     for (let i = 0; i<=3; i++) {
       drawCell(i, arrayNums3[i]);
     }
-    //console.log(arrayNums3);
     for (let i=0; i<arrayNums3.length; i++) {
       if (arrayNums3[0] === 1
         && arrayNums3[1] === 2
@@ -367,7 +388,7 @@ function setGame3() {
         && arrayNums3[3] === 0) {
         victory_popup.classList.add('popup_active');
         victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-        hidden_wrapper.classList.add('hidden_wrapper_active');
+        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
     }
   });
@@ -675,7 +696,7 @@ function setGame15() {
         && arrayNums15[15] === 0) {
         victory_popup.classList.add('popup_active');
         victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-        hidden_wrapper.classList.add('hidden_wrapper_active');
+        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
 }
@@ -878,7 +899,7 @@ function setGame24() {
         && arrayNums24[24] === 0) {
         victory_popup.classList.add('popup_active');
         victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-        hidden_wrapper.classList.add('hidden_wrapper_active');
+        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
 }
@@ -1118,7 +1139,7 @@ function setGame35() {
         && arrayNums35[35] === 0) {
         victory_popup.classList.add('popup_active');
         victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-        hidden_wrapper.classList.add('hidden_wrapper_active');
+        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
 }
@@ -1403,7 +1424,7 @@ function setGame48() {
         && arrayNums48[48] === 0) {
         victory_popup.classList.add('popup_active');
         victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-        hidden_wrapper.classList.add('hidden_wrapper_active');
+        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
 }
@@ -1724,7 +1745,7 @@ function setGame63() {
         && arrayNums48[48] === 0) {
         victory_popup.classList.add('popup_active');
         victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-        hidden_wrapper.classList.add('hidden_wrapper_active');
+        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
 }
@@ -1811,10 +1832,23 @@ function restartGame() {
   }
 }
 restart_btn.addEventListener('click', restartGame);
+results_btn.addEventListener('click', () => {
+  results_popup.classList.add('popup_active');
+  hidden_wrapper.classList.add('hidden_wrapper_active');
+});
 
 hidden_wrapper.addEventListener('click', () => {
   hidden_wrapper.classList.remove('hidden_wrapper_active');
+  results_popup.classList.remove('popup_active');
+})
+hidden_wrapper_victory.addEventListener('click', () => {
+  hidden_wrapper_victory.classList.remove('hidden_wrapper_active');
   victory_popup.classList.remove('popup_active');
+  results_list_item1.innerHTML = '';
+  const results_item = document.createElement('span');
+  results_item.classList.add('results_item');
+  results_item.textContent = `Game: ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves.`
+  results_list.appendChild(results_item);
   restartGame();
 })
 
