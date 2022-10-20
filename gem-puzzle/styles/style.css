@@ -45,6 +45,7 @@ body {
   background-color: midnightblue;
   color: white;
   padding: 5px;
+  border-radius: 5px;
   cursor: pointer;
 }
 .restart_btn:hover,
@@ -69,13 +70,14 @@ body {
 .volume_btn {
   width: 30px;
   height: 30px;
-  border: 1px solid gray;
+  border: 2px solid black;
 }
 
 .volume_icon {
   filter: invert(100%);
   width: 20px;
   height: 15px;
+  padding-right: 2px;
 }
 .btn_active {
   background-color: orange;
