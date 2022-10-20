@@ -181,7 +181,6 @@ canvas {
 
 .current_field_size {
   max-width: 300px;
-  font-size: 18px;
   display: flex;
   align-items: center;
   margin-left: 100px;
