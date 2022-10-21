@@ -21,17 +21,17 @@ function createHeader() {
   const header_container = document.createElement('div');
   header_container.classList.add('header_container');
   const btn1 = document.createElement('button');
-  btn1.classList.add('restart_btn');
-  btn1.textContent = 'Restart game';
+  btn1.classList.add('shuffle_btn');
+  btn1.textContent = 'New game';
   const btn2 = document.createElement('button');
-  btn2.classList.add('pause_btn');
-  btn2.textContent = 'Pause';
+  btn2.classList.add('save_btn');
+  btn2.textContent = 'Save';
   const btn3 = document.createElement('button');
-  btn3.classList.add('save_btn');
-  btn3.textContent = 'Save';
+  btn3.classList.add('load_btn');
+  btn3.textContent = 'Load';
   const btn4 = document.createElement('button');
   btn4.classList.add('results_btn');
-  btn4.textContent = 'Results';
+  btn4.textContent = 'Top results';
   header_container.appendChild(btn1);
   header_container.appendChild(btn2);
   header_container.appendChild(btn3);
@@ -48,11 +48,6 @@ function createMain() {
   const victory_popup = document.createElement('div');
   victory_popup.classList.add('victory_popup');
   main_container.appendChild(victory_popup);
-  const start_popup = document.createElement('div');
-  start_popup.classList.add('start_popup');
-  start_popup.classList.add('popup_active');
-  start_popup.textContent = 'START';
-  main_container.appendChild(start_popup);
   const results_popup = document.createElement('div');
   results_popup.classList.add('results_popup');
   const span7 = document.createElement('span');
@@ -109,10 +104,6 @@ function createMain() {
   /*const canvas = document.createElement('canvas');
   canvas.setAttribute("id", "canvas");
   game_field.appendChild(canvas);*/
-  const start_wrapper = document.createElement('div');
-  start_wrapper.classList.add('start_wrapper');
-  start_wrapper.classList.add('hidden_wrapper_active');
-  game_field.appendChild(start_wrapper);
   main_container.appendChild(game_field);
   const current_field_size = document.createElement('div');
   current_field_size.classList.add('current_field_size');
@@ -164,38 +155,31 @@ function createFooter() {
   const btn0 = document.createElement('button');
   btn0.classList.add('size_btn');
   btn0.classList.add('field_2_2');
-  btn0.setAttribute('disabled', 'disabled');
   btn0.textContent = '2x2';
   const btn1 = document.createElement('button');
   btn1.classList.add('size_btn');
   btn1.classList.add('field_3_3');
-  btn1.setAttribute('disabled', 'disabled');
   btn1.textContent = '3x3';
   const btn2 = document.createElement('button');
   btn2.classList.add('size_btn');
   btn2.classList.add('field_4_4');
   btn2.classList.add('btn_active');
-  btn2.setAttribute('disabled', 'disabled');
   btn2.textContent = '4x4';
   const btn3 = document.createElement('button');
   btn3.classList.add('size_btn');
   btn3.classList.add('field_5_5');
-  btn3.setAttribute('disabled', 'disabled');
   btn3.textContent = '5x5';
   const btn4 = document.createElement('button');
   btn4.classList.add('size_btn');
   btn4.classList.add('field_6_6');
-  btn4.setAttribute('disabled', 'disabled');
   btn4.textContent = '6x6';
   const btn5 = document.createElement('button');
   btn5.classList.add('size_btn');
   btn5.classList.add('field_7_7');
-  btn5.setAttribute('disabled', 'disabled');
   btn5.textContent = '7x7';
   const btn6 = document.createElement('button');
   btn6.classList.add('size_btn');
   btn6.classList.add('field_8_8');
-  btn6.setAttribute('disabled', 'disabled');
   btn6.textContent = '8x8';
   sizes_wrapper.appendChild(btn0);
   sizes_wrapper.appendChild(btn1);
@@ -217,12 +201,10 @@ const results_list = document.querySelector('.results_list');
 const results_list_item1 = document.querySelector('.results_list_item1');
 const hidden_wrapper_victory = document.querySelector('.hidden_wrapper_victory');
 const hidden_wrapper = document.querySelector('.hidden_wrapper');
-const restart_btn = document.querySelector('.restart_btn');
+const shuffle_btn = document.querySelector('.shuffle_btn');
 const change_size = document.querySelector('.change_size');
 const audio = document.querySelector('.audio');
 const volume_btn = document.querySelector('.volume_btn');
-const start_popup = document.querySelector('.start_popup');
-const start_wrapper = document.querySelector('.start_wrapper');
 
 size_btns.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -270,7 +252,7 @@ function drawTimer () {
   }
   setTimeout(drawTimer, 1000);
 }
-//drawTimer();
+drawTimer();
 
 const canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
@@ -294,62 +276,6 @@ const btn_66 = document.querySelector('.field_6_6');
 const btn_77 = document.querySelector('.field_7_7');
 const btn_88 = document.querySelector('.field_8_8');
 
-function setGame() {
-  canvas.width  = 300;
-  canvas.height = 300;
-  arrayNums15 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
-  //sort(arrayNums15);
-  console.log(arrayNums15);
-  const drawBox = function(x, y, value) {
-    context.fillStyle = "bisque";
-    context.fillRect(x, y, 75, 75);
-    context.shadowOffsetX = 2;
-    context.shadowOffsetY = 2;
-    context.shadowBlur = 2;
-    context.shadowColor = "black";
-    if (value === 0) {
-      context.fillStyle = "bisque";
-      context.shadowOffsetX = 0;
-      context.shadowOffsetY = 0;
-      context.shadowBlur = 0;
-      context.shadowColor = "none";
-    } else {
-      context.fillStyle = "midnightblue";
-    }
-    context.fillRect(x + 2.5, y + 2.5, 70, 70)
-    context.font = "38px Arial";
-    context.fillStyle = "bisque";
-    if (value < 10) {
-      context.fillText(value, x + 30, y + 50);
-    } else {
-      context.fillText(value, x + 15, y + 50);
-    }
-  }
-
-  const drawCell = function(position, value) {
-    if(position === 0) { drawBox(0, 0, value); }
-    else if (position === 1) { drawBox(75, 0, value); }
-    else if (position === 2) { drawBox(150, 0, value); }
-    else if (position === 3) { drawBox(225, 0, value); }
-    else if (position === 4) { drawBox(0, 75, value); }
-    else if (position === 5) { drawBox(75, 75, value); }
-    else if (position === 6) { drawBox(150, 75, value); }
-    else if (position === 7) { drawBox(225, 75, value); }
-    else if (position === 8) { drawBox(0, 150, value); }
-    else if (position === 9) { drawBox(75, 150, value); }
-    else if (position === 10) { drawBox(150, 150, value); }
-    else if (position === 11) { drawBox(225, 150, value); }
-    else if (position === 12) { drawBox(0, 225, value); }
-    else if (position === 13) { drawBox(75, 225, value); }
-    else if (position === 14) { drawBox(150, 225, value); }
-    else if (position === 15) { drawBox(225, 225, value); }
-  }
-
-  for (let i = 0; i<=15; i++) {
-    drawCell(i, arrayNums15[i])
-  }
-}
-setGame();
 function setGame3() {
   canvas.width  = 300;
   canvas.height = 300;
@@ -915,7 +841,7 @@ function setGame15() {
       }
   });
 }
-//setGame15();
+setGame15();
 function setGame24() {
   canvas.width  = 300;
   canvas.height = 300;
@@ -2161,58 +2087,42 @@ function reset() {
   arrayNums63 = [];
 }
 btn_22.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame3();
   change_size.textContent = '2x2';
 });
 btn_33.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame8();
   change_size.textContent = '3x3';
 });
 btn_44.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame15();
   change_size.textContent = '4x4';
 });
 btn_55.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame24();
   change_size.textContent = '5x5';
 });
 btn_66.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame35();
   change_size.textContent = '6x6';
 });
 btn_77.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame48();
   change_size.textContent = '7x7';
 });
 btn_88.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   reset();
   setGame63();
   change_size.textContent = '8x8';
 });
 
 function restartGame() {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
   if(btn_22.classList.contains('btn_active')) {
     reset();
     setGame3();
@@ -2242,21 +2152,8 @@ function restartGame() {
     setGame63();
   }
 }
-start_popup.addEventListener('click', () => {
-  start_popup.classList.remove('popup_active');
-  start_wrapper.classList.remove('hidden_wrapper_active');
-  btn_22.removeAttribute('disabled', 'disabled');
-  btn_33.removeAttribute('disabled', 'disabled');
-  btn_44.removeAttribute('disabled', 'disabled');
-  btn_55.removeAttribute('disabled', 'disabled');
-  btn_66.removeAttribute('disabled', 'disabled');
-  btn_77.removeAttribute('disabled', 'disabled');
-  btn_88.removeAttribute('disabled', 'disabled');
-  drawTimer();
-  reset();
-  setGame15();
-})
-restart_btn.addEventListener('click', restartGame);
+
+shuffle_btn.addEventListener('click', restartGame);
 results_btn.addEventListener('click', () => {
   results_popup.classList.add('popup_active');
   hidden_wrapper.classList.add('hidden_wrapper_active');
@@ -2281,14 +2178,23 @@ hidden_wrapper_victory.addEventListener('click', () => {
   }
   top10Arr.sort((a,b) => a.moves - b.moves);
   //console.log(top10Arr);
+  localStorage.setItem("top10", JSON.stringify(top10Arr));
   results_list.innerHTML = '';
   for (let i = 0; i<top10Arr.length; i++) {
     const results_item = document.createElement('li');
     results_item.classList.add('results_item');
-    results_item.textContent = `Game in ${top10Arr[i].time} and ${top10Arr[i].moves} moves`
+    results_item.textContent = `Result: ${top10Arr[i].time} and ${top10Arr[i].moves} moves.`
     results_list.appendChild(results_item);
+    localStorage.setItem('results_content', results_list.innerHTML);
   }
   restartGame();
+})
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('results_content'))
+  results_list.innerHTML = localStorage.getItem('results_content');
+  if (localStorage.getItem('top10'))
+  top10Arr = JSON.parse(localStorage.getItem("top10"));
 })
 
 /*let isMove = false;

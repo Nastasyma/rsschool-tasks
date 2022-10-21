@@ -36,8 +36,8 @@ body {
   position: relative;
 }
 
-.restart_btn,
-.pause_btn,
+.shuffle_btn,
+.load_btn,
 .save_btn,
 .results_btn,
 .size_btn,
@@ -49,25 +49,21 @@ body {
   cursor: pointer;
   border: 2px solid black;
 }
-.size_btn:disabled {
-  background-color: gray;
-  color: black;
-  font-weight: 900;
-  cursor: default;
+.shuffle_btn,
+.results_btn {
+  width: 90px;
 }
-.size_btn:disabled:hover {
-  background-color: gray;
-  color: black;
-  font-weight: 900;
+.load_btn,
+.save_btn {
+  width: 50px;
 }
-
-.restart_btn:hover,
-.pause_btn:hover,
+.shuffle_btn:hover,
+.load_btn:hover,
 .save_btn:hover,
 .results_btn:hover {
   background-color: orange;
   color: black;
-  font-weight: 500;
+  font-weight: 900;
 }
 .size_btn:hover {
   background-color: orange;
@@ -126,7 +122,6 @@ canvas {
   border-radius: 10px;
 }
 .game_field {
-  position: relative;
   max-width: 304px;
   margin: 0 auto;
 }
@@ -144,25 +139,6 @@ canvas {
   background-color: orange;
   border-radius: 10px;
   border: 2px solid black;
-  transition: all .3s;
-}
-.start_popup {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 45%;
-  opacity: 0;
-  visibility: hidden;
-  width: 250px;
-  height: 100px;
-  padding: 20px 10px;
-  font-size: 72px;
-  text-shadow: 2px 2px 4px black, 0 0 5px black;
-  color: orange;
-  z-index: 20;
-  cursor: pointer;
   transition: all .3s;
 }
 .results_popup {
@@ -215,16 +191,6 @@ canvas {
   top: 0;
   height: 100vh;
   width: 100vw;
-  z-index: 10;
-  transition: all .3s;
-}
-.start_wrapper {
-  position: absolute;
-  visibility: hidden;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
   z-index: 10;
   transition: all .3s;
 }
