@@ -205,6 +205,9 @@ const shuffle_btn = document.querySelector('.shuffle_btn');
 const change_size = document.querySelector('.change_size');
 const audio = document.querySelector('.audio');
 const volume_btn = document.querySelector('.volume_btn');
+const save_btn = document.querySelector('.save_btn');
+const load_btn = document.querySelector('.load_btn');
+
 
 size_btns.forEach(el => {
   el.addEventListener('click', (e) => {
@@ -267,7 +270,6 @@ let arrayNums63 = [];
 let top10Arr = [];
 let info = {};
 
-const save_btn = document.querySelector('.save_btn');
 const btn_22 = document.querySelector('.field_2_2');
 const btn_33 = document.querySelector('.field_3_3');
 const btn_44 = document.querySelector('.field_4_4');
@@ -276,12 +278,7 @@ const btn_66 = document.querySelector('.field_6_6');
 const btn_77 = document.querySelector('.field_7_7');
 const btn_88 = document.querySelector('.field_8_8');
 
-function setGame3() {
-  canvas.width  = 300;
-  canvas.height = 300;
-  //arrayNums3 = [0, 1, 2, 3];
-  //sort(arrayNums3);
-  //console.log(arrayNums3);
+function sortArray3() {
   let numsArr = [];
   for (let i = 0; i<4; i++) {
     numsArr.push(i);
@@ -324,7 +321,275 @@ function setGame3() {
   setVictoryArr();
   arrayNums3 = arrayNums3.flat(Infinity);
   //console.log("решаемая комбинация", arrayNums3)
-
+}
+function sortArray8() {
+  let numsArr = [];
+  for (let i = 0; i<9;i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums8.length > 0) {
+      arrayNums8 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<3; i++) {
+      let arr = [];
+      for (let j=0; j<3; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums8.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums8 = arrayNums8.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums8);
+}
+function sortArray15() {
+  let numsArr = [];
+  for (let i = 0; i<16; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums15.length > 0) {
+      arrayNums15 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<4; i++) {
+      let arr = [];
+      for (let j=0; j<4; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums15.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums15 = arrayNums15.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums15)
+}
+sortArray15();
+function sortArray24() {
+  let numsArr = [];
+  for (let i = 0; i<25;i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums24.length > 0) {
+      arrayNums24 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<5; i++) {
+      let arr = [];
+      for (let j=0; j<5; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums24.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums24 = arrayNums24.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums24);
+}
+function sortArray35() {
+  let numsArr = [];
+  for (let i = 0; i<36; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums35.length > 0) {
+      arrayNums35 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<6; i++) {
+      let arr = [];
+      for (let j=0; j<6; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums35.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums35 = arrayNums35.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums35)
+}
+function sortArray48() {
+  let numsArr = [];
+  for (let i = 0; i<49;i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums48.length > 0) {
+      arrayNums48 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<7; i++) {
+      let arr = [];
+      for (let j=0; j<7; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums48.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums48 = arrayNums48.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums48);
+}
+function sortArray63() {
+  let numsArr = [];
+  for (let i = 0; i<64; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums63.length > 0) {
+      arrayNums63 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<8; i++) {
+      let arr = [];
+      for (let j=0; j<8; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums63.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums63 = arrayNums63.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums63)
+}
+function setGame3() {
+  canvas.width  = 300;
+  canvas.height = 300;
+  //arrayNums3 = [0, 1, 2, 3];
+  //sort(arrayNums3);
+  //console.log(arrayNums3);
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 150, 150);
@@ -449,48 +714,6 @@ function setGame8() {
   //arrayNums8 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   //sort(arrayNums8);
   //console.log(arrayNums8);
-  let numsArr = [];
-  for (let i = 0; i<9;i++) {
-    numsArr.push(i);
-  }
-  //console.log(numsArr);
-  function setVictoryArr() {
-    if (arrayNums8.length > 0) {
-      arrayNums8 = [];
-    }
-    let newNumsArr = [...numsArr];
-    let emptyRow = 0;
-    let checkArr = [];
-    for (let i=0; i<3; i++) {
-      let arr = [];
-      for (let j=0; j<3; j++) {
-        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
-        arr.push(newNumsArr[randomNum])
-        if (newNumsArr[randomNum] === 0) {
-          emptyRow = i+1;
-        } else {
-          checkArr.push(newNumsArr[randomNum]);
-        }
-        newNumsArr.splice(randomNum, 1);
-      }
-      arrayNums8.push(arr)
-    }
-    let count = 0
-    for (let i=0; i < checkArr.length; i++) {
-      for (let j = i+1 ; j < checkArr.length; j++) {
-        if (checkArr[i] > checkArr[j]) {
-          count++
-        }
-      }
-    }
-    if (count % 2 !== 0){
-      setVictoryArr();
-    }
-  }
-  setVictoryArr();
-  arrayNums8 = arrayNums8.flat(Infinity);
-  //console.log("решаемая комбинация", arrayNums8);
-
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 100, 100);
@@ -632,49 +855,7 @@ function setGame15() {
   //arrayNums15 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   //sort(arrayNums15);
   //console.log(arrayNums15);
-  let numsArr = [];
-  for (let i = 0; i<16; i++) {
-    numsArr.push(i);
-  }
-  //console.log(numsArr);
-  function setVictoryArr() {
-    if (arrayNums15.length > 0) {
-      arrayNums15 = [];
-    }
-    let newNumsArr = [...numsArr];
-    let emptyRow = 0;
-    let checkArr = [];
-    for (let i=0; i<4; i++) {
-      let arr = [];
-      for (let j=0; j<4; j++) {
-        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
-        arr.push(newNumsArr[randomNum])
-        if (newNumsArr[randomNum] === 0) {
-          emptyRow = i+1;
-        } else {
-          checkArr.push(newNumsArr[randomNum]);
-        }
-        newNumsArr.splice(randomNum, 1);
-      }
-      arrayNums15.push(arr)
-    }
-    let count = 0
-    for (let i=0; i < checkArr.length; i++) {
-      for (let j = i+1 ; j < checkArr.length; j++) {
-        if (checkArr[i] > checkArr[j]) {
-          count++
-        }
-      }
-    }
-    count += emptyRow;
-    if (count % 2 !== 0){
-      setVictoryArr();
-    }
-  }
-  setVictoryArr();
-  arrayNums15 = arrayNums15.flat(Infinity);
-  //console.log("решаемая комбинация", arrayNums15)
-
+ 
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 75, 75);
@@ -848,48 +1029,6 @@ function setGame24() {
   //arrayNums24 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
   //sort(arrayNums24);
   //console.log(arrayNums24);
-  let numsArr = [];
-  for (let i = 0; i<25;i++) {
-    numsArr.push(i);
-  }
-  //console.log(numsArr);
-  function setVictoryArr() {
-    if (arrayNums24.length > 0) {
-      arrayNums24 = [];
-    }
-    let newNumsArr = [...numsArr];
-    let emptyRow = 0;
-    let checkArr = [];
-    for (let i=0; i<5; i++) {
-      let arr = [];
-      for (let j=0; j<5; j++) {
-        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
-        arr.push(newNumsArr[randomNum])
-        if (newNumsArr[randomNum] === 0) {
-          emptyRow = i+1;
-        } else {
-          checkArr.push(newNumsArr[randomNum]);
-        }
-        newNumsArr.splice(randomNum, 1);
-      }
-      arrayNums24.push(arr)
-    }
-    let count = 0
-    for (let i=0; i < checkArr.length; i++) {
-      for (let j = i+1 ; j < checkArr.length; j++) {
-        if (checkArr[i] > checkArr[j]) {
-          count++
-        }
-      }
-    }
-    if (count % 2 !== 0){
-      setVictoryArr();
-    }
-  }
-  setVictoryArr();
-  arrayNums24 = arrayNums24.flat(Infinity);
-  //console.log("решаемая комбинация", arrayNums24);
-
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 60, 60);
@@ -1095,49 +1234,6 @@ function setGame35() {
   //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
   //sort(arrayNums35);
   //console.log(arrayNums35);
-  let numsArr = [];
-  for (let i = 0; i<36; i++) {
-    numsArr.push(i);
-  }
-  //console.log(numsArr);
-  function setVictoryArr() {
-    if (arrayNums35.length > 0) {
-      arrayNums35 = [];
-    }
-    let newNumsArr = [...numsArr];
-    let emptyRow = 0;
-    let checkArr = [];
-    for (let i=0; i<6; i++) {
-      let arr = [];
-      for (let j=0; j<6; j++) {
-        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
-        arr.push(newNumsArr[randomNum])
-        if (newNumsArr[randomNum] === 0) {
-          emptyRow = i+1;
-        } else {
-          checkArr.push(newNumsArr[randomNum]);
-        }
-        newNumsArr.splice(randomNum, 1);
-      }
-      arrayNums35.push(arr)
-    }
-    let count = 0
-    for (let i=0; i < checkArr.length; i++) {
-      for (let j = i+1 ; j < checkArr.length; j++) {
-        if (checkArr[i] > checkArr[j]) {
-          count++
-        }
-      }
-    }
-    count += emptyRow;
-    if (count % 2 !== 0){
-      setVictoryArr();
-    }
-  }
-  setVictoryArr();
-  arrayNums35 = arrayNums35.flat(Infinity);
-  //console.log("решаемая комбинация", arrayNums35)
-
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 50, 50);
@@ -1382,48 +1478,6 @@ function setGame48() {
   //              39, 40, 41, 42, 43, 44, 45, 46, 47, 48];
   //sort(arrayNums48);
   //console.log(arrayNums48);
-  let numsArr = [];
-  for (let i = 0; i<49;i++) {
-    numsArr.push(i);
-  }
-  //console.log(numsArr);
-  function setVictoryArr() {
-    if (arrayNums48.length > 0) {
-      arrayNums48 = [];
-    }
-    let newNumsArr = [...numsArr];
-    let emptyRow = 0;
-    let checkArr = [];
-    for (let i=0; i<7; i++) {
-      let arr = [];
-      for (let j=0; j<7; j++) {
-        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
-        arr.push(newNumsArr[randomNum])
-        if (newNumsArr[randomNum] === 0) {
-          emptyRow = i+1;
-        } else {
-          checkArr.push(newNumsArr[randomNum]);
-        }
-        newNumsArr.splice(randomNum, 1);
-      }
-      arrayNums48.push(arr)
-    }
-    let count = 0
-    for (let i=0; i < checkArr.length; i++) {
-      for (let j = i+1 ; j < checkArr.length; j++) {
-        if (checkArr[i] > checkArr[j]) {
-          count++
-        }
-      }
-    }
-    if (count % 2 !== 0){
-      setVictoryArr();
-    }
-  }
-  setVictoryArr();
-  arrayNums48 = arrayNums48.flat(Infinity);
-  //console.log("решаемая комбинация", arrayNums48);
-
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 43, 43);
@@ -1713,49 +1767,6 @@ function setGame63() {
   //              58, 59, 60, 61, 62, 63];
   //sort(arrayNums63);
   //console.log(arrayNums63);
-  let numsArr = [];
-  for (let i = 0; i<64; i++) {
-    numsArr.push(i);
-  }
-  //console.log(numsArr);
-  function setVictoryArr() {
-    if (arrayNums63.length > 0) {
-      arrayNums63 = [];
-    }
-    let newNumsArr = [...numsArr];
-    let emptyRow = 0;
-    let checkArr = [];
-    for (let i=0; i<8; i++) {
-      let arr = [];
-      for (let j=0; j<8; j++) {
-        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
-        arr.push(newNumsArr[randomNum])
-        if (newNumsArr[randomNum] === 0) {
-          emptyRow = i+1;
-        } else {
-          checkArr.push(newNumsArr[randomNum]);
-        }
-        newNumsArr.splice(randomNum, 1);
-      }
-      arrayNums63.push(arr)
-    }
-    let count = 0
-    for (let i=0; i < checkArr.length; i++) {
-      for (let j = i+1 ; j < checkArr.length; j++) {
-        if (checkArr[i] > checkArr[j]) {
-          count++
-        }
-      }
-    }
-    count += emptyRow;
-    if (count % 2 !== 0){
-      setVictoryArr();
-    }
-  }
-  setVictoryArr();
-  arrayNums63 = arrayNums63.flat(Infinity);
-  //console.log("решаемая комбинация", arrayNums63)
-
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 37.5, 37.5);
@@ -2088,36 +2099,43 @@ function reset() {
 }
 btn_22.addEventListener('click', () => {
   reset();
+  sortArray3();
   setGame3();
   change_size.textContent = '2x2';
 });
 btn_33.addEventListener('click', () => {
   reset();
+  sortArray8();
   setGame8();
   change_size.textContent = '3x3';
 });
 btn_44.addEventListener('click', () => {
   reset();
+  sortArray15();
   setGame15();
   change_size.textContent = '4x4';
 });
 btn_55.addEventListener('click', () => {
   reset();
+  sortArray24();
   setGame24();
   change_size.textContent = '5x5';
 });
 btn_66.addEventListener('click', () => {
   reset();
+  sortArray35();
   setGame35();
   change_size.textContent = '6x6';
 });
 btn_77.addEventListener('click', () => {
   reset();
+  sortArray48();
   setGame48();
   change_size.textContent = '7x7';
 });
 btn_88.addEventListener('click', () => {
   reset();
+  sortArray63()
   setGame63();
   change_size.textContent = '8x8';
 });
@@ -2125,30 +2143,37 @@ btn_88.addEventListener('click', () => {
 function restartGame() {
   if(btn_22.classList.contains('btn_active')) {
     reset();
+    sortArray3();
     setGame3();
   }
   if(btn_33.classList.contains('btn_active')) {
     reset();
+    sortArray8();
     setGame8();
   }
   if(btn_44.classList.contains('btn_active')) {
     reset();
+    sortArray15();
     setGame15();
   }
   if(btn_55.classList.contains('btn_active')) {
     reset();
+    sortArray24();
     setGame24();
   }
   if(btn_66.classList.contains('btn_active')) {
     reset();
+    sortArray35();
     setGame35();
   }
   if(btn_77.classList.contains('btn_active')) {
     reset();
+    sortArray48();
     setGame48();
   }
   if(btn_88.classList.contains('btn_active')) {
     reset();
+    sortArray63();
     setGame63();
   }
 }
@@ -2162,7 +2187,7 @@ results_btn.addEventListener('click', () => {
 hidden_wrapper.addEventListener('click', () => {
   hidden_wrapper.classList.remove('hidden_wrapper_active');
   results_popup.classList.remove('popup_active');
-})
+});
 hidden_wrapper_victory.addEventListener('click', () => {
   hidden_wrapper_victory.classList.remove('hidden_wrapper_active');
   victory_popup.classList.remove('popup_active');
@@ -2188,7 +2213,103 @@ hidden_wrapper_victory.addEventListener('click', () => {
     localStorage.setItem('results_content', results_list.innerHTML);
   }
   restartGame();
-})
+});
+save_btn.addEventListener('click', () => {
+  localStorage.setItem('counterMoves', counterMoves);
+  localStorage.setItem('counterMoves_indicator', counter_moves.textContent);
+  localStorage.setItem('sec_indicator', sec.textContent);
+  localStorage.setItem('mins_indicator', mins.textContent);
+  localStorage.setItem('hours_indicator', hours.textContent);
+  localStorage.setItem("array3", JSON.stringify(arrayNums3));
+  localStorage.setItem("array8", JSON.stringify(arrayNums8));
+  localStorage.setItem("array15", JSON.stringify(arrayNums15));
+  localStorage.setItem("array24", JSON.stringify(arrayNums24));
+  localStorage.setItem("array35", JSON.stringify(arrayNums35));
+  localStorage.setItem("array48", JSON.stringify(arrayNums48));
+  localStorage.setItem("array63", JSON.stringify(arrayNums63));
+});
+load_btn.addEventListener('click', () => {
+  if (localStorage.getItem('counterMoves'))
+  counterMoves = localStorage.getItem('counterMoves');
+  if (localStorage.getItem('counterMoves_indicator'))
+  counter_moves.textContent = localStorage.getItem('counterMoves_indicator');
+  if (localStorage.getItem('sec_indicator'))
+  sec.textContent = localStorage.getItem('sec_indicator');
+  if (localStorage.getItem('mins_indicator'))
+  mins.textContent = localStorage.getItem('mins_indicator');
+  if (localStorage.getItem('hours_indicator'))
+  hours.textContent = localStorage.getItem('hours_indicator');
+  if (localStorage.getItem('array3'))
+    arrayNums3 = JSON.parse(localStorage.getItem("array3"));
+  if (localStorage.getItem('array8'))
+    arrayNums8 = JSON.parse(localStorage.getItem("array8"));
+  if (localStorage.getItem('array15'))
+    arrayNums15 = JSON.parse(localStorage.getItem("array15"));
+  if (localStorage.getItem('array24'))
+    arrayNums24 = JSON.parse(localStorage.getItem("array24"));
+  if (localStorage.getItem('array35'))
+    arrayNums35 = JSON.parse(localStorage.getItem("array35"));
+  if (localStorage.getItem('array48'))
+    arrayNums48 = JSON.parse(localStorage.getItem("array48"));
+  if (localStorage.getItem('array63'))
+    arrayNums63 = JSON.parse(localStorage.getItem("array63"));
+  if (arrayNums3.length !== 0) {
+    setGame3();
+    change_size.textContent = '2x2';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_22.classList.add('btn_active');
+  }
+  if (arrayNums8.length !== 0) {
+    setGame8();
+    change_size.textContent = '3x3';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_33.classList.add('btn_active');
+  }
+  if (arrayNums15.length !== 0) {
+    setGame15();
+    change_size.textContent = '4x4';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_44.classList.add('btn_active');
+  }
+  if (arrayNums24.length !== 0) {
+    setGame24();
+    change_size.textContent = '5x5';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_55.classList.add('btn_active');
+  }
+  if (arrayNums35.length !== 0) {
+    setGame35();
+    change_size.textContent = '6x6';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_66.classList.add('btn_active');
+  }
+  if (arrayNums48.length !== 0) {
+    setGame48();
+    change_size.textContent = '7x7';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_77.classList.add('btn_active');
+  }
+  if (arrayNums63.length !== 0) {
+    setGame63();
+    change_size.textContent = '8x8';
+    for (let i=0; i<size_btns.length; i++) {
+      size_btns[i].classList.remove('btn_active');
+    }
+    btn_88.classList.add('btn_active');
+  }
+});
 
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('results_content'))
@@ -2198,11 +2319,8 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 /*let isMove = false;
-
-
 let x = 75;
 let y = 75;
-
 function myMove(e){
   if (isMove){
     x = e.offsetX - canvas.offsetLeft;
