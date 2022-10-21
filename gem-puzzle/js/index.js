@@ -48,6 +48,14 @@ function createMain() {
   const victory_popup = document.createElement('div');
   victory_popup.classList.add('victory_popup');
   main_container.appendChild(victory_popup);
+  const saved_popup = document.createElement('div');
+  saved_popup.classList.add('saved_popup');
+  saved_popup.textContent = 'Your game saved!';
+  main_container.appendChild(saved_popup);
+  const loaded_popup = document.createElement('div');
+  loaded_popup.classList.add('loaded_popup');
+  loaded_popup.textContent = 'Your game loaded!'
+  main_container.appendChild(loaded_popup);
   const results_popup = document.createElement('div');
   results_popup.classList.add('results_popup');
   const span7 = document.createElement('span');
@@ -195,6 +203,8 @@ createFooter();
 
 const size_btns = document.querySelectorAll('.size_btn');
 const victory_popup = document.querySelector('.victory_popup');
+const saved_popup = document.querySelector('.saved_popup');
+const loaded_popup = document.querySelector('.loaded_popup');
 const results_popup = document.querySelector('.results_popup');
 const results_btn = document.querySelector('.results_btn');
 const results_list = document.querySelector('.results_list');
@@ -2183,10 +2193,19 @@ results_btn.addEventListener('click', () => {
   results_popup.classList.add('popup_active');
   hidden_wrapper.classList.add('hidden_wrapper_active');
 });
-
+save_btn.addEventListener('click', () => {
+  saved_popup.classList.add('popup_active');
+  hidden_wrapper.classList.add('hidden_wrapper_active');
+});
+load_btn.addEventListener('click', () => {
+  loaded_popup.classList.add('popup_active');
+  hidden_wrapper.classList.add('hidden_wrapper_active');
+});
 hidden_wrapper.addEventListener('click', () => {
   hidden_wrapper.classList.remove('hidden_wrapper_active');
   results_popup.classList.remove('popup_active');
+  saved_popup.classList.remove('popup_active');
+  loaded_popup.classList.remove('popup_active');
 });
 hidden_wrapper_victory.addEventListener('click', () => {
   hidden_wrapper_victory.classList.remove('hidden_wrapper_active');
