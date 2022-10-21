@@ -8,13 +8,13 @@ function createSounds () {
 }
 createSounds ();
 
-function sort(array) {
+/*function sort(array) {
   for (let i = array.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;
-};
+};*/
 
 function createHeader() {
   const header = document.createElement('header');
@@ -53,7 +53,7 @@ function createMain() {
   const span7 = document.createElement('span');
   span7.classList.add('results_title');
   span7.textContent = "Results";
-  const results_list = document.createElement('div');
+  const results_list = document.createElement('ol');
   results_list.classList.add('results_list');
   const results_list_item1 = document.createElement('div');
   results_list_item1.classList.add('results_list_item1');
@@ -264,6 +264,8 @@ let arrayNums24 = [];
 let arrayNums35 = [];
 let arrayNums48 = [];
 let arrayNums63 = [];
+let top10Arr = [];
+let info = {};
 
 const save_btn = document.querySelector('.save_btn');
 const btn_22 = document.querySelector('.field_2_2');
@@ -277,9 +279,52 @@ const btn_88 = document.querySelector('.field_8_8');
 function setGame3() {
   canvas.width  = 300;
   canvas.height = 300;
-  arrayNums3 = [0, 1, 2, 3];
-  sort(arrayNums3);
+  //arrayNums3 = [0, 1, 2, 3];
+  //sort(arrayNums3);
   //console.log(arrayNums3);
+  let numsArr = [];
+  for (let i = 0; i<4; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums3.length > 0) {
+      arrayNums3 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<2; i++) {
+      let arr = [];
+      for (let j=0; j<2; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums3.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums3 = arrayNums3.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums3)
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 150, 150);
@@ -381,24 +426,71 @@ function setGame3() {
     for (let i = 0; i<=3; i++) {
       drawCell(i, arrayNums3[i]);
     }
+
     for (let i=0; i<arrayNums3.length; i++) {
       if (arrayNums3[0] === 1
         && arrayNums3[1] === 2
         && arrayNums3[2] === 3
         && arrayNums3[3] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+        let moves = counter_moves.textContent;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+        info = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
     }
+    //console.log(info);
   });
 }
 function setGame8() {
   canvas.width  = 300;
   canvas.height = 300;
-  arrayNums8 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  sort(arrayNums8);
+  //arrayNums8 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  //sort(arrayNums8);
   //console.log(arrayNums8);
+  let numsArr = [];
+  for (let i = 0; i<9;i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums8.length > 0) {
+      arrayNums8 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<3; i++) {
+      let arr = [];
+      for (let j=0; j<3; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums8.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums8 = arrayNums8.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums8);
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 100, 100);
@@ -526,17 +618,63 @@ function setGame8() {
       && arrayNums8[7] === 8
       && arrayNums8[8] === 0) {
       victory_popup.classList.add('popup_active');
-      victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
-      hidden_wrapper.classList.add('hidden_wrapper_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
     }
   });
 }
 function setGame15() {
   canvas.width  = 300;
   canvas.height = 300;
-  arrayNums15 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-  sort(arrayNums15);
+  //arrayNums15 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  //sort(arrayNums15);
   //console.log(arrayNums15);
+  let numsArr = [];
+  for (let i = 0; i<16; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums15.length > 0) {
+      arrayNums15 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<4; i++) {
+      let arr = [];
+      for (let j=0; j<4; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums15.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums15 = arrayNums15.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums15)
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 75, 75);
@@ -695,7 +833,10 @@ function setGame15() {
         && arrayNums15[14] === 15
         && arrayNums15[15] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+        let moves = counter_moves.textContent;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+        info = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -704,10 +845,51 @@ setGame15();
 function setGame24() {
   canvas.width  = 300;
   canvas.height = 300;
-  arrayNums24 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-                  17, 18, 19, 20, 21, 22, 23, 24];
-  sort(arrayNums24);
+  //arrayNums24 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+  //sort(arrayNums24);
   //console.log(arrayNums24);
+  let numsArr = [];
+  for (let i = 0; i<25;i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums24.length > 0) {
+      arrayNums24 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<5; i++) {
+      let arr = [];
+      for (let j=0; j<5; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums24.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums24 = arrayNums24.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums24);
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 60, 60);
@@ -898,7 +1080,10 @@ function setGame24() {
         && arrayNums24[23] === 24
         && arrayNums24[24] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+        let moves = counter_moves.textContent;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+        info = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -906,10 +1091,53 @@ function setGame24() {
 function setGame35() {
   canvas.width  = 300;
   canvas.height = 300;
-  arrayNums35 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-                20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
-  sort(arrayNums35);
+  //arrayNums35 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
+  //sort(arrayNums35);
   //console.log(arrayNums35);
+  let numsArr = [];
+  for (let i = 0; i<36; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums35.length > 0) {
+      arrayNums35 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<6; i++) {
+      let arr = [];
+      for (let j=0; j<6; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums35.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums35 = arrayNums35.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums35)
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 50, 50);
@@ -1138,7 +1366,10 @@ function setGame35() {
         && arrayNums35[34] === 35
         && arrayNums35[35] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+        let moves = counter_moves.textContent;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+        info = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -1146,11 +1377,53 @@ function setGame35() {
 function setGame48() {
   canvas.width  = 301;
   canvas.height = 301;
-  arrayNums48 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-                20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-                39, 40, 41, 42, 43, 44, 45, 46, 47, 48];
-  sort(arrayNums48);
+  //arrayNums48 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+  //              39, 40, 41, 42, 43, 44, 45, 46, 47, 48];
+  //sort(arrayNums48);
   //console.log(arrayNums48);
+  let numsArr = [];
+  for (let i = 0; i<49;i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums48.length > 0) {
+      arrayNums48 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<7; i++) {
+      let arr = [];
+      for (let j=0; j<7; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums48.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums48 = arrayNums48.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums48);
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 43, 43);
@@ -1423,7 +1696,10 @@ function setGame48() {
         && arrayNums48[47] === 48
         && arrayNums48[48] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+        let moves = counter_moves.textContent;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+        info = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -1431,12 +1707,55 @@ function setGame48() {
 function setGame63() {
   canvas.width  = 300;
   canvas.height = 300;
-  arrayNums63 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-                20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-                39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
-                58, 59, 60, 61, 62, 63];
-  sort(arrayNums63);
+  //arrayNums63 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+  //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+  //              39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+  //              58, 59, 60, 61, 62, 63];
+  //sort(arrayNums63);
   //console.log(arrayNums63);
+  let numsArr = [];
+  for (let i = 0; i<64; i++) {
+    numsArr.push(i);
+  }
+  //console.log(numsArr);
+  function setVictoryArr() {
+    if (arrayNums63.length > 0) {
+      arrayNums63 = [];
+    }
+    let newNumsArr = [...numsArr];
+    let emptyRow = 0;
+    let checkArr = [];
+    for (let i=0; i<8; i++) {
+      let arr = [];
+      for (let j=0; j<8; j++) {
+        let randomNum = Math.floor(Math.random()*(Math.floor(newNumsArr.length) - 1));
+        arr.push(newNumsArr[randomNum])
+        if (newNumsArr[randomNum] === 0) {
+          emptyRow = i+1;
+        } else {
+          checkArr.push(newNumsArr[randomNum]);
+        }
+        newNumsArr.splice(randomNum, 1);
+      }
+      arrayNums63.push(arr)
+    }
+    let count = 0
+    for (let i=0; i < checkArr.length; i++) {
+      for (let j = i+1 ; j < checkArr.length; j++) {
+        if (checkArr[i] > checkArr[j]) {
+          count++
+        }
+      }
+    }
+    count += emptyRow;
+    if (count % 2 !== 0){
+      setVictoryArr();
+    }
+  }
+  setVictoryArr();
+  arrayNums63 = arrayNums63.flat(Infinity);
+  //console.log("решаемая комбинация", arrayNums63)
+
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 37.5, 37.5);
@@ -1744,7 +2063,10 @@ function setGame63() {
         && arrayNums48[47] === 48
         && arrayNums48[48] === 0) {
         victory_popup.classList.add('popup_active');
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves!`;
+        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+        let moves = counter_moves.textContent;
+        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+        info = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -1844,15 +2166,31 @@ hidden_wrapper.addEventListener('click', () => {
 hidden_wrapper_victory.addEventListener('click', () => {
   hidden_wrapper_victory.classList.remove('hidden_wrapper_active');
   victory_popup.classList.remove('popup_active');
-  results_list_item1.innerHTML = '';
-  const results_item = document.createElement('span');
-  results_item.classList.add('results_item');
-  results_item.textContent = `Game: ${hours.textContent}:${mins.textContent}:${sec.textContent} and ${counter_moves.textContent} moves.`
-  results_list.appendChild(results_item);
+  if (top10Arr.length === 10 ) {
+    for (let i=9; i>0; i--) {
+      if (top10Arr[i].moves > info.moves) {
+        top10Arr.splice(i,1,info);
+        break;
+      }
+    }
+  } else {
+    top10Arr.push(info);
+  }
+  top10Arr.sort((a,b) => a.moves - b.moves);
+  //console.log(top10Arr);
+  results_list.innerHTML = '';
+  for (let i = 0; i<top10Arr.length; i++) {
+    const results_item = document.createElement('li');
+    results_item.classList.add('results_item');
+    results_item.textContent = `Game in ${top10Arr[i].time} and ${top10Arr[i].moves} moves`
+    results_list.appendChild(results_item);
+  }
   restartGame();
 })
 
 /*let isMove = false;
+
+
 let x = 75;
 let y = 75;
 

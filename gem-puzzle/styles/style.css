@@ -161,6 +161,7 @@ canvas {
 .results_list {
   display: flex;
   flex-direction: column;
+  padding-left: 20px;
 }
 .results_item {
   max-width: 270px;
