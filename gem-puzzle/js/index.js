@@ -2336,31 +2336,3 @@ window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('top10'))
   top10Arr = JSON.parse(localStorage.getItem("top10"));
 })
-
-/*let isMove = false;
-let x = 75;
-let y = 75;
-function myMove(e){
-  if (isMove){
-    x = e.offsetX - canvas.offsetLeft;
-    y = e.offsetY - canvas.offsetTop;
-  }
-}
-function myDown(e){
-  if (e.offsetX < x + 15 + canvas.offsetLeft && e.offsetX > x - 15 +
-  canvas.offsetLeft && e.pageY < y + 15 + canvas.offsetTop &&
-  e.offsetY > y -15 + canvas.offsetTop) {
-    x = e.offsetX - canvas.offsetLeft;
-    y = e.offsetY - canvas.offsetTop;
-    isMove = true;
-  canvas.onmousemove = myMove;
-  }
-  }
-
-function myUp(){
-  isMove = false;
-  canvas.onmousemove = null;
-}
-
-canvas.onmousedown = myDown;
-canvas.onmouseup = myUp;*/

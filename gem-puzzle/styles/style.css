@@ -1,11 +1,9 @@
 html {
   scroll-behavior: smooth;
 }
-
 * {
   box-sizing: border-box;
 }
-
 body {
   width: 100vw;
   height: 100vh;
@@ -16,26 +14,22 @@ body {
   justify-content: center;
   background: url('../assets/bg.jpg') center/cover no-repeat;
 }
-
 .header_container,
 .main_container,
 .footer_container {
   max-width: 320px;
   margin: 0 auto;
 }
-
 .header_container {
   max-width: 300px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
 .main_container {
   margin-bottom: 20px;
   position: relative;
 }
-
 .shuffle_btn,
 .load_btn,
 .save_btn,
@@ -48,6 +42,11 @@ body {
   border-radius: 5px;
   cursor: pointer;
   border: 2px solid black;
+  box-shadow: 1px 1px 5px black;
+}
+.shuffle_btn,
+.results_btn {
+  padding: 5px 2px;
 }
 .shuffle_btn,
 .results_btn {
@@ -94,20 +93,11 @@ body {
 .volume_btn.click_mute::before {
   background-image: url("../assets/audio_volume_mute.svg");
 }
-
-/*.volume_icon {
-  filter: invert(100%);
-  width: 20px;
-  height: 15px;
-  padding-right: 2px;
-}*/
-
 .btn_active {
   background-color: orange;
   color: black;
   font-weight: 900;
 }
-
 .game_stats {
   max-width: 200px;
   display: flex;
@@ -118,7 +108,7 @@ body {
 canvas {
   border: 2px solid black;
   cursor: pointer;
-  box-shadow: 2px 2px 6px black;
+  box-shadow: 5px 5px 12px black;
   border-radius: 10px;
 }
 .game_field {
@@ -143,7 +133,6 @@ canvas {
   border: 2px solid black;
   transition: all .3s;
 }
-
 .results_popup {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -202,33 +191,6 @@ canvas {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
 }
-/*.game_field {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  height: 310px;
-  margin: 0 auto;
-  border: 5px solid black;
-}
-
-.game_number {
-  position: absolute;
-  width: 75px;
-  height: 75px;
-  background-color: rgb(0, 0, 189);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 32px;
-  text-shadow: 2px 2px 4px black, 0 0 5px black;
-  border: 7px outset rgb(59, 59, 187);
-  border-radius: 3px;
-  transition: all .5s;
-  cursor: pointer;
-}*/
-
 .current_field_size {
   max-width: 300px;
   display: flex;
@@ -236,7 +198,6 @@ canvas {
   margin-left: 100px;
   padding-top: 10px;
 }
-
 .change_size {
   margin-left: 10px;
   margin-right: 45px;
@@ -244,7 +205,6 @@ canvas {
 .frame_size {
   min-width: 95px;
 }
-
 .footer_container {
   max-width: 300px;
   display: flex;
@@ -254,7 +214,6 @@ canvas {
   display: flex;
   align-items: center;
 }
-
 .sizes_wrapper {
   display: flex;
   gap: 8px;
