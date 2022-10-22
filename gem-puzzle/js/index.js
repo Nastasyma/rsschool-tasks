@@ -56,20 +56,118 @@ function createMain() {
   loaded_popup.classList.add('loaded_popup');
   loaded_popup.textContent = 'Your game loaded!'
   main_container.appendChild(loaded_popup);
-  const results_popup = document.createElement('div');
-  results_popup.classList.add('results_popup');
+  const results_popup3 = document.createElement('div');
+  results_popup3.classList.add('results_popup');
+  results_popup3.classList.add('results_popup3');
   const span7 = document.createElement('span');
   span7.classList.add('results_title');
-  span7.textContent = "Results";
-  const results_list = document.createElement('ol');
-  results_list.classList.add('results_list');
-  const results_list_item1 = document.createElement('div');
-  results_list_item1.classList.add('results_list_item1');
-  results_list_item1.textContent = "Win your first game!";
-  results_popup.appendChild(span7);
-  results_popup.appendChild(results_list);
-  results_list.appendChild(results_list_item1);
-  main_container.appendChild(results_popup);
+  span7.textContent = "2x2 TOP RESULTS";
+  const results_list3 = document.createElement('ol');
+  results_list3.classList.add('results_list');
+  results_list3.classList.add('results_list3');
+  const results_list3_item1 = document.createElement('div');
+  results_list3_item1.classList.add('results_list_item1');
+  results_list3_item1.textContent = "Win your first game!";
+  results_popup3.appendChild(span7);
+  results_popup3.appendChild(results_list3);
+  results_list3.appendChild(results_list3_item1);
+  main_container.appendChild(results_popup3);
+  const results_popup8 = document.createElement('div');
+  results_popup8.classList.add('results_popup');
+  results_popup8.classList.add('results_popup8');
+  const span8 = document.createElement('span');
+  span8.classList.add('results_title');
+  span8.textContent = "3x3 TOP RESULTS";
+  const results_list8 = document.createElement('ol');
+  results_list8.classList.add('results_list');
+  results_list8.classList.add('results_list8');
+  const results_list8_item1 = document.createElement('div');
+  results_list8_item1.classList.add('results_list_item1');
+  results_list8_item1.textContent = "Win your first game!";
+  results_popup8.appendChild(span8);
+  results_popup8.appendChild(results_list8);
+  results_list8.appendChild(results_list8_item1);
+  main_container.appendChild(results_popup8);
+  const results_popup15 = document.createElement('div');
+  results_popup15.classList.add('results_popup');
+  results_popup15.classList.add('results_popup15');
+  const span9 = document.createElement('span');
+  span9.classList.add('results_title');
+  span9.textContent = "4x4 TOP RESULTS";
+  const results_list15 = document.createElement('ol');
+  results_list15.classList.add('results_list');
+  results_list15.classList.add('results_list15');
+  const results_list15_item1 = document.createElement('div');
+  results_list15_item1.classList.add('results_list_item1');
+  results_list15_item1.textContent = "Win your first game!";
+  results_popup15.appendChild(span9);
+  results_popup15.appendChild(results_list15);
+  results_list15.appendChild(results_list15_item1);
+  main_container.appendChild(results_popup15);
+  const results_popup24 = document.createElement('div');
+  results_popup24.classList.add('results_popup');
+  results_popup24.classList.add('results_popup24');
+  const span10 = document.createElement('span');
+  span10.classList.add('results_title');
+  span10.textContent = "5x5 TOP RESULTS";
+  const results_list24 = document.createElement('ol');
+  results_list24.classList.add('results_list');
+  results_list24.classList.add('results_list24');
+  const results_list24_item1 = document.createElement('div');
+  results_list24_item1.classList.add('results_list_item1');
+  results_list24_item1.textContent = "Win your first game!";
+  results_popup24.appendChild(span10);
+  results_popup24.appendChild(results_list24);
+  results_list24.appendChild(results_list24_item1);
+  main_container.appendChild(results_popup24);
+  const results_popup35 = document.createElement('div');
+  results_popup35.classList.add('results_popup');
+  results_popup35.classList.add('results_popup35');
+  const span11 = document.createElement('span');
+  span11.classList.add('results_title');
+  span11.textContent = "6x6 TOP RESULTS";
+  const results_list35 = document.createElement('ol');
+  results_list35.classList.add('results_list');
+  results_list35.classList.add('results_list35');
+  const results_list35_item1 = document.createElement('div');
+  results_list35_item1.classList.add('results_list_item1');
+  results_list35_item1.textContent = "Win your first game!";
+  results_popup35.appendChild(span11);
+  results_popup35.appendChild(results_list35);
+  results_list35.appendChild(results_list35_item1);
+  main_container.appendChild(results_popup35);
+  const results_popup48 = document.createElement('div');
+  results_popup48.classList.add('results_popup');
+  results_popup48.classList.add('results_popup48');
+  const span12 = document.createElement('span');
+  span12.classList.add('results_title');
+  span12.textContent = "7x7 TOP RESULTS";
+  const results_list48 = document.createElement('ol');
+  results_list48.classList.add('results_list');
+  results_list48.classList.add('results_list48');
+  const results_list48_item1 = document.createElement('div');
+  results_list48_item1.classList.add('results_list_item1');
+  results_list48_item1.textContent = "Win your first game!";
+  results_popup48.appendChild(span12);
+  results_popup48.appendChild(results_list48);
+  results_list48.appendChild(results_list48_item1);
+  main_container.appendChild(results_popup48);
+  const results_popup63 = document.createElement('div');
+  results_popup63.classList.add('results_popup');
+  results_popup63.classList.add('results_popup63');
+  const span13 = document.createElement('span');
+  span13.classList.add('results_title');
+  span13.textContent = "8x8 TOP RESULTS";
+  const results_list63 = document.createElement('ol');
+  results_list63.classList.add('results_list');
+  results_list63.classList.add('results_list63');
+  const results_list63_item1 = document.createElement('div');
+  results_list63_item1.classList.add('results_list_item1');
+  results_list63_item1.textContent = "Win your first game!";
+  results_popup63.appendChild(span13);
+  results_popup63.appendChild(results_list63);
+  results_list63.appendChild(results_list63_item1);
+  main_container.appendChild(results_popup63);
   const game_stats = document.createElement('div');
   game_stats.classList.add('game_stats');
   main_container.appendChild(game_stats);
@@ -205,10 +303,22 @@ const size_btns = document.querySelectorAll('.size_btn');
 const victory_popup = document.querySelector('.victory_popup');
 const saved_popup = document.querySelector('.saved_popup');
 const loaded_popup = document.querySelector('.loaded_popup');
-const results_popup = document.querySelector('.results_popup');
 const results_btn = document.querySelector('.results_btn');
-const results_list = document.querySelector('.results_list');
 const results_list_item1 = document.querySelector('.results_list_item1');
+const results_popup3 = document.querySelector('.results_popup3');
+const results_list3 = document.querySelector('.results_list3');
+const results_popup8 = document.querySelector('.results_popup8');
+const results_list8 = document.querySelector('.results_list8');
+const results_popup15 = document.querySelector('.results_popup15');
+const results_list15 = document.querySelector('.results_list15');
+const results_popup24 = document.querySelector('.results_popup24');
+const results_list24 = document.querySelector('.results_list24');
+const results_popup35 = document.querySelector('.results_popup35');
+const results_list35 = document.querySelector('.results_list35');
+const results_popup48 = document.querySelector('.results_popup48');
+const results_list48 = document.querySelector('.results_list48');
+const results_popup63 = document.querySelector('.results_popup63');
+const results_list63 = document.querySelector('.results_list63');
 const hidden_wrapper_victory = document.querySelector('.hidden_wrapper_victory');
 const hidden_wrapper = document.querySelector('.hidden_wrapper');
 const shuffle_btn = document.querySelector('.shuffle_btn');
@@ -278,7 +388,21 @@ let arrayNums35 = [];
 let arrayNums48 = [];
 let arrayNums63 = [];
 let top10Arr = [];
+let top10ArrNums3 = [];
+let top10ArrNums8 = [];
+let top10ArrNums15 = [];
+let top10ArrNums24 = [];
+let top10ArrNums35 = [];
+let top10ArrNums48 = [];
+let top10ArrNums63 = [];
 let info = {};
+let info3 = {};
+let info8 = {};
+let info15 = {};
+let info24 = {};
+let info35 = {};
+let info48 = {};
+let info63 = {};
 
 const btn_22 = document.querySelector('.field_2_2');
 const btn_33 = document.querySelector('.field_3_3');
@@ -711,7 +835,7 @@ function setGame3() {
         let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
         let moves = counter_moves.textContent;
         victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info = { moves, time };
+        info3 = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
     }
@@ -854,7 +978,7 @@ function setGame8() {
       let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
       let moves = counter_moves.textContent;
       victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-      info = { moves, time };
+      info8 = { moves, time };
       hidden_wrapper_victory.classList.add('hidden_wrapper_active');
     }
   });
@@ -1027,7 +1151,7 @@ function setGame15() {
         let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
         let moves = counter_moves.textContent;
         victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info = { moves, time };
+        info15 = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -1232,7 +1356,7 @@ function setGame24() {
         let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
         let moves = counter_moves.textContent;
         victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info = { moves, time };
+        info24 = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -1475,7 +1599,7 @@ function setGame35() {
         let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
         let moves = counter_moves.textContent;
         victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info = { moves, time };
+        info35 = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -1763,7 +1887,7 @@ function setGame48() {
         let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
         let moves = counter_moves.textContent;
         victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info = { moves, time };
+        info48 = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -2087,7 +2211,7 @@ function setGame63() {
         let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
         let moves = counter_moves.textContent;
         victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info = { moves, time };
+        info63 = { moves, time };
         hidden_wrapper_victory.classList.add('hidden_wrapper_active');
       }
   });
@@ -2151,37 +2275,37 @@ btn_88.addEventListener('click', () => {
 });
 
 function restartGame() {
-  if(btn_22.classList.contains('btn_active')) {
+  if (btn_22.classList.contains('btn_active')) {
     reset();
     sortArray3();
     setGame3();
   }
-  if(btn_33.classList.contains('btn_active')) {
+  if (btn_33.classList.contains('btn_active')) {
     reset();
     sortArray8();
     setGame8();
   }
-  if(btn_44.classList.contains('btn_active')) {
+  if (btn_44.classList.contains('btn_active')) {
     reset();
     sortArray15();
     setGame15();
   }
-  if(btn_55.classList.contains('btn_active')) {
+  if (btn_55.classList.contains('btn_active')) {
     reset();
     sortArray24();
     setGame24();
   }
-  if(btn_66.classList.contains('btn_active')) {
+  if (btn_66.classList.contains('btn_active')) {
     reset();
     sortArray35();
     setGame35();
   }
-  if(btn_77.classList.contains('btn_active')) {
+  if (btn_77.classList.contains('btn_active')) {
     reset();
     sortArray48();
     setGame48();
   }
-  if(btn_88.classList.contains('btn_active')) {
+  if (btn_88.classList.contains('btn_active')) {
     reset();
     sortArray63();
     setGame63();
@@ -2190,88 +2314,250 @@ function restartGame() {
 
 shuffle_btn.addEventListener('click', restartGame);
 results_btn.addEventListener('click', () => {
-  results_popup.classList.add('popup_active');
   hidden_wrapper.classList.add('hidden_wrapper_active');
-});
-save_btn.addEventListener('click', () => {
-  saved_popup.classList.add('popup_active');
-  hidden_wrapper.classList.add('hidden_wrapper_active');
-});
-load_btn.addEventListener('click', () => {
-  loaded_popup.classList.add('popup_active');
-  hidden_wrapper.classList.add('hidden_wrapper_active');
+  if (btn_22.classList.contains('btn_active')) {
+  results_popup3.classList.add('popup_active');
+  }
+  if (btn_33.classList.contains('btn_active')) {
+    results_popup8.classList.add('popup_active');
+  }
+  if (btn_44.classList.contains('btn_active')) {
+    results_popup15.classList.add('popup_active');
+  }
+  if (btn_55.classList.contains('btn_active')) {
+    results_popup24.classList.add('popup_active');
+  }
+  if (btn_66.classList.contains('btn_active')) {
+    results_popup35.classList.add('popup_active');
+  }
+  if (btn_77.classList.contains('btn_active')) {
+    results_popup48.classList.add('popup_active');
+  }
+  if (btn_88.classList.contains('btn_active')) {
+    results_popup63.classList.add('popup_active');
+  }
 });
 hidden_wrapper.addEventListener('click', () => {
   hidden_wrapper.classList.remove('hidden_wrapper_active');
-  results_popup.classList.remove('popup_active');
+  results_popup3.classList.remove('popup_active');
+  results_popup8.classList.remove('popup_active');
+  results_popup15.classList.remove('popup_active');
+  results_popup24.classList.remove('popup_active');
+  results_popup35.classList.remove('popup_active');
+  results_popup48.classList.remove('popup_active');
+  results_popup63.classList.remove('popup_active');
   saved_popup.classList.remove('popup_active');
   loaded_popup.classList.remove('popup_active');
 });
 hidden_wrapper_victory.addEventListener('click', () => {
   hidden_wrapper_victory.classList.remove('hidden_wrapper_active');
   victory_popup.classList.remove('popup_active');
-  if (top10Arr.length === 10 ) {
-    for (let i=9; i>0; i--) {
-      if (top10Arr[i].moves > info.moves) {
-        top10Arr.splice(i,1,info);
-        break;
+  if (btn_22.classList.contains('btn_active')) {
+    if (top10ArrNums3.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums3[i].moves > info3.moves) {
+          top10ArrNums3.splice(i,1,info3);
+          break;
+        }
       }
+    } else {
+      top10ArrNums3.push(info3);
     }
-  } else {
-    top10Arr.push(info);
+    top10ArrNums3.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums3);
+    localStorage.setItem("nastasyma_top10list3", JSON.stringify(top10ArrNums3));
+    results_list3.innerHTML = '';
+    for (let i = 0; i<top10ArrNums3.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums3[i].time} and ${top10ArrNums3[i].moves} moves.`
+      results_list3.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content3', results_list3.innerHTML);
+    }
   }
-  top10Arr.sort((a,b) => a.moves - b.moves);
-  //console.log(top10Arr);
-  localStorage.setItem("top10", JSON.stringify(top10Arr));
-  results_list.innerHTML = '';
-  for (let i = 0; i<top10Arr.length; i++) {
-    const results_item = document.createElement('li');
-    results_item.classList.add('results_item');
-    results_item.textContent = `Result: ${top10Arr[i].time} and ${top10Arr[i].moves} moves.`
-    results_list.appendChild(results_item);
-    localStorage.setItem('results_content', results_list.innerHTML);
+  if (btn_33.classList.contains('btn_active')) {
+    if (top10ArrNums8.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums8[i].moves > info8.moves) {
+          top10ArrNums8.splice(i,1,info8);
+          break;
+        }
+      }
+    } else {
+      top10ArrNums8.push(info8);
+    }
+    top10ArrNums8.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums8);
+    localStorage.setItem("nastasyma_top10list8", JSON.stringify(top10ArrNums8));
+    results_list8.innerHTML = '';
+    for (let i = 0; i<top10ArrNums8.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums8[i].time} and ${top10ArrNums8[i].moves} moves.`
+      results_list8.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content8', results_list8.innerHTML);
+    }
+  }
+  if (btn_44.classList.contains('btn_active')) {
+    if (top10ArrNums15.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums15[i].moves > info15.moves) {
+          top10ArrNums15.splice(i,1,info15);
+          break;
+        }
+      }
+    } else {
+      top10ArrNums15.push(info15);
+    }
+    top10ArrNums15.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums15);
+    localStorage.setItem("nastasyma_top10list15", JSON.stringify(top10ArrNums15));
+    results_list15.innerHTML = '';
+    for (let i = 0; i<top10ArrNums15.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums15[i].time} and ${top10ArrNums15[i].moves} moves.`
+      results_list15.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content15', results_list15.innerHTML);
+    }
+  }
+  if (btn_55.classList.contains('btn_active')) {
+    if (top10ArrNums24.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums24[i].moves > info24.moves) {
+          top10ArrNums24.splice(i,1,info24);
+          break;
+        }
+      }
+    } else {
+      top10ArrNums24.push(info24);
+    }
+    top10ArrNums24.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums24);
+    localStorage.setItem("nastasyma_top10list24", JSON.stringify(top10ArrNums24));
+    results_list24.innerHTML = '';
+    for (let i = 0; i<top10ArrNums24.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums24[i].time} and ${top10ArrNums24[i].moves} moves.`
+      results_list24.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content24', results_list24.innerHTML);
+    }
+  }
+  if (btn_66.classList.contains('btn_active')) {
+    if (top10ArrNums35.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums35[i].moves > info35.moves) {
+          top10ArrNums35.splice(i,1,info35);
+          break;
+        }
+      }
+    } else {
+      top10ArrNums35.push(info35);
+    }
+    top10ArrNums35.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums35);
+    localStorage.setItem("nastasyma_top10list35", JSON.stringify(top10ArrNums35));
+    results_list35.innerHTML = '';
+    for (let i = 0; i<top10ArrNums35.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums35[i].time} and ${top10ArrNums35[i].moves} moves.`
+      results_list35.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content35', results_list35.innerHTML);
+    }
+  }
+  if (btn_77.classList.contains('btn_active')) {
+    if (top10ArrNums48.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums48[i].moves > info48.moves) {
+          top10ArrNums48.splice(i,1,info48);
+          break;
+        }
+      }
+    } else {
+      top10ArrNums48.push(info48);
+    }
+    top10ArrNums48.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums48);
+    localStorage.setItem("nastasyma_top10list48", JSON.stringify(top10ArrNums48));
+    results_list48.innerHTML = '';
+    for (let i = 0; i<top10ArrNums48.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums48[i].time} and ${top10ArrNums48[i].moves} moves.`
+      results_list48.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content48', results_list48.innerHTML);
+    }
+  }
+  if (btn_88.classList.contains('btn_active')) {
+    if (top10ArrNums63.length === 10 ) {
+      for (let i=9; i>0; i--) {
+        if (top10ArrNums63[i].moves > info63.moves) {
+          top10ArrNums63.splice(i,1,info63);
+          break;
+        }
+      }
+    } else {
+      top10ArrNums63.push(info63);
+    }
+    top10ArrNums63.sort((a,b) => a.moves - b.moves);
+    //console.log(top10ArrNums63);
+    localStorage.setItem("nastasyma_top10list63", JSON.stringify(top10ArrNums63));
+    results_list63.innerHTML = '';
+    for (let i = 0; i<top10ArrNums63.length; i++) {
+      const results_item = document.createElement('li');
+      results_item.classList.add('results_item');
+      results_item.textContent = `${top10ArrNums63[i].time} and ${top10ArrNums63[i].moves} moves.`
+      results_list63.appendChild(results_item);
+      localStorage.setItem('nastasyma_results_content63', results_list63.innerHTML);
+    }
   }
   restartGame();
 });
 save_btn.addEventListener('click', () => {
-  localStorage.setItem('counterMoves', counterMoves);
-  localStorage.setItem('counterMoves_indicator', counter_moves.textContent);
-  localStorage.setItem('sec_indicator', sec.textContent);
-  localStorage.setItem('mins_indicator', mins.textContent);
-  localStorage.setItem('hours_indicator', hours.textContent);
-  localStorage.setItem("array3", JSON.stringify(arrayNums3));
-  localStorage.setItem("array8", JSON.stringify(arrayNums8));
-  localStorage.setItem("array15", JSON.stringify(arrayNums15));
-  localStorage.setItem("array24", JSON.stringify(arrayNums24));
-  localStorage.setItem("array35", JSON.stringify(arrayNums35));
-  localStorage.setItem("array48", JSON.stringify(arrayNums48));
-  localStorage.setItem("array63", JSON.stringify(arrayNums63));
+  saved_popup.classList.add('popup_active');
+  hidden_wrapper.classList.add('hidden_wrapper_active');
+  localStorage.setItem('nastasyma_countermoves', counterMoves);
+  localStorage.setItem('nastasyma_countermoves_indicator', counter_moves.textContent);
+  localStorage.setItem('nastasyma_sec_indicator', sec.textContent);
+  localStorage.setItem('nastasyma_mins_indicator', mins.textContent);
+  localStorage.setItem('nastasyma_hours_indicator', hours.textContent);
+  localStorage.setItem("nastasyma_array3", JSON.stringify(arrayNums3));
+  localStorage.setItem("nastasyma_array8", JSON.stringify(arrayNums8));
+  localStorage.setItem("nastasyma_array15", JSON.stringify(arrayNums15));
+  localStorage.setItem("nastasyma_array24", JSON.stringify(arrayNums24));
+  localStorage.setItem("nastasyma_array35", JSON.stringify(arrayNums35));
+  localStorage.setItem("nastasyma_array48", JSON.stringify(arrayNums48));
+  localStorage.setItem("nastasyma_array63", JSON.stringify(arrayNums63));
 });
 load_btn.addEventListener('click', () => {
-  if (localStorage.getItem('counterMoves'))
-  counterMoves = localStorage.getItem('counterMoves');
-  if (localStorage.getItem('counterMoves_indicator'))
-  counter_moves.textContent = localStorage.getItem('counterMoves_indicator');
-  if (localStorage.getItem('sec_indicator'))
-  sec.textContent = localStorage.getItem('sec_indicator');
-  if (localStorage.getItem('mins_indicator'))
-  mins.textContent = localStorage.getItem('mins_indicator');
-  if (localStorage.getItem('hours_indicator'))
-  hours.textContent = localStorage.getItem('hours_indicator');
-  if (localStorage.getItem('array3'))
-    arrayNums3 = JSON.parse(localStorage.getItem("array3"));
-  if (localStorage.getItem('array8'))
-    arrayNums8 = JSON.parse(localStorage.getItem("array8"));
-  if (localStorage.getItem('array15'))
-    arrayNums15 = JSON.parse(localStorage.getItem("array15"));
-  if (localStorage.getItem('array24'))
-    arrayNums24 = JSON.parse(localStorage.getItem("array24"));
-  if (localStorage.getItem('array35'))
-    arrayNums35 = JSON.parse(localStorage.getItem("array35"));
-  if (localStorage.getItem('array48'))
-    arrayNums48 = JSON.parse(localStorage.getItem("array48"));
-  if (localStorage.getItem('array63'))
-    arrayNums63 = JSON.parse(localStorage.getItem("array63"));
+  loaded_popup.classList.add('popup_active');
+  hidden_wrapper.classList.add('hidden_wrapper_active');
+  if (localStorage.getItem('nastasyma_countermoves'))
+  counterMoves = localStorage.getItem('nastasyma_countermoves');
+  if (localStorage.getItem('nastasyma_countermoves_indicator'))
+  counter_moves.textContent = localStorage.getItem('nastasyma_countermoves_indicator');
+  if (localStorage.getItem('nastasyma_sec_indicator'))
+  sec.textContent = localStorage.getItem('nastasyma_sec_indicator');
+  if (localStorage.getItem('nastasyma_mins_indicator'))
+  mins.textContent = localStorage.getItem('nastasyma_mins_indicator');
+  if (localStorage.getItem('nastasyma_hours_indicator'))
+  hours.textContent = localStorage.getItem('nastasyma_hours_indicator');
+  if (localStorage.getItem('nastasyma_array3'))
+    arrayNums3 = JSON.parse(localStorage.getItem("nastasyma_array3"));
+  if (localStorage.getItem('nastasyma_array8'))
+    arrayNums8 = JSON.parse(localStorage.getItem("nastasyma_array8"));
+  if (localStorage.getItem('nastasyma_array15'))
+    arrayNums15 = JSON.parse(localStorage.getItem("nastasyma_array15"));
+  if (localStorage.getItem('nastasyma_array24'))
+    arrayNums24 = JSON.parse(localStorage.getItem("nastasyma_array24"));
+  if (localStorage.getItem('nastasyma_array35'))
+    arrayNums35 = JSON.parse(localStorage.getItem("nastasyma_array35"));
+  if (localStorage.getItem('nastasyma_array48'))
+    arrayNums48 = JSON.parse(localStorage.getItem("nastasyma_array48"));
+  if (localStorage.getItem('nastasyma_array63'))
+    arrayNums63 = JSON.parse(localStorage.getItem("nastasyma_array63"));
   if (arrayNums3.length !== 0) {
     setGame3();
     change_size.textContent = '2x2';
@@ -2331,8 +2617,32 @@ load_btn.addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('results_content'))
-  results_list.innerHTML = localStorage.getItem('results_content');
-  if (localStorage.getItem('top10'))
-  top10Arr = JSON.parse(localStorage.getItem("top10"));
+  if (localStorage.getItem('nastasyma_results_content3'))
+  results_list3.innerHTML = localStorage.getItem('nastasyma_results_content3');
+  if (localStorage.getItem('nastasyma_top10list3'))
+  top10ArrNums3 = JSON.parse(localStorage.getItem("nastasyma_top10list3"));
+  if (localStorage.getItem('nastasyma_results_content8'))
+  results_list8.innerHTML = localStorage.getItem('nastasyma_results_content8');
+  if (localStorage.getItem('nastasyma_top10list8'))
+  top10ArrNums8 = JSON.parse(localStorage.getItem("nastasyma_top10list8"));
+  if (localStorage.getItem('nastasyma_results_content15'))
+  results_list15.innerHTML = localStorage.getItem('nastasyma_results_content15');
+  if (localStorage.getItem('nastasyma_top10list15'))
+  top10ArrNums15 = JSON.parse(localStorage.getItem("nastasyma_top10list15"));
+  if (localStorage.getItem('nastasyma_results_content24'))
+  results_list24.innerHTML = localStorage.getItem('nastasyma_results_content24');
+  if (localStorage.getItem('nastasyma_top10list24'))
+  top10ArrNums24 = JSON.parse(localStorage.getItem("nastasyma_top10list24"));
+  if (localStorage.getItem('nastasyma_results_content35'))
+  results_list35.innerHTML = localStorage.getItem('nastasyma_results_content35');
+  if (localStorage.getItem('nastasyma_top10list35'))
+  top10ArrNums35 = JSON.parse(localStorage.getItem("nastasyma_top10list35"));
+  if (localStorage.getItem('nastasyma_results_content48'))
+  results_list48.innerHTML = localStorage.getItem('nastasyma_results_content48');
+  if (localStorage.getItem('nastasyma_top10list48'))
+  top10ArrNums48 = JSON.parse(localStorage.getItem("nastasyma_top10list48"));
+  if (localStorage.getItem('nastasyma_results_content63'))
+  results_list63.innerHTML = localStorage.getItem('nastasyma_results_content63');
+  if (localStorage.getItem('nastasyma_top10list63'))
+  top10ArrNums63 = JSON.parse(localStorage.getItem("nastasyma_top10list63"));
 })
