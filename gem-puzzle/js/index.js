@@ -721,7 +721,6 @@ function sortArray63() {
 function setGame3() {
   canvas.width  = 300;
   canvas.height = 300;
-  //arrayNums3 = [0, 1, 2, 3];
   //sort(arrayNums3);
   //console.log(arrayNums3);
   const drawBox = function(x, y, value) {
@@ -826,26 +825,22 @@ function setGame3() {
       drawCell(i, arrayNums3[i]);
     }
 
-    for (let i=0; i<arrayNums3.length; i++) {
-      if (arrayNums3[0] === 1
-        && arrayNums3[1] === 2
-        && arrayNums3[2] === 3
-        && arrayNums3[3] === 0) {
-        victory_popup.classList.add('popup_active');
-        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
-        let moves = counter_moves.textContent;
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info3 = { moves, time };
-        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
-      }
+    let correctArray = [1, 2, 3, 0];
+    //console.log(arrayNums3)
+    if (arrayNums3.toString() === correctArray.toString()) {
+      victory_popup.classList.add('popup_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info3 = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
     }
-    //console.log(info);
+    //console.log(info3);
   });
 }
 function setGame8() {
   canvas.width  = 300;
   canvas.height = 300;
-  //arrayNums8 = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   //sort(arrayNums8);
   //console.log(arrayNums8);
   const drawBox = function(x, y, value) {
@@ -964,16 +959,9 @@ function setGame8() {
     for (let i = 0; i<=8; i++) {
       drawCell(i, arrayNums8[i])
     }
+    let correctArray = [1, 2, 3, 4, 5, 6, 7, 8, 0];
     //console.log(arrayNums8);
-    if (arrayNums8[0] === 1
-      && arrayNums8[1] === 2
-      && arrayNums8[2] === 3
-      && arrayNums8[3] === 4
-      && arrayNums8[4] === 5
-      && arrayNums8[5] === 6
-      && arrayNums8[6] === 7
-      && arrayNums8[7] === 8
-      && arrayNums8[8] === 0) {
+    if (arrayNums8.toString() === correctArray.toString()) {
       victory_popup.classList.add('popup_active');
       let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
       let moves = counter_moves.textContent;
@@ -981,15 +969,14 @@ function setGame8() {
       info8 = { moves, time };
       hidden_wrapper_victory.classList.add('hidden_wrapper_active');
     }
+    //console.log(info8);
   });
 }
 function setGame15() {
   canvas.width  = 300;
   canvas.height = 300;
-  //arrayNums15 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   //sort(arrayNums15);
   //console.log(arrayNums15);
- 
   const drawBox = function(x, y, value) {
     context.fillStyle = "bisque";
     context.fillRect(x, y, 75, 75);
@@ -1130,37 +1117,23 @@ function setGame15() {
     for (let i = 0; i<=15; i++) {
       drawCell(i, arrayNums15[i])
     }
-      //console.log(arrayNums15);
-      if (arrayNums15[0] === 1
-        && arrayNums15[1] === 2
-        && arrayNums15[2] === 3
-        && arrayNums15[3] === 4
-        && arrayNums15[4] === 5
-        && arrayNums15[5] === 6
-        && arrayNums15[6] === 7
-        && arrayNums15[7] === 8
-        && arrayNums15[8] === 9
-        && arrayNums15[9] === 10
-        && arrayNums15[10] === 11
-        && arrayNums15[11] === 12
-        && arrayNums15[12] === 13
-        && arrayNums15[13] === 14
-        && arrayNums15[14] === 15
-        && arrayNums15[15] === 0) {
-        victory_popup.classList.add('popup_active');
-        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
-        let moves = counter_moves.textContent;
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info15 = { moves, time };
-        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
-      }
+    let correctArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0];
+    //console.log(arrayNums15);
+    if (arrayNums15.toString() === correctArray.toString()) {
+      victory_popup.classList.add('popup_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info15 = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
+    }
+    //console.log(info15);
   });
 }
 setGame15();
 function setGame24() {
   canvas.width  = 300;
   canvas.height = 300;
-  //arrayNums24 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
   //sort(arrayNums24);
   //console.log(arrayNums24);
   const drawBox = function(x, y, value) {
@@ -1326,46 +1299,22 @@ function setGame24() {
     for (let i = 0; i<=24; i++) {
       drawCell(i, arrayNums24[i])
     }
-      //console.log(arrayNums24);
-      if (arrayNums24[0] === 1
-        && arrayNums24[1] === 2
-        && arrayNums24[2] === 3
-        && arrayNums24[3] === 4
-        && arrayNums24[4] === 5
-        && arrayNums24[5] === 6
-        && arrayNums24[6] === 7
-        && arrayNums24[7] === 8
-        && arrayNums24[8] === 9
-        && arrayNums24[9] === 10
-        && arrayNums24[10] === 11
-        && arrayNums24[11] === 12
-        && arrayNums24[12] === 13
-        && arrayNums24[13] === 14
-        && arrayNums24[14] === 15
-        && arrayNums24[15] === 16
-        && arrayNums24[15] === 17
-        && arrayNums24[17] === 18
-        && arrayNums24[18] === 19
-        && arrayNums24[19] === 20
-        && arrayNums24[20] === 21
-        && arrayNums24[21] === 22
-        && arrayNums24[22] === 23
-        && arrayNums24[23] === 24
-        && arrayNums24[24] === 0) {
-        victory_popup.classList.add('popup_active');
-        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
-        let moves = counter_moves.textContent;
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info24 = { moves, time };
-        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
-      }
+    let correctArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 0];
+    //console.log(arrayNums24);
+    if (arrayNums24.toString() === correctArray.toString()) {
+      victory_popup.classList.add('popup_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info24 = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
+    }
+    //console.log(info24);
   });
 }
 function setGame35() {
   canvas.width  = 300;
   canvas.height = 300;
-  //arrayNums35 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-  //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
   //sort(arrayNums35);
   //console.log(arrayNums35);
   const drawBox = function(x, y, value) {
@@ -1558,58 +1507,23 @@ function setGame35() {
     for (let i = 0; i<=35; i++) {
       drawCell(i, arrayNums35[i])
     }
-      //console.log(arrayNums35);
-      if (arrayNums35[0] === 1
-        && arrayNums35[1] === 2
-        && arrayNums35[2] === 3
-        && arrayNums35[3] === 4
-        && arrayNums35[4] === 5
-        && arrayNums35[5] === 6
-        && arrayNums35[6] === 7
-        && arrayNums35[7] === 8
-        && arrayNums35[8] === 9
-        && arrayNums35[9] === 10
-        && arrayNums35[10] === 11
-        && arrayNums35[11] === 12
-        && arrayNums35[12] === 13
-        && arrayNums35[13] === 14
-        && arrayNums35[14] === 15
-        && arrayNums35[15] === 16
-        && arrayNums35[15] === 17
-        && arrayNums35[17] === 18
-        && arrayNums35[18] === 19
-        && arrayNums35[19] === 20
-        && arrayNums35[20] === 21
-        && arrayNums35[21] === 22
-        && arrayNums35[22] === 23
-        && arrayNums35[23] === 24
-        && arrayNums35[24] === 25
-        && arrayNums35[25] === 26
-        && arrayNums35[26] === 27
-        && arrayNums35[27] === 28
-        && arrayNums35[28] === 29
-        && arrayNums35[29] === 30
-        && arrayNums35[30] === 31
-        && arrayNums35[31] === 32
-        && arrayNums35[32] === 33
-        && arrayNums35[33] === 34
-        && arrayNums35[34] === 35
-        && arrayNums35[35] === 0) {
-        victory_popup.classList.add('popup_active');
-        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
-        let moves = counter_moves.textContent;
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info35 = { moves, time };
-        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
-      }
+    let correctArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+    20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
+    //console.log(arrayNums35);
+    if (arrayNums35.toString() === correctArray.toString()) {
+      victory_popup.classList.add('popup_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info35 = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
+    }
+    //console.log(info35);
   });
 }
 function setGame48() {
   canvas.width  = 301;
   canvas.height = 301;
-  //arrayNums48 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-  //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-  //              39, 40, 41, 42, 43, 44, 45, 46, 47, 48];
   //sort(arrayNums48);
   //console.log(arrayNums48);
   const drawBox = function(x, y, value) {
@@ -1833,72 +1747,24 @@ function setGame48() {
     for (let i = 0; i<=48; i++) {
       drawCell(i, arrayNums48[i])
     }
-      //console.log(arrayNums48);
-      if (arrayNums48[0] === 1
-        && arrayNums48[1] === 2
-        && arrayNums48[2] === 3
-        && arrayNums48[3] === 4
-        && arrayNums48[4] === 5
-        && arrayNums48[5] === 6
-        && arrayNums48[6] === 7
-        && arrayNums48[7] === 8
-        && arrayNums48[8] === 9
-        && arrayNums48[9] === 10
-        && arrayNums48[10] === 11
-        && arrayNums48[11] === 12
-        && arrayNums48[12] === 13
-        && arrayNums48[13] === 14
-        && arrayNums48[14] === 15
-        && arrayNums48[15] === 16
-        && arrayNums48[15] === 17
-        && arrayNums48[17] === 18
-        && arrayNums48[18] === 19
-        && arrayNums48[19] === 20
-        && arrayNums48[20] === 21
-        && arrayNums48[21] === 22
-        && arrayNums48[22] === 23
-        && arrayNums48[23] === 24
-        && arrayNums48[24] === 25
-        && arrayNums48[25] === 26
-        && arrayNums48[26] === 27
-        && arrayNums48[27] === 28
-        && arrayNums48[28] === 29
-        && arrayNums48[29] === 30
-        && arrayNums48[30] === 31
-        && arrayNums48[31] === 32
-        && arrayNums48[32] === 33
-        && arrayNums48[33] === 34
-        && arrayNums48[34] === 35
-        && arrayNums48[35] === 36
-        && arrayNums48[36] === 37
-        && arrayNums48[37] === 38
-        && arrayNums48[38] === 39
-        && arrayNums48[39] === 40
-        && arrayNums48[40] === 41
-        && arrayNums48[41] === 42
-        && arrayNums48[42] === 43
-        && arrayNums48[43] === 44
-        && arrayNums48[44] === 45
-        && arrayNums48[45] === 46
-        && arrayNums48[46] === 47
-        && arrayNums48[47] === 48
-        && arrayNums48[48] === 0) {
-        victory_popup.classList.add('popup_active');
-        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
-        let moves = counter_moves.textContent;
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info48 = { moves, time };
-        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
-      }
+    let correctArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+              40, 41, 42, 43, 44, 45, 46, 47, 48];
+    //console.log(arrayNums48);
+    if (arrayNums48.toString() === correctArray.toString()) {
+      victory_popup.classList.add('popup_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info48 = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
+    }
+    //console.log(info48);
   });
 }
 function setGame63() {
   canvas.width  = 300;
   canvas.height = 300;
-  //arrayNums63 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
-  //              20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
-  //              39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
-  //              58, 59, 60, 61, 62, 63];
   //sort(arrayNums63);
   //console.log(arrayNums63);
   const drawBox = function(x, y, value) {
@@ -2157,63 +2023,20 @@ function setGame63() {
     for (let i = 0; i<=63; i++) {
       drawCell(i, arrayNums63[i])
     }
-      //console.log(arrayNums48);
-      if (arrayNums48[0] === 1
-        && arrayNums48[1] === 2
-        && arrayNums48[2] === 3
-        && arrayNums48[3] === 4
-        && arrayNums48[4] === 5
-        && arrayNums48[5] === 6
-        && arrayNums48[6] === 7
-        && arrayNums48[7] === 8
-        && arrayNums48[8] === 9
-        && arrayNums48[9] === 10
-        && arrayNums48[10] === 11
-        && arrayNums48[11] === 12
-        && arrayNums48[12] === 13
-        && arrayNums48[13] === 14
-        && arrayNums48[14] === 15
-        && arrayNums48[15] === 16
-        && arrayNums48[15] === 17
-        && arrayNums48[17] === 18
-        && arrayNums48[18] === 19
-        && arrayNums48[19] === 20
-        && arrayNums48[20] === 21
-        && arrayNums48[21] === 22
-        && arrayNums48[22] === 23
-        && arrayNums48[23] === 24
-        && arrayNums48[24] === 25
-        && arrayNums48[25] === 26
-        && arrayNums48[26] === 27
-        && arrayNums48[27] === 28
-        && arrayNums48[28] === 29
-        && arrayNums48[29] === 30
-        && arrayNums48[30] === 31
-        && arrayNums48[31] === 32
-        && arrayNums48[32] === 33
-        && arrayNums48[33] === 34
-        && arrayNums48[34] === 35
-        && arrayNums48[35] === 36
-        && arrayNums48[36] === 37
-        && arrayNums48[37] === 38
-        && arrayNums48[38] === 39
-        && arrayNums48[39] === 40
-        && arrayNums48[40] === 41
-        && arrayNums48[41] === 42
-        && arrayNums48[42] === 43
-        && arrayNums48[43] === 44
-        && arrayNums48[44] === 45
-        && arrayNums48[45] === 46
-        && arrayNums48[46] === 47
-        && arrayNums48[47] === 48
-        && arrayNums48[48] === 0) {
-        victory_popup.classList.add('popup_active');
-        let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
-        let moves = counter_moves.textContent;
-        victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
-        info63 = { moves, time };
-        hidden_wrapper_victory.classList.add('hidden_wrapper_active');
-      }
+    let correctArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+                  20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38,
+                  39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57,
+                  58, 59, 60, 61, 62, 63];
+    //console.log(arrayNums63);
+    if (arrayNums63.toString() === correctArray.toString()) {
+      victory_popup.classList.add('popup_active');
+      let time = `${hours.textContent}:${mins.textContent}:${sec.textContent}`;
+      let moves = counter_moves.textContent;
+      victory_popup.textContent = `Hooray! You solved the puzzle in ${time} and ${moves} moves!`;
+      info63 = { moves, time };
+      hidden_wrapper_victory.classList.add('hidden_wrapper_active');
+    }
+    //console.log(info63);
   });
 }
 function reset() {
