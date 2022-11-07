@@ -14,7 +14,6 @@ function changeElStyles() {
   }, 500);
   gameBTN.classList.add('nav_link__active');
   welcomeBTN.classList.remove('nav_link__active');
-  videoBG.style.background = "url('../../assets/images/bird_bg.jpg') center/cover no-repeat";
 }
 function startGame() {
   startBTN.addEventListener('click', changeElStyles);
