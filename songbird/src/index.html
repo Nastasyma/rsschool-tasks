@@ -34,7 +34,7 @@
       <div class="game__wrapper">
         <nav class="game__nav">
           <ul class="game__nav_list">
-            <li class="game__nav_item">Разминка</li>
+            <li class="game__nav_item game__nav_item_active">Разминка</li>
             <li class="game__nav_item">Воробьиные</li>
             <li class="game__nav_item">Лесные песни</li>
             <li class="game__nav_item">Певчие птицы</li>
@@ -42,8 +42,8 @@
             <li class="game__nav_item">Морские птицы</li>
           </ul>
         </nav>
-        <div class="game__bird_intro">
-          <div class="game__bird_pic"></div>
+        <div class="game__bird_intro_wrapper">
+          <img class="game__bird_pic" src="assets/images/unknown_bird.jpg" alt="Unknown bird"></img>
           <div class="game__bird_song_wrapper">
             <div class="game__song_title"><h2 class="bird_name_intro">******</h2></div>
             <div class="game__song_audio">
@@ -53,6 +53,7 @@
                   type="range"
                   name="audio_progress"
                   id="audioProgress"
+                  class="audio_intro"
                   min="0"
                   max="100"
                   value="0"
@@ -60,7 +61,7 @@
               </div>
               <div class="song_duration">
                 <span class="song_current_time">0:00</span>
-                <span class="song_duration_time">0:39</span>
+                <span class="song_duration_time">0:00</span>
               </div>
               <div class="volume_container">
                 <button class="volume_icon"></button>
@@ -68,11 +69,89 @@
                   type="range"
                   name="volume"
                   id="audioVolume"
+                  class="volume_intro"
                   value="30"
                   max="100"
                 />
               </div>
             </div>
+          </div>
+        </div>
+        <div class="game__bird_info_wrapper">
+          <ul class="game__birds_list">
+            <li class="game__birds_item">
+              <div class="game__bird_indicator bird_success"></div>
+              <span>Ворон</span>
+            </li>
+            <li class="game__birds_item">
+              <div class="game__bird_indicator"></div>
+              <span>Журавль</span>
+            </li>
+            <li class="game__birds_item">
+              <div class="game__bird_indicator"></div>
+              <span>Ласточка</span>
+            </li>
+            <li class="game__birds_item">
+              <div class="game__bird_indicator"></div>
+              <span>Козодой</span>
+            </li>
+            <li class="game__birds_item">
+              <div class="game__bird_indicator"></div>
+              <span>Кукушка</span>
+            </li>
+            <li class="game__birds_item">
+              <div class="game__bird_indicator"></div>
+              <span>Синица</span>
+            </li>
+          </ul>
+          <div class="game__birds_info">
+            <div class="game__birds_name_wrapper">
+              <img class="game__birds_name_pic" src="https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg" alt=""></img>
+              <div class="game__birds_voice">
+                <div class="game__birds_voice_name">Ворон</div>
+                <div class="game__birds_voice_name_latin">Corvus corax</div>
+                <div class="game__song_audio">
+                  <div class="progress_container">
+                    <button class="player_icon"></button>
+                    <input
+                      type="range"
+                      name="audio_progress"
+                      id="audioProgress"
+                      class="audio_info"
+                      min="0"
+                      max="100"
+                      value="0"
+                    />
+                  </div>
+                  <div class="game__birds_voice_duration">
+                    <span class="game__birds_voice_current_time">0:00</span>
+                    <span class="game__birds_voice_duration_time">0:00</span>
+                  </div>
+                  <div class="volume_container">
+                    <button class="volume_icon"></button>
+                    <input
+                      type="range"
+                      name="volume"
+                      id="audioVolume"
+                      class="volume_info"
+                      value="30"
+                      max="100"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="game__birds_info_descripion">
+              <span>Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров. Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день, когда черные вороны улетят от Тауэра, монархия рухнет.</span>
+            </div>
+          </div>
+        </div>
+        <div class="game__score_wrapper">
+          <button class="game__next_lvl_btn">Next level</button>
+          <div class="game__score">
+            <span>Score</span>
+            <span>:</span>
+            <span class="game__score_count">0</span>
           </div>
         </div>
       </div>

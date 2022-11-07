@@ -17,7 +17,6 @@ html {
   box-sizing: border-box;
 }
 body {
-  /*background: url('../images/bg.jpg') center/cover no-repeat;*/
   font-family: 'Roboto Mono', sans-serif;
   font-size: 16px;
   color: #fff;
@@ -45,16 +44,16 @@ body {
 .header__nav_link {
   color: #ffffff;
   text-decoration: none;
-  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
+  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 15px #c76000, 0 0 25px #c76000;
   font-size: 22px;
   width: 250px;
   height: 50px;
 }
 .header__nav_link:hover {
-  color: #c76000;
+  color: #e79447;
 }
 .nav_link__active {
-  color: #c76000;
+  color: #e79447;
 }
 .songbird_logo {
   width: 300px;
@@ -69,6 +68,17 @@ body {
   background: url('../../assets/images/bird_bg.jpg') center/cover no-repeat;
   z-index: -1;
   transition: background-image 1s ease-in-out;
+}
+.video_bg:before {
+	content: '';
+  height: 100vh;
+  width: 100vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color:rgba(0, 0, 0, .5);
 }
 .forest_video {
   position: absolute;
@@ -99,7 +109,7 @@ body {
   right: 0;
   text-align: center;
   font-size: 54px;
-  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
+  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 15px #c76000, 0 0 25px #c76000;
 }
 .game__start_btn {
   position: absolute;
@@ -108,9 +118,9 @@ body {
   transform: translate(-50%, -50%);
   padding: 15px 30px;
   color: #ffffff;
-  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 15px #ffea00, 0 0 25px #ffea00;
+  text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 15px #c76000, 0 0 25px #c76000;
   border-radius: 10px;
-  box-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 10px #ffea00, 0 0 25px #ffea00;
+  box-shadow: 0 0 3px #fff, 0 0 8px #fff, 0 0 10px #c76000, 0 0 25px #c76000;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -122,8 +132,7 @@ body {
 }
 .game__wrapper {
   margin: 0 auto;
-  width: 80%;
-  height: 60vh;
+  max-width: 1000px;
   font-size: 32px;
   position: relative;
   visibility: hidden;
@@ -131,7 +140,6 @@ body {
   transition: all 0.5s ease-in-out;
 }
 .game__nav {
-  max-width: 90%;
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -144,31 +152,33 @@ body {
   margin: 0;
 }
 .game__nav_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 18px;
   padding: 10px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
   width: 16.666%;
-  text-align: center;
   background-color: #c76000;
-  cursor: pointer;
 }
-.game__nav_item:hover {
-  background-color: rgb(139, 94, 11);
+.game__nav_item_active {
+  background-color: #ff7e05;
 }
-.game__bird_intro {
+.game__bird_intro_wrapper {
   display: flex;
-  width: 90%;
   margin: 0 auto;
   padding: 20px;
   background: #303030;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 .game__bird_pic {
-  background: url('../../assets/images/unknown_bird.jpg') center/cover no-repeat;
+  /*background: url('../../assets/images/unknown_bird.jpg') center/cover no-repeat;*/
   width: 200px;
   height: 155px;
   border-radius: 10px;
   margin-right: 30px;
-  transition: background-image 1s ease-in-out;
+  object-fit: cover;
 }
 .bird_name_intro {
   margin-top: 0;
@@ -178,7 +188,7 @@ body {
 .song_duration {
   display: flex;
   justify-content: space-between;
-  width: 570px;
+  width: 660px;
   font-size: 14px;
   margin-left: 55px;
 }
@@ -197,7 +207,7 @@ body {
   transition: .3s;
 }
 .player_icon:hover {
-  opacity: 1;
+  filter: invert(50%) sepia(80%) saturate(1000%);
 }
 .volume_container,
 .progress_container {
@@ -214,12 +224,14 @@ body {
   filter: invert(80%);
   cursor: pointer;
 }
+.volume_icon:hover {
+  filter: invert(50%) sepia(80%) saturate(1000%);
+}
 .volume_container {
   margin-top: 10px;
   gap: 5px;
 }
 #audioVolume {
-  width: 100px;
   cursor: pointer;
   -webkit-appearance: none;
   height: 7px;
@@ -233,11 +245,13 @@ body {
   height: 15px;
   border-radius: 20%;
 }
+.volume_intro {
+  width: 100px;
+}
 .progress_container {
   gap: 15px;
 }
 #audioProgress {
-  width: 580px;
   cursor: pointer;
   -webkit-appearance: none;
   height: 7px;
@@ -251,6 +265,117 @@ body {
   height: 15px;
   border-radius: 20%;
 }
+.audio_intro {
+  width: 670px;
+}
+.game__bird_info_wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.game__birds_list,
+.game__birds_info {
+  width: 49%;
+  background: #303030;
+}
+.game__birds_list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.game__birds_info {
+  padding: 20px;
+}
+.game__birds_item {
+  width: 100%;
+  height: 16.666%;
+  padding-left: 20px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+}
+.game__birds_item:nth-child(6) {
+  border-bottom: none;
+}
+.game__birds_item:hover {
+  background: rgb(88, 88, 88);
+}
+.game__bird_indicator {
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background: gray;
+}
+.bird_success {
+  background: greenyellow;
+}
+.game__birds_name_wrapper {
+  display: flex;
+  margin-bottom: 10px;
+}
+.game__birds_name_pic {
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.game__birds_voice_name,
+.game__birds_voice_name_latin {
+  line-height: 160%;
+  margin-bottom: 5px;
+  border-bottom: 1px solid gray;
+}
+.game__birds_voice_name_latin {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.game__birds_voice_duration {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  font-size: 11px;
+}
+.game__birds_info_descripion {
+  font-size: 14px;
+}
+.audio_info {
+  width: 170px;
+}
+.volume_info {
+  width: 100px;
+}
+.game__score_wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 20px;
+  font-size: 16px;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #303030;
+}
+.game__next_lvl_btn {
+  background: #c76000;
+  border: none;
+  text-align: start;
+  color: #fff;
+  width: 50%;
+  height: 100%;
+  font-size: 18px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+  padding-left: 20px;
+  cursor: pointer;
+}
+.game__next_lvl_btn:hover {
+  background-color: #ff7e05;
+}
 .footer_link {
   width: 40px;
   height: 40px;
@@ -263,9 +388,6 @@ body {
 .rsschool:hover {
   position: relative;
   bottom: 3px;
-}
-.footer__container {
-  margin-top: 50px;
 }
 .my_page {
   display: flex;

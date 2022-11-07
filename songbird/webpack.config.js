@@ -69,7 +69,7 @@ const conf =  {
         generator: {
           filename: 'assets/icons/[name][ext]'
         }
-      },
+      }
     ]
   },
   plugins: [
@@ -83,6 +83,9 @@ const conf =  {
       chunkFilename: '[id].css',
     }),
   ],
+  performance: {
+    hints: false
+  }
 };
 
 // module.exports = conf;
