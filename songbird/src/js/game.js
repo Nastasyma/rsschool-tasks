@@ -3,7 +3,6 @@ import { formatTime } from './helper.js';
 
 
 const birdsPreview = document.querySelector('.game__birds_preview');
-const birdsInfo = document.querySelector('.game__birds_info');
 const birdName = document.querySelectorAll('.game__bird_name');
 const birdsItem = document.querySelectorAll('.game__birds_item');
 const birdsVoiceName = document.querySelector('.game__birds_voice_name');
@@ -33,7 +32,6 @@ function setFirstLevelInfo() {
   for (let i=0; i<birdsItem.length; i++) {
     birdsItem[i].addEventListener('click', () => {
       birdsPreview.classList.add('active_hide');
-      birdsInfo.classList.remove('active_hide');
       resetAudio();
       birdsVoiceName.textContent = birdsData[0][i].name;
       birdsVoiceNameLatin.textContent = birdsData[0][i].species;
