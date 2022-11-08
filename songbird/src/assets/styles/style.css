@@ -17,11 +17,17 @@ html {
   box-sizing: border-box;
 }
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: 'Roboto Mono', sans-serif;
   font-size: 16px;
   color: #fff;
   width: 100vw;
   height: 100vh;
+}
+p {
+  margin: 0;
 }
 .container {
   padding: 20px 30px;
@@ -198,7 +204,8 @@ body {
   font-size: 14px;
   margin-left: 55px;
 }
-.player_icon {
+.player_icon,
+.player_icon_info {
   width: 32px;
   height: 32px;
   background-size: 32px 32px;
@@ -212,16 +219,21 @@ body {
   cursor: pointer;
   transition: .3s;
 }
-.player_icon:hover {
+.player_icon:hover
+.player_icon_info:hover {
   filter: invert(50%) sepia(80%) saturate(1000%);
+}
+.pause {
+  background: url("../../assets/icons/pause.svg") no-repeat center/contain;
 }
 .volume_container,
 .progress_container {
   display: flex;
   align-items: center;
 }
-.volume_icon {
-  background-image: url("../../assets/icons/audio_volume.svg");
+.volume_icon,
+.volume_icon_info {
+  background: url("../../assets/icons/audio_volume.svg");
   background-color: transparent;
   background-repeat: no-repeat;
   border: none;
@@ -232,6 +244,9 @@ body {
 }
 .volume_icon:hover {
   filter: invert(50%) sepia(80%) saturate(1000%);
+}
+.mute {
+  background: url("../../assets/icons/audio_volume_mute.svg");
 }
 .volume_container {
   margin-top: 10px;
@@ -249,7 +264,7 @@ body {
   background: white;
   width: 15px;
   height: 15px;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 .volume_intro {
   width: 100px;
@@ -269,22 +284,33 @@ body {
   background: white;
   width: 15px;
   height: 15px;
-  border-radius: 20%;
+  border-radius: 50%;
 }
 .audio_intro {
   width: 670px;
 }
 .game__bird_info_wrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
   margin-bottom: 20px;
 }
 .game__birds_list,
-.game__birds_info {
+.game__birds_info,
+.game__birds_preview {
   width: 49%;
   background: #303030;
   border-radius: 5px;
+  transition: all .3s ease-in-out;
+}
+.game__birds_preview {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding: 20px;
+  line-height: 140%;
 }
 .game__birds_list {
   display: flex;
@@ -306,8 +332,12 @@ body {
   cursor: pointer;
   border-bottom: 1px solid gray;
 }
+.game__birds_item:nth-child(1) {
+  border-radius: 5px 5px 0 0;
+}
 .game__birds_item:nth-child(6) {
   border-bottom: none;
+  border-radius: 0 0 5px 5px;
 }
 .game__birds_item:hover {
   background: rgb(88, 88, 88);

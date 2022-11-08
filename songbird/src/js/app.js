@@ -1,4 +1,3 @@
-const videoBG = document.querySelector('.video_bg');
 const startBTN = document.querySelector('.game__start_btn');
 const welcomeBTN = document.querySelector('.welcome_link');
 const gameBTN = document.querySelector('.game_link');
@@ -25,7 +24,6 @@ function returnToStart() {
     setTimeout(() => {
       gameStartWrapper.classList.remove('active_hide');
     }, 500);
-    // gameStartWrapper.classList.remove('active_hide');
     gameBTN.classList.remove('nav_link__active');
     welcomeBTN.classList.add('nav_link__active');
     gameWrapper.classList.remove('active_game__menu');
