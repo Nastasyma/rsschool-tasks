@@ -1,11 +1,15 @@
 import './assets/styles/style.css';
 import './assets/styles/normalize.css';
+import './assets/audio/error.mp3';
+import './assets/audio/succes.mp3';
+import './assets/images/unknown_bird.jpg';
 import { startGame, returnToStart } from './js/app.js';
-import { setFirstLevelList, setFirstLevelInfo } from './js/game.js';
+import { setSong, setLevelList, setLevelInfo } from './js/game.js';
 
 startGame();
 returnToStart();
-setFirstLevelList();
-setFirstLevelInfo();
+setSong();
+setLevelList();
+setLevelInfo();
 
 

@@ -32,7 +32,7 @@ p {
 .container {
   padding: 20px 30px;
   margin: 0 auto;
-  max-width: 1600px;
+  max-width: 1400px;
 }
 .header__container {
   display: flex;
@@ -194,7 +194,7 @@ p {
 }
 .bird_name_intro {
   margin-top: 0;
-  font-size: 32px;
+  font-size: 28px;
   border-bottom: 1px solid gray;
 }
 .song_duration {
@@ -212,15 +212,12 @@ p {
   background-repeat: no-repeat;
   background-color: transparent;
   background: url("../../assets/icons/play.svg") no-repeat center/contain;
+  filter: invert(55%) sepia(80%) saturate(1000%);
   border: 0;
   outline: 0;
   opacity: .8;
   cursor: pointer;
   transition: .3s;
-}
-.player_icon:hover
-.player_icon_info:hover {
-  filter: invert(50%) sepia(80%) saturate(1000%);
 }
 .pause {
   background: url("../../assets/icons/pause.svg") no-repeat center/contain;
@@ -235,14 +232,11 @@ p {
   background: url("../../assets/icons/audio_volume.svg");
   background-color: transparent;
   background-repeat: no-repeat;
+  filter: invert(35%) sepia(80%) saturate(1000%);
   border: none;
   width: 20px;
   height: 20px;
-  filter: invert(80%);
   cursor: pointer;
-}
-.volume_icon:hover {
-  filter: invert(50%) sepia(80%) saturate(1000%);
 }
 .mute {
   background: url("../../assets/icons/audio_volume_mute.svg");
@@ -297,6 +291,7 @@ p {
 .game__birds_list,
 .game__birds_info,
 .game__birds_preview {
+  min-height: 300px;
   width: 49%;
   background: #303030;
   border-radius: 5px;
@@ -353,6 +348,9 @@ p {
 .bird_success {
   background: greenyellow;
 }
+.bird_error {
+  background: red;
+}
 .game__birds_name_wrapper {
   display: flex;
   margin-bottom: 10px;
@@ -401,7 +399,6 @@ p {
   border-radius: 5px;
 }
 .game__next_lvl_btn {
-  background: #c76000;
   border: none;
   text-align: start;
   color: #fff;
@@ -413,8 +410,11 @@ p {
   border-radius: 5px 0 0 5px;
   cursor: pointer;
 }
-.game__next_lvl_btn:hover {
+/*.game__next_lvl_btn:hover {
   background-color: #ff7e05;
+}*/
+.lvl_btn_active {
+  background: #c76000;
 }
 .footer_link {
   width: 40px;
@@ -507,6 +507,11 @@ p {
   .audio_info {
     width: 200px;
   }
+  .game__birds_list,
+  .game__birds_info,
+  .game__birds_preview {
+    min-height: 510px;
+  }
 }
 @media (max-width: 700px) {
   .header__nav_list {
@@ -570,6 +575,11 @@ p {
   }
   .audio_info {
     width: 250px;
+  }
+  .game__next_lvl_btn,
+  .game__score {
+    font-size: 14px;
+    padding: 5px;
   }
 }
 @media (max-width: 600px) {

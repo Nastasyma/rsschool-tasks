@@ -69,6 +69,13 @@ const conf =  {
         generator: {
           filename: 'assets/icons/[name][ext]'
         }
+      },
+      {
+        test: /\.mp3$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/audio/[name][ext]'
+        }
       }
     ]
   },
