@@ -416,6 +416,51 @@ p {
 .lvl_btn_active {
   background: #c76000;
 }
+.game__result_wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 1000px;
+  height: 500px;
+  padding: 20px;
+  background: #303030;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s ease-in-out;
+}
+.game__victory_title {
+  text-align: center;
+}
+.game__victory_text {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.game__victory_border {
+  width: 100%;
+  height: 1px;
+  background: gray;
+  background-size: 2px;
+  margin-bottom: 50px;
+}
+.game__victory_btn {
+  width: 100%;
+  height: 50px;
+  background: #c76000;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+  border: none;
+  cursor: pointer;
+}
+.game__victory_btn:hover {
+  background: #854407;
+}
 .footer_link {
   width: 40px;
   height: 40px;
@@ -452,7 +497,8 @@ p {
   .game__nav_item {
     font-size: 15px;
   }
-  .game__wrapper {
+  .game__wrapper,
+  .game__result_wrapper {
     max-width: 800px;
   }
   .audio_intro {
@@ -489,7 +535,8 @@ p {
   .game__nav_item:nth-child(6) {
     border-radius: 0 0 5px 0;
   }
-  .game__wrapper {
+  .game__wrapper,
+  .game__result_wrapper {
     max-width: 600px;
   }
   .audio_intro {
@@ -522,7 +569,8 @@ p {
   .header__nav_link {
     font-size: 14px;
   }
-  .game__wrapper {
+  .game__wrapper,
+  .game__result_wrapper {
     max-width: 500px;
   }
   .audio_intro {
@@ -567,7 +615,8 @@ p {
     width: 200px;
     height: 135px;
   }
-  .game__wrapper {
+  .game__wrapper,
+  .game__result_wrapper {
     max-width: 350px;
   }
   .audio_intro {
@@ -586,7 +635,8 @@ p {
   .game__nav_item {
     font-size: 12px;
   }
-  .game__wrapper {
+  .game__wrapper,
+  .game__result_wrapper {
     max-width: 250px;
   }
   .audio_intro {
@@ -605,6 +655,15 @@ p {
   }
   .my_page {
     width: 200px;
+  }
+  .game__victory_title {
+    font-size: 18px;
+  }
+  .game__victory_text {
+    font-size: 16px;
+  }
+  .game__victory_btn {
+    font-size: 16px;
   }
 }
 @media (max-width: 360px) {

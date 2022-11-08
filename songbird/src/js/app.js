@@ -4,6 +4,7 @@ const gameBTN = document.querySelector('.game_link');
 const gameStartWrapper = document.querySelector('.game__start_wrapper');
 const gameWrapper = document.querySelector('.game__wrapper');
 const videoFile = document.querySelector('.forest_video');
+const resultWrapper = document.querySelector('.game__result_wrapper');
 
 function changeElStyles() {
   videoFile.classList.add('active_hide');
@@ -21,6 +22,7 @@ function startGame() {
 function returnToStart() {
   welcomeBTN.addEventListener('click', () => {
     videoFile.classList.remove('active_hide');
+    resultWrapper.classList.remove('active_game__menu');
     setTimeout(() => {
       gameStartWrapper.classList.remove('active_hide');
     }, 500);

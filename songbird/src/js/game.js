@@ -23,6 +23,10 @@ const audioInfo = document.querySelector('.audio_info');
 const nameIntro = document.querySelector('.bird_name_intro');
 const scoreCount = document.querySelector('.game__score_count');
 const lvlBTN = document.querySelector('.game__next_lvl_btn');
+const victoryText = document.querySelector('.game__victory_text');
+const resultWrapper = document.querySelector('.game__result_wrapper');
+const gameWrapper = document.querySelector('.game__wrapper');
+const victoryBTN = document.querySelector('.game__victory_btn');
 let songDurationIntro = document.querySelector('.song_duration_time');
 let songCurrentTimeIntro = document.querySelector('.song_current_time');
 let songDuration = document.querySelector('.game__birds_voice_duration_time');
@@ -60,6 +64,22 @@ function resetAudioIntro() {
   songCurrentTimeIntro.innerHTML = '0:00';
   audioIntroInput.style.background = `linear-gradient(to right, #c76000 0%, #c76000 0%, #c4c4c4 0%, #c4c4c4 100%)`;
 }
+function resetGame() {
+  lvlBTN.setAttribute('disabled', 'disabled');
+  lvlBTN.classList.remove('lvl_btn_active');
+  birdsPreview.classList.remove('active_hide');
+  birdsNamePicIntro.src = './assets/images/unknown_bird.jpg';
+  nameIntro.textContent = '******';
+  for (let i=0; i<navItem.length; i++) {
+    navItem[i].classList.remove('game__nav_item_active');
+  }
+  birdIndicator.forEach(el => {
+    el.classList.remove('bird_success');
+    el.classList.remove('bird_error');
+  });
+  isSucces = false;
+  levelCount = 0;
+}
 
 // ----------- аудио интро -----------
 
@@ -87,8 +107,8 @@ function setSong() {
   audioIntro.src = birdsData[level][songNumber].audio;
   console.log("selected bird:", songNumber+1);
   songDurationIntro.innerHTML = `${birdsData[level][songNumber].duration}`;
-  audioError.src = '../../assets/audio/error.mp3';
-  audioSucces.src = '../../assets/audio/succes.mp3';
+  audioError.src = './assets/audio/error.mp3';
+  audioSucces.src = './assets/audio/succes.mp3';
 }
 
 function playAudioIntro() {
@@ -159,9 +179,9 @@ function setLevelInfo() {
         if (birdError.length === 0) {
           levelCount = 5;
         }
-        console.log("level-count =", levelCount);
+        // console.log("level-count =", levelCount);
         count = count + levelCount;
-        console.log("count =", count);
+        // console.log("count =", count);
         scoreCount.textContent = count;
       } else if (isSucces === false) {
         birdIndicator[i].classList.add('bird_error');
@@ -236,25 +256,30 @@ lvlBTN.addEventListener('click', () => {
   if (level < 5) {
     level += 1;
     console.log("level:", level+1);
-    lvlBTN.setAttribute('disabled', 'disabled');
-    lvlBTN.classList.remove('lvl_btn_active');
     setSong();
     setLevelList();
     resetAudioIntro();
-    birdsPreview.classList.remove('active_hide');
-    birdsNamePicIntro.src = '../../assets/images/unknown_bird.jpg';
-    nameIntro.textContent = '******';
-    for (let i=0; i<navItem.length; i++) {
-      navItem[i].classList.remove('game__nav_item_active');
-    }
+    resetGame();
     navItem[level].classList.add('game__nav_item_active');
-    birdIndicator.forEach(el => {
-      el.classList.remove('bird_success');
-      el.classList.remove('bird_error');
-    });
-    isSucces = false;
-    levelCount = 0;
+  } else {
+    gameWrapper.classList.remove('active_game__menu');
+    resultWrapper.classList.add('active_game__menu');
+    victoryText.textContent = `Вы прошли викторину и набрали ${count} из 30 возможных баллов!`;
+    victoryBTN.textContent = 'Попробовать еще раз!'
   }
 });
+victoryBTN.addEventListener('click', () => {
+  console.clear();
+  level = 0;
+  count = 0;
+  setSong();
+  setLevelList();
+  resetAudioIntro();
+  resetGame();
+  navItem[0].classList.add('game__nav_item_active');
+  gameWrapper.classList.add('active_game__menu');
+  resultWrapper.classList.remove('active_game__menu');
+  console.log("level:", level+1);
+})
 
 export { setSong, setLevelList, setLevelInfo }
