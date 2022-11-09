@@ -148,9 +148,19 @@ p {
   opacity: 0;
   transition: all 0.5s ease-in-out;
 }
+.game__score_wrapper {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  background: #303030;
+  border-radius: 0 0 5px 5px;
+  margin-bottom: 20px;
+}
 .game__nav {
   margin: 0 auto;
-  margin-bottom: 20px;
 }
 .game__nav_list {
   display: flex;
@@ -171,10 +181,10 @@ p {
   background-color: #c76000;
 }
 .game__nav_item:nth-child(1) {
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 0;
 }
 .game__nav_item:nth-child(6) {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 5px 0 0;
 }
 .game__nav_item_active {
   background-color: #ff7e05;
@@ -392,32 +402,21 @@ p {
   width: 100px;
   height: 7px;
 }
-.game__score_wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 20px;
-  font-size: 16px;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  background: #303030;
-  border-radius: 5px;
-}
 .game__next_lvl_btn {
   border: none;
-  text-align: start;
+  text-align: center;
   color: #fff;
-  width: 50%;
-  height: 100%;
+  background: #303030;
+  width: 100%;
+  height: 50px;
   font-size: 18px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
-  padding-left: 20px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 5px;
   cursor: pointer;
 }
-/*.game__next_lvl_btn:hover {
+.game__next_lvl_btn:hover:enabled {
   background-color: #ff7e05;
-}*/
+}
 .lvl_btn_active {
   background: #c76000;
 }
@@ -464,7 +463,7 @@ p {
   cursor: pointer;
 }
 .game__victory_btn:hover {
-  background: #854407;
+  background-color: #ff7e05;
 }
 .footer_link {
   width: 40px;
@@ -524,6 +523,11 @@ p {
   body {
     width: 100%;
   }
+  .game__bird_info_wrapper,
+  .game__bird_intro_wrapper,
+  .game__score_wrapper {
+    margin-bottom: 10px;
+  }
   .header__container,
   .main__container {
     padding: 10px 10px;
@@ -552,11 +556,8 @@ p {
   .game__nav_item:nth-child(3) {
     border-radius: 0 5px 0 0;
   }
-  .game__nav_item:nth-child(4) {
-    border-radius: 0 0 0 5px;
-  }
   .game__nav_item:nth-child(6) {
-    border-radius: 0 0 5px 0;
+    border-radius: 0;
   }
   .game__wrapper,
   .game__result_wrapper {
@@ -633,13 +634,12 @@ p {
   }
   .game__bird_intro_wrapper {
     padding: 10px;
-    margin-bottom: 10px;
-  }
-  .game__nav {
-    margin-bottom: 10px;
   }
   .game__nav_item {
     font-size: 12px;
+  }
+  .game__score_wrapper {
+    font-size: 14px;
   }
   .game__bird_pic {
     width: 130px;
@@ -682,12 +682,10 @@ p {
   }
   .game__bird_info_wrapper {
     font-size: 14px;
-    margin-bottom: 10px;
   }
-  .game__next_lvl_btn,
-  .game__score {
+  .game__next_lvl_btn {
     font-size: 14px;
-    padding: 10px;
+    height: 40px;
   }
 }
 @media (max-width: 410px) {
@@ -700,7 +698,8 @@ p {
     padding: 15px;
   }
   .header__container,
-  .main__container {
+  .main__container,
+  .footer__container {
     padding: 5px 10px;
   }
   .header__nav_item {
@@ -711,6 +710,7 @@ p {
   }
   .game__nav_item {
     font-size: 11px;
+    padding: 5px;
   }
   .game__wrapper,
   .game__result_wrapper {
@@ -723,6 +723,11 @@ p {
   .game__birds_info,
   .game__birds_preview {
     min-height: 456px;
+  }
+  .game__bird_info_wrapper,
+  .game__bird_intro_wrapper,
+  .game__score_wrapper {
+    margin-bottom: 5px;
   }
   .game__birds_item {
     padding: 0 0 0 5px;
