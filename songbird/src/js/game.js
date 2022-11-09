@@ -1,9 +1,16 @@
 import birdsData from '../js/data/birds.js';
+import birdsDataEn from './data/birds-en.js';
+import langObject from './data/translation.js';
 import { formatTime, getRandomNum } from './helper.js';
 
-
+const gameTitle = document.querySelector('.game__title');
+const startBTN = document.querySelector('.game__start_btn');
+const navLink = document.querySelectorAll('.header__nav_link');
 const navItem = document.querySelectorAll('.game__nav_item');
 const birdsPreview = document.querySelector('.game__birds_preview');
+const previewTitle = document.querySelector('.game__birds_preview_title');
+const previewSubtitle = document.querySelector('.game__birds_preview_subtitle');
+const scoreTitle = document.querySelector('.game__score_title');
 const birdName = document.querySelectorAll('.game__bird_name');
 const birdIndicator = document.querySelectorAll('.game__bird_indicator');
 const birdsItem = document.querySelectorAll('.game__birds_item');
@@ -27,6 +34,8 @@ const victoryText = document.querySelector('.game__victory_text');
 const resultWrapper = document.querySelector('.game__result_wrapper');
 const gameWrapper = document.querySelector('.game__wrapper');
 const victoryBTN = document.querySelector('.game__victory_btn');
+const ruBTN = document.querySelector('.header__ru_btn');
+const enBTN = document.querySelector('.header__en_btn');
 let songDurationIntro = document.querySelector('.song_duration_time');
 let songCurrentTimeIntro = document.querySelector('.song_current_time');
 let songDuration = document.querySelector('.game__birds_voice_duration_time');
@@ -44,6 +53,8 @@ let levelCount = 0;
 let count = 0;
 let level = 0;
 let isGreen = false;
+let lang = 'ru';
+let langId = 0;
 
 console.log("level:", level+1);
 
@@ -81,6 +92,23 @@ function resetGame() {
   isSuccess = false;
   levelCount = 0;
   isGreen = false;
+}
+
+// ----------- стартовая страница -----------
+
+function setWelcome() {
+  gameTitle.textContent = langObject[lang].greeting;
+  startBTN.textContent = langObject[lang].greetingBtn;
+  scoreTitle.textContent = langObject[lang].score;
+  lvlBTN.textContent = langObject[lang].nextBtn;
+  previewTitle.textContent = langObject[lang].previewTitle;
+  previewSubtitle.textContent = langObject[lang].previewSubtitle;
+  for (let i=0; i<navLink.length; i++) {
+    navLink[i].textContent = langObject[lang].headerNav[i].name;
+  }
+  for (let i=0; i<navItem.length; i++) {
+    navItem[i].textContent = langObject[lang].gameNav[i].name;
+  }
 }
 
 // ----------- аудио интро -----------
@@ -148,27 +176,37 @@ audioIntro.addEventListener("timeupdate", updateProgressValueIntro);
 
 
 
-// ----------- создать первый уровень -----------
+// ----------- уровень игры -----------
 
 function setLevelList() {
   // console.log(birdName)
   // console.log(birdsData[level][0]);
   for (let i=0; i<birdName.length; i++) {
-    birdName[i].textContent = birdsData[level][i].name;
+    if (lang === 'ru') {
+      birdName[i].textContent = birdsData[level][i].name;
+    } else {
+      birdName[i].textContent = birdsDataEn[level][i].name;
+    }
   }
 }
 
 function setLevelInfo() {
   for (let i=0; i<birdsItem.length; i++) {
     birdsItem[i].addEventListener('click', () => {
+      langId = i;
       birdsPreview.classList.add('active_hide');
       resetAudio();
-      birdsVoiceName.textContent = birdsData[level][i].name;
+      if (lang === 'ru') {
+        birdsVoiceName.textContent = birdsData[level][i].name;
+        birdsInfoDescripion.textContent = birdsData[level][i].description;
+      } else {
+        birdsVoiceName.textContent = birdsDataEn[level][i].name;
+        birdsInfoDescripion.textContent = birdsDataEn[level][i].description;
+      }
       birdsVoiceNameLatin.textContent = birdsData[level][i].species;
-      birdsInfoDescripion.textContent = birdsData[level][i].description;
       birdsNamePic.src = birdsData[level][i].image;
       audio.src = birdsData[level][i].audio;
-      songDuration.innerHTML = `${birdsData[level][i].duration}`; // продолжительность трека из плейлиста
+      songDuration.innerHTML = `${birdsData[level][i].duration}`;
       if (songNumber+1 === birdsData[level][i].id && isGreen === false) {
         birdIndicator[i].classList.add('bird_success');
         const birdError = document.querySelectorAll('.bird_error');
@@ -181,7 +219,11 @@ function setLevelInfo() {
         // console.log("count =", count);
         scoreCount.textContent = count;
         isGreen = true;
-        nameIntro.textContent = birdsData[level][songNumber].name;
+        if (lang === 'ru') {
+          nameIntro.textContent = birdsData[level][songNumber].name;
+        } else {
+          nameIntro.textContent = birdsDataEn[level][songNumber].name;
+        }
         birdsNamePicIntro.src = birdsData[level][songNumber].image;
         isSuccess = true;
         audioSuccess.play();
@@ -199,17 +241,17 @@ function setLevelInfo() {
   }
 }
 
-// ----------- создать аудио для первого уровня -----------
+// ----------- аудио плеер -----------
 
 function playAudio() {
-  audio.currentTime = audioCurrentTime; // запомнить место проигрывания трека
+  audio.currentTime = audioCurrentTime;
   if (!isPlay) {
     audio.play();
     isPlay = true;
-    playInfo.classList.add('pause'); // смена иконку с play на pause
+    playInfo.classList.add('pause');
   } else {
     audio.pause();
-    audioCurrentTime = audio.currentTime; // проигрывать трек с того же места
+    audioCurrentTime = audio.currentTime;
     isPlay = false;
     playInfo.classList.remove('pause');
   }
@@ -217,7 +259,6 @@ function playAudio() {
 
 playInfo.addEventListener('click', playAudio);
 
-// заглушение звука, смена иконки
 volumeIconInfo.addEventListener('click', () => {
   audio.muted = !audio.muted;
   if (audio.muted) {
@@ -227,7 +268,6 @@ volumeIconInfo.addEventListener('click', () => {
   }
 });
 
-// громкость музыки, при 0 - мут и смена иконки
 volumeInfo.addEventListener("input", () => {
   audio.volume = Math.trunc(volumeInfo.value) / 100;
   volumeInfo.style.background = `linear-gradient(to right, #c76000 0%, #c76000 ${volumeInfo.value}%, #c4c4c4 ${volumeInfo.value}%, #c4c4c4 100%)`;
@@ -238,19 +278,18 @@ volumeInfo.addEventListener("input", () => {
   }
 });
 
-// прогресс-бар
 function updateProgressValue() {
   if (audio.duration) {
     audioCurrentTime = audio.currentTime;
-    songCurrentTime.innerHTML = formatTime(audio.currentTime); // текущее время трека
-    audioInfo.value = 100 * (audio.currentTime / audio.duration); // ползунок двигается
+    songCurrentTime.innerHTML = formatTime(audio.currentTime);
+    audioInfo.value = 100 * (audio.currentTime / audio.duration);
     audioInfo.style.background = `linear-gradient(to right, #c76000 ${audioInfo.value}%, #c4c4c4 ${audioInfo.value}%)`;
   }
 };
 
 audioInfo.addEventListener("input", () => {
 if (audio.duration) {
-  audio.currentTime = (audioInfo.value * audio.duration) / 100; // при нажатии на прогресс бар, трек играет с этого места
+  audio.currentTime = (audioInfo.value * audio.duration) / 100;
 }
 });
 
@@ -287,4 +326,30 @@ victoryBTN.addEventListener('click', () => {
   console.log("level:", level+1);
 })
 
-export { setSong, setLevelList, setLevelInfo }
+ruBTN.addEventListener('click', () => {
+  ruBTN.classList.add('lang_btn_active');
+  enBTN.classList.remove('lang_btn_active');
+  lang = 'ru';
+  setLevelList();
+  setWelcome();
+  if (nameIntro.textContent !== '******') {
+    nameIntro.textContent = birdsData[level][songNumber].name;
+  }
+  birdsVoiceName.textContent = birdsData[level][langId].name;
+  birdsInfoDescripion.textContent = birdsData[level][langId].description;
+})
+
+enBTN.addEventListener('click', () => {
+  enBTN.classList.add('lang_btn_active');
+  ruBTN.classList.remove('lang_btn_active');
+  lang = 'en';
+  setLevelList();
+  setWelcome();
+  if (nameIntro.textContent !== '******') {
+  nameIntro.textContent = birdsDataEn[level][songNumber].name;
+  }
+  birdsVoiceName.textContent = birdsDataEn[level][langId].name;
+  birdsInfoDescripion.textContent = birdsDataEn[level][langId].description;
+})
+
+export { setWelcome, setSong, setLevelList, setLevelInfo }

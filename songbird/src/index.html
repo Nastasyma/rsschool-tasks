@@ -19,9 +19,13 @@
       </div>
       <nav class="header__nav">
         <ul class="header__nav_list">
-          <li class="header__nav_item"><a href="#" class="header__nav_link welcome_link nav_link__active">Стартовая страница</a></li>
-          <li class="header__nav_item"><a href="#" class="header__nav_link game_link">Игра</a></li>
-          <li class="header__nav_item"><a href="#" class="header__nav_link game_link">Галерея</a></li>
+          <li class="header__nav_item"><a href="#" class="header__nav_link welcome_link nav_link__active"></a></li>
+          <li class="header__nav_item"><a href="#" class="header__nav_link game_link"></a></li>
+          <li class="header__nav_item"><a href="#" class="header__nav_link game_link"></a></li>
+          <li class="header__nav_item header__lang_wrapper">
+            <button class="header__ru_btn lang_btn_active"></button>
+            <button class="header__en_btn"></button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -29,23 +33,23 @@
   <main class="main">
     <div class="container main__container">
       <div class="game__start_wrapper">
-        <h1 class="game__title">Добро пожаловать в игру Songbird!</h1>
-        <button class="game__start_btn">НАЧАТЬ ИГРУ</button>
+        <h1 class="game__title"></h1>
+        <button class="game__start_btn"></button>
       </div>
       <div class="game__wrapper">
         <nav class="game__nav">
           <ul class="game__nav_list">
-            <li class="game__nav_item game__nav_item_active">Разминка</li>
-            <li class="game__nav_item">Воробьиные</li>
-            <li class="game__nav_item">Лесные песни</li>
-            <li class="game__nav_item">Певчие птицы</li>
-            <li class="game__nav_item">Хищные птицы</li>
-            <li class="game__nav_item">Морские птицы</li>
+            <li class="game__nav_item game__nav_item_active"></li>
+            <li class="game__nav_item"></li>
+            <li class="game__nav_item"></li>
+            <li class="game__nav_item"></li>
+            <li class="game__nav_item"></li>
+            <li class="game__nav_item"></li>
           </ul>
         </nav>
         <div class="game__score_wrapper">
           <div class="game__score">
-            <span>Текущий счет:</span>
+            <span class="game__score_title"></span>
             <span class="game__score_count">0</span>
           </div>
         </div>
@@ -113,14 +117,14 @@
           </ul>
           <div class="game__birds_info">
             <div class="game__birds_preview">
-              <p>Послушайте плеер.</p>
-              <p>Выберите птицу из списка.</p>
+              <p class="game__birds_preview_title"></p>
+              <p class="game__birds_preview_subtitle"></p>
             </div>
             <div class="game__birds_name_wrapper">
               <img class="game__birds_name_pic" src="https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg" alt=""></img>
               <div class="game__birds_voice">
-                <div class="game__birds_voice_name">Ворон</div>
-                <div class="game__birds_voice_name_latin">Corvus corax</div>
+                <div class="game__birds_voice_name"></div>
+                <div class="game__birds_voice_name_latin"></div>
                 <div class="game__song_audio">
                   <div class="progress_container">
                     <button class="player_icon_info"></button>
@@ -152,14 +156,10 @@
                 </div>
               </div>
             </div>
-            <div class="game__birds_info_descripion">
-              Ворон – крупная птица. Длина тела достигает 70 сантиметров, размах крыльев – до полутора метров.
-              Вороны населяют окрестности Тауэра. В Англии бытует поверье, что в день,
-              когда черные вороны улетят от Тауэра, монархия рухнет.
-            </div>
+            <div class="game__birds_info_descripion"></div>
           </div>
         </div>
-        <button class="game__next_lvl_btn" disabled="disabled">Следующий уровень</button>
+        <button class="game__next_lvl_btn" disabled="disabled"></button>
       </div>
       <div class="game__result_wrapper">
         <div class="game__victory_wrapper">
