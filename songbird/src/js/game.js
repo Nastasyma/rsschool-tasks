@@ -34,15 +34,16 @@ let songCurrentTime = document.querySelector('.game__birds_voice_current_time');
 const audio = new Audio();
 const audioIntro = new Audio();
 const audioError = new Audio();
-const audioSucces = new Audio();
+const audioSuccess = new Audio();
 let isPlay = false;
 let audioCurrentTime = 0;
 let audioCurrentTimeIntro = 0;
 let songNumber;
-let isSucces = false;
+let isSuccess = false;
 let levelCount = 0;
 let count = 0;
 let level = 0;
+let isGreen = false;
 
 console.log("level:", level+1);
 
@@ -77,8 +78,9 @@ function resetGame() {
     el.classList.remove('bird_success');
     el.classList.remove('bird_error');
   });
-  isSucces = false;
+  isSuccess = false;
   levelCount = 0;
+  isGreen = false;
 }
 
 // ----------- аудио интро -----------
@@ -108,7 +110,7 @@ function setSong() {
   console.log("selected bird:", songNumber+1);
   songDurationIntro.innerHTML = `${birdsData[level][songNumber].duration}`;
   audioError.src = './assets/audio/error.mp3';
-  audioSucces.src = './assets/audio/succes.mp3';
+  audioSuccess.src = './assets/audio/success.mp3';
 }
 
 function playAudioIntro() {
@@ -167,23 +169,25 @@ function setLevelInfo() {
       birdsNamePic.src = birdsData[level][i].image;
       audio.src = birdsData[level][i].audio;
       songDuration.innerHTML = `${birdsData[level][i].duration}`; // продолжительность трека из плейлиста
-      if (songNumber+1 === birdsData[level][i].id) {
+      if (songNumber+1 === birdsData[level][i].id && isGreen === false) {
         birdIndicator[i].classList.add('bird_success');
-        nameIntro.textContent = birdsData[level][songNumber].name;
-        birdsNamePicIntro.src = birdsData[level][songNumber].image;
-        isSucces = true;
-        audioSucces.play();
-        lvlBTN.removeAttribute('disabled');
-        lvlBTN.classList.add('lvl_btn_active');
         const birdError = document.querySelectorAll('.bird_error');
         if (birdError.length === 0) {
           levelCount = 5;
         }
+        isGreen = true;
         // console.log("level-count =", levelCount);
         count = count + levelCount;
         // console.log("count =", count);
         scoreCount.textContent = count;
-      } else if (isSucces === false) {
+        isGreen = true;
+        nameIntro.textContent = birdsData[level][songNumber].name;
+        birdsNamePicIntro.src = birdsData[level][songNumber].image;
+        isSuccess = true;
+        audioSuccess.play();
+        lvlBTN.removeAttribute('disabled');
+        lvlBTN.classList.add('lvl_btn_active');
+      } else if (isSuccess === false) {
         birdIndicator[i].classList.add('bird_error');
         audioError.play();
         const birdError = document.querySelectorAll('.bird_error');
