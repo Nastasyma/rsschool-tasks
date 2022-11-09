@@ -30,7 +30,7 @@ p {
   margin: 0;
 }
 .container {
-  padding: 20px 30px;
+  padding: 10px 20px;
   margin: 0 auto;
   max-width: 1400px;
 }
@@ -38,7 +38,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
 }
 .header__nav_list {
   display: flex;
