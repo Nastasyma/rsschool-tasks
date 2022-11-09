@@ -272,6 +272,7 @@ victoryBTN.addEventListener('click', () => {
   console.clear();
   level = 0;
   count = 0;
+  scoreCount.textContent = 0;
   setSong();
   setLevelList();
   resetAudioIntro();

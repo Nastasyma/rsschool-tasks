@@ -43,9 +43,12 @@ p {
 .header__nav_list {
   display: flex;
   list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
   flex-wrap: wrap;
   padding: 0;
-  gap: 58px;
+  gap: 55px;
 }
 .header__nav_link {
   color: #ffffff;
@@ -248,7 +251,6 @@ p {
 #audioVolume {
   cursor: pointer;
   -webkit-appearance: none;
-  height: 7px;
   background: -webkit-linear-gradient(left, #c76000 0%, #c76000 40%, #c4c4c4 41%, #c4c4c4 100%);
 }
 #audioVolume::-webkit-slider-thumb {
@@ -261,6 +263,7 @@ p {
 }
 .volume_intro {
   width: 100px;
+  height: 7px;
 }
 .progress_container {
   gap: 15px;
@@ -268,7 +271,6 @@ p {
 #audioProgress {
   cursor: pointer;
   -webkit-appearance: none;
-  height: 7px;
   background: -webkit-linear-gradient(left, #c76000 0%, #c4c4c4 1%, #c4c4c4 100%);
 }
 #audioProgress::-webkit-slider-thumb {
@@ -281,6 +283,7 @@ p {
 }
 .audio_intro {
   width: 670px;
+  height: 7px;
 }
 .game__bird_info_wrapper {
   display: flex;
@@ -383,9 +386,11 @@ p {
 }
 .audio_info {
   width: 170px;
+  height: 7px;
 }
 .volume_info {
   width: 100px;
+  height: 7px;
 }
 .game__score_wrapper {
   display: flex;
@@ -418,9 +423,9 @@ p {
 }
 .game__result_wrapper {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   width: 1000px;
   height: 500px;
   padding: 20px;
@@ -491,6 +496,9 @@ p {
 }
 
 @media (max-width: 1100px) {
+  .header__nav_list {
+    gap: 35px;
+  }
   .game__title {
     max-width: 600px;
   }
@@ -502,7 +510,7 @@ p {
     max-width: 800px;
   }
   .audio_intro {
-    width: 450px;
+    width: 470px;
   }
   .game__birds_name_pic {
     width: 150px;
@@ -514,8 +522,23 @@ p {
 }
 @media (max-width: 860px) {
   body {
-    height: 100%;
     width: 100%;
+  }
+  .header__container,
+  .main__container {
+    padding: 10px 10px;
+  }
+  .header__container {
+    margin-bottom: 0px;
+  }
+  .footer__container {
+    padding: 10px 20px;
+  }
+  .header__nav_list {
+    gap: 20px;
+  }
+  .header__nav_link {
+    font-size: 18px;
   }
   .video_bg:before {
     height: 100%;
@@ -537,113 +560,185 @@ p {
   }
   .game__wrapper,
   .game__result_wrapper {
-    max-width: 600px;
+    max-width: 650px;
   }
   .audio_intro {
-    width: 270px;
-  }
-  .game__birds_name_wrapper {
-    flex-wrap: wrap;
-  }
-  .game__birds_name_pic {
-    margin: 0 auto;
-    width: 250px;
-    height: 155px;
-    margin-bottom: 10px;
+    width: 330px;
   }
   .audio_info {
-    width: 200px;
+    width: 170px;
   }
-  .game__birds_list,
-  .game__birds_info,
-  .game__birds_preview {
-    min-height: 510px;
+  .volume_info {
+    width: 80px;
+  }
+  .player_icon_info {
+    width: 25px;
+    height: 25px;
+  }
+  .volume_icon_info {
+    width: 15px;
+    height: 15px;
+  }
+  .game__birds_list {
+    width: 33%;
+  }
+  .game__birds_info {
+    width: 65%;
   }
 }
 @media (max-width: 700px) {
-  .header__nav_list {
-    margin: 0;
-    padding-left: 10px;
-    gap: 15px;
-  }
-  .header__nav_link {
-    font-size: 14px;
-  }
-  .game__wrapper,
-  .game__result_wrapper {
-    max-width: 500px;
-  }
-  .audio_intro {
-    width: 160px;
-  }
-  .audio_info {
-    width: 140px;
-  }
-  .game__birds_name_pic {
-    width: 150px;
-    height: 120px;
-  }
-}
-@media (max-width: 600px) {
   .header__container {
     max-width: 500px;
     flex-wrap: wrap;
     justify-content: center;
   }
-  .game__bird_info_wrapper {
+  .header__nav_list {
+    margin: 0;
+  }
+  .game__wrapper,
+  .game__result_wrapper {
+    max-width: 600px;
+  }
+  .audio_intro {
+    width: 280px;
+  }
+  .audio_info {
+    width: 160px;
+  }
+  .game__birds_name_pic {
+    margin-right: 10px;
+  }
+  .game__birds_voice_name_latin {
+    margin-bottom: 5px;
+  }
+  .volume_container {
+    margin-top: 5px;
+  }
+  .game__birds_voice_duration {
+    font-size: 8px;
+  }
+  .game__birds_info {
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .game__title {
+    max-width: 400px;
+  }
+  .game__start_btn {
+    font-size: 22px;
+  }
+  .game__birds_name_wrapper {
     flex-wrap: wrap;
   }
   .game__bird_intro_wrapper {
-    flex-wrap: wrap;
-  }
-  .game__bird_pic {
-    margin: 0 auto;
+    padding: 10px;
     margin-bottom: 10px;
   }
-  .game__birds_list,
-  .game__birds_info,
-  .game__birds_preview {
-    width: 100%;
+  .game__nav {
+    margin-bottom: 10px;
   }
-  .game__birds_list {
-    margin-bottom: 20px;
+  .game__nav_item {
+    font-size: 12px;
+  }
+  .game__bird_pic {
+    width: 130px;
+    height: 100px;
+    margin-right: 10px;
+  }
+  .player_icon {
+    width: 25px;
+    height: 25px;
+  }
+  .volume_icon {
+    width: 15px;
+    height: 15px;
+  }
+  .bird_name_intro {
+    margin-bottom: 7px;
+    font-size: 22px;
   }
   .game__birds_item {
     padding: 10px;
   }
   .game__birds_name_pic {
-    width: 200px;
-    height: 135px;
+    margin: 0 auto;
+    width: 130px;
+    height: 100px;
+    margin-bottom: 5px;
+  }
+  .progress_container {
+    gap: 5px;
   }
   .game__wrapper,
   .game__result_wrapper {
-    max-width: 350px;
+    max-width: 380px;
   }
   .audio_intro {
-    width: 250px;
+    width: 180px;
   }
   .audio_info {
-    width: 250px;
+    width: 185px;
+  }
+  .game__bird_info_wrapper {
+    font-size: 14px;
+    margin-bottom: 10px;
   }
   .game__next_lvl_btn,
   .game__score {
     font-size: 14px;
-    padding: 5px;
+    padding: 10px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 410px) {
+  .game__title {
+    font-size: 36px;
+    max-width: 250px;
+  }
+  .game__start_btn {
+    font-size: 18px;
+    padding: 15px;
+  }
+  .header__container,
+  .main__container {
+    padding: 5px 10px;
+  }
+  .header__nav_item {
+    max-width: 33%;
+  }
+  .header__nav_link {
+    font-size: 14px;
+  }
   .game__nav_item {
-    font-size: 12px;
+    font-size: 11px;
   }
   .game__wrapper,
   .game__result_wrapper {
-    max-width: 250px;
+    max-width: 300px;
+  }
+  .game__bird_indicator {
+    margin-right: 5px;
+  }
+  .game__birds_list,
+  .game__birds_info,
+  .game__birds_preview {
+    min-height: 456px;
+  }
+  .game__birds_item {
+    padding: 0 0 0 5px;
   }
   .audio_intro {
-    width: 150px;
+    width: 110px;
+  }
+  .volume_intro {
+    width: 60px;
   }
   .audio_info {
-    width: 150px;
+    width: 130px;
+  }
+  .song_duration {
+    font-size: 11px;
+    margin-left: 20px;
   }
   .footer_link {
     width: 30px;
@@ -664,15 +759,5 @@ p {
   }
   .game__victory_btn {
     font-size: 16px;
-  }
-}
-@media (max-width: 360px) {
-  .game__title {
-    font-size: 36px;
-    max-width: 250px;
-  }
-  .game__start_btn {
-    font-size: 18px;
-    padding: 10px;
   }
 }
