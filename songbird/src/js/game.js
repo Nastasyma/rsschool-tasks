@@ -33,6 +33,7 @@ const lvlBTN = document.querySelector('.game__next_lvl_btn');
 const victoryText = document.querySelector('.game__victory_text');
 const resultWrapper = document.querySelector('.game__result_wrapper');
 const gameWrapper = document.querySelector('.game__wrapper');
+const victoryTitle = document.querySelector('.game__victory_title');
 const victoryBTN = document.querySelector('.game__victory_btn');
 const ruBTN = document.querySelector('.header__ru_btn');
 const enBTN = document.querySelector('.header__en_btn');
@@ -103,6 +104,9 @@ function setWelcome() {
   lvlBTN.textContent = langObject[lang].nextBtn;
   previewTitle.textContent = langObject[lang].previewTitle;
   previewSubtitle.textContent = langObject[lang].previewSubtitle;
+  victoryText.textContent = langObject[lang].victory_text1 + `${count}` + langObject[lang].victory_text2;
+  victoryBTN.textContent = langObject[lang].victoryBTN;
+  victoryTitle.textContent = langObject[lang].victoryTitle;
   for (let i=0; i<navLink.length; i++) {
     navLink[i].textContent = langObject[lang].headerNav[i].name;
   }
@@ -307,8 +311,7 @@ lvlBTN.addEventListener('click', () => {
   } else {
     gameWrapper.classList.remove('active_game__menu');
     resultWrapper.classList.add('active_game__menu');
-    victoryText.textContent = `Вы прошли викторину и набрали ${count} из 30 возможных баллов!`;
-    victoryBTN.textContent = 'Попробовать еще раз!'
+    victoryText.textContent = langObject[lang].victory_text1 + `${count}` + langObject[lang].victory_text2;
   }
 });
 victoryBTN.addEventListener('click', () => {
@@ -330,6 +333,7 @@ ruBTN.addEventListener('click', () => {
   ruBTN.classList.add('lang_btn_active');
   enBTN.classList.remove('lang_btn_active');
   lang = 'ru';
+  localStorage.setItem('nastasyma_language', lang);
   setLevelList();
   setWelcome();
   if (nameIntro.textContent !== '******') {
@@ -343,6 +347,7 @@ enBTN.addEventListener('click', () => {
   enBTN.classList.add('lang_btn_active');
   ruBTN.classList.remove('lang_btn_active');
   lang = 'en';
+  localStorage.setItem('nastasyma_language', lang);
   setLevelList();
   setWelcome();
   if (nameIntro.textContent !== '******') {
@@ -350,6 +355,21 @@ enBTN.addEventListener('click', () => {
   }
   birdsVoiceName.textContent = birdsDataEn[level][langId].name;
   birdsInfoDescripion.textContent = birdsDataEn[level][langId].description;
+})
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('nastasyma_language')) {
+    lang = localStorage.getItem('nastasyma_language');
+  }
+  if (localStorage.getItem('nastasyma_language') === 'ru') {
+    ruBTN.classList.add('lang_btn_active');
+    enBTN.classList.remove('lang_btn_active');
+  } else if (localStorage.getItem('nastasyma_language') === 'en') {
+    enBTN.classList.add('lang_btn_active');
+    ruBTN.classList.remove('lang_btn_active');
+  }
+  setLevelList()
+  setWelcome()
 })
 
 export { setWelcome, setSong, setLevelList, setLevelInfo }

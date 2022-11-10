@@ -6,6 +6,10 @@ const langObject = {
     nextBtn: 'Next level',
     previewTitle: 'Listen to the player.',
     previewSubtitle: 'Select a bird from the list.',
+    victoryTitle: 'Congratulations!',
+    victory_text1: 'You completed the game and got ',
+    victory_text2: ' out of 30 possible points!',
+    victoryBTN: 'Try again!',
     headerNav: [
       {
         id: 1,
@@ -54,7 +58,11 @@ const langObject = {
     score: 'Текущий счет:',
     nextBtn: 'Следущий уровень',
     previewTitle: 'Послушайте плеер.',
+    victoryTitle: 'Поздравляем!',
     previewSubtitle: 'Выберите птицу из списка.',
+    victory_text1: 'Вы прошли игру и набрали ',
+    victory_text2: ' из 30 возможных баллов!',
+    victoryBTN: 'Попробовать еще раз!',
     headerNav: [
       {
         id: 1,
