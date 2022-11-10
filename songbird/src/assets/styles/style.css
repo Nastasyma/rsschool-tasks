@@ -10,6 +10,27 @@
        url('../fonts/roboto-mono-v22-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
 }
 
+/* --- animations start --- */
+
+@keyframes move-left {
+	from {left: 0px;}
+  to {left: 103.5%;}
+}
+@keyframes move-right {
+	from {left: 0px;}
+  to {left: -103.5%;}
+}
+.to-right {
+  animation-name: move-right;
+  animation-duration: .6s;
+}
+.to-left {
+  animation-name: move-left;
+  animation-duration: .6s;
+}
+
+/* --- animations end --- */
+
 html {
   scroll-behavior: smooth;
 }
@@ -101,7 +122,8 @@ p {
   right: 0;
   left: 0;
   position: fixed;
-  background: url('../../assets/images/bird_bg.jpg') center/cover no-repeat;
+  /*background: url('../../assets/images/bird_bg.jpg') center/cover no-repeat;*/
+  background: #222;
   z-index: -1;
   transition: background-image 1s ease-in-out;
 }
@@ -244,7 +266,8 @@ p {
   margin-left: 55px;
 }
 .player_icon,
-.player_icon_info {
+.player_icon_info,
+.player_icon_gallery {
   width: 32px;
   height: 32px;
   background-size: 32px 32px;
@@ -268,7 +291,8 @@ p {
   align-items: center;
 }
 .volume_icon,
-.volume_icon_info {
+.volume_icon_info,
+.volume_icon_gallery {
   background: url("../../assets/icons/audio_volume.svg");
   background-color: transparent;
   background-repeat: no-repeat;
@@ -285,12 +309,12 @@ p {
   margin-top: 10px;
   gap: 5px;
 }
-#audioVolume {
+.audioVolume {
   cursor: pointer;
   -webkit-appearance: none;
-  background: -webkit-linear-gradient(left, #c76000 0%, #c76000 40%, #c4c4c4 41%, #c4c4c4 100%);
+  background: -webkit-linear-gradient(left, #c76000 0%, #c76000 30%, #c4c4c4 31%, #c4c4c4 100%);
 }
-#audioVolume::-webkit-slider-thumb {
+.audioVolume::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   background: white;
@@ -305,12 +329,12 @@ p {
 .progress_container {
   gap: 15px;
 }
-#audioProgress {
+.audioProgress {
   cursor: pointer;
   -webkit-appearance: none;
   background: -webkit-linear-gradient(left, #c76000 0%, #c4c4c4 1%, #c4c4c4 100%);
 }
-#audioProgress::-webkit-slider-thumb {
+.audioProgress::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   background: white;
@@ -492,6 +516,109 @@ p {
 }
 .game__victory_btn:hover {
   background-color: #ff7e05;
+}
+.game__gallery_wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1000px;
+  height: 600px;
+  padding: 20px;
+  background: #303030;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s ease-in-out;
+}
+.audio_gallery,
+.volume_gallery {
+  height: 10px;
+}
+.audio_gallery {
+  width: 610px;
+}
+.volume_gallery {
+  width: 200px;
+}
+.game__gallery_info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.game__gallery_carousel {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding-left: 0;
+  gap: 4%;
+}
+.game__gallery_slide {
+  background: rgb(36, 35, 35);
+  border-radius: 5px;
+  padding: 20px;
+  min-height: 450px;
+}
+.game__gallery_name_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.game__gallery_arrows_wrapper {
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  width: 880px;
+  margin: 0 auto;
+  justify-content: space-between;
+  top: 45%;
+  left: 60px;
+}
+.arrow_icon {
+  width: 80px;
+  height: 80px;
+  filter: invert(20%) sepia(80%) saturate(1000%);
+  cursor: pointer;
+}
+.arrow_icon:hover {
+  filter: invert(40%) sepia(80%) saturate(1000%);
+}
+.game__gallery_name_pic {
+  width: 49%;
+  height: 215px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.game__gallery_voice  {
+  width: 49%;
+}
+.game__gallery_voice_name,
+.game__gallery_voice_name_latin {
+  line-height: 160%;
+  text-align: center;
+  margin-bottom: 5px;
+  border-bottom: 1px solid gray;
+}
+.game__gallery_voice_name_latin {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+.game__gallery_song_audio {
+  margin-bottom: 20px;
+}
+.game__gallery_voice_duration {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 50px;
+  font-size: 11px;
+}
+.game__gallery_info_descripion {
+  font-size: 16px;
 }
 .footer_link {
   width: 40px;
@@ -743,7 +870,7 @@ p {
   }
   .game__nav_item {
     font-size: 11px;
-    padding: 5px;
+    padding: 10px 5px;
   }
   .game__wrapper,
   .game__result_wrapper {

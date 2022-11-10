@@ -2,6 +2,7 @@ import birdsData from '../js/data/birds.js';
 import birdsDataEn from './data/birds-en.js';
 import langObject from './data/translation.js';
 import { formatTime, getRandomNum } from './helper.js';
+import { setGallery, name } from './gallery.js';
 
 const gameTitle = document.querySelector('.game__title');
 const startBTN = document.querySelector('.game__start_btn');
@@ -45,7 +46,8 @@ const audio = new Audio();
 const audioIntro = new Audio();
 const audioError = new Audio();
 const audioSuccess = new Audio();
-let isPlay = false;
+let isPlayIntro = false;
+let isPlayInfo = false;
 let audioCurrentTime = 0;
 let audioCurrentTimeIntro = 0;
 let songNumber;
@@ -54,14 +56,14 @@ let levelCount = 0;
 let count = 0;
 let level = 0;
 let isGreen = false;
-let lang = 'ru';
+export let lang = 'ru';
 let langId = 0;
 
 console.log("level:", level+1);
 
 function resetAudio() {
   audio.pause();
-  isPlay = false;
+  isPlayInfo = false;
   playInfo.classList.remove('pause');
   audioCurrentTime = 0;
   audioInfo.value = 0;
@@ -70,7 +72,7 @@ function resetAudio() {
 }
 function resetAudioIntro() {
   audioIntro.pause();
-  isPlay = false;
+  isPlayIntro = false;
   play.classList.remove('pause');
   audioCurrentTimeIntro = 0;
   audioIntroInput.value = 0;
@@ -115,7 +117,7 @@ function setWelcome() {
   }
 }
 
-// ----------- аудио интро -----------
+// ----------- аудио плеер интро -----------
 
 volumeIcon.addEventListener('click', () => {
   audioIntro.muted = !audioIntro.muted;
@@ -146,15 +148,18 @@ function setSong() {
 }
 
 function playAudioIntro() {
-  audio.currentTime = audioCurrentTimeIntro;
-  if (!isPlay) {
+  audioIntro.currentTime = audioCurrentTimeIntro;
+  audio.pause();
+  isPlayInfo = false;
+  playInfo.classList.remove('pause');
+  if (!isPlayIntro) {
     audioIntro.play();
-    isPlay = true;
+    isPlayIntro = true;
     play.classList.add('pause');
   } else {
     audioIntro.pause();
-    audioCurrentTimeIntro = audio.currentTime;
-    isPlay = false;
+    audioCurrentTimeIntro = audioIntro.currentTime;
+    isPlayIntro = false;
     play.classList.remove('pause');
   }
 }
@@ -177,8 +182,6 @@ if (audioIntro.duration) {
 });
 
 audioIntro.addEventListener("timeupdate", updateProgressValueIntro);
-
-
 
 // ----------- уровень игры -----------
 
@@ -213,6 +216,8 @@ function setLevelInfo() {
       songDuration.innerHTML = `${birdsData[level][i].duration}`;
       if (songNumber+1 === birdsData[level][i].id && isGreen === false) {
         birdIndicator[i].classList.add('bird_success');
+        audioIntro.pause();
+        play.classList.remove('pause');
         const birdError = document.querySelectorAll('.bird_error');
         if (birdError.length === 0) {
           levelCount = 5;
@@ -245,18 +250,21 @@ function setLevelInfo() {
   }
 }
 
-// ----------- аудио плеер -----------
+// ----------- аудио плеер инфо -----------
 
 function playAudio() {
+  audioIntro.pause();
+  play.classList.remove('pause')
+  isPlayIntro = false;
   audio.currentTime = audioCurrentTime;
-  if (!isPlay) {
+  if (!isPlayInfo) {
     audio.play();
-    isPlay = true;
+    isPlayInfo = true;
     playInfo.classList.add('pause');
   } else {
     audio.pause();
     audioCurrentTime = audio.currentTime;
-    isPlay = false;
+    isPlayInfo = false;
     playInfo.classList.remove('pause');
   }
 }
@@ -328,7 +336,6 @@ victoryBTN.addEventListener('click', () => {
   resultWrapper.classList.remove('active_game__menu');
   console.log("level:", level+1);
 })
-
 ruBTN.addEventListener('click', () => {
   ruBTN.classList.add('lang_btn_active');
   enBTN.classList.remove('lang_btn_active');
@@ -336,13 +343,13 @@ ruBTN.addEventListener('click', () => {
   localStorage.setItem('nastasyma_language', lang);
   setLevelList();
   setWelcome();
+  setGallery();
   if (nameIntro.textContent !== '******') {
     nameIntro.textContent = birdsData[level][songNumber].name;
   }
   birdsVoiceName.textContent = birdsData[level][langId].name;
   birdsInfoDescripion.textContent = birdsData[level][langId].description;
 })
-
 enBTN.addEventListener('click', () => {
   enBTN.classList.add('lang_btn_active');
   ruBTN.classList.remove('lang_btn_active');
@@ -350,6 +357,7 @@ enBTN.addEventListener('click', () => {
   localStorage.setItem('nastasyma_language', lang);
   setLevelList();
   setWelcome();
+  setGallery();
   if (nameIntro.textContent !== '******') {
   nameIntro.textContent = birdsDataEn[level][songNumber].name;
   }
@@ -368,8 +376,9 @@ window.addEventListener('DOMContentLoaded', () => {
     enBTN.classList.add('lang_btn_active');
     ruBTN.classList.remove('lang_btn_active');
   }
-  setLevelList()
-  setWelcome()
+  setLevelList();
+  setWelcome();
+  setGallery();
 })
 
 export { setWelcome, setSong, setLevelList, setLevelInfo }
