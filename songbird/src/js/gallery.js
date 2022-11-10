@@ -16,9 +16,12 @@ const pic = document.querySelectorAll('.game__gallery_name_pic');
 const carousel = document.querySelector('.game__gallery_carousel');
 const BTNleft = document.querySelector('.left_btn');
 const BTNright = document.querySelector('.right_btn');
-const slide1 = document.querySelector('.slide_1');
-const slide2 = document.querySelector('.slide_2');
-const slide3 = document.querySelector('.slide_3');
+const name1 = document.querySelector('.slide_1 .game__gallery_name_wrapper');
+const name2 = document.querySelector('.slide_2 .game__gallery_name_wrapper');
+const name3 = document.querySelector('.slide_3 .game__gallery_name_wrapper');
+const desc1 = document.querySelector('.slide_1 .game__gallery_info_descripion');
+const desc2 = document.querySelector('.slide_2 .game__gallery_info_descripion');
+const desc3 = document.querySelector('.slide_3 .game__gallery_info_descripion');
 let left = 0;
 let right = 2;
 let isPlay = false;
@@ -34,6 +37,16 @@ arrayBirdsEn.push(birdsDataEn);
 arrayBirdsEn = arrayBirdsEn.flat(Infinity);
 console.log(arrayBirds);
 // console.log(arrayBirdsEn);
+
+function resetAudio() {
+  audio.pause();
+  isPlay = false;
+  playerIconGallery[1].classList.remove('pause');
+  audioCurrentTime = 0;
+  audioGalleryInput[1].value = 0;
+  songCurrentTime[1].innerHTML = '0:00';
+  audioGalleryInput[1].style.background = `linear-gradient(to right, #c76000 0%, #c76000 0%, #c4c4c4 0%, #c4c4c4 100%)`;
+}
 
 function setGallery() {
   pic[0].src = arrayBirds[left].image;
@@ -66,19 +79,22 @@ function setGallery() {
 function setCarousel() {
   carousel.addEventListener('animationend', (animationEvent) => {
 
-    let changedItem;
+    let changedName;
+    let changedDesc;
     if (animationEvent.animationName === 'move-left') {
       carousel.classList.remove('to-left');
-      changedItem = slide1;
-      slide2.innerHTML = changedItem.innerHTML;
+      changedName = name1;
+      changedDesc = desc1;
+      name2.innerHTML = changedName.innerHTML;
+      desc2.innerHTML = changedDesc.innerHTML;
       audio.src = arrayBirds[left].audio;
-      console.log(audio);
     } else if (animationEvent.animationName === 'move-right') {
       carousel.classList.remove('to-right');
-      changedItem = slide3;
-      slide2.innerHTML = changedItem.innerHTML;
+      changedName = name3;
+      changedDesc = desc3;
+      name2.innerHTML = changedName.innerHTML;
+      desc2.innerHTML = changedDesc.innerHTML;
       audio.src = arrayBirds[right].audio;
-      console.log(audio)
     }
 
     BTNleft.addEventListener('click', moveLeft);
@@ -86,6 +102,7 @@ function setCarousel() {
   });
 
   const moveLeft = () => {
+    resetAudio();
     if (left === 0) {
       left = 35;
     } else {
@@ -102,6 +119,7 @@ function setCarousel() {
     BTNright.removeEventListener('click', moveRight);
   };
   const moveRight = () => {
+    resetAudio();
     if (left === 35) {
       left = 0;
     } else {
@@ -180,4 +198,4 @@ function setAudio() {
 setAudio();
 
 
-export { setCarousel, setGallery, name }
+export { setCarousel, setGallery }

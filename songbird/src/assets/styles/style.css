@@ -620,6 +620,9 @@ p {
 .game__gallery_info_descripion {
   font-size: 16px;
 }
+.icon2 {
+  z-index: 55;
+}
 .footer_link {
   width: 40px;
   height: 40px;
