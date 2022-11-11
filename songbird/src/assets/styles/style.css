@@ -14,11 +14,11 @@
 
 @keyframes move-left {
 	from {left: 0px;}
-  to {left: 103.5%;}
+  to {left: 104%;}
 }
 @keyframes move-right {
 	from {left: 0px;}
-  to {left: -103.5%;}
+  to {left: -104%;}
 }
 .to-right {
   animation-name: move-right;
@@ -536,7 +536,7 @@ p {
   height: 10px;
 }
 .audio_gallery {
-  width: 610px;
+  width: 613px;
 }
 .volume_gallery {
   width: 200px;
@@ -676,6 +676,23 @@ p {
   .audio_info {
     width: 120px;
   }
+  .game__gallery_wrapper {
+    width: 800px;
+    height: 550px;
+  }
+  .game__gallery_arrows_wrapper {
+    width: 780px;
+    left: 10px;
+  }
+  .game__gallery_info {
+    max-width: 600px;
+  }
+  .game__gallery_name_pic {
+    height: 180px;
+  }
+  .audio_gallery {
+    width: 513px;
+  }
 }
 @media (max-width: 860px) {
   body {
@@ -744,6 +761,28 @@ p {
   .game__birds_info {
     width: 65%;
   }
+  .game__gallery_wrapper {
+    width: 650px;
+    height: 500px;
+  }
+  .game__gallery_arrows_wrapper {
+    width: 620px;
+    left: 15px;
+  }
+  .game__gallery_info {
+    max-width: 500px;
+    max-height: 400px;
+  }
+  .game__gallery_name_pic {
+    height: 149px;
+  }
+  .audio_gallery {
+    width: 413px;
+  }
+  .arrow_icon {
+    width: 50px;
+    height: 50px;
+  }
 }
 @media (max-width: 730px) {
   .header__container {
@@ -780,6 +819,24 @@ p {
   }
   .game__birds_info {
     padding: 10px;
+  }
+  .game__gallery_wrapper {
+    width: 560px;
+    height: 480px;
+  }
+  .game__gallery_arrows_wrapper {
+    width: 548px;
+    left: 8px;
+  }
+  .game__gallery_info {
+    max-width: 450px;
+    max-height: 380px;
+  }
+  .game__gallery_name_pic {
+    height: 132px;
+  }
+  .audio_gallery {
+    width: 363px;
   }
 }
 @media (max-width: 600px) {
@@ -849,6 +906,36 @@ p {
   .game__next_lvl_btn {
     font-size: 14px;
     height: 40px;
+  }
+  .game__gallery_wrapper {
+    width: 380px;
+  }
+  .game__gallery_arrows_wrapper {
+    width: 380px;
+    left: 0;
+  }
+  .game__gallery_info {
+    max-width: 300px;
+  }
+  .game__gallery_name_pic {
+    height: 90px;
+  }
+  .audio_gallery {
+    width: 243px;
+  }
+  .volume_gallery {
+    width: 150px;
+  }
+  .arrow_icon {
+    width: 40px;
+    height: 40px;
+  }
+  .game__gallery_slide {
+    min-height: 380px;
+    padding: 10px;
+  }
+  .game__gallery_voice_name {
+    font-size: 24px;
   }
 }
 @media (max-width: 410px) {
@@ -927,5 +1014,33 @@ p {
   }
   .game__victory_btn {
     font-size: 16px;
+  }
+  .game__gallery_wrapper {
+    width: 300px;
+  }
+  .game__gallery_arrows_wrapper {
+    width: 300px;
+  }
+  .game__gallery_info {
+    max-width: 240px;
+  }
+  .game__gallery_name_pic {
+    height: 70px;
+  }
+  .audio_gallery {
+    width: 183px;
+  }
+  .arrow_icon {
+    width: 30px;
+    height: 30px;
+  }
+  .game__gallery_info_descripion {
+    font-size: 14px;
+  }
+  .game__gallery_name_wrapper {
+    margin-bottom: 10px;
+  }
+  .game__gallery_voice_name {
+    font-size: 18px;
   }
 }

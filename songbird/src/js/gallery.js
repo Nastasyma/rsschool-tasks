@@ -22,6 +22,8 @@ const name3 = document.querySelector('.slide_3 .game__gallery_name_wrapper');
 const desc1 = document.querySelector('.slide_1 .game__gallery_info_descripion');
 const desc2 = document.querySelector('.slide_2 .game__gallery_info_descripion');
 const desc3 = document.querySelector('.slide_3 .game__gallery_info_descripion');
+const ruBTN = document.querySelector('.header__ru_btn');
+const enBTN = document.querySelector('.header__en_btn');
 let left = 0;
 let right = 2;
 let isPlay = false;
@@ -196,6 +198,5 @@ function setAudio() {
   audio.addEventListener("timeupdate", updateProgressValue);
 }
 setAudio();
-
 
 export { setCarousel, setGallery }
