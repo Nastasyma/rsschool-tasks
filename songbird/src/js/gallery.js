@@ -22,6 +22,9 @@ const name3 = document.querySelector('.slide_3 .game__gallery_name_wrapper');
 const desc1 = document.querySelector('.slide_1 .game__gallery_info_descripion');
 const desc2 = document.querySelector('.slide_2 .game__gallery_info_descripion');
 const desc3 = document.querySelector('.slide_3 .game__gallery_info_descripion');
+const dur1 = document.querySelector('.slide_1 .game__gallery_voice_duration_time');
+const dur2 = document.querySelector('.slide_2 .game__gallery_voice_duration_time');
+const dur3 = document.querySelector('.slide_3 .game__gallery_voice_duration_time');
 const ruBTN = document.querySelector('.header__ru_btn');
 const enBTN = document.querySelector('.header__en_btn');
 let left = 0;
@@ -83,19 +86,24 @@ function setCarousel() {
 
     let changedName;
     let changedDesc;
+    let changedDur;
     if (animationEvent.animationName === 'move-left') {
       carousel.classList.remove('to-left');
       changedName = name1;
       changedDesc = desc1;
+      changedDur = dur1;
       name2.innerHTML = changedName.innerHTML;
       desc2.innerHTML = changedDesc.innerHTML;
+      dur2.innerHTML = changedDur.innerHTML;
       audio.src = arrayBirds[left].audio;
     } else if (animationEvent.animationName === 'move-right') {
       carousel.classList.remove('to-right');
       changedName = name3;
       changedDesc = desc3;
+      changedDur = dur3;
       name2.innerHTML = changedName.innerHTML;
       desc2.innerHTML = changedDesc.innerHTML;
+      dur2.innerHTML = changedDur.innerHTML;
       audio.src = arrayBirds[right].audio;
     }
 
