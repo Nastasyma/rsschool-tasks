@@ -17,6 +17,7 @@ function changeElStylesStart() {
   setTimeout(() => {
     gameWrapper.classList.add('active_game__menu');
   }, 500);
+  resultWrapper.classList.remove('active_game__menu');
   gameBTN.classList.add('nav_link__active');
   galleryBTN.classList.remove('nav_link__active');
   welcomeBTN.classList.remove('nav_link__active');
@@ -34,6 +35,7 @@ function toGallery() {
     videoFile.classList.add('active_hide');
     gameStartWrapper.classList.add('active_hide');
     gameWrapper.classList.remove('active_game__menu');
+    resultWrapper.classList.remove('active_game__menu');
     setTimeout(() => {
       gameGalleryWrapper.classList.add('active_game__menu');
     }, 500);

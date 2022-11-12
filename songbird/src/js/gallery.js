@@ -40,7 +40,7 @@ arrayBirds.push(birdsData);
 arrayBirds = arrayBirds.flat(Infinity);
 arrayBirdsEn.push(birdsDataEn);
 arrayBirdsEn = arrayBirdsEn.flat(Infinity);
-console.log(arrayBirds);
+// console.log(arrayBirds);
 // console.log(arrayBirdsEn);
 
 function resetAudio() {

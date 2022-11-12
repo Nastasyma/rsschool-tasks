@@ -9,6 +9,7 @@ const langObject = {
     victoryTitle: 'Congratulations!',
     victory_text1: 'You completed the game and got ',
     victory_text2: ' out of 30 possible points!',
+    victory_text3: "You've got the maximum score!",
     victoryBTN: 'Try again!',
     headerNav: [
       {
@@ -62,6 +63,7 @@ const langObject = {
     previewSubtitle: 'Выберите птицу из списка.',
     victory_text1: 'Вы прошли игру и набрали ',
     victory_text2: ' из 30 возможных баллов!',
+    victory_text3: 'Вы набрали максимальное количество баллов!',
     victoryBTN: 'Попробовать еще раз!',
     headerNav: [
       {

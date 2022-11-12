@@ -36,6 +36,7 @@ const resultWrapper = document.querySelector('.game__result_wrapper');
 const gameWrapper = document.querySelector('.game__wrapper');
 const victoryTitle = document.querySelector('.game__victory_title');
 const victoryBTN = document.querySelector('.game__victory_btn');
+const victoryPic = document.querySelector('.game__victory_pic');
 const ruBTN = document.querySelector('.header__ru_btn');
 const enBTN = document.querySelector('.header__en_btn');
 let songDurationIntro = document.querySelector('.song_duration_time');
@@ -106,7 +107,11 @@ function setWelcome() {
   lvlBTN.textContent = langObject[lang].nextBtn;
   previewTitle.textContent = langObject[lang].previewTitle;
   previewSubtitle.textContent = langObject[lang].previewSubtitle;
-  victoryText.textContent = langObject[lang].victory_text1 + `${count}` + langObject[lang].victory_text2;
+  if (count !== 30) {
+    victoryText.textContent = langObject[lang].victory_text1 + `${count}` + langObject[lang].victory_text2;
+  } else {
+    victoryText.textContent = langObject[lang].victory_text3;
+  }
   victoryBTN.textContent = langObject[lang].victoryBTN;
   victoryTitle.textContent = langObject[lang].victoryTitle;
   for (let i=0; i<navLink.length; i++) {
@@ -317,12 +322,36 @@ lvlBTN.addEventListener('click', () => {
     resetGame();
     navItem[level].classList.add('game__nav_item_active');
   } else {
-    gameWrapper.classList.remove('active_game__menu');
-    resultWrapper.classList.add('active_game__menu');
-    victoryText.textContent = langObject[lang].victory_text1 + `${count}` + langObject[lang].victory_text2;
+    if (count !== 30) {
+      gameWrapper.classList.remove('active_game__menu');
+      resultWrapper.classList.add('active_game__menu');
+      victoryText.textContent = langObject[lang].victory_text1 + `${count}` + langObject[lang].victory_text2;
+      victoryBTN.style.display = "block";
+      victoryPic.style.display = "none";
+    } else {
+      gameWrapper.classList.remove('active_game__menu');
+      resultWrapper.classList.add('active_game__menu');
+      victoryText.textContent = langObject[lang].victory_text3;
+      victoryBTN.style.display = "none";
+      victoryPic.style.display = "block";
+    }
   }
 });
 victoryBTN.addEventListener('click', () => {
+  console.clear();
+  level = 0;
+  count = 0;
+  scoreCount.textContent = 0;
+  setSong();
+  setLevelList();
+  resetAudioIntro();
+  resetGame();
+  navItem[0].classList.add('game__nav_item_active');
+  gameWrapper.classList.add('active_game__menu');
+  resultWrapper.classList.remove('active_game__menu');
+  console.log("level:", level+1);
+})
+startBTN.addEventListener('click', () => {
   console.clear();
   level = 0;
   count = 0;
