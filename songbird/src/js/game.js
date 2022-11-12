@@ -2,7 +2,7 @@ import birdsData from '../js/data/birds.js';
 import birdsDataEn from './data/birds-en.js';
 import langObject from './data/translation.js';
 import { formatTime, getRandomNum } from './helper.js';
-import { setGallery } from './gallery.js';
+import { setGallery, nameWrapper } from './gallery.js';
 
 const gameTitle = document.querySelector('.game__title');
 const startBTN = document.querySelector('.game__start_btn');
@@ -372,6 +372,8 @@ ruBTN.addEventListener('click', () => {
   localStorage.setItem('nastasyma_language', lang);
   setLevelList();
   setWelcome();
+  setGallery();
+  nameWrapper[1].innerHTML = nameWrapper[0].innerHTML;
   if (nameIntro.textContent !== '******') {
     nameIntro.textContent = birdsData[level][songNumber].name;
   }
@@ -385,6 +387,8 @@ enBTN.addEventListener('click', () => {
   localStorage.setItem('nastasyma_language', lang);
   setLevelList();
   setWelcome();
+  setGallery();
+  nameWrapper[1].innerHTML = nameWrapper[0].innerHTML;
   if (nameIntro.textContent !== '******') {
   nameIntro.textContent = birdsDataEn[level][songNumber].name;
   }

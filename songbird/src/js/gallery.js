@@ -16,15 +16,7 @@ const pic = document.querySelectorAll('.game__gallery_name_pic');
 const carousel = document.querySelector('.game__gallery_carousel');
 const BTNleft = document.querySelector('.left_btn');
 const BTNright = document.querySelector('.right_btn');
-const name1 = document.querySelector('.slide_1 .game__gallery_name_wrapper');
-const name2 = document.querySelector('.slide_2 .game__gallery_name_wrapper');
-const name3 = document.querySelector('.slide_3 .game__gallery_name_wrapper');
-const desc1 = document.querySelector('.slide_1 .game__gallery_info_descripion');
-const desc2 = document.querySelector('.slide_2 .game__gallery_info_descripion');
-const desc3 = document.querySelector('.slide_3 .game__gallery_info_descripion');
-const dur1 = document.querySelector('.slide_1 .game__gallery_voice_duration_time');
-const dur2 = document.querySelector('.slide_2 .game__gallery_voice_duration_time');
-const dur3 = document.querySelector('.slide_3 .game__gallery_voice_duration_time');
+const nameWrapper = document.querySelectorAll('.game__gallery_name_wrapper');
 const ruBTN = document.querySelector('.header__ru_btn');
 const enBTN = document.querySelector('.header__en_btn');
 let left = 0;
@@ -55,27 +47,27 @@ function resetAudio() {
 
 function setGallery() {
   pic[0].src = arrayBirds[left].image;
-  pic[1].src = arrayBirds[0].image;
+  pic[1].src = arrayBirds[left].image;
   pic[2].src = arrayBirds[right].image;
   nameLatin[0].textContent = arrayBirds[left].species;
-  nameLatin[1].textContent = arrayBirds[0].species;
+  nameLatin[1].textContent = arrayBirds[left].species;
   nameLatin[2].textContent = arrayBirds[right].species;
   songDuration[0].textContent = arrayBirds[left].duration;
-  songDuration[1].textContent = arrayBirds[0].duration;
+  songDuration[1].textContent = arrayBirds[left].duration;
   songDuration[2].textContent = arrayBirds[right].duration;
-  audio.src = arrayBirds[0].audio;
+  audio.src = arrayBirds[left].audio;
   if (lang === 'ru') {
     name[0].textContent = arrayBirds[left].name;
     desc[0].textContent = arrayBirds[left].description;
-    name[1].textContent = arrayBirds[0].name;
-    desc[1].textContent = arrayBirds[0].description;
+    name[1].textContent = arrayBirds[left].name;
+    desc[1].textContent = arrayBirds[left].description;
     name[2].textContent = arrayBirds[right].name;
     desc[2].textContent = arrayBirds[right].description;
   } else {
     name[0].textContent = arrayBirdsEn[left].name;
     desc[0].textContent = arrayBirdsEn[left].description;
-    name[1].textContent = arrayBirdsEn[0].name;
-    desc[1].textContent = arrayBirdsEn[0].description;
+    name[1].textContent = arrayBirdsEn[left].name;
+    desc[1].textContent = arrayBirdsEn[left].description;
     name[2].textContent = arrayBirdsEn[right].name;
     desc[2].textContent = arrayBirdsEn[right].description;
   }
@@ -89,21 +81,21 @@ function setCarousel() {
     let changedDur;
     if (animationEvent.animationName === 'move-left') {
       carousel.classList.remove('to-left');
-      changedName = name1;
-      changedDesc = desc1;
-      changedDur = dur1;
-      name2.innerHTML = changedName.innerHTML;
-      desc2.innerHTML = changedDesc.innerHTML;
-      dur2.innerHTML = changedDur.innerHTML;
+      changedName = nameWrapper[0];
+      changedDesc = desc[0];
+      changedDur = songDuration[0];
+      nameWrapper[1].innerHTML = changedName.innerHTML;
+      desc[1].innerHTML = changedDesc.innerHTML;
+      songDuration[1].innerHTML = changedDur.innerHTML;
       audio.src = arrayBirds[left].audio;
     } else if (animationEvent.animationName === 'move-right') {
       carousel.classList.remove('to-right');
-      changedName = name3;
-      changedDesc = desc3;
-      changedDur = dur3;
-      name2.innerHTML = changedName.innerHTML;
-      desc2.innerHTML = changedDesc.innerHTML;
-      dur2.innerHTML = changedDur.innerHTML;
+      changedName = nameWrapper[2];
+      changedDesc = desc[2];
+      changedDur = songDuration[2];
+      nameWrapper[1].innerHTML = changedName.innerHTML;
+      desc[1].innerHTML = changedDesc.innerHTML;
+      songDuration[1].innerHTML = changedDur.innerHTML;
       audio.src = arrayBirds[right].audio;
     }
 
@@ -191,4 +183,4 @@ function setAudio() {
 }
 setAudio();
 
-export { setCarousel, setGallery }
+export { setCarousel, setGallery, nameWrapper }
