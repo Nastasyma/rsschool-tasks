@@ -28,7 +28,7 @@ const dur3 = document.querySelector('.slide_3 .game__gallery_voice_duration_time
 const ruBTN = document.querySelector('.header__ru_btn');
 const enBTN = document.querySelector('.header__en_btn');
 let left = 0;
-let right = 2;
+let right = 0;
 let isPlay = false;
 let audioCurrentTime = 0;
 const audio = new Audio();
@@ -55,27 +55,27 @@ function resetAudio() {
 
 function setGallery() {
   pic[0].src = arrayBirds[left].image;
-  pic[1].src = arrayBirds[1].image;
+  pic[1].src = arrayBirds[0].image;
   pic[2].src = arrayBirds[right].image;
   nameLatin[0].textContent = arrayBirds[left].species;
-  nameLatin[1].textContent = arrayBirds[1].species;
+  nameLatin[1].textContent = arrayBirds[0].species;
   nameLatin[2].textContent = arrayBirds[right].species;
   songDuration[0].textContent = arrayBirds[left].duration;
-  songDuration[1].textContent = arrayBirds[1].duration;
+  songDuration[1].textContent = arrayBirds[0].duration;
   songDuration[2].textContent = arrayBirds[right].duration;
-  audio.src = arrayBirds[1].audio;
+  audio.src = arrayBirds[0].audio;
   if (lang === 'ru') {
     name[0].textContent = arrayBirds[left].name;
     desc[0].textContent = arrayBirds[left].description;
-    name[1].textContent = arrayBirds[1].name;
-    desc[1].textContent = arrayBirds[1].description;
+    name[1].textContent = arrayBirds[0].name;
+    desc[1].textContent = arrayBirds[0].description;
     name[2].textContent = arrayBirds[right].name;
     desc[2].textContent = arrayBirds[right].description;
   } else {
     name[0].textContent = arrayBirdsEn[left].name;
     desc[0].textContent = arrayBirdsEn[left].description;
-    name[1].textContent = arrayBirdsEn[1].name;
-    desc[1].textContent = arrayBirdsEn[1].description;
+    name[1].textContent = arrayBirdsEn[0].name;
+    desc[1].textContent = arrayBirdsEn[0].description;
     name[2].textContent = arrayBirdsEn[right].name;
     desc[2].textContent = arrayBirdsEn[right].description;
   }
@@ -113,35 +113,19 @@ function setCarousel() {
 
   const moveLeft = () => {
     resetAudio();
-    if (left === 0) {
-      left = 35;
-    } else {
-      left -= 1;
-    }
-    if (right === 0) {
-      right = 35;
-    } else {
-      right -= 1;
-    }
+    left === 0 ? left = 35 : left -= 1;
+    right === 0 ? right = 35 : right -= 1;
     setGallery();
     carousel.classList.add('to-left');
     BTNleft.removeEventListener('click', moveLeft);
     BTNright.removeEventListener('click', moveRight);
   };
   const moveRight = () => {
-    resetAudio();
-    if (left === 35) {
-      left = 0;
-    } else {
-      left += 1;
-    }
-    if (right === 35) {
-      right = 0;
-    } else {
-      right += 1;
-    }
-    setGallery();
     carousel.classList.add('to-right');
+    resetAudio();
+    left === 35 ? left = 0 : left += 1;
+    right === 35? right = 0 : right += 1;
+    setGallery();
     BTNright.removeEventListener('click', moveRight);
     BTNleft.removeEventListener('click', moveLeft);
   };
