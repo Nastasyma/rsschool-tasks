@@ -104,7 +104,12 @@ function setWelcome() {
   gameTitle.textContent = langObject[lang].greeting;
   startBTN.textContent = langObject[lang].greetingBtn;
   scoreTitle.textContent = langObject[lang].score;
-  lvlBTN.textContent = langObject[lang].nextBtn;
+  if (level < 5) {
+    lvlBTN.textContent = langObject[lang].nextBtn;
+  } else {
+    lvlBTN.textContent = langObject[lang].resultBtn;
+  }
+
   previewTitle.textContent = langObject[lang].previewTitle;
   previewSubtitle.textContent = langObject[lang].previewSubtitle;
   if (count !== 30) {
@@ -220,6 +225,9 @@ function setLevelInfo() {
       audio.src = birdsData[level][i].audio;
       songDuration.innerHTML = `${birdsData[level][i].duration}`;
       if (songNumber+1 === birdsData[level][i].id && isGreen === false) {
+        if (level === 5) {
+          lvlBTN.textContent = langObject[lang].resultBtn;
+        }
         birdIndicator[i].classList.add('bird_success');
         audioIntro.pause();
         play.classList.remove('pause');
@@ -313,12 +321,14 @@ if (audio.duration) {
 audio.addEventListener("timeupdate", updateProgressValue);
 
 lvlBTN.addEventListener('click', () => {
+  resetAudio();
+  resetAudioIntro();
   if (level < 5) {
+    lvlBTN.textContent = langObject[lang].nextBtn;
     level += 1;
     console.log("level:", level+1);
     setSong();
     setLevelList();
-    resetAudioIntro();
     resetGame();
     navItem[level].classList.add('game__nav_item_active');
   } else {
@@ -342,6 +352,7 @@ victoryBTN.addEventListener('click', () => {
   level = 0;
   count = 0;
   scoreCount.textContent = 0;
+  lvlBTN.textContent = langObject[lang].nextBtn;
   setSong();
   setLevelList();
   resetAudioIntro();
@@ -356,6 +367,7 @@ startBTN.addEventListener('click', () => {
   level = 0;
   count = 0;
   scoreCount.textContent = 0;
+  lvlBTN.textContent = langObject[lang].nextBtn;
   setSong();
   setLevelList();
   resetAudioIntro();

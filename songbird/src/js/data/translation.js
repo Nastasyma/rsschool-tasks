@@ -4,12 +4,13 @@ const langObject = {
     greetingBtn: 'START THE GAME',
     score: 'Score:',
     nextBtn: 'Next level',
+    resultBtn: 'Results',
     previewTitle: 'Listen to the player.',
     previewSubtitle: 'Select a bird from the list.',
     victoryTitle: 'Congratulations!',
     victory_text1: 'You completed the game and got ',
     victory_text2: ' out of 30 possible points!',
-    victory_text3: "You've got the maximum score!",
+    victory_text3: 'You completed the game and got the maximum score!',
     victoryBTN: 'Try again!',
     headerNav: [
       {
@@ -58,12 +59,13 @@ const langObject = {
     greetingBtn: 'НАЧАТЬ ИГРУ',
     score: 'Текущий счет:',
     nextBtn: 'Следущий уровень',
+    resultBtn: 'Посмотреть результаты',
     previewTitle: 'Послушайте плеер.',
     victoryTitle: 'Поздравляем!',
     previewSubtitle: 'Выберите птицу из списка.',
     victory_text1: 'Вы прошли игру и набрали ',
     victory_text2: ' из 30 возможных баллов!',
-    victory_text3: 'Вы набрали максимальное количество баллов!',
+    victory_text3: 'Вы прошли игру и набрали максимальное количество баллов!',
     victoryBTN: 'Попробовать еще раз!',
     headerNav: [
       {
