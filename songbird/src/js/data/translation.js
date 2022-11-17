@@ -58,7 +58,7 @@ const langObject = {
     greeting: 'Добро пожаловать в игру Songbird!',
     greetingBtn: 'НАЧАТЬ ИГРУ',
     score: 'Текущий счет:',
-    nextBtn: 'Следущий уровень',
+    nextBtn: 'Следующий уровень',
     resultBtn: 'Посмотреть результаты',
     previewTitle: 'Послушайте плеер.',
     victoryTitle: 'Поздравляем!',
