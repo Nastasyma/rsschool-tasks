@@ -60,6 +60,7 @@ let isGreen = false;
 export let lang = 'ru';
 let langId = 0;
 
+
 console.log(`Songbird.
 1.Вёрстка, дизайн, UI всех трёх страниц приложения +60
 2.Аудиоплеер +30
