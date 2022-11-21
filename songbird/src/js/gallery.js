@@ -17,8 +17,7 @@ const carousel = document.querySelector('.game__gallery_carousel');
 const BTNleft = document.querySelector('.left_btn');
 const BTNright = document.querySelector('.right_btn');
 const nameWrapper = document.querySelectorAll('.game__gallery_name_wrapper');
-const ruBTN = document.querySelector('.header__ru_btn');
-const enBTN = document.querySelector('.header__en_btn');
+
 let left = 0;
 let right = 0;
 let isPlay = false;
