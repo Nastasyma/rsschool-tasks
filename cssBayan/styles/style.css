@@ -98,9 +98,7 @@ h1 {
   cursor: pointer;
 }
 @media (max-width: 1200px) {
-  .header {
-    max-width: 70%;
-  }
+  .header,
   .mem_container {
     max-width: 70%;
   }
@@ -137,14 +135,18 @@ h1 {
   }
 }
 @media (max-width: 370px) {
+  .header {
+    margin-top: 5vh;
+  }
+  .header,
+  .mem_container {
+    max-width: 90%;
+  }
   h1 {
     font-size: 1.5rem;
   }
   .mem_container__title {
     font-size: 0.8rem;
-  }
-  .mem_container__btn {
-    padding: 0.4rem;
   }
   .arrow_btn {
     margin-right: 0.5rem;
