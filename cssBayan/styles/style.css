@@ -71,17 +71,24 @@ h1 {
   align-items: center;
 }
 .mem__input:checked~label .prog_img,
-.mem_container__item:hover .prog_img {
+.mem_container__item:hover .prog_img,
+.mem_container__item:focus .prog_img {
   width: 50%;
   height: 50%;
   padding: 0.8rem 0;
 }
-.mem__input:checked~label .arrow_btn,
-.mem_container__item:hover .arrow_btn {
-  transform: rotate(-180deg);
+.mem_container:hover .arrow_btn,
+.mem_container:focus .arrow_btn {
   background: url('../assets/arrow.svg') center/cover no-repeat;
 }
-.mem__input:checked~label .mem_container__title{
+.mem__input:checked~label .arrow_btn,
+.mem_container__item:hover .arrow_btn,
+.mem_container__item:focus .arrow_btn {
+  transform: rotate(-180deg);
+}
+.mem__input:checked~label .mem_container__title,
+.mem_container:hover .mem_container__title,
+.mem_container:focus .mem_container__title {
   color: white;
   text-shadow: 0.05rem 0.05rem 0.1rem black;
 }
@@ -89,10 +96,6 @@ h1 {
 .mem_container__btn,
 .prog_img {
   cursor: pointer;
-}
-.mem_container:hover .mem_container__title {
-  color: white;
-  text-shadow: 1px 1px 2px black;
 }
 
 @media (max-width: 860px) {
@@ -102,10 +105,16 @@ h1 {
   .mem_container {
     max-width: 70%;
   }
+  .mem_container__title {
+    font-size: 0.9rem;
+  }
   .mem_container__item:hover .prog_img {
     width: 0;
     height: 0;
     padding: 0;
+  }
+  .arrow_btn {
+    background: url('../assets/arrow.svg') center/cover no-repeat;
   }
   .mem_container__item:hover .arrow_btn {
     transform: rotate(0);
@@ -114,17 +123,11 @@ h1 {
     color: black;
     text-shadow: none;
   }
-  .mem_container:hover .arrow_btn {
-    background: none;
-  }
 }
 @media (max-width: 700px) {
   .arrow_btn {
     width: 1.5vw;
     height: 1.5vh;
-  }
-  .mem_container__title {
-    font-size: 0.9rem;
   }
 }
 @media (max-width: 370px) {
