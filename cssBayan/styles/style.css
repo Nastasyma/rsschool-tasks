@@ -9,6 +9,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: bisque;
+  font-size: 1rem;
 }
 .mem_container {
   max-width: 50%;
@@ -16,12 +17,12 @@ body {
   text-align: center;
   padding: 20px;
 }
-.mem_line {
+.mem_container__line {
   height: 2px;
   width: 100%;
   background-color: rgb(182, 182, 182);
 }
-.mem_btn {
+.mem_container__btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,7 +45,20 @@ h2 {
   color:rgb(14, 14, 192);
   transition: all 0.4s;
 }
-.mem_item {
+.mem__input:checked~label .prog_img{
+  width: 40%;
+  height: 40%;
+  padding-bottom: 10px;
+}
+.mem__input:checked~label .arrow_btn{
+  transform: rotate(-90deg);
+}
+.mem__input:checked~label h2{
+  color: black;
+}
+.mem_container__item,
+.mem_container__btn,
+.prog_img {
   cursor: pointer;
 }
 .mem_container:hover h2 {
@@ -53,11 +67,11 @@ h2 {
 .mem_container:hover .arrow_btn {
   background: url('../assets/arrow_right.svg') center/cover no-repeat;
 }
-.mem_item:hover .prog_img {
+.mem_container__item:hover .prog_img {
   width: 40%;
   height: 40%;
   padding-bottom: 10px;
 }
-.mem_item:hover .arrow_btn {
-  background: url('../assets/arrow_up.svg') center/cover no-repeat;
+.mem_container__item:hover .arrow_btn {
+  transform: rotate(-90deg);
 }

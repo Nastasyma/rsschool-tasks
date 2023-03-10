@@ -13,22 +13,28 @@
   <main class="main">
     <div class="mem_container">
       <h1>CSS Bayan</h1>
-      <div class="mem_line"></div>
-      <div class="mem_item">
-        <div class="mem_btn">
+      <div class="mem_container__line"></div>
+      <div class="mem_container__item">
+        <input type="radio" class="mem__input" name="accordion" id="mem-01" checked hidden>
+        <label class="mem_container__btn" for="mem-01">
           <h2>Find solution</h2>
           <div class="arrow_btn"></div>
-        </div>
-        <img src="assets/find_solution.JPG" class="prog_img" alt="find-solution-img">
-        <div class="mem_line"></div>
+        </label>
+        <label for="mem-01">
+          <img src="assets/find_solution.JPG" class="prog_img" alt="find-solution-img">
+        </label>
+        <div class="mem_container__line"></div>
       </div>
-      <div class="mem_item">
-        <div class="mem_btn">
+      <div class="mem_container__item">
+        <input type="radio" class="mem__input" name="accordion" id="mem-02" hidden>
+        <label class="mem_container__btn" for="mem-02">
           <h2>Programmer life</h2>
           <div class="arrow_btn"></div>
-        </div>
-        <img src="assets/prog_life.jpg" class="prog_img" alt="prog-life-img">
-        <div class="mem_line"></div>
+        </label>
+        <label for="mem-02">
+          <img src="assets/prog_life.jpg" class="prog_img" alt="prog-life-img">
+        </label>
+        <div class="mem_container__line"></div>
       </div>
     </div>
   </main>
