@@ -97,14 +97,15 @@ h1 {
 .prog_img {
   cursor: pointer;
 }
-
-@media (max-width: 860px) {
+@media (max-width: 1200px) {
   .header {
     max-width: 70%;
   }
   .mem_container {
     max-width: 70%;
   }
+}
+@media (max-width: 860px) {
   .mem_container__title {
     font-size: 0.9rem;
   }
@@ -122,6 +123,13 @@ h1 {
   .mem_container:hover .mem_container__title {
     color: black;
     text-shadow: none;
+  }
+  .mem__input:checked~label .prog_img,
+  .mem_container__item:hover .prog_img,
+  .mem_container__item:focus .prog_img {
+    width: 70%;
+    height: 70%;
+    padding: 0.5rem 0;
   }
 }
 @media (max-width: 700px) {
@@ -142,5 +150,11 @@ h1 {
   }
   .arrow_btn {
     margin-right: 0.5rem;
+  }
+  .mem__input:checked~label .prog_img,
+  .mem_container__item:hover .prog_img,
+  .mem_container__item:focus .prog_img {
+    width: 90%;
+    height: 90%;
   }
 }
