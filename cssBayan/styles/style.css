@@ -21,17 +21,17 @@ body {
   font-size: 1em;
 }
 .header {
-  max-width: 50%;
+  max-width: 50vw;
   margin: 0 auto;
   margin-top: 10vh;
 }
-.mem_container {
-  max-width: 50%;
+.meme_container {
+  max-width: 50vw;
   margin: 0 auto;
   text-align: center;
   box-shadow: 0.5rem 0.5rem 1rem black;
 }
-.mem_container__btn {
+.meme_container__btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,16 +52,16 @@ h1 {
   text-align: start;
   text-shadow: 0.5rem 0.5rem 1rem black;
 }
-.mem_container__title {
+.meme_container__title {
   font-size: 1.2rem;
   font-weight: 600;
-  color:black;
+  color:rgb(37, 37, 37);
   transition: all 0.4s;
 }
-.mem_container__item {
+.meme_container__item {
   background-color: rgb(228, 222, 222);
 }
-.mem_container__btn {
+.meme_container__btn {
   background-color: rgb(25, 121, 97);
   padding: 0.7rem;
 }
@@ -70,59 +70,63 @@ h1 {
   justify-content: center;
   align-items: center;
 }
-.mem__input:checked~label .prog_img,
-.mem_container__item:hover .prog_img,
-.mem_container__item:focus .prog_img {
+.meme__input:checked~label .prog_img,
+.meme_container__item:focus .prog_img {
   width: 50%;
   height: 50%;
   padding: 0.8rem 0;
 }
-.mem_container:hover .arrow_btn,
-.mem_container:focus .arrow_btn {
-  background: url('../assets/arrow.svg') center/cover no-repeat;
-}
-.mem__input:checked~label .arrow_btn,
-.mem_container__item:hover .arrow_btn,
-.mem_container__item:focus .arrow_btn {
+.meme__input:checked~label .arrow_btn {
   transform: rotate(-180deg);
 }
-.mem__input:checked~label .mem_container__title,
-.mem_container:hover .mem_container__title,
-.mem_container:focus .mem_container__title {
+.meme__input:checked~label .meme_container__title {
   color: white;
   text-shadow: 0.05rem 0.05rem 0.1rem black;
 }
-.mem_container__item,
-.mem_container__btn,
-.prog_img {
+.meme_container__item:active .meme_container__btn .meme_container__title {
+  color: gray;
+}
+.meme_container__item:active .prog_img {
+  filter: brightness(68%);
+}
+.meme_container__item:active .arrow_btn {
+  filter: invert(50%);
+}
+.meme_container__item:active {
+  background-color: rgb(179, 173, 173);
+}
+.meme_container__item,
+.meme_container__btn,
+.prog_img,
+.label_img {
   cursor: pointer;
 }
 @media (max-width: 1200px) {
   .header,
-  .mem_container {
-    max-width: 70%;
+  .meme_container {
+    max-width: 70vw;
   }
 }
 @media (max-width: 860px) {
-  .mem_container__title {
-    font-size: 0.9rem;
-  }
-  .mem_container__item:hover .prog_img {
+  /*.meme_container__item:hover .prog_img {
     width: 0;
     height: 0;
     padding: 0;
   }
-  .arrow_btn {
-    background: url('../assets/arrow.svg') center/cover no-repeat;
-  }
-  .mem_container__item:hover .arrow_btn {
+  .meme_container__item:hover .arrow_btn {
     transform: rotate(0);
   }
-  .mem_container:hover .mem_container__title {
+  .meme_container:hover .meme_container__title {
     color: black;
     text-shadow: none;
   }
-  .mem__input:checked~label .prog_img {
+  .arrow_btn {
+    background: url('../assets/arrow.svg') center/cover no-repeat;
+  }*/
+  .meme_container__title {
+    font-size: 0.9rem;
+  }
+  .meme__input:checked~label .prog_img {
     width: 70%;
     height: 70%;
     padding: 0.5rem 0;
@@ -139,20 +143,42 @@ h1 {
     margin-top: 5vh;
   }
   .header,
-  .mem_container {
-    max-width: 90%;
+  .meme_container {
+    max-width: 90vw;
   }
   h1 {
     font-size: 1.5rem;
   }
-  .mem_container__title {
+  .meme_container__title {
     font-size: 0.8rem;
   }
   .arrow_btn {
     margin-right: 0.5rem;
   }
-  .mem__input:checked~label .prog_img {
+  .meme__input:checked~label .prog_img {
     width: 90%;
     height: 90%;
+  }
+}
+@media (hover: hover) {
+  .meme_container__item:hover .prog_img {
+    width: 50%;
+    height: 50%;
+    padding: 0.8rem 0;
+  }
+  .meme_container:hover .arrow_btn {
+    background: url('../assets/arrow.svg') center/cover no-repeat;
+  }
+  .meme_container__item:hover .arrow_btn {
+    transform: rotate(-180deg);
+  }
+  .meme_container:hover .meme_container__title {
+    color: white;
+    text-shadow: 0.05rem 0.05rem 0.1rem black;
+  }
+}
+@media (hover: none) {
+  .arrow_btn {
+    background: url('../assets/arrow.svg') center/cover no-repeat;
   }
 }
