@@ -62,7 +62,8 @@ h1 {
   background-color: rgb(228, 222, 222);
 }
 .meme_container__btn {
-  background-color: rgb(25, 121, 97);
+  /*background-color: rgb(25, 121, 97);*/
+	background-image: linear-gradient(-180deg, rgb(27, 146, 116) 0%, rgb(18, 92, 73) 100%);
   padding: 0.7rem;
 }
 .label_img {
