@@ -1,0 +1,9 @@
+/* ------------ section__not_only start------------ */
+.section__not_only {
+  margin-top: -123px;
+  padding-top: 123px;
+  min-height: 908px;
+  background: url(noise_lines_transparent@2X.png),
+              radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+/* ------------ section__not_only end------------ */
