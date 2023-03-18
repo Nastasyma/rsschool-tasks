@@ -1,9 +1,60 @@
 /* ------------ section__not_only start------------ */
 .section__not_only {
   margin-top: -123px;
-  padding-top: 123px;
-  min-height: 908px;
+  padding-top: 181px;
   background: url('../../assets/images/noise_transparent@2x.png'),
               radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+.not_only__wrapper {
+  max-width: 1280px;
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.not_only__img {
+  flex: 0 0 58%;
+  max-height: 728px;
+}
+.puppy_img {
+  width: 100%;
+  height: 100%;
+}
+.not_only__description {
+  display: flex;
+  flex-direction: column;
+}
+h2 {
+  padding-top: 163px;
+  font-family: "Georgia";
+  font-size: 44px;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 57.2px;
+  padding-right: 150px;
+  margin: 0 0 42px 0;
+}
+.not_only__subtitle {
+  font-family: "Arial";
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #FFFFFF;  
+  padding-right: 42px;
+  margin-bottom: 42px;
+}
+.not_only__btn {
+  border: none;
+  background:#F1CDB3;
+  border-radius: 100px;
+  cursor: pointer;
+  padding: 15px 45px;
+  width: 207px;
+  font-family: "Georgia";
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 21.1px;
+  transition: .3s;
 }
 /* ------------ section__not_only end------------ */
