@@ -39,13 +39,14 @@ h2 {
   font-size: 15px;
   font-weight: 400;
   line-height: 24px;
-  color: #FFFFFF;
+  color: #CDCDCD;
   padding-right: 42px;
   margin-bottom: 42px;
 }
 .not_only__btn {
   border: none;
   background:#F1CDB3;
+  color: #292929;
   border-radius: 100px;
   cursor: pointer;
   padding: 15px 45px;
