@@ -1,5 +1,5 @@
-/* ------------ section__not-only start------------ */
-.section__not-only {
+/* ------------ section not-only start------------ */
+.not-only {
   margin-top: -123px;
   padding-top: 181px;
   background: url('../../assets/images/noise_transparent@2x.png'),
@@ -61,9 +61,9 @@ h2 {
   color: #292929;
   width: 207px;
 }
-/* ------------ section__not-only end------------ */
+/* ------------ section not-only end------------ */
 
-/* ------------ section__about-pets start------------ */
+/* ------------ section about-pets start------------ */
 .about-pets__wrapper {
   max-width: 1200px;
   padding: 80px 0 100px 0;
@@ -104,15 +104,16 @@ h3 {
   color: #4C4C4C;
   line-height: 24px;
 }
-/* ------------ section__about-pets end------------ */
-/* ------------ section__our-friends start------------ */
-.section__our-friends {
+/* ------------ section about-pets end------------ */
+
+/* ------------ section our-friends start------------ */
+.our-friends {
   background-color: #F6F6F6;
 }
 .our-friends__wrapper {
   position: relative;
   max-width: 1200px;
-  padding: 80px 0 100px 0;
+  padding: 80px 0 101px 0;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -188,4 +189,43 @@ h3 {
   cursor: pointer;
   transition: .3s;
 }
-/* ------------ section__our-friends end------------ */
+/* ------------ section our-friends end------------ */
+/* ------------ section help start------------ */
+.help__wrapper {
+  max-width: 1200px;
+  padding: 80px 0 99px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 60px;
+}
+.help__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 120px;
+  row-gap: 55px;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.help__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.help__item_icon {
+  width: 60px;
+  height: 60px;
+}
+.help__item_subtitle {
+  font-family: "Georgia";
+  font-size: 20px;
+  font-weight: 400;
+  color: #545454;
+  line-height: 23px;
+  letter-spacing: 1.2px;
+}
+/* ------------ section help end------------ */
