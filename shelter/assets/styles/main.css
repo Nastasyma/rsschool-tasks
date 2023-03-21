@@ -18,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-y: overlay;
 }
 * {
   box-sizing: border-box;
@@ -107,3 +108,57 @@ h1 {
 }
 
 /* ------------ header end ------------ */
+/* ------------ footer start ------------ */
+.footer__container {
+  max-width: 1280px;
+  padding: 40px 40px 0 40px;
+  display: flex;
+  justify-content: space-between;
+  gap: 13.3%;
+}
+.footer {
+  background: url('../../assets/images/noise_transparent@2x.png'),
+              radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+}
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 39px;
+}
+.footer__location {
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-right: 1px;
+}
+.footer__item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.footer__title {
+  color: #FFFFFF;
+  padding-top: 16px;
+}
+.footer__subtitle {
+  color: #F1CDB3;
+  font-family: 'Georgia';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 1.1px;
+}
+.footer__contacts_icon {
+  width: 40px;
+  height: 32px;
+}
+.footer__img {
+  max-height: 310px;
+  flex: 0 0 25%;
+}
+.footer__puppy_img {
+  width: 100%;
+  height: 100%;
+}
+/* ------------ footer end ------------ */
