@@ -134,7 +134,7 @@ h3 {
 }
 .cards_list {
   display: flex;
-  gap: 8.2%;
+  gap: 90px;
   position: relative;
   justify-content: space-around;
   list-style: none;

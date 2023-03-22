@@ -1,0 +1,35 @@
+/* ------------ header start ------------ */
+h1 {
+  color: #545454;
+}
+.logo_subtitle {
+  color: #292929;
+}
+.nav_link {
+  color: #545454;
+}
+.active_link {
+  color: #292929;
+}
+.nav_link:hover,
+.nav_link:focus {
+	color: #292929;
+}
+/* ------------ header end ------------ */
+/* ------------ section our-friends start------------ */
+.main_container {
+  background-color: #F6F6F6;
+  min-height: 1341px;
+}
+/* ------------ section our-friends end------------ */
+/* ------------ footer start ------------ */
+h3 {
+  font-family: "Georgia";
+  font-size: 35px;
+  font-weight: 400;
+  color: #545454;
+  line-height: 45.5px;
+  letter-spacing: 2.14px;
+  margin: 0;
+}
+/* ------------ footer end ------------ */
