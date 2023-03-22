@@ -53,13 +53,20 @@ h2 {
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 21.1px;
-  transition: .3s;
+  transition: all .3s ease-in-out;
 }
 .not-only__btn {
   border: none;
   background:#F1CDB3;
   color: #292929;
   width: 207px;
+}
+.not-only__btn:hover,
+.not-only__btn:focus {
+  background:#FDDCC4;
+}
+.not-only__btn:active {
+  background:#F1CDB3;
 }
 /* ------------ section not-only end------------ */
 
@@ -72,10 +79,10 @@ h2 {
   justify-content: space-between;
 }
 .about-pets__img {
+  display: flex;
   flex: 0 0 30%;
   padding-left: 14.7%;
   padding-right: 20px;
-  max-height: 408px;
 }
 .about-pets__description {
   display: flex;
@@ -118,21 +125,21 @@ h3 {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 60px;
+  gap: 30px;
 }
 .our-friends__cards {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1100px;
   overflow: hidden;
 }
 .cards_list {
   display: flex;
-  gap: 8.95%;
+  gap: 8.2%;
   position: relative;
   justify-content: space-around;
   list-style: none;
   margin: 0;
-  padding-left: 0;
+  padding: 30px 0;
 }
 .cards_item {
   background-color: #FAFAFA;
@@ -140,12 +147,23 @@ h3 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 0 27%;
+  flex: 0 0 24.5%;
   gap: 30px;
+  transition: all .3s ease-in-out;
+}
+.cards_item:hover {
+  cursor: pointer;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+}
+.cards_item:hover .card_btn {
+  border: 2px solid #FDDCC4;
+  background:#FDDCC4;
 }
 .cards_img {
   width: 100%;
   height: 100%;
+  border-radius: 9px 9px 0 0;
 }
 .card_title {
   font-family: "Georgia";
@@ -164,6 +182,15 @@ h3 {
   width: 187px;
   margin-bottom: 30px;
 }
+.card_btn:hover,
+.card_btn:focus {
+  border: 2px solid #FDDCC4;
+  background:#FDDCC4;
+}
+.card_btn:active {
+  border: 2px solid #F1CDB3;
+  background: #F1CDB3;
+}
 .our-friends__btn {
   width: 261px;
   padding: 15px 40px;
@@ -171,6 +198,13 @@ h3 {
   border: none;
   background:#F1CDB3;
   color: #292929;
+}
+.our-friends__btn:hover,
+.our-friends__btn:focus {
+  background:#FDDCC4;
+}
+.our-friends__btn:active {
+  background:#F1CDB3;
 }
 .cards_buttons_wrapper {
   width: 100%;
@@ -187,7 +221,16 @@ h3 {
   border: 2px solid #F1CDB3;
   background: none;
   cursor: pointer;
-  transition: .3s;
+  transition: all .3s ease-in-out;
+}
+.cards_buttons:hover,
+.cards_buttons:focus {
+  background: #FDDCC4;
+  border: 2px solid #FDDCC4;
+}
+.cards_buttons:active {
+  background: #F1CDB3;
+  border: 2px solid #F1CDB3;
 }
 /* ------------ section our-friends end------------ */
 /* ------------ section help start------------ */
@@ -245,8 +288,8 @@ h3 {
   max-width: 300px;
 }
 .in-addition__img_wrapper {
+  display: flex;
   flex: 0 0 55.3%;
-  max-height: 261px;
 }
 .in-addition_img {
   width: 100%;
@@ -273,6 +316,14 @@ h3 {
   background-color: #F1CDB3;
   border-radius: 9px;
   padding: 9px 0 11px 15px;
+  transition: all .3s ease-in-out;
+}
+.in-addition__card:hover,
+.in-addition__card:focus {
+  background:#FDDCC4;
+}
+.in-addition__card:active {
+  background:#F1CDB3;
 }
 .in-addition__card_text {
   font-family: "Georgia";
