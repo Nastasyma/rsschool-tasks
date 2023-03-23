@@ -166,3 +166,10 @@ h1 {
   filter: brightness(115%);
 }
 /* ------------ footer end ------------ */
+
+@media (max-width: 1050px) {
+  .footer__container {
+    flex-wrap: wrap;
+    justify-content: center ;
+  }
+}

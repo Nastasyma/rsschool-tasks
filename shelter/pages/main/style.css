@@ -362,3 +362,9 @@ h3 {
     width: 95%;
   }
 }
+@media (max-width: 1050px) {
+  .not-only__wrapper {
+    flex-wrap: wrap;
+    justify-content: center ;
+  }
+}
