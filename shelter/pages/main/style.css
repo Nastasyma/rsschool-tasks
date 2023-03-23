@@ -99,12 +99,12 @@ h3 {
   margin: 0;
 }
 .about-pets__title {
-  padding-right: 45%;
+  max-width: 370px;
   padding-top: 14px;
 }
 .about-pets__info {
   margin-top: 25px;
-  padding-right: 30%;
+  max-width: 430px;
   font-family: "Arial";
   font-size: 15px;
   font-weight: 400;
@@ -343,3 +343,22 @@ h3 {
   line-height: 18px;
 }
 /* ------------ section in-addition end------------ */
+
+@media (max-width: 1220px) {
+  .our-friends__cards {
+    max-width: 700px;
+  }
+  .cards_item {
+    flex: 0 0 37.5%;
+  }
+  .cards_item:first-child {
+    display: none;
+  }
+  .our-friends__wrapper {
+    max-width: 1240px;
+    padding: 80px 20px 101px 20px;
+  }
+  .cards_buttons_wrapper {
+    width: 95%;
+  }
+}
