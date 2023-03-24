@@ -367,4 +367,35 @@ h3 {
     flex-wrap: wrap;
     justify-content: center ;
   }
+  .not-only__img {
+    padding-top: 20px;
+  }
+  .about-pets__wrapper {
+    flex-wrap: wrap-reverse;
+    justify-content: center ;
+  }
+  .in-addition__wrapper {
+    flex-wrap: wrap-reverse;
+    justify-content: center ;
+  }
+  .about-pets__description {
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 780px) {
+  .not-only {
+    margin-top: -300px;
+  }
+  .our-friends__cards {
+    max-width: 400px;
+  }
+  .cards_item {
+    flex: 0 0 75%;
+  }
+  .cards_item:last-child {
+    display: none;
+  }
+  .cards_buttons_wrapper {
+    width: 90%;
+  }
 }
