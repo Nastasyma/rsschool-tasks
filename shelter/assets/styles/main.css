@@ -3,21 +3,27 @@
   font-style: normal;
   font-weight: 400;
   src:  local("Georgia"),
-        url('../../assets/fonts/georgia-regular.ttf') format("truetype");
+        url('../../assets/fonts/georgia-regular.ttf') format("truetype"),
+        url('../../assets/fonts/Georgia.woff') format("woff"),
+        url('../../assets/fonts/Georgia.woff2') format("woff2");
 }
 @font-face {
   font-family: 'Arial';
   font-style: normal;
   font-weight: 400;
   src:  local("Arial"),
-        url('../../assets/fonts/arial-regular.ttf') format("truetype");
+        url('../../assets/fonts/arial-regular.ttf') format("truetype"),
+        url('../../assets/fonts/ArialMT.woff') format("woff"),
+        url('../../assets/fonts/ArialMT.woff2') format("woff2");
 }
 @font-face {
   font-family: 'Arial';
   font-style: italic;
   font-weight: 400;
   src:  local("Arial"),
-        url('../../assets/fonts/arial-italic.ttf') format("truetype");
+        url('../../assets/fonts/arial-italic.ttf') format("truetype"),
+        url('../../assets/fonts/Arial-ItalicMT.woff') format("woff"),
+        url('../../assets/fonts/Arial-ItalicMT.woff2') format("woff2");
 }
 
 html {
