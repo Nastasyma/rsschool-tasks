@@ -6,11 +6,9 @@
               radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 .not-only__wrapper {
-  max-width: 1280px;
-  padding: 0 40px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  padding: 0 40px 0 40px;
 }
 .not-only__img {
   flex: 0 0 58%;
@@ -72,9 +70,6 @@ h2 {
 
 /* ------------ section about-pets start------------ */
 .about-pets__wrapper {
-  max-width: 1200px;
-  padding: 80px 0 100px 0;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
@@ -118,10 +113,8 @@ h3 {
   background-color: #F6F6F6;
 }
 .our-friends__wrapper {
+  padding-bottom: 101px;
   position: relative;
-  max-width: 1200px;
-  padding: 80px 0 101px 0;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -207,7 +200,7 @@ h3 {
   background:#F1CDB3;
 }
 .cards_buttons_wrapper {
-  width: 100%;
+  width: 93.8%;
   position: absolute;
   top: calc(50% - 17px);
   display: flex;
@@ -235,13 +228,11 @@ h3 {
 /* ------------ section our-friends end------------ */
 /* ------------ section help start------------ */
 .help__wrapper {
-  max-width: 1200px;
-  padding: 80px 0 99px 0;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   text-align: center;
   gap: 60px;
+  padding-bottom: 99px;
 }
 .help__list {
   display: flex;
@@ -258,6 +249,10 @@ h3 {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+}
+.help__item:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 .help__item_icon {
   width: 60px;
@@ -277,9 +272,7 @@ h3 {
   background-color: #F6F6F6;
 }
 .in-addition__wrapper {
-  max-width: 915px;
-  padding: 80px 0 100px 0;
-  margin: 0 auto;
+  padding: 80px 182px 100px 182px;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -344,7 +337,7 @@ h3 {
 }
 /* ------------ section in-addition end------------ */
 
-@media (max-width: 1220px) {
+/*@media (max-width: 1220px) {
   .our-friends__cards {
     max-width: 700px;
   }
@@ -353,13 +346,6 @@ h3 {
   }
   .cards_item:first-child {
     display: none;
-  }
-  .our-friends__wrapper {
-    max-width: 1240px;
-    padding: 80px 20px 101px 20px;
-  }
-  .cards_buttons_wrapper {
-    width: 95%;
   }
 }
 @media (max-width: 1050px) {
@@ -398,4 +384,4 @@ h3 {
   .cards_buttons_wrapper {
     width: 90%;
   }
-}
+}*/
