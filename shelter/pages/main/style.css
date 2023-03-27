@@ -8,7 +8,7 @@
 .not-only__wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 0 40px 0 40px;
+  padding: 0 40px;
 }
 .not-only__img {
   flex: 0 0 58%;
@@ -337,51 +337,109 @@ h3 {
 }
 /* ------------ section in-addition end------------ */
 
-/*@media (max-width: 1220px) {
-  .our-friends__cards {
-    max-width: 700px;
-  }
-  .cards_item {
-    flex: 0 0 37.5%;
-  }
-  .cards_item:first-child {
-    display: none;
-  }
-}
-@media (max-width: 1050px) {
-  .not-only__wrapper {
-    flex-wrap: wrap;
-    justify-content: center ;
-  }
-  .not-only__img {
-    padding-top: 20px;
-  }
-  .about-pets__wrapper {
-    flex-wrap: wrap-reverse;
-    justify-content: center ;
-  }
-  .in-addition__wrapper {
-    flex-wrap: wrap-reverse;
-    justify-content: center ;
-  }
-  .about-pets__description {
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 780px) {
-  .not-only {
-    margin-top: -300px;
+@media (max-width: 1220px) {
+  .about-pets__title {
+    padding-top: 0;
   }
   .our-friends__cards {
-    max-width: 400px;
+    max-width: 650px;
   }
   .cards_item {
-    flex: 0 0 75%;
+    flex: 0 0 41.4%;
+  }
+  .cards_buttons_wrapper {
+    top: calc(50% - 19px);
   }
   .cards_item:last-child {
     display: none;
   }
   .cards_buttons_wrapper {
+    width: 92%;
+  }
+  .cards_list {
+    gap: 40px;
+  }
+  .in-addition__wrapper {
+    padding: 80px 132px 100px 132px;
+  }
+}
+@media (max-width: 1050px) {
+  .not-only {
+    margin-top: -300px;
+    padding-top: 165px;
+  }
+  .not-only__wrapper {
+    flex-wrap: wrap;
+    justify-content: center ;
+    padding: 0 30px;
+  }
+  .not-only__description {
+    flex: 0 0 65%;
+  }
+  .not-only__img {
+    padding-top: 100px;
+    flex: 0 0 79.7%;
+  }
+  .not-only__btn {
+    margin: 0 auto;
+  }
+  .about-pets__wrapper {
+    flex-wrap: wrap-reverse;
+    justify-content: center ;
+  }
+  .about-pets__description {
+    flex: 0 0 60.8%;
+  }
+  .about-pets__info {
+    max-width: 600px;
+  }
+  .about-pets__img {
+    padding-top: 80px;
+  }
+  .in-addition__wrapper {
+    flex-wrap: wrap-reverse;
+    justify-content: center ;
+  }
+  .in-addition__img_wrapper {
+    flex: 0 0 100%;
+    padding-top: 30px;
+  }
+}
+@media (max-width: 780px) {
+  .not-only__subtitle {
+    padding-right: 0;
+    margin-bottom: 42px;
+  }
+  .not-only__img {
+    margin-left: auto;
+  }
+  .about-pets__img {
+    padding: 80px 0 0 0;
+  }
+  .help__list {
+    gap: 60px;
+    row-gap: 55px;
+    justify-content: space-between;
+    padding: 0 39px;
+  }
+  .help__item {
+    width: 170px;
+  }
+}
+@media (max-width: 760px) {
+  .our-friends__cards {
+    max-width: 400px;
+  }
+  .cards_list {
+    gap: 80px;
+  }
+  .cards_item {
+    flex: 0 0 67.6%;
+  }
+  .cards_item:nth-child(8) {
+    display: none;
+  }
+  .cards_buttons_wrapper {
     width: 90%;
   }
-}*/
+}
