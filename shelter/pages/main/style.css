@@ -466,6 +466,9 @@ h3 {
   .our-friends__cards {
     max-width: 400px;
   }
+  h3 {
+    font-size: 30px;
+  }
   /* .cards_list {
     gap: 80px;
   }
@@ -485,15 +488,39 @@ h3 {
     display: none;
   }
   .our-friends__btn {
-    margin-top: 72px;
+    margin-top: 73px;
   }
   .our-friends__wrapper {
-    gap: 13px;
+    gap: 12px;
   }
   .cards_buttons_wrapper {
     top: 73%;
     left: calc(50% - 92px);
     width: 184px;
+  }
+  .help__wrapper {
+    gap: 42px;
+  }
+  .help__item {
+    width: 130px;
+    gap: 20px;
+  }
+  .help__item_icon {
+    width: 50px;
+    height: 50px;
+  }
+  .help__item_subtitle {
+    font-size: 15px;
+    line-height: 16.5px;
+    letter-spacing: 1px;
+  }
+  .help__list {
+    gap: 30px;
+    row-gap: 30px;
+    padding: 0 5px;
+  }
+  .help__item:last-child {
+    margin-top: 2px;
   }
 }
 @media (max-width: 430px) {
@@ -524,6 +551,12 @@ h3 {
   .in-addition__wrapper {
     padding: 42px 10px;
   }
+  .about-pets__wrapper {
+    padding-bottom: 43px;
+  }
+  .our-friends__wrapper {
+    padding-bottom: 43px;
+  }
   .not-only__description {
     flex: 0 0 100%;
   }
@@ -548,6 +581,6 @@ h3 {
     max-width: 300px;
   }
   .cards_buttons_wrapper {
-    top: 76.2%;
+    top: 76.1%;
   }
 }
