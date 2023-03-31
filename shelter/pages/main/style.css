@@ -475,12 +475,8 @@ h3 {
   .cards_item:nth-child(8) {
     display: none;
   }*/
-  .section1 > .cards_item:nth-child(2) {
-    display: none;
-  }
-  .section2 > .cards_item:nth-child(2) {
-    display: none;
-  }
+  .section1 > .cards_item:nth-child(2),
+  .section2 > .cards_item:nth-child(2),
   .section3 > .cards_item:nth-child(2) {
     display: none;
   }
