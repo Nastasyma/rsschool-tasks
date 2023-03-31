@@ -17,7 +17,7 @@
         url('../../assets/fonts/ArialMT.woff2') format("woff2");
 }
 @font-face {
-  font-family: 'Arial';
+  font-family: 'Arial-Italic';
   font-style: italic;
   font-weight: 400;
   src:  local("Arial"),
@@ -81,6 +81,9 @@ h1 {
   font-weight: 400;
   letter-spacing: 1.3px;
   padding-left: 4px;
+}
+.header__container > a:hover {
+  opacity: 0.8;
 }
 .nav_list {
   display: flex;
@@ -278,5 +281,30 @@ h1 {
   .nav_link {
     font-size: 32px;
     line-height: 52.45px;
+  }
+  .footer__container {
+    padding: 30px 10px 0 10px;
+    gap: 40px;
+  }
+  .footer__img {
+    margin-top: 0;
+  }
+}
+@media (max-width: 430px) {
+  .footer__contacts {
+    align-items: center;
+  }
+  .footer__title {
+    max-width: 250px;
+    line-height: 32px;
+  }
+  .footer__location {
+    gap: 40px;
+  }
+  .footer__img {
+    flex: 0 0 87%;
+  }
+  .footer__puppy_img {
+    width: 100%;
   }
 }

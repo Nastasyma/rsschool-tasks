@@ -368,9 +368,6 @@ h3 {
     display: none;
   }
   .cards_buttons_wrapper {
-    top: calc(50% - 19px);
-  }
-  .cards_buttons_wrapper {
     width: 92%;
   }
   .in-addition__wrapper {
@@ -522,6 +519,10 @@ h3 {
   .help__item:last-child {
     margin-top: 2px;
   }
+  .in-addition__wrapper {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
 }
 @media (max-width: 430px) {
   h2 {
@@ -582,5 +583,32 @@ h3 {
   }
   .cards_buttons_wrapper {
     top: 76.1%;
+  }
+  .in-addition__info {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .in-addition__card {
+    margin-top: 3px;
+  }
+  .in-addition__card_text {
+    font-size: 15px;
+    line-height: 16.5px;
+    letter-spacing: 0.8px;
+  }
+  .in-addition__title {
+    max-width: 220px;
+  }
+  .in-addition__subtitle {
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 0 auto;
+  }
+  .in-addition__info_text {
+    text-align: justify;
+  }
+  .in-addition__img_wrapper {
+    flex: 0 0 86.5%;
+    padding-top: 12px;
   }
 }
