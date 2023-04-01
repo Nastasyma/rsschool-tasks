@@ -176,6 +176,9 @@ h3 {
   }
 }
 @media (max-width: 767px) {
+  .nav {
+    background-color: #FFFFFF;
+  }
   .burger_line {
     background-color: #000000;
   }
