@@ -12,26 +12,38 @@ console.log(`Shelter-part2.
 Итого: 100
 `);
 
+// Burger menu
+
 const burger = document.querySelector('.burger_menu');
 const menu = document.querySelector('.nav');
-const navList = document.querySelector('.nav_list');
+const navItem = document.querySelectorAll('.nav_item');
 const mobileWrapper = document.querySelector('.mobile_wrapper');
 const bodyHidden = document.querySelector('body');
 
-function activePopup() {
+function addBurger() {
+  menu.classList.add('open_menu');
+  burger.classList.add('burger_active');
+  mobileWrapper.classList.add('popup_active');
+  bodyHidden.classList.add('body_hidden');
+}
+
+function removeBurger() {
+  menu.classList.remove('open_menu');
+  mobileWrapper.classList.remove('popup_active');
+  burger.classList.remove('burger_active');
+  bodyHidden.classList.remove('body_hidden');
+}
+
+function activeBurger() {
   if (menu.classList.contains('open_menu')) {
-    menu.classList.remove('open_menu');
-    mobileWrapper.classList.remove('popup_active');
-    burger.classList.remove('burger_active');
-    bodyHidden.classList.remove('body_hidden');
+    removeBurger();
   } else {
-    menu.classList.add('open_menu');
-    burger.classList.add('burger_active');
-    mobileWrapper.classList.add('popup_active');
-    bodyHidden.classList.add('body_hidden');
+    addBurger();
   }
 };
 
-burger.addEventListener('click', activePopup);
-mobileWrapper.addEventListener('click', activePopup);
-navList.addEventListener('click', activePopup);
+burger.addEventListener('click', activeBurger);
+mobileWrapper.addEventListener('click', activeBurger);
+navItem.forEach(el => {
+  el.addEventListener('click', removeBurger);
+})
