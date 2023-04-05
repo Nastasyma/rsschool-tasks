@@ -1,3 +1,5 @@
+import animals from './pets.js';
+
 console.log(`Shelter-part2.
 1. Вёрстка страницы Main соответствует макету при ширине экрана 1280px: +14
 2. Вёрстка страницы Main соответствует макету при ширине экрана 768px: +14
@@ -47,3 +49,29 @@ mobileWrapper.addEventListener('click', activeBurger);
 navItem.forEach(el => {
   el.addEventListener('click', removeBurger);
 })
+
+// Popup
+
+const cardsItem = document.querySelectorAll('.cards_item');
+const closeIcon = document.querySelector('.close_icon');
+const popup = document.querySelector('.popup');
+const popupContent = document.querySelector('.popup__content');
+const mobileWrapperPopup = document.querySelector('.mobile_wrapper_popup');
+
+function popupAnimal() {
+  cardsItem.forEach(el => {
+    el.addEventListener('click', (e) => {
+      popup.classList.add('pets_popup_active');
+      mobileWrapperPopup.classList.add('popup_active');
+      mobileWrapperPopup.addEventListener('click', () => {
+        popup.classList.remove('pets_popup_active');
+        mobileWrapperPopup.classList.remove('popup_active');
+      })
+      closeIcon.addEventListener('click', () => {
+        popup.classList.remove('pets_popup_active');
+        mobileWrapperPopup.classList.remove('popup_active');
+      })
+    });
+  });
+}
+popupAnimal()

@@ -51,7 +51,8 @@ p {
 a {
   text-decoration: none;
 }
-.mobile_wrapper {
+.mobile_wrapper,
+.mobile_wrapper_popup {
   position: fixed;
   visibility: hidden;
   left: 0;
@@ -71,6 +72,104 @@ a {
   right: 0;
   left: 0;
   position: fixed;
+}
+.popup {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  z-index: 999;
+  /*display: none;*/
+  opacity: 0;
+  visibility: hidden;
+  background-color: #FAFAFA;
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  border-radius: 9px;
+  transition: all .2s;
+}
+.popup__close_icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #F1CDB3;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  top: -51px;
+  right: -41px;
+  z-index: 999;
+  transition: all .3s ease-in-out;
+}
+.close_icon:hover {
+  filter: saturate(0%) brightness(70%) contrast(1000%);
+}
+.pets_popup_active {
+  opacity: 1;
+  visibility: visible;
+}
+.img_popup {
+  width: 500px;
+  height: 500px;
+  display: block;
+  border-radius: 9px 0px 0px 9px;
+}
+.popup__wrapper {
+  display: flex;
+}
+.popup__content {
+  width: 400px;
+  padding: 50px 20px 0px 29px;
+  display: flex;
+  flex-direction: column;
+}
+.popup__title {
+  font-family: 'Georgia';
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 45.5px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+.popup__name {
+  font-family: 'Georgia';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 23px;
+  letter-spacing: 1.2px;
+  margin-bottom: 40px;
+}
+.popup__desc {
+  font-family: 'Georgia';
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.9px;
+  margin-bottom: 40px;
+}
+.popup__desc_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.desc_item {
+  font-family: 'Georgia';
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.3px;
+}
+.desc_item::before {
+  content: '\2022 ';
+  color: #F1CDB3;
+  padding-right: 9px;
+}
+.desc_item_name {
+  font-weight: 900;
+  line-height: 18px;
+  letter-spacing: 2px;
 }
 /* ------------ header start ------------ */
 .header {
