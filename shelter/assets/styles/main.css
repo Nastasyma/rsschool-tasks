@@ -355,6 +355,30 @@ h1 {
   .footer__title {
     padding-top: 0;
   }
+  .popup__close_icon {
+    top: -53px;
+    right: -42px;
+  }
+  .img_popup {
+    width: 350px;
+    height: 350px;
+  }
+  .popup__content {
+    width: 280px;
+    padding: 10px 9px 0px 11px;
+  }
+  .popup__name {
+    margin-bottom: 20px;
+  }
+  .popup__desc {
+    font-size: 13px;
+    line-height: 14.3px;
+    letter-spacing: 0.75px;
+    margin-bottom: 17px;
+  }
+  .popup__desc_list {
+    gap: 5px;
+  }
 }
 @media (max-width: 780px) {
   .container {
@@ -410,6 +434,32 @@ h1 {
   }
   .footer__img {
     margin-top: 0;
+  }
+  .popup__img_wrapper {
+    display: none;
+  }
+  .popup__close_icon {
+    top: -51px;
+    right: -29px;
+  }
+  .popup__content {
+    width: 240px;
+    padding: 12px 10px 11px 12px;
+  }
+  .popup__title,
+  .popup__name {
+    text-align: center;
+  }
+  .popup__title {
+    margin-bottom: 8px;
+  }
+  .popup__name {
+    margin-bottom: 22px;
+  }
+  .popup__desc {
+    margin-bottom: 20px;
+    letter-spacing: 0.7px;
+    text-align: justify;
   }
 }
 @media (max-width: 430px) {

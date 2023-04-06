@@ -134,6 +134,7 @@ function popupAnimal() {
       mobileWrapperPopup.addEventListener('click', () => {
         popup.classList.remove('pets_popup_active');
         mobileWrapperPopup.classList.remove('popup_active');
+        bodyHidden.classList.remove('body_hidden');
       })
       closeBTN.addEventListener('click', () => {
         popup.classList.remove('pets_popup_active');
