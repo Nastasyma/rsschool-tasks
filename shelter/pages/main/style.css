@@ -1,3 +1,25 @@
+/* --- animations start --- */
+
+@keyframes move-left {
+	from {left: 0px;}
+  to {left: 102%;}
+}
+@keyframes move-right {
+	from {left: 0px;}
+  to {left: -102%;}
+}
+.to-right {
+  animation-name: move-right;
+  animation-duration: .6s;
+}
+.to-left {
+  animation-name: move-left;
+  animation-duration: .6s;
+}
+
+/* --- animations end --- */
+
+
 /* ------------ section not-only start------------ */
 .not-only {
   margin-top: -123px;
@@ -128,7 +150,7 @@ h3 {
 }
 .cards_list {
   display: flex;
-  gap: 100%;
+  gap: 2%;
   position: relative;
   justify-content: space-around;
   list-style: none;
