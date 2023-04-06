@@ -1,5 +1,6 @@
 import animals from '../../assets/js/pets.js';
 import { getRandomNum } from '../../assets/js/help.js';
+import { popupAnimal } from '../../assets/js/popup.js';
 
 // pets slider
 
@@ -10,54 +11,86 @@ const section3 = document.querySelector('.section3');
 const BTNleft = document.querySelector('.left_btn');
 const BTNright = document.querySelector('.right_btn');
 
-let cardsLeftArr = [];
-let cardsMidArr = [];
-let cardsRightArr = [];
+let cards1 = [];
+let cards2 = [];
+let cards3 = [];
 let petIndex;
 
-function countCards(count) {
-  for (let i=0; i<count; i++) {
+function getCards() {
+  cards1.length = 0;
+  cards2.length = 0;
+  cards3.length = 0;
+  for (let i=0; i<3; i++) {
     petIndex = getRandomNum(0, animals.length-1);
-    if (cardsMidArr.includes(animals[petIndex])) {
+    if (cards2.includes(animals[petIndex])) {
       i--
     } else {
-      cardsMidArr.push(animals[petIndex]);
+      cards2.push(animals[petIndex]);
     }
   }
-  console.log("cardsMidArr =", cardsMidArr);
-
-  for (let i=0; i<count; i++) {
+  // console.log("cards2 =", cards2);
+  for (let i=0; i<3; i++) {
     petIndex = getRandomNum(0, animals.length-1);
-    if (cardsRightArr.includes(animals[petIndex]) || cardsMidArr.includes(animals[petIndex])) {
+    if (cards1.includes(animals[petIndex]) || cards2.includes(animals[petIndex])) {
       i--
     } else {
-      cardsRightArr.push(animals[petIndex]);
+      cards1.push(animals[petIndex]);
     }
   }
-  console.log("cardsRightArr =", cardsRightArr);
-
-  for (let i=0; i<count; i++) {
+  // console.log("cards1 =", cards1);
+  for (let i=0; i<3; i++) {
     petIndex = getRandomNum(0, animals.length-1);
-    if (cardsLeftArr.includes(animals[petIndex]) || cardsMidArr.includes(animals[petIndex])) {
+    if (cards3.includes(animals[petIndex]) || cards2.includes(animals[petIndex])) {
       i--
     } else {
-      cardsLeftArr.push(animals[petIndex]);
+      cards3.push(animals[petIndex]);
     }
   }
-  console.log("cardsLeftArr =", cardsLeftArr);
+  // console.log("cards3 =", cards3);
 }
-function sortCards() {
-  if (window.innerWidth > 1220) {
-    countCards(3)
+getCards();
+
+function getNextCards() {
+  for (let i=0; i<3; i++) {
+    petIndex = getRandomNum(0, animals.length-1);
+    if (cards1.includes(animals[petIndex])) {
+      i--
+    } else {
+      cards1.push(animals[petIndex]);
+    }
   }
-  if (window.innerWidth < 1220 && window.innerWidth > 760) {
-    countCards(2)
-  }
-  if (window.innerWidth < 761) {
-    countCards(1)
+  cards1 = cards1.slice(3,6);
+  // console.log("cards1 =", cards1);
+}
+
+function createCard(arr, div) {
+  for (let i = 0; i < arr.length; i++) {
+    const cardItem = document.createElement('div');
+    cardItem.classList.add('cards_item');
+    cardItem.dataset.id = arr[i].id;
+    let petImg = new Image();
+    petImg.classList.add('cards_img');
+    petImg.src = arr[i].img;
+    petImg.alt = `${arr[i].name} photo`;
+    cardItem.appendChild(petImg);
+    const cardTitle = document.createElement('span');
+    cardTitle.classList.add('card_title');
+    cardTitle.textContent = arr[i].name;
+    cardItem.appendChild(cardTitle);
+    const cardBTN = document.createElement('button');
+    cardBTN.classList.add('btn');
+    cardBTN.classList.add('card_btn');
+    cardBTN.textContent = "Learn more";
+    cardItem.appendChild(cardBTN);
+    div.append(cardItem);
   }
 }
-sortCards();
+createCard(cards1, section1);
+createCard(cards2, section2);
+createCard(cards3, section3);
+popupAnimal();
+
+const cardsItem = document.querySelectorAll('.cards_item');
 
 cardsList.addEventListener('animationend', (animationEvent) => {
 
@@ -66,22 +99,35 @@ cardsList.addEventListener('animationend', (animationEvent) => {
     cardsList.classList.remove('to-left');
     changedItem = section1;
     section2.innerHTML = changedItem.innerHTML;
+    changedItem.innerHTML = "";
+    getNextCards();
+    createCard(cards1, section1);
+    popupAnimal();
   } else if (animationEvent.animationName === 'move-right') {
     cardsList.classList.remove('to-right');
     changedItem = section3;
     section2.innerHTML = changedItem.innerHTML;
+    changedItem.innerHTML = "";
+    getNextCards();
+    createCard(cards1, section3);
+    popupAnimal();
   }
-
+  // console.log(section1);
+  // console.log(section2);
+  // console.log(section3);
+  // console.log(cards1);
   BTNleft.addEventListener('click', moveLeft);
   BTNright.addEventListener('click', moveRight);
 });
 
 const moveLeft = () => {
+  section3.innerHTML = section2.innerHTML;
   cardsList.classList.add('to-left');
   BTNleft.removeEventListener('click', moveLeft);
   BTNright.removeEventListener('click', moveRight);
 };
 const moveRight = () => {
+  section1.innerHTML = section2.innerHTML;
   cardsList.classList.add('to-right');
   BTNright.removeEventListener('click', moveRight);
   BTNleft.removeEventListener('click', moveLeft);
@@ -89,3 +135,5 @@ const moveRight = () => {
 
 BTNleft.addEventListener('click', moveLeft);
 BTNright.addEventListener('click', moveRight);
+
+export { cardsItem };
