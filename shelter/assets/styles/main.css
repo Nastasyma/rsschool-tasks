@@ -365,7 +365,7 @@ h1 {
   }
   .popup__content {
     width: 280px;
-    padding: 10px 9px 0px 11px;
+    padding: 10px 9px 10px 11px;
   }
   .popup__name {
     margin-bottom: 20px;

@@ -1,5 +1,4 @@
 import animals from './pets.js';
-// import { cardsItem } from '../../pages/main/main.js';
 
 // Popup
 

@@ -1,6 +1,6 @@
-import animals from '../../assets/js/pets.js';
-import { getRandomNum } from '../../assets/js/help.js';
-import { popupAnimal } from '../../assets/js/popup.js';
+import animals from './pets.js';
+import { getRandomNum } from './help.js';
+import { popupAnimal } from './popup.js';
 
 // pets slider
 
@@ -28,7 +28,6 @@ function getCards() {
       cards2.push(animals[petIndex]);
     }
   }
-  // console.log("cards2 =", cards2);
   for (let i=0; i<3; i++) {
     petIndex = getRandomNum(0, animals.length-1);
     if (cards1.includes(animals[petIndex]) || cards2.includes(animals[petIndex])) {
@@ -37,7 +36,6 @@ function getCards() {
       cards1.push(animals[petIndex]);
     }
   }
-  // console.log("cards1 =", cards1);
   for (let i=0; i<3; i++) {
     petIndex = getRandomNum(0, animals.length-1);
     if (cards3.includes(animals[petIndex]) || cards2.includes(animals[petIndex])) {
@@ -46,7 +44,6 @@ function getCards() {
       cards3.push(animals[petIndex]);
     }
   }
-  // console.log("cards3 =", cards3);
 }
 getCards();
 
@@ -60,7 +57,6 @@ function getNextCards() {
     }
   }
   cards1 = cards1.slice(3,6);
-  // console.log("cards1 =", cards1);
 }
 
 function createCard(arr, div) {
@@ -83,14 +79,12 @@ function createCard(arr, div) {
     cardBTN.textContent = "Learn more";
     cardItem.appendChild(cardBTN);
     div.append(cardItem);
+    popupAnimal();
   }
 }
 createCard(cards1, section1);
 createCard(cards2, section2);
 createCard(cards3, section3);
-popupAnimal();
-
-const cardsItem = document.querySelectorAll('.cards_item');
 
 cardsList.addEventListener('animationend', (animationEvent) => {
 
@@ -112,10 +106,6 @@ cardsList.addEventListener('animationend', (animationEvent) => {
     createCard(cards1, section3);
     popupAnimal();
   }
-  // console.log(section1);
-  // console.log(section2);
-  // console.log(section3);
-  // console.log(cards1);
   BTNleft.addEventListener('click', moveLeft);
   BTNright.addEventListener('click', moveRight);
 });
@@ -135,5 +125,3 @@ const moveRight = () => {
 
 BTNleft.addEventListener('click', moveLeft);
 BTNright.addEventListener('click', moveRight);
-
-export { cardsItem };
