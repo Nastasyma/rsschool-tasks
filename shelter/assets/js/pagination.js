@@ -1,5 +1,5 @@
 import animals from './pets.js';
-import { getRandomNum } from './help.js';
+import { getRandomNum, shuffle } from './help.js';
 import { popupAnimal } from './popup.js';
 
 const cardsList = document.querySelector('.cards_list');
@@ -7,44 +7,47 @@ const btnLEFT = document.querySelectorAll('.btn-left');
 const btnRIGHT = document.querySelectorAll('.btn-right');
 const btnPages = document.querySelector('.btn_slider');
 
+const randomArr = [];
 let currPage = 1;
 let pages = 6;
 let cardsArr = [];
 let currArr = [];
 let petIndex;
-// let cardsAmount = 8;
+
 
 document.addEventListener("DOMContentLoaded", () => {
   getWindowSize();
   window.addEventListener('resize', getWindowSize)
 });
 
-// function countCards() {
-//   if (pages === 6) {
-//     cardsAmount = 8;
-//   } else if (pages === 8) {
-//     cardsAmount = 6;
-//   } else if (pages === 16) {
-//     cardsAmount = 3;
-//   }
-// }
-// countCards();
+function getRandomStartArray() {
+  for (let i=0; i<8; i++) {
+    petIndex = getRandomNum(0, animals.length-1);
+    if (randomArr.includes(animals[petIndex])) {
+      i--
+    } else {
+      randomArr.push(animals[petIndex]);
+    }
+  }
+}
+getRandomStartArray();
+// console.log(randomArr);
 
 function getRandomArray() {
   for (let i=0; i<6; i++) {
     cardsArr[i] = getSubArr();
   }
   function getSubArr() {
-    const subArr = [];
-    for (let i=0; i<8; i++) {
-      petIndex = getRandomNum(0, animals.length-1);
-      if (subArr.includes(animals[petIndex])) {
-        i--
-      } else {
-        subArr.push(animals[petIndex]);
-      }
-    }
-    return subArr;
+    const subArr1 = [];
+    const subArr2 = [];
+    const subArr3 = [];
+
+    subArr1.push(shuffle(randomArr.slice(0,3)));
+    subArr2.push(shuffle(randomArr.slice(3,6)));
+    subArr3.push(shuffle(randomArr.slice(6,8)));
+
+    // console.log(subArr1.concat(subArr2,subArr3).flat())
+    return subArr1.concat(subArr2,subArr3).flat();
   }
   cardsArr = cardsArr.flat();
   return cardsArr
