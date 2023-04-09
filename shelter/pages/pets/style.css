@@ -123,16 +123,6 @@ h1 {
   border: 2px solid #CDCDCD;
   color: #CDCDCD;
 }
-.btn_slider:hover,
-.btn_slider:focus {
-  cursor: pointer;
-  background: #FDDCC4;
-  border: 2px solid #FDDCC4;
-}
-.btn_slider:active {
-  background: #F1CDB3;
-  border: 2px solid #F1CDB3;
-}
 .btn_active:hover,
 .btn_active:focus {
   cursor: pointer;

@@ -42,55 +42,14 @@
           <br>
           are looking for a house</h3>
         <div class="our-friends__cards">
-          <ul class="cards_list">
-            <li class="cards_item">
-              <img src="../../assets/images/katrine.png" class="cards_img" alt="katrine photo">
-              <span class="card_title">Katrine</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/jennifer.png" class="cards_img" alt="jennifer photo">
-              <span class="card_title">Jennifer</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/woody.png" class="cards_img" alt="woody photo">
-              <span class="card_title">Woody</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/sophia.png" class="cards_img" alt="sophia photo">
-              <span class="card_title">Sophia</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/timmy.png" class="cards_img" alt="timmy photo">
-              <span class="card_title">Timmy</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/charly.png" class="cards_img" alt="charly photo">
-              <span class="card_title">Charly</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/scarlett.png" class="cards_img" alt="scarlett photo">
-              <span class="card_title">Scarlett</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-            <li class="cards_item">
-              <img src="../../assets/images/freddie.png" class="cards_img" alt="freddie photo">
-              <span class="card_title">Freddie</span>
-              <button class="btn card_btn">Learn more</button>
-            </li>
-          </ul>
+          <ul class="cards_list"></ul>
         </div>
         <div class="our-friends__buttons">
-          <button class="our-friends__btn btn_inactive" disabled>&lt;&lt;</button>
-          <button class="our-friends__btn btn_inactive" disabled>&lt;</button>
-          <button class="our-friends__btn btn_slider" disabled>1</button>
-          <button class="our-friends__btn btn_active">&gt;</button>
-          <button class="our-friends__btn btn_active">&gt;&gt;</button>
+          <button class="our-friends__btn btn-left btn_inactive" disabled>&lt;&lt;</button>
+          <button class="our-friends__btn btn-left btn_inactive" disabled>&lt;</button>
+          <button class="our-friends__btn btn_slider">1</button>
+          <button class="our-friends__btn btn-right btn_active">&gt;</button>
+          <button class="our-friends__btn btn-right btn_active">&gt;&gt;</button>
         </div>
       </div>
     </div>
@@ -125,6 +84,29 @@
     </div>
   </footer>
   <div class="mobile_wrapper"></div>
-  <script src="../../assets/styles/index.js"></script>
+  <div class="mobile_wrapper_popup"></div>
+  <div class="popup">
+    <button class="popup__close_icon">
+      <img src="../../assets/icons/close-icon.svg" class="close_icon" alt="close icon">
+    </button>
+    <div class="popup__wrapper">
+      <div class="popup__img_wrapper">
+        <img src="../../assets/images/jennifer.png" class="img_popup" alt="pet img">
+      </div>
+      <div class="popup__content">
+        <span class="popup__title">Jennifer</span>
+        <span class="popup__name">Dog - Labrador</span>
+        <p class="popup__desc">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+        <ul class="popup__desc_list">
+          <li class="desc_item"><span class="desc_item_name">Age: </span>2 months</li>
+          <li class="desc_item"><span class="desc_item_name">Inoculations: </span>none</li>
+          <li class="desc_item"><span class="desc_item_name">Diseases: </span>none</li>
+          <li class="desc_item"><span class="desc_item_name">Parasites: </span>none</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/js/index.js" type="module"></script>
+  <script src="../../assets/js/pagination.js" type="module"></script>
 </body>
 </html>
