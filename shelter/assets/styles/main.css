@@ -62,16 +62,14 @@ a {
   z-index: 90;
   transition: all .3s ease-in-out;
 }
+.mobile_wrapper {
+  display: none;
+}
 .popup_active {
   visibility: visible;
   background: rgba(0, 0, 0, 0.6);
 }
 .body_hidden {
-  /* height: 100vh;
-  overflow-y: scroll;
-  right: 0;
-  left: 0;
-  position: fixed; */
   overflow: hidden;
 }
 .popup {
@@ -80,7 +78,6 @@ a {
   left: 50%;
   top: 50%;
   z-index: 999;
-  /*display: none;*/
   opacity: 0;
   visibility: hidden;
   background-color: #FAFAFA;
@@ -306,7 +303,6 @@ h1 {
   max-width: 279px;
 }
 .footer__location {
-  /*flex: 0 0 25%;*/
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -396,6 +392,9 @@ h1 {
   }
 }
 @media (max-width: 767px) {
+  .mobile_wrapper {
+    display: block;
+  }
   .header__container {
     padding: 0 20px;
   }
