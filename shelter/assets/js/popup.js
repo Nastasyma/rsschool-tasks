@@ -7,8 +7,11 @@ function popupAnimal() {
   const popup = document.querySelector('.popup');
   const mobileWrapperPopup = document.querySelector('.mobile_wrapper_popup');
   const cardsItem = document.querySelectorAll('.cards_item');
+  const burger = document.querySelector('.burger_menu');
+
   cardsItem.forEach(el => {
     el.addEventListener('click', (e) => {
+      burger.classList.add('burger_popup');
       const card = animals.find(el => el['id'] === e.currentTarget.dataset.id)
       // console.log(card);
       popup.innerHTML = "";
@@ -81,11 +84,13 @@ function popupAnimal() {
       mobileWrapperPopup.classList.add('popup_active');
       bodyHidden.classList.add('body_hidden');
       mobileWrapperPopup.addEventListener('click', () => {
+        burger.classList.remove('burger_popup');
         popup.classList.remove('pets_popup_active');
         mobileWrapperPopup.classList.remove('popup_active');
         bodyHidden.classList.remove('body_hidden');
       })
       closeBTN.addEventListener('click', () => {
+        burger.classList.remove('burger_popup');
         popup.classList.remove('pets_popup_active');
         mobileWrapperPopup.classList.remove('popup_active');
         bodyHidden.classList.remove('body_hidden');
