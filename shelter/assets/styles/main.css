@@ -283,6 +283,9 @@ h1 {
 .burger_active {
   transform: rotate(90deg);
 }
+.burger_popup {
+  z-index: 0;
+}
 /* ------------ header end ------------ */
 /* ------------ footer start ------------ */
 .footer__container {
