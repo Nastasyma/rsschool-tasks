@@ -1,0 +1,67 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(185, 185, 185);
+  width: 100vw;
+  height: 100vh;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.game {
+  display: flex;
+  justify-content: center;
+}
+.game__container {
+  display: flex;
+  flex-direction: column;
+  border: 4px outset;
+}
+.game__stats {
+  padding: 20px 20px 0 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+.game__stats-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 4px inset;
+  padding: 10px;
+}
+.game__movies,
+.game__timer {
+  font-size: 56px;
+  padding: 3px;
+  background-color: black;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.game__button {
+  width: 50px;
+  height: 50px;
+  border: 4px outset;
+  cursor: pointer;
+}
+.game__wrapper {
+  padding: 20px;
+}
+.game__field {
+  border: 4px inset;
+}
+.game__field-row {
+  display: flex;
+}
+.game__cell {
+  width: 40px;
+  height: 40px;
+  border: 3px outset;
+  cursor: pointer;
+}

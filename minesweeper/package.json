@@ -7,7 +7,7 @@
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open",
     "lint": "eslint --fix .",
-    "deploy":  "gh-pages -d ../dist -e minesweeper"
+    "deploy":  "gh-pages -d dist -e minesweeper"
   },
   "repository": {
     "type": "git",
