@@ -7,13 +7,30 @@
   <title>Minesweeper</title>
 </head>
 <body>
+  <header class="header">
+    <div class="header__container">
+      <button class="game__button button-newgame">New game</button>
+      <button class="game__button button-save">Save</button>
+      <button class="game__button button-load">Load</button>
+      <button class="game__button button-results">Top Results</button>
+    </div>
+  </header>
   <main class="game">
     <div class="game__container">
       <div class="game__stats">
         <div class="game__stats-wrapper">
-          <div class="game__movies">000</div>
-          <button class="game__button"></button>
-          <div class="game__timer">000</div>
+          <div class="game__bombs">
+            <div class="game__bombs-title">Bombs:</div>
+            <div class="game__bombs-count">000</div>
+          </div>
+          <div class="game__movies">
+            <div class="game__movies-title">Movies:</div>
+            <div class="game__movies-count">000</div>
+          </div>
+          <div class="game__timer">
+            <div class="game__timer-title">Time:</div>
+            <div class="game__timer-time">000</div>
+          </div>
         </div>
       </div>
       <div class="game__wrapper">
@@ -140,7 +157,22 @@
           </div>
         </div>
       </div>
+      <div class="game__settings">
+        <div class="game__settings-wrapper">
+          <div class="game__settings-field-size">Field size: 10x10</div>
+          <button class="game__settings-theme game__button">gray</button>
+          <button class="game__settings-volume game__button">vol</button>
+        </div>
+      </div>
     </div>
   </main>
+  <footer class="footer">
+    <div class="footer__container">
+      <button class="footer__settings-easy game__button level-active">Easy</button>
+      <button class="footer__settings-medium game__button">Medium</button>
+      <button class="footer__settings-hard game__button">Hard</button>
+      <input type="number" class="footer__settings-bombs" placeholder="number of mines">
+    </div>
+  </footer>
 </body>
 </html>

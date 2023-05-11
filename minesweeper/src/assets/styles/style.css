@@ -1,3 +1,22 @@
+/* press-start-2p-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/press-start-2p-v15-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/press-start-2p-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/press-start-2p-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/press-start-2p-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/press-start-2p-v15-latin-regular.ttf') format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'digital';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/digital-7.ttf') format('truetype');
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -5,38 +24,67 @@ html {
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(185, 185, 185);
   width: 100vw;
   height: 100vh;
   font-weight: 700;
+  background: url('../images/bg.jpg') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.game {
+.game,
+.header,
+.footer {
   display: flex;
   justify-content: center;
+}
+.header__container,
+.footer__container {
+  display: flex;
+  padding: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.footer__container {
+  margin-top: 20px;
+}
+.game__button {
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+  border: 4px outset;
+  background-color:  rgb(200, 200, 200);
+  padding: 10px;
+  cursor: pointer;
 }
 .game__container {
   display: flex;
   flex-direction: column;
   border: 4px outset;
+  background-color: rgb(185, 185, 185);
 }
 .game__stats {
   padding: 20px 20px 0 20px;
   margin: 0 auto;
   width: 100%;
 }
-.game__stats-wrapper {
+.game__settings {
+  padding: 0 20px 20px 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+.game__stats-wrapper,
+.game__settings-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 4px inset;
   padding: 10px;
 }
-.game__movies,
-.game__timer {
-  font-size: 56px;
+.game__movies-count,
+.game__timer-time,
+.game__bombs-count {
+  font-family: 'digital', sans-serif;
+  font-size: 64px;
   padding: 3px;
   background-color: black;
   color: red;
@@ -44,11 +92,17 @@ body {
   justify-content: center;
   align-items: center;
 }
-.game__button {
-  width: 50px;
-  height: 50px;
-  border: 4px outset;
-  cursor: pointer;
+.game__bombs-title,
+.game__movies-title,
+.game__timer-title {
+  margin-bottom: 5px;
+  text-align: center;
+  font-family: 'Press Start 2P';
+  font-size: 12px;
+}
+.game__button:active {
+  border: 4px inset;
+  transform: scale(0.9);
 }
 .game__wrapper {
   padding: 20px;
@@ -62,6 +116,24 @@ body {
 .game__cell {
   width: 40px;
   height: 40px;
-  border: 3px outset;
+  border: 4px outset;
+  background-color:  rgb(179, 179, 179);
   cursor: pointer;
+}
+.game__cell:active {
+  border: none;
+}
+.footer__settings-bombs {
+  width: 150px;
+  border: 2px outset;
+  background-color: rgb(200, 200, 200);
+  padding: 10px;
+}
+.level-active {
+  background-color: red;
+  border: 4px outset rgb(211, 0, 0);
+}
+.level-active:active {
+  background-color: red;
+  border: 4px inset rgb(211, 0, 0);
 }
