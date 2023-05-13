@@ -24,18 +24,20 @@ function createFieldCells(width) {
 function createBombs(width) {
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombs = bombsInput.value;
+  const cells = document.querySelectorAll('.game__cell');
   for (let i = 0; i < bombs; i += 1) {
     bombsCellsArr.push('bomb');
   }
-  const emptyCell = width * width - bombs;
+  const emptyCell = width * width - bombs - 1;
   for (let i = 0; i < emptyCell; i += 1) {
     emptyCellsArr.push('empty');
   }
   cellsArrSorted = bombsCellsArr.concat(emptyCellsArr);
   shuffle(cellsArrSorted);
-  const cells = document.querySelectorAll('.game__cell');
   for (let i = 0; i < cells.length; i += 1) {
-    cells[i].classList.add(cellsArrSorted[i]);
+    if (!cells[i].classList.contains('first-click')) {
+      cells[i].classList.add(cellsArrSorted[i]);
+    }
     let count = 0;
     if (cells[i].classList.contains('empty')) {
       if (!i % width === 0) {
@@ -56,6 +58,28 @@ function createBombs(width) {
       // cells[i].innerHTML = cells[i].id;
     }
   }
+}
+
+function clickOnCell() {
+  const cells = document.querySelectorAll('.game__cell');
+  const gameMovies = document.querySelector('.game__movies-count');
+  let movies = 0;
+  cells.forEach((el) => {
+    el.addEventListener('click', () => {
+      if (gameMovies.innerHTML === '000') {
+        el.classList.add('first-click');
+        createBombs(10);
+      }
+      movies += 1;
+      if (movies < 10) {
+        gameMovies.innerHTML = `00${movies}`;
+      } else if (movies < 100) {
+        gameMovies.innerHTML = `0${movies}`;
+      } else {
+        gameMovies.innerHTML = movies;
+      }
+    });
+  });
 }
 
 function changeBombs() {
@@ -80,4 +104,4 @@ function changeBombs() {
   });
 }
 
-export { createFieldCells, changeBombs, createBombs };
+export { createFieldCells, changeBombs, clickOnCell };

@@ -119,6 +119,7 @@ body {
 .game__cell {
   width: 43px;
   height: 43px;
+  font-family: 'Press Start 2P';
   border: 4px outset;
   background-color:  rgb(179, 179, 179);
   cursor: pointer;
@@ -140,5 +141,5 @@ body {
   border: 4px inset brown;
 }
 .bomb {
-  background-color: red;
+  background: url('../icons/bomb.svg');
 }
