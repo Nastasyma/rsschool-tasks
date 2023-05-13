@@ -1,12 +1,11 @@
 import './assets/styles/style.css';
 import './assets/styles/normalize.css';
-import { changeBombs } from './js/game.js';
-import {
-  createHeader, createFooter, createMain, createFieldCells,
-} from './js/app.js';
+import { createFieldCells, changeBombs, createBombs } from './js/game.js';
+import { createHeader, createFooter, createMain } from './js/app.js';
 
 createHeader();
 createMain();
 createFooter();
-createFieldCells(10, 10);
+createFieldCells(10);
 changeBombs();
+createBombs(10);

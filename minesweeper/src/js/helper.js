@@ -7,10 +7,8 @@ function formatTime(seconds) {
   return `${min}:${sec}`;
 }
 
-function getRandomNum(min, max) {
-  const a = Math.ceil(min);
-  const b = Math.floor(max);
-  return Math.floor(Math.random() * (a - b + 1)) + a;
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
 }
 
-export { formatTime, getRandomNum };
+export { formatTime, shuffle };

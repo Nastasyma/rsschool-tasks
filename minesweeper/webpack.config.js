@@ -84,6 +84,7 @@ const conf = {
       favicon: 'src/assets/icons/favicon.ico',
       template: './src/index.html',
       filename: './index.html',
+      minify: false,
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/styles/[name].css',

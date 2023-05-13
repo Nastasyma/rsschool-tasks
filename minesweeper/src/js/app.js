@@ -16,7 +16,7 @@ function createHeader() {
   btn3.textContent = 'Load';
   const btn4 = document.createElement('button');
   btn4.className = 'game__button button-results';
-  btn4.textContent = 'Top results';
+  btn4.textContent = 'Results';
   headerContainer.appendChild(btn1);
   headerContainer.appendChild(btn2);
   headerContainer.appendChild(btn3);
@@ -124,26 +124,21 @@ function createFooter() {
   body.append(footer);
 }
 
-function createFieldCells(rows, cells) {
-  const field = document.querySelector('.game__field');
-  for (let i = 0; i < rows; i += 1) {
-    const gameRow = document.createElement('div');
-    gameRow.classList.add('game__field-row');
-    field.appendChild(gameRow);
-  }
-  const row = document.querySelectorAll('.game__field-row');
-  row.forEach((el) => {
-    for (let i = 0; i < cells; i += 1) {
-      const gameCell = document.createElement('button');
-      gameCell.classList.add('game__cell');
-      el.appendChild(gameCell);
-    }
-  });
-}
+// function createFieldCells(rows, cells) {
+//   const field = document.querySelector('.game__field');
+//   for (let i = 0; i < rows; i += 1) {
+//     const gameRow = document.createElement('div');
+//     gameRow.classList.add('game__field-row');
+//     field.appendChild(gameRow);
+//   }
+//   const row = document.querySelectorAll('.game__field-row');
+//   row.forEach((el) => {
+//     for (let i = 0; i < cells; i += 1) {
+//       const gameCell = document.createElement('button');
+//       gameCell.classList.add('game__cell');
+//       el.appendChild(gameCell);
+//     }
+//   });
+// }
 
-export {
-  createHeader,
-  createFooter,
-  createMain,
-  createFieldCells,
-};
+export { createHeader, createFooter, createMain };
