@@ -1,4 +1,4 @@
-import { shuffle } from './helper.js';
+import shuffle from './helper.js';
 
 const emptyCellsArr = [];
 const bombsCellsArr = [];
@@ -10,12 +10,23 @@ function reset() {
   cellsArrSorted.length = 0;
 }
 
+function drawTimer() {
+  const timer = document.querySelector('.game__timer-time');
+  function setZero(n) {
+    if (n < 10) return `00${n}`;
+    if (n < 100) return `0${n}`;
+    return n;
+  }
+  timer.textContent = setZero(parseInt(timer.textContent, 10) + 1);
+  setTimeout(drawTimer, 1000);
+}
+
 function createFieldCells(width) {
   const field = document.querySelector('.game__field');
   field.innerHTML = '';
   for (let i = 0; i < width * width; i += 1) {
     const gameCell = document.createElement('button');
-    gameCell.classList.add('game__cell');
+    gameCell.className = 'game__cell no-click';
     gameCell.id = i;
     field.appendChild(gameCell);
   }
@@ -24,7 +35,7 @@ function createFieldCells(width) {
 function createBombs(width) {
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombs = bombsInput.value;
-  const cells = document.querySelectorAll('.game__cell');
+  const cellsNoClick = document.querySelectorAll('.no-click');
   for (let i = 0; i < bombs; i += 1) {
     bombsCellsArr.push('bomb');
   }
@@ -34,24 +45,36 @@ function createBombs(width) {
   }
   cellsArrSorted = bombsCellsArr.concat(emptyCellsArr);
   shuffle(cellsArrSorted);
+  for (let i = 0; i < cellsNoClick.length; i += 1) {
+    cellsNoClick[i].classList.remove('no-click');
+    cellsNoClick[i].classList.add(cellsArrSorted[i]);
+  }
+}
+
+function ckeckCells(width) {
+  const cells = document.querySelectorAll('.game__cell');
   for (let i = 0; i < cells.length; i += 1) {
-    if (!cells[i].classList.contains('first-click')) {
-      cells[i].classList.add(cellsArrSorted[i]);
-    }
     let count = 0;
-    if (cells[i].classList.contains('empty')) {
-      if (!i % width === 0) {
+    let isLeft;
+    let isRight;
+    if (width === 10) {
+      isLeft = (i % width === 0);
+      isRight = (i % width === width - 1);
+    }
+
+    if (cells[i].classList.contains('empty') || cells[i].classList.contains('click')) {
+      if (!isLeft) {
         if (i > 0 && cells[i - 1].classList.contains('bomb')) count += 1;
-        if (i > (width + 1) && cells[i - 1 - width].classList.contains('bomb')) count += 1;
+        if (i >= (width + 1) && cells[i - 1 - width].classList.contains('bomb')) count += 1;
         if (i < (width * width - width) && cells[i - 1 + width].classList.contains('bomb')) count += 1;
-        if (i < (width * width - width - 2) && cells[i + 1 + width].classList.contains('bomb')) count += 1;
       }
-      if (!i % width === width - 1) {
+      if (!isRight) {
         if (i > (width - 1) && cells[i + 1 - width].classList.contains('bomb')) count += 1;
-        if (i < (width * width - 2) && cells[i + 1].classList.contains('bomb')) count += 1;
+        if (i <= (width * width - 2) && cells[i + 1].classList.contains('bomb')) count += 1;
+        if (i <= (width * width - width - 2) && cells[i + 1 + width].classList.contains('bomb')) count += 1;
       }
-      if (i > width && cells[i - width].classList.contains('bomb')) count += 1;
-      if (i < (width * width - width - 1) && cells[i + width].classList.contains('bomb')) count += 1;
+      if (i >= width && cells[i - width].classList.contains('bomb')) count += 1;
+      if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb')) count += 1;
       if (count !== 0) {
         cells[i].innerHTML = count;
       }
@@ -59,7 +82,6 @@ function createBombs(width) {
     }
   }
 }
-
 function clickOnCell() {
   const cells = document.querySelectorAll('.game__cell');
   const gameMovies = document.querySelector('.game__movies-count');
@@ -67,8 +89,11 @@ function clickOnCell() {
   cells.forEach((el) => {
     el.addEventListener('click', () => {
       if (gameMovies.innerHTML === '000') {
-        el.classList.add('first-click');
+        drawTimer();
+        el.classList.remove('no-click');
+        el.classList.add('click');
         createBombs(10);
+        ckeckCells(10);
       }
       movies += 1;
       if (movies < 10) {
@@ -101,7 +126,10 @@ function changeBombs() {
     reset();
     createFieldCells(10);
     createBombs(10);
+    ckeckCells(10);
   });
 }
 
-export { createFieldCells, changeBombs, clickOnCell };
+export {
+  createFieldCells, changeBombs, clickOnCell,
+};

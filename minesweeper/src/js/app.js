@@ -124,21 +124,4 @@ function createFooter() {
   body.append(footer);
 }
 
-// function createFieldCells(rows, cells) {
-//   const field = document.querySelector('.game__field');
-//   for (let i = 0; i < rows; i += 1) {
-//     const gameRow = document.createElement('div');
-//     gameRow.classList.add('game__field-row');
-//     field.appendChild(gameRow);
-//   }
-//   const row = document.querySelectorAll('.game__field-row');
-//   row.forEach((el) => {
-//     for (let i = 0; i < cells; i += 1) {
-//       const gameCell = document.createElement('button');
-//       gameCell.classList.add('game__cell');
-//       el.appendChild(gameCell);
-//     }
-//   });
-// }
-
 export { createHeader, createFooter, createMain };
