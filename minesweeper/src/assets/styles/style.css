@@ -140,6 +140,36 @@ body {
 .level-active:active {
   border: 4px inset brown;
 }
-.bomb {
+.bomb-cell {
   background: url('../icons/bomb.svg');
+}
+.checked-cell {
+  border: 1px solid gray;
+}
+.cell-1 {
+  color:blue;
+}
+.cell-2 {
+  color: green;
+}
+.cell-3 {
+  color: red;
+}
+.cell-4 {
+  color:darkblue;
+}
+.cell-5 {
+  color: brown;
+}
+.cell-6 {
+  color:darkcyan;
+}
+.cell-7 {
+  color:darkviolet;
+}
+.cell-8 {
+  color:dimgrey;
+}
+.game-over {
+  background-color: red;
 }

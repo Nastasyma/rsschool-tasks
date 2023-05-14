@@ -26,7 +26,7 @@ function createFieldCells(width) {
   field.innerHTML = '';
   for (let i = 0; i < width * width; i += 1) {
     const gameCell = document.createElement('button');
-    gameCell.className = 'game__cell no-click';
+    gameCell.className = 'game__cell non-clicked-cell';
     gameCell.id = i;
     field.appendChild(gameCell);
   }
@@ -35,18 +35,18 @@ function createFieldCells(width) {
 function createBombs(width) {
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombs = bombsInput.value;
-  const cellsNoClick = document.querySelectorAll('.no-click');
+  const cellsNoClick = document.querySelectorAll('.non-clicked-cell');
   for (let i = 0; i < bombs; i += 1) {
-    bombsCellsArr.push('bomb');
+    bombsCellsArr.push('bomb-cell');
   }
   const emptyCell = width * width - bombs - 1;
   for (let i = 0; i < emptyCell; i += 1) {
-    emptyCellsArr.push('empty');
+    emptyCellsArr.push('empty-cell');
   }
   cellsArrSorted = bombsCellsArr.concat(emptyCellsArr);
   shuffle(cellsArrSorted);
   for (let i = 0; i < cellsNoClick.length; i += 1) {
-    cellsNoClick[i].classList.remove('no-click');
+    cellsNoClick[i].classList.remove('non-clicked-cell');
     cellsNoClick[i].classList.add(cellsArrSorted[i]);
   }
 }
@@ -61,22 +61,23 @@ function ckeckCells(width) {
       isLeft = (i % width === 0);
       isRight = (i % width === width - 1);
     }
-
-    if (cells[i].classList.contains('empty') || cells[i].classList.contains('click')) {
+    if (cells[i].classList.contains('empty-cell') || cells[i].classList.contains('first-clicked-cell')) {
       if (!isLeft) {
-        if (i > 0 && cells[i - 1].classList.contains('bomb')) count += 1;
-        if (i >= (width + 1) && cells[i - 1 - width].classList.contains('bomb')) count += 1;
-        if (i < (width * width - width) && cells[i - 1 + width].classList.contains('bomb')) count += 1;
+        if (i > 0 && cells[i - 1].classList.contains('bomb-cell')) count += 1;
+        if (i >= (width + 1) && cells[i - 1 - width].classList.contains('bomb-cell')) count += 1;
+        if (i < (width * width - width) && cells[i - 1 + width].classList.contains('bomb-cell')) count += 1;
       }
       if (!isRight) {
-        if (i > (width - 1) && cells[i + 1 - width].classList.contains('bomb')) count += 1;
-        if (i <= (width * width - 2) && cells[i + 1].classList.contains('bomb')) count += 1;
-        if (i <= (width * width - width - 2) && cells[i + 1 + width].classList.contains('bomb')) count += 1;
+        if (i > (width - 1) && cells[i + 1 - width].classList.contains('bomb-cell')) count += 1;
+        if (i <= (width * width - 2) && cells[i + 1].classList.contains('bomb-cell')) count += 1;
+        if (i <= (width * width - width - 2) && cells[i + 1 + width].classList.contains('bomb-cell')) count += 1;
       }
-      if (i >= width && cells[i - width].classList.contains('bomb')) count += 1;
-      if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb')) count += 1;
+      if (i >= width && cells[i - width].classList.contains('bomb-cell')) count += 1;
+      if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb-cell')) count += 1;
       if (count !== 0) {
-        cells[i].innerHTML = count;
+        // cells[i].innerHTML = count;
+        cells[i].setAttribute('data-count', count);
+        cells[i].classList.add(`cell-${count}`);
       }
       // cells[i].innerHTML = cells[i].id;
     }
@@ -90,11 +91,17 @@ function clickOnCell() {
     el.addEventListener('click', () => {
       if (gameMovies.innerHTML === '000') {
         drawTimer();
-        el.classList.remove('no-click');
-        el.classList.add('click');
+        el.classList.remove('non-clicked-cell');
+        el.classList.add('first-clicked-cell');
         createBombs(10);
         ckeckCells(10);
       }
+      const { count } = el.dataset;
+      if (count !== '0' && count !== undefined) {
+        // eslint-disable-next-line no-param-reassign
+        el.innerHTML = count;
+      }
+      el.classList.add('checked-cell');
       movies += 1;
       if (movies < 10) {
         gameMovies.innerHTML = `00${movies}`;
@@ -103,10 +110,13 @@ function clickOnCell() {
       } else {
         gameMovies.innerHTML = movies;
       }
+      if (el.classList.contains('bomb-cell')) {
+        el.classList.add('game-over');
+        console.log('Game over!!');
+      }
     });
   });
 }
-
 function changeBombs() {
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombsCount = document.querySelector('.game__bombs-count');
