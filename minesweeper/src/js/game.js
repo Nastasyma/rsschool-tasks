@@ -27,7 +27,7 @@ function createFieldCells(width) {
   for (let i = 0; i < width * width; i += 1) {
     const gameCell = document.createElement('button');
     gameCell.className = 'game__cell non-clicked-cell';
-    gameCell.id = i;
+    // gameCell.id = i;
     field.appendChild(gameCell);
   }
 }
@@ -74,12 +74,84 @@ function ckeckCells(width) {
       }
       if (i >= width && cells[i - width].classList.contains('bomb-cell')) count += 1;
       if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb-cell')) count += 1;
-      if (count !== 0) {
-        // cells[i].innerHTML = count;
-        cells[i].setAttribute('data-count', count);
-        cells[i].classList.add(`cell-${count}`);
-      }
+      cells[i].setAttribute('data-count', count);
+      cells[i].classList.add(`cell-${count}`);
+      // cells[i].innerHTML = count;
+      // if (count !== 0) {
+      //   cells[i].classList.add('numbered');
+      // }
       // cells[i].innerHTML = cells[i].id;
+    }
+  }
+}
+function setCheckedCell(width) {
+  const cells = document.querySelectorAll('.game__cell');
+  for (let i = 0; i < cells.length; i += 1) {
+    let isLeft;
+    let isRight;
+    if (width === 10) {
+      isLeft = (i % width === 0);
+      isRight = (i % width === width - 1);
+    }
+    if (!isLeft) {
+      if (i > 0 && !cells[i - 1].classList.contains('bomb-cell')) {
+        cells[i - 1].classList.add('checked-cell');
+        const { count } = cells[i - 1].dataset;
+        if (count !== '0' && count !== undefined) {
+          cells[i - 1].innerHTML = count;
+        }
+      }
+      if (i >= (width + 1) && !cells[i - 1 - width].classList.contains('bomb-cell')) {
+        cells[i - 1 - width].classList.add('checked-cell');
+        const { count } = cells[i - 1 - width].dataset;
+        if (count !== '0' && count !== undefined) {
+          cells[i - 1 - width].innerHTML = count;
+        }
+      }
+      if (i < (width * width - width) && !cells[i - 1 + width].classList.contains('bomb-cell')) {
+        cells[i - 1 + width].classList.add('checked-cell');
+        const { count } = cells[i - 1 + width].dataset;
+        if (count !== '0' && count !== undefined) {
+          cells[i - 1 + width].innerHTML = count;
+        }
+      }
+    }
+    if (!isRight) {
+      if (i > (width - 1) && !cells[i + 1 - width].classList.contains('bomb-cell')) {
+        cells[i + 1 - width].classList.add('checked-cell');
+        const { count } = cells[i + 1 - width].dataset;
+        if (count !== '0' && count !== undefined) {
+          cells[i + 1 - width].innerHTML = count;
+        }
+      }
+      if (i <= (width * width - 2) && !cells[i + 1].classList.contains('bomb-cell')) {
+        cells[i + 1].classList.add('checked-cell');
+        const { count } = cells[i + 1].dataset;
+        if (count !== '0' && count !== undefined) {
+          cells[i + 1].innerHTML = count;
+        }
+      }
+      if (i <= (width * width - width - 2) && !cells[i + 1 + width].classList.contains('bomb-cell')) {
+        cells[i + 1 + width].classList.add('checked-cell');
+        const { count } = cells[i + 1 + width].dataset;
+        if (count !== '0' && count !== undefined) {
+          cells[i + 1 + width].innerHTML = count;
+        }
+      }
+    }
+    if (i >= width && !cells[i - width].classList.contains('bomb-cell')) {
+      cells[i - width].classList.add('checked-cell');
+      const { count } = cells[i - width].dataset;
+      if (count !== '0' && count !== undefined) {
+        cells[i - width].innerHTML = count;
+      }
+    }
+    if (i <= (width * width - width - 1) && !cells[i + width].classList.contains('bomb-cell')) {
+      cells[i + width].classList.add('checked-cell');
+      const { count } = cells[i + width].dataset;
+      if (count !== '0' && count !== undefined) {
+        cells[i + width].innerHTML = count;
+      }
     }
   }
 }
@@ -95,13 +167,18 @@ function clickOnCell() {
         el.classList.add('first-clicked-cell');
         createBombs(10);
         ckeckCells(10);
+        if (el.classList.contains('cell-0')) {
+          setCheckedCell(10);
+        }
       }
       const { count } = el.dataset;
       if (count !== '0' && count !== undefined) {
         // eslint-disable-next-line no-param-reassign
         el.innerHTML = count;
       }
-      el.classList.add('checked-cell');
+      if (el.classList.contains('cell-0')) {
+        setCheckedCell(10);
+      }
       movies += 1;
       if (movies < 10) {
         gameMovies.innerHTML = `00${movies}`;
@@ -137,6 +214,7 @@ function changeBombs() {
     createFieldCells(10);
     createBombs(10);
     ckeckCells(10);
+    clickOnCell();
   });
 }
 
