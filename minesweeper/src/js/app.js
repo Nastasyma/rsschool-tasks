@@ -101,13 +101,13 @@ function createFooter() {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('footer__container');
   const btn1 = document.createElement('button');
-  btn1.className = 'footer__settings-easy game__button level-active';
+  btn1.className = 'footer__settings-easy game__button level-button level-active';
   btn1.textContent = 'Easy';
   const btn2 = document.createElement('button');
-  btn2.className = 'footer__settings-medium game__button';
+  btn2.className = 'footer__settings-medium game__button level-button';
   btn2.textContent = 'Medium';
   const btn3 = document.createElement('button');
-  btn3.className = 'footer__settings-hard game__button';
+  btn3.className = 'footer__settings-hard game__button level-button';
   btn3.textContent = 'Hard';
   const input = document.createElement('input');
   input.classList.add('footer__settings-bombs');

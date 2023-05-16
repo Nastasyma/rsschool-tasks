@@ -63,12 +63,12 @@ body {
   background-color: rgb(185, 185, 185);
 }
 .game__stats {
-  padding: 20px 20px 0 20px;
+  padding: 10px 10px 0 10px;
   margin: 0 auto;
   width: 100%;
 }
 .game__settings {
-  padding: 0 20px 20px 20px;
+  padding: 0 10px 10px 10px;
   margin: 0 auto;
   width: 100%;
 }
@@ -106,7 +106,7 @@ body {
   transform: scale(0.9);
 }
 .game__wrapper {
-  padding: 20px;
+  padding: 10px;
 }
 .game__field {
   display: flex;
@@ -117,12 +117,24 @@ body {
   display: flex;
 } */
 .game__cell {
-  /* width: 43px;
-  height: 43px; */
   font-family: 'Press Start 2P';
-  border: 4px outset;
   background-color:  rgb(179, 179, 179);
   cursor: pointer;
+}
+.easy {
+  width: 45px;
+  height: 45px;
+  border: 4px outset;
+}
+.medium {
+  width: 30px;
+  height: 30px;
+  border: 3px outset;
+}
+.hard {
+  width: 18px;
+  height: 18px;
+  border: 2px outset;
 }
 .game__cell:active {
   border: none;
@@ -134,11 +146,11 @@ body {
   padding: 10px;
 }
 .level-active {
-  background-color:brown;
-  border: 4px outset brown;;
+  background-color:red;
+  border: 4px outset red;;
 }
 .level-active:active {
-  border: 4px inset brown;
+  border: 4px inset red;
 }
 .checked-cell {
   border: 1px solid gray;

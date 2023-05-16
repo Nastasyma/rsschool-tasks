@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import shuffle from './helper.js';
 
 const emptyCellsArr = [];
@@ -7,6 +8,7 @@ const cellsArray = [];
 const cellsMatrix = [];
 let gameOver = true;
 let timeHandle;
+let size = 10;
 
 function reset() {
   emptyCellsArr.length = 0;
@@ -32,21 +34,18 @@ function createFieldCells(width) {
   cellsMatrix.length = 0;
   const field = document.querySelector('.game__field');
   field.innerHTML = '';
-  for (let i = 0; i < width * width; i += 1) {
-    const gameCell = document.createElement('button');
-    gameCell.className = 'game__cell non-clicked-cell';
-    gameCell.style.width = '43px';
-    gameCell.style.height = '43px';
-    if (i < 10) {
-      gameCell.id = `0${i}`;
-    } else {
-      gameCell.id = i;
+  for (let x = 0; x < width; x += 1) {
+    for (let y = 0; y < width; y += 1) {
+      const gameCell = document.createElement('button');
+      gameCell.className = 'game__cell non-clicked-cell';
+      gameCell.classList.add('easy');
+      gameCell.id = `${x.toString()}-${y.toString()}`;
+      field.append(gameCell);
+      cellsArray.push(gameCell);
     }
-    field.appendChild(gameCell);
-    cellsArray.push(gameCell);
   }
-  for (let i = 0; i < cellsArray.length; i += 10) {
-    cellsMatrix.push(cellsArray.slice(i, i + 10));
+  for (let i = 0; i < cellsArray.length; i += width) {
+    cellsMatrix.push(cellsArray.slice(i, i + width));
   }
 }
 function createBombs(width) {
@@ -73,12 +72,8 @@ function ckeckCells(width) {
   const cells = document.querySelectorAll('.game__cell');
   for (let i = 0; i < cells.length; i += 1) {
     let count = 0;
-    let isLeft;
-    let isRight;
-    if (width === 10) {
-      isLeft = (i % width === 0);
-      isRight = (i % width === width - 1);
-    }
+    const isLeft = (i % width === 0);
+    const isRight = (i % width === width - 1);
     if (cells[i].classList.contains('empty-cell') || cells[i].classList.contains('first-clicked-cell')) {
       if (!isLeft) {
         if (i > 0 && cells[i - 1].classList.contains('bomb-cell')) count += 1;
@@ -96,15 +91,15 @@ function ckeckCells(width) {
       cells[i].classList.remove('empty-cell');
       cells[i].classList.add(`cell-${count}`);
       // cells[i].textContent = count;
-      if (count !== 0) {
-        cells[i].classList.add('numbered');
-      }
+      // if (count !== 0) {
+      //   cells[i].classList.add('numbered');
+      // }
       // cells[i].innerHTML = cells[i].id;
     }
   }
 }
 function revealCell(x, y) {
-  if (x < 0 || y < 0 || x >= 10 || y >= 10) return;
+  if (x < 0 || y < 0 || x >= size || y >= size) return;
   if (cellsMatrix[x][y].classList.contains('checked-cell')) return;
   if (cellsMatrix[x][y].classList.contains('bomb-cell')) return;
   if (cellsMatrix[x][y].classList.contains('flag')) return;
@@ -113,8 +108,7 @@ function revealCell(x, y) {
   const { count } = cellsMatrix[x][y].dataset;
   if (count !== '0' && count !== undefined) {
     cellsMatrix[x][y].textContent = count;
-  }
-  if (!cellsMatrix[x][y].classList.contains('numbered')) {
+  } else {
     revealCell(x - 1, y - 1);
     revealCell(x - 1, y);
     revealCell(x - 1, y + 1);
@@ -130,18 +124,21 @@ function clickOnCell() {
   const gameMovies = document.querySelector('.game__movies-count');
   let movies = 0;
   cells.forEach((el) => {
-    el.addEventListener('click', (e) => {
+    el.addEventListener('click', () => {
       if (el.classList.contains('flag')) return;
       if (el.classList.contains('checked-cell')) return;
-      const x = +e.target.id.slice(0, 1);
-      const y = +e.target.id.slice(1, 2);
+      // const x = +e.target.id.slice(0, 1);
+      // const y = +e.target.id.slice(1, 2);
+      const position = el.id.split('-');
+      const x = parseInt(position[0], 10);
+      const y = parseInt(position[1], 10);
       console.log(x, y);
       if (gameMovies.textContent === '000') {
         drawTimer();
         el.classList.remove('non-clicked-cell');
         el.classList.add('first-clicked-cell');
-        createBombs(10);
-        ckeckCells(10);
+        createBombs(size);
+        ckeckCells(size);
         gameOver = false;
         if (el.classList.contains('cell-0')) {
           revealCell(x, y);
@@ -150,7 +147,6 @@ function clickOnCell() {
       const { count } = el.dataset;
       if (count !== '0' && count !== undefined) {
         if (!el.classList.contains('flag')) {
-          // eslint-disable-next-line no-param-reassign
           el.textContent = count;
         }
       }
@@ -169,7 +165,6 @@ function clickOnCell() {
           cell.classList.remove('flag');
           const count2 = cell.dataset.count;
           if (count2 !== '0' && count2 !== undefined) {
-            // eslint-disable-next-line no-param-reassign
             cell.textContent = count2;
           }
         });
@@ -206,6 +201,16 @@ function setFlag() {
     });
   });
 }
+function initGame(width) {
+  const timer = document.querySelector('.game__timer-time');
+  const movies = document.querySelector('.game__movies-count');
+  timer.textContent = '000';
+  window.clearTimeout(timeHandle);
+  movies.textContent = '000';
+  createFieldCells(width);
+  clickOnCell(width);
+  setFlag();
+}
 function changeBombs() {
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombsCount = document.querySelector('.game__bombs-count');
@@ -222,16 +227,74 @@ function changeBombs() {
     if (bombsInput.value >= 10) {
       bombsCount.textContent = `0${bombsInput.value}`;
     }
-    const timer = document.querySelector('.game__timer-time');
-    timer.textContent = '000';
-    window.clearTimeout(timeHandle);
-    document.querySelector('.game__movies-count').textContent = '000';
-    createFieldCells(10);
-    clickOnCell();
-    setFlag();
+    initGame(size);
+    if (document.querySelector('.footer__settings-easy').classList.contains('level-active')) {
+      document.querySelectorAll('.game__cell').forEach((cell) => {
+        cell.classList.remove('medium');
+        cell.classList.remove('hard');
+        cell.classList.add('easy');
+      });
+    } else
+    if (document.querySelector('.footer__settings-medium').classList.contains('level-active')) {
+      document.querySelectorAll('.game__cell').forEach((cell) => {
+        cell.classList.remove('easy');
+        cell.classList.remove('hard');
+        cell.classList.add('medium');
+      });
+    } else
+    if (document.querySelector('.footer__settings-hard').classList.contains('level-active')) {
+      document.querySelectorAll('.game__cell').forEach((cell) => {
+        cell.classList.remove('medium');
+        cell.classList.remove('easy');
+        cell.classList.add('hard');
+      });
+    }
   });
 }
-
+function changeDifficulty() {
+  const levelBtns = document.querySelectorAll('.level-button');
+  levelBtns.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      for (let i = 0; i < levelBtns.length; i += 1) {
+        levelBtns[i].classList.remove('level-active');
+      }
+      e.target.classList.add('level-active');
+      if (e.target.classList.contains('footer__settings-easy')) {
+        size = 10;
+        initGame(size);
+        document.querySelector('.game__settings-field-size').textContent = 'Field size: 10x10';
+        document.querySelectorAll('.game__cell').forEach((cell) => {
+          cell.classList.remove('medium');
+          cell.classList.remove('hard');
+          cell.classList.add('easy');
+          cell.style.fontSize = '16px';
+        });
+      }
+      if (e.target.classList.contains('footer__settings-medium')) {
+        size = 15;
+        initGame(size);
+        document.querySelector('.game__settings-field-size').textContent = 'Field size: 15x15';
+        document.querySelectorAll('.game__cell').forEach((cell) => {
+          cell.classList.remove('easy');
+          cell.classList.remove('hard');
+          cell.classList.add('medium');
+          cell.style.fontSize = '14px';
+        });
+      }
+      if (e.target.classList.contains('footer__settings-hard')) {
+        size = 25;
+        initGame(size);
+        document.querySelector('.game__settings-field-size').textContent = 'Field size: 25x25';
+        document.querySelectorAll('.game__cell').forEach((cell) => {
+          cell.classList.remove('medium');
+          cell.classList.remove('easy');
+          cell.classList.add('hard');
+          cell.style.fontSize = '9px';
+        });
+      }
+    });
+  });
+}
 export {
-  createFieldCells, changeBombs, clickOnCell, setFlag,
+  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty,
 };
