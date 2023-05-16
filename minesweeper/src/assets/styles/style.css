@@ -183,5 +183,22 @@ body {
   background: red url('../icons/bomb.svg') center/cover no-repeat;
 }
 .flag {
-  background: url('../icons/red-flag.svg') center/cover no-repeat;
+  background: url('../icons/red-flag.png') center/cover no-repeat;
+}
+.game__settings-volume {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+.game__settings-volume::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  background: url("../icons/audio_volume.svg") no-repeat center/contain;
+  width: 30px;
+  height: 20px;
+}
+.game__settings-volume.click_mute::before {
+  background-image: url("../icons/audio_volume_mute.svg");
 }

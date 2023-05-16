@@ -84,11 +84,10 @@ function createMain() {
   settingsSize.classList.add('game__settings-field-size');
   settingsSize.textContent = 'Field size: 10x10';
   const theme = document.createElement('button');
-  theme.className = 'game__settings-theme game__button';
+  theme.className = 'game__settings-theme game__button gray';
   theme.textContent = 'gray';
   const volume = document.createElement('button');
   volume.className = 'game__settings-volume game__button';
-  volume.textContent = 'vol';
   settingsWrapper.appendChild(settingsSize);
   settingsWrapper.appendChild(theme);
   settingsWrapper.appendChild(volume);

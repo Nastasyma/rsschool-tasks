@@ -1,7 +1,7 @@
 import './assets/styles/style.css';
 import './assets/styles/normalize.css';
 import {
-  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty,
+  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme,
 } from './js/game.js';
 import { createHeader, createFooter, createMain } from './js/app.js';
 
@@ -13,3 +13,4 @@ clickOnCell();
 changeBombs();
 setFlag();
 changeDifficulty();
+changeTheme();

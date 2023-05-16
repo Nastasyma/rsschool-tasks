@@ -204,9 +204,12 @@ function setFlag() {
 function initGame(width) {
   const timer = document.querySelector('.game__timer-time');
   const movies = document.querySelector('.game__movies-count');
+  const bombsInput = document.querySelector('.footer__settings-bombs');
+  const bombsCount = document.querySelector('.game__bombs-count');
   timer.textContent = '000';
   window.clearTimeout(timeHandle);
   movies.textContent = '000';
+  bombsCount.textContent = `0${bombsInput.value}`;
   createFieldCells(width);
   clickOnCell(width);
   setFlag();
@@ -295,6 +298,27 @@ function changeDifficulty() {
     });
   });
 }
+function changeTheme() {
+  const theme = document.querySelector('.game__settings-theme');
+  const cells = document.querySelectorAll('.game__cell');
+  theme.addEventListener('click', () => {
+    if (theme.classList.contains('gray')) {
+      theme.textContent = 'blue';
+      theme.classList.remove('gray');
+      theme.classList.add('blue');
+      cells.forEach((el) => {
+        el.style.backgroundColor = 'midnightblue';
+      });
+    } else {
+      theme.textContent = 'gray';
+      theme.classList.remove('blue');
+      theme.classList.add('gray');
+      cells.forEach((el) => {
+        el.style.backgroundColor = 'rgb(179, 179, 179)';
+      });
+    }
+  });
+}
 export {
-  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty,
+  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme,
 };
