@@ -140,9 +140,6 @@ body {
 .level-active:active {
   border: 4px inset brown;
 }
-.bomb-cell {
-  background: url('../icons/bomb.svg');
-}
 .checked-cell {
   border: 1px solid gray;
 }
@@ -171,5 +168,8 @@ body {
   color:dimgrey;
 }
 .game-over {
-  background-color: red;
+  background: red url('../icons/bomb.svg') center/cover no-repeat;
+}
+.flag {
+  background: url('../icons/red-flag.svg') center/cover no-repeat;
 }

@@ -84,8 +84,9 @@ function ckeckCells(width) {
       if (i >= width && cells[i - width].classList.contains('bomb-cell')) count += 1;
       if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb-cell')) count += 1;
       cells[i].setAttribute('data-count', count);
+      cells[i].classList.remove('empty-cell');
       cells[i].classList.add(`cell-${count}`);
-      // cells[i].innerHTML = count;
+      // cells[i].textContent = count;
       if (count !== 0) {
         cells[i].classList.add('numbered');
       }
@@ -94,16 +95,17 @@ function ckeckCells(width) {
   }
 }
 function revealCell(x, y) {
-  if (x < 0 || x >= 10 || y < 0 || y >= 10) return;
+  if (x < 0 || y < 0 || x >= 10 || y >= 10) return;
   if (cellsMatrix[x][y].classList.contains('checked-cell')) return;
+  if (cellsMatrix[x][y].classList.contains('bomb-cell')) return;
+  if (cellsMatrix[x][y].classList.contains('flag')) return;
 
   cellsMatrix[x][y].classList.add('checked-cell');
   const { count } = cellsMatrix[x][y].dataset;
   if (count !== '0' && count !== undefined) {
-    cellsMatrix[x][y].innerHTML = count;
+    cellsMatrix[x][y].textContent = count;
   }
-
-  if (!cellsMatrix[x][y].classList.contains('numbered') && !cellsMatrix[x][y].classList.contains('bomb-cell')) {
+  if (!cellsMatrix[x][y].classList.contains('numbered')) {
     revealCell(x - 1, y - 1);
     revealCell(x - 1, y);
     revealCell(x - 1, y + 1);
@@ -122,7 +124,8 @@ function clickOnCell() {
     el.addEventListener('click', (e) => {
       const x = +e.target.id.slice(0, 1);
       const y = +e.target.id.slice(1, 2);
-      if (gameMovies.innerHTML === '000') {
+      console.log(x, y);
+      if (gameMovies.textContent === '000') {
         drawTimer();
         el.classList.remove('non-clicked-cell');
         el.classList.add('first-clicked-cell');
@@ -134,25 +137,54 @@ function clickOnCell() {
       }
       const { count } = el.dataset;
       if (count !== '0' && count !== undefined) {
-        // eslint-disable-next-line no-param-reassign
-        el.innerHTML = count;
+        if (!el.classList.contains('flag')) {
+          // eslint-disable-next-line no-param-reassign
+          el.textContent = count;
+        }
       }
       if (el.classList.contains('cell-0')) {
         revealCell(x, y);
-      } else {
+      } else if (!el.classList.contains('flag')) {
         el.classList.add('checked-cell');
       }
       movies += 1;
-      if (movies < 10) {
-        gameMovies.innerHTML = `00${movies}`;
-      } else if (movies < 100) {
-        gameMovies.innerHTML = `0${movies}`;
-      } else {
-        gameMovies.innerHTML = movies;
-      }
+      gameMovies.textContent = movies.toString().padStart(3, 0);
       if (el.classList.contains('bomb-cell')) {
-        el.classList.add('game-over');
         console.log('Game over!!');
+        cells.forEach((cell) => {
+          cell.classList.add('checked-cell');
+          cell.classList.remove('flag');
+          const count2 = cell.dataset.count;
+          if (count2 !== '0' && count2 !== undefined) {
+            // eslint-disable-next-line no-param-reassign
+            cell.textContent = count2;
+          }
+        });
+        const bombCells = document.querySelectorAll('.bomb-cell');
+        bombCells.forEach((cell) => {
+          cell.classList.add('game-over');
+        });
+      }
+    });
+  });
+}
+function setFlag() {
+  const cells = document.querySelectorAll('.game__cell');
+  const bombsCount = document.querySelector('.game__bombs-count');
+  const bombsInput = document.querySelector('.footer__settings-bombs');
+  let bombs = bombsInput.value;
+  cells.forEach((el) => {
+    el.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      if (!e.target.classList.contains('checked-cell')) {
+        e.target.classList.toggle('flag');
+        if (e.target.classList.contains('flag')) {
+          bombs -= 1;
+          bombsCount.textContent = bombs.toString().padStart(3, 0);
+        } else {
+          bombs += 1;
+          bombsCount.textContent = bombs.toString().padStart(3, 0);
+        }
       }
     });
   });
@@ -178,9 +210,10 @@ function changeBombs() {
     createBombs(10);
     ckeckCells(10);
     clickOnCell();
+    setFlag();
   });
 }
 
 export {
-  createFieldCells, changeBombs, clickOnCell,
+  createFieldCells, changeBombs, clickOnCell, setFlag,
 };
