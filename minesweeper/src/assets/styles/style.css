@@ -117,8 +117,8 @@ body {
   display: flex;
 } */
 .game__cell {
-  width: 43px;
-  height: 43px;
+  /* width: 43px;
+  height: 43px; */
   font-family: 'Press Start 2P';
   border: 4px outset;
   background-color:  rgb(179, 179, 179);

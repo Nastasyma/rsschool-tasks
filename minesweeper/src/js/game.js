@@ -5,6 +5,8 @@ const bombsCellsArr = [];
 let cellsArrSorted = [];
 const cellsArray = [];
 const cellsMatrix = [];
+let gameOver = true;
+let timeHandle;
 
 function reset() {
   emptyCellsArr.length = 0;
@@ -19,16 +21,22 @@ function drawTimer() {
     if (n < 100) return `0${n}`;
     return n;
   }
-  timer.textContent = setZero(parseInt(timer.textContent, 10) + 1);
-  setTimeout(drawTimer, 1000);
+  if (!gameOver) {
+    timer.textContent = setZero(parseInt(timer.textContent, 10) + 1);
+  }
+  timeHandle = window.setTimeout(drawTimer, 1000);
 }
 
 function createFieldCells(width) {
+  cellsArray.length = 0;
+  cellsMatrix.length = 0;
   const field = document.querySelector('.game__field');
   field.innerHTML = '';
   for (let i = 0; i < width * width; i += 1) {
     const gameCell = document.createElement('button');
     gameCell.className = 'game__cell non-clicked-cell';
+    gameCell.style.width = '43px';
+    gameCell.style.height = '43px';
     if (i < 10) {
       gameCell.id = `0${i}`;
     } else {
@@ -42,6 +50,7 @@ function createFieldCells(width) {
   }
 }
 function createBombs(width) {
+  reset();
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombs = bombsInput.value;
   const cellsNoClick = document.querySelectorAll('.non-clicked-cell');
@@ -122,6 +131,8 @@ function clickOnCell() {
   let movies = 0;
   cells.forEach((el) => {
     el.addEventListener('click', (e) => {
+      if (el.classList.contains('flag')) return;
+      if (el.classList.contains('checked-cell')) return;
       const x = +e.target.id.slice(0, 1);
       const y = +e.target.id.slice(1, 2);
       console.log(x, y);
@@ -131,6 +142,7 @@ function clickOnCell() {
         el.classList.add('first-clicked-cell');
         createBombs(10);
         ckeckCells(10);
+        gameOver = false;
         if (el.classList.contains('cell-0')) {
           revealCell(x, y);
         }
@@ -151,6 +163,7 @@ function clickOnCell() {
       gameMovies.textContent = movies.toString().padStart(3, 0);
       if (el.classList.contains('bomb-cell')) {
         console.log('Game over!!');
+        gameOver = true;
         cells.forEach((cell) => {
           cell.classList.add('checked-cell');
           cell.classList.remove('flag');
@@ -164,6 +177,10 @@ function clickOnCell() {
         bombCells.forEach((cell) => {
           cell.classList.add('game-over');
         });
+      }
+      if (document.querySelectorAll('.checked-cell').length === (cells.length - document.querySelector('.footer__settings-bombs').value)) {
+        console.log('Victory!!');
+        gameOver = true;
       }
     });
   });
@@ -205,10 +222,11 @@ function changeBombs() {
     if (bombsInput.value >= 10) {
       bombsCount.textContent = `0${bombsInput.value}`;
     }
-    reset();
+    const timer = document.querySelector('.game__timer-time');
+    timer.textContent = '000';
+    window.clearTimeout(timeHandle);
+    document.querySelector('.game__movies-count').textContent = '000';
     createFieldCells(10);
-    createBombs(10);
-    ckeckCells(10);
     clickOnCell();
     setFlag();
   });
