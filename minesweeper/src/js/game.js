@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-param-reassign */
 import shuffle from './helper.js';
 
@@ -7,15 +8,19 @@ let cellsArrSorted = [];
 const cellsArray = [];
 const cellsMatrix = [];
 let gameOver = true;
-let timeHandle;
+let timeHandler;
 let size = 10;
+let isPlay = true;
+const clickSound = new Audio();
+const flagSound = new Audio();
+const loseSound = new Audio();
+const winSound = new Audio();
 
 function reset() {
   emptyCellsArr.length = 0;
   bombsCellsArr.length = 0;
   cellsArrSorted.length = 0;
 }
-
 function drawTimer() {
   const timer = document.querySelector('.game__timer-time');
   function setZero(n) {
@@ -26,7 +31,13 @@ function drawTimer() {
   if (!gameOver) {
     timer.textContent = setZero(parseInt(timer.textContent, 10) + 1);
   }
-  timeHandle = window.setTimeout(drawTimer, 1000);
+  timeHandler = window.setTimeout(drawTimer, 1000);
+}
+function setSound() {
+  clickSound.src = 'assets/audio/click.mp3';
+  flagSound.src = 'assets/audio/set-flag.mp3';
+  loseSound.src = 'assets/audio/game-over-mario.mp3';
+  winSound.src = 'assets/audio/victory-mario.mp3';
 }
 
 function createFieldCells(width) {
@@ -111,7 +122,7 @@ function revealCell(x, y) {
     revealCell(x - 1, y - 1);
     revealCell(x - 1, y);
     revealCell(x - 1, y + 1);
-    revealCell(x, x - 1);
+    revealCell(x, y - 1);
     revealCell(x, y + 1);
     revealCell(x + 1, y - 1);
     revealCell(x + 1, y);
@@ -123,7 +134,12 @@ function clickOnCell() {
   const gameMovies = document.querySelector('.game__movies-count');
   let movies = 0;
   cells.forEach((el) => {
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('checked')) {
+        if (isPlay) {
+          clickSound.play();
+        }
+      }
       if (el.classList.contains('flag')) return;
       if (el.classList.contains('checked')) return;
       // const x = +e.target.id.slice(0, 1);
@@ -159,6 +175,9 @@ function clickOnCell() {
       if (el.classList.contains('bomb')) {
         console.log('Game over!!');
         gameOver = true;
+        if (isPlay) {
+          loseSound.play();
+        }
         cells.forEach((cell) => {
           cell.classList.add('checked');
           cell.classList.remove('flag');
@@ -175,6 +194,9 @@ function clickOnCell() {
       if (document.querySelectorAll('.checked').length === (cells.length - document.querySelector('.footer__settings-bombs').value)) {
         console.log('Victory!!');
         gameOver = true;
+        if (isPlay) {
+          winSound.play();
+        }
       }
     });
   });
@@ -183,18 +205,24 @@ function setFlag() {
   const cells = document.querySelectorAll('.game__cell');
   const bombsCount = document.querySelector('.game__bombs-count');
   const bombsInput = document.querySelector('.footer__settings-bombs');
+  const movies = document.querySelector('.game__movies-count');
   let bombs = bombsInput.value;
   cells.forEach((el) => {
     el.addEventListener('contextmenu', (e) => {
       e.preventDefault();
-      if (!e.target.classList.contains('checked')) {
-        e.target.classList.toggle('flag');
-        if (e.target.classList.contains('flag')) {
-          bombs -= 1;
-          bombsCount.textContent = bombs.toString().padStart(3, 0);
-        } else {
-          bombs += 1;
-          bombsCount.textContent = bombs.toString().padStart(3, 0);
+      if (movies.textContent !== '000') {
+        if (!e.target.classList.contains('checked')) {
+          if (isPlay) {
+            flagSound.play();
+          }
+          e.target.classList.toggle('flag');
+          if (e.target.classList.contains('flag')) {
+            bombs -= 1;
+            bombsCount.textContent = bombs.toString().padStart(3, 0);
+          } else {
+            bombs += 1;
+            bombsCount.textContent = bombs.toString().padStart(3, 0);
+          }
         }
       }
     });
@@ -206,7 +234,7 @@ function initGame(width) {
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombsCount = document.querySelector('.game__bombs-count');
   timer.textContent = '000';
-  window.clearTimeout(timeHandle);
+  window.clearTimeout(timeHandler);
   movies.textContent = '000';
   bombsCount.textContent = `0${bombsInput.value}`;
   createFieldCells(width);
@@ -342,7 +370,19 @@ function changeTheme() {
     body.classList.add('gray-bg');
   }
 }
+function setVolume() {
+  const volumeBtn = document.querySelector('.game__settings-volume');
+  volumeBtn.addEventListener('click', () => {
+    if (isPlay) {
+      isPlay = false;
+      volumeBtn.classList.add('click_mute');
+    } else {
+      volumeBtn.classList.remove('click_mute');
+      isPlay = true;
+    }
+  });
+}
 
 export {
-  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme,
+  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme, setSound, setVolume,
 };

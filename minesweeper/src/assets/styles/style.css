@@ -63,6 +63,9 @@ body {
   border: 4px inset;
   transform: scale(0.9);
 }
+.game__button:hover {
+  filter: brightness(80%);
+}
 .btn-gray {
   background-color:  rgb(200, 200, 200);
   border-color: rgb(224, 216, 216);
@@ -137,9 +140,6 @@ body {
 .game__cell {
   font-family: 'Press Start 2P';
   cursor: pointer;
-}
-.game__cell:active {
-  border: none;
 }
 .footer__settings-bombs {
   width: 155px;
@@ -224,6 +224,10 @@ body {
 .blue-theme {
   background-color: rgb(0, 60, 150);
   border-color: rgb(54, 97, 161);
+}
+.game__cell:active {
+  border: 1px solid gray;
+  background-color: rgb(179, 179, 179);
 }
 .checked {
   border: 1px solid gray;
