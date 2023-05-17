@@ -6,16 +6,16 @@ function createHeader() {
   const headerContainer = document.createElement('div');
   headerContainer.classList.add('header__container');
   const btn1 = document.createElement('button');
-  btn1.className = 'game__button button-newgame';
+  btn1.className = 'game__button button-newgame btn-gray';
   btn1.textContent = 'New game';
   const btn2 = document.createElement('button');
-  btn2.className = 'game__button button-save';
+  btn2.className = 'game__button button-save btn-gray';
   btn2.textContent = 'Save';
   const btn3 = document.createElement('button');
-  btn3.className = 'game__button button-load';
+  btn3.className = 'game__button button-load btn-gray';
   btn3.textContent = 'Load';
   const btn4 = document.createElement('button');
-  btn4.className = 'game__button button-results';
+  btn4.className = 'game__button button-results btn-gray';
   btn4.textContent = 'Results';
   headerContainer.appendChild(btn1);
   headerContainer.appendChild(btn2);
@@ -23,6 +23,7 @@ function createHeader() {
   headerContainer.appendChild(btn4);
   header.appendChild(headerContainer);
   body.append(header);
+  body.classList.add('gray-bg');
 }
 function createMain() {
   const main = document.createElement('main');
@@ -84,10 +85,10 @@ function createMain() {
   settingsSize.classList.add('game__settings-field-size');
   settingsSize.textContent = 'Field size: 10x10';
   const theme = document.createElement('button');
-  theme.className = 'game__settings-theme game__button gray';
+  theme.className = 'game__settings-theme game__button gray btn-gray';
   theme.textContent = 'gray';
   const volume = document.createElement('button');
-  volume.className = 'game__settings-volume game__button';
+  volume.className = 'game__settings-volume game__button btn-gray';
   settingsWrapper.appendChild(settingsSize);
   settingsWrapper.appendChild(theme);
   settingsWrapper.appendChild(volume);
@@ -100,13 +101,13 @@ function createFooter() {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('footer__container');
   const btn1 = document.createElement('button');
-  btn1.className = 'footer__settings-easy game__button level-button level-active';
+  btn1.className = 'footer__settings-easy game__button btn-gray level-button level-active';
   btn1.textContent = 'Easy';
   const btn2 = document.createElement('button');
-  btn2.className = 'footer__settings-medium game__button level-button';
+  btn2.className = 'footer__settings-medium game__button btn-gray level-button';
   btn2.textContent = 'Medium';
   const btn3 = document.createElement('button');
-  btn3.className = 'footer__settings-hard game__button level-button';
+  btn3.className = 'footer__settings-hard game__button btn-gray level-button';
   btn3.textContent = 'Hard';
   const input = document.createElement('input');
   input.classList.add('footer__settings-bombs');

@@ -37,8 +37,7 @@ function createFieldCells(width) {
   for (let x = 0; x < width; x += 1) {
     for (let y = 0; y < width; y += 1) {
       const gameCell = document.createElement('button');
-      gameCell.className = 'game__cell non-clicked-cell';
-      gameCell.classList.add('easy');
+      gameCell.className = 'game__cell non-clicked-cell easy gray-theme';
       gameCell.id = `${x.toString()}-${y.toString()}`;
       field.append(gameCell);
       cellsArray.push(gameCell);
@@ -54,7 +53,7 @@ function createBombs(width) {
   const bombs = bombsInput.value;
   const cellsNoClick = document.querySelectorAll('.non-clicked-cell');
   for (let i = 0; i < bombs; i += 1) {
-    bombsCellsArr.push('bomb-cell');
+    bombsCellsArr.push('bomb');
   }
   const emptyCell = width * width - bombs - 1;
   for (let i = 0; i < emptyCell; i += 1) {
@@ -76,17 +75,17 @@ function ckeckCells(width) {
     const isRight = (i % width === width - 1);
     if (cells[i].classList.contains('empty-cell') || cells[i].classList.contains('first-clicked-cell')) {
       if (!isLeft) {
-        if (i > 0 && cells[i - 1].classList.contains('bomb-cell')) count += 1;
-        if (i >= (width + 1) && cells[i - 1 - width].classList.contains('bomb-cell')) count += 1;
-        if (i < (width * width - width) && cells[i - 1 + width].classList.contains('bomb-cell')) count += 1;
+        if (i > 0 && cells[i - 1].classList.contains('bomb')) count += 1;
+        if (i >= (width + 1) && cells[i - 1 - width].classList.contains('bomb')) count += 1;
+        if (i < (width * width - width) && cells[i - 1 + width].classList.contains('bomb')) count += 1;
       }
       if (!isRight) {
-        if (i > (width - 1) && cells[i + 1 - width].classList.contains('bomb-cell')) count += 1;
-        if (i <= (width * width - 2) && cells[i + 1].classList.contains('bomb-cell')) count += 1;
-        if (i <= (width * width - width - 2) && cells[i + 1 + width].classList.contains('bomb-cell')) count += 1;
+        if (i > (width - 1) && cells[i + 1 - width].classList.contains('bomb')) count += 1;
+        if (i <= (width * width - 2) && cells[i + 1].classList.contains('bomb')) count += 1;
+        if (i <= (width * width - width - 2) && cells[i + 1 + width].classList.contains('bomb')) count += 1;
       }
-      if (i >= width && cells[i - width].classList.contains('bomb-cell')) count += 1;
-      if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb-cell')) count += 1;
+      if (i >= width && cells[i - width].classList.contains('bomb')) count += 1;
+      if (i <= (width * width - width - 1) && cells[i + width].classList.contains('bomb')) count += 1;
       cells[i].setAttribute('data-count', count);
       cells[i].classList.remove('empty-cell');
       cells[i].classList.add(`cell-${count}`);
@@ -100,11 +99,11 @@ function ckeckCells(width) {
 }
 function revealCell(x, y) {
   if (x < 0 || y < 0 || x >= size || y >= size) return;
-  if (cellsMatrix[x][y].classList.contains('checked-cell')) return;
-  if (cellsMatrix[x][y].classList.contains('bomb-cell')) return;
+  if (cellsMatrix[x][y].classList.contains('checked')) return;
+  if (cellsMatrix[x][y].classList.contains('bomb')) return;
   if (cellsMatrix[x][y].classList.contains('flag')) return;
 
-  cellsMatrix[x][y].classList.add('checked-cell');
+  cellsMatrix[x][y].classList.add('checked');
   const { count } = cellsMatrix[x][y].dataset;
   if (count !== '0' && count !== undefined) {
     cellsMatrix[x][y].textContent = count;
@@ -126,7 +125,7 @@ function clickOnCell() {
   cells.forEach((el) => {
     el.addEventListener('click', () => {
       if (el.classList.contains('flag')) return;
-      if (el.classList.contains('checked-cell')) return;
+      if (el.classList.contains('checked')) return;
       // const x = +e.target.id.slice(0, 1);
       // const y = +e.target.id.slice(1, 2);
       const position = el.id.split('-');
@@ -153,27 +152,27 @@ function clickOnCell() {
       if (el.classList.contains('cell-0')) {
         revealCell(x, y);
       } else if (!el.classList.contains('flag')) {
-        el.classList.add('checked-cell');
+        el.classList.add('checked');
       }
       movies += 1;
       gameMovies.textContent = movies.toString().padStart(3, 0);
-      if (el.classList.contains('bomb-cell')) {
+      if (el.classList.contains('bomb')) {
         console.log('Game over!!');
         gameOver = true;
         cells.forEach((cell) => {
-          cell.classList.add('checked-cell');
+          cell.classList.add('checked');
           cell.classList.remove('flag');
           const count2 = cell.dataset.count;
           if (count2 !== '0' && count2 !== undefined) {
             cell.textContent = count2;
           }
         });
-        const bombCells = document.querySelectorAll('.bomb-cell');
+        const bombCells = document.querySelectorAll('.bomb');
         bombCells.forEach((cell) => {
           cell.classList.add('game-over');
         });
       }
-      if (document.querySelectorAll('.checked-cell').length === (cells.length - document.querySelector('.footer__settings-bombs').value)) {
+      if (document.querySelectorAll('.checked').length === (cells.length - document.querySelector('.footer__settings-bombs').value)) {
         console.log('Victory!!');
         gameOver = true;
       }
@@ -188,7 +187,7 @@ function setFlag() {
   cells.forEach((el) => {
     el.addEventListener('contextmenu', (e) => {
       e.preventDefault();
-      if (!e.target.classList.contains('checked-cell')) {
+      if (!e.target.classList.contains('checked')) {
         e.target.classList.toggle('flag');
         if (e.target.classList.contains('flag')) {
           bombs -= 1;
@@ -213,6 +212,19 @@ function initGame(width) {
   createFieldCells(width);
   clickOnCell(width);
   setFlag();
+  const theme = document.querySelector('.game__settings-theme');
+  const cells = document.querySelectorAll('.game__cell');
+  if (theme.classList.contains('blue')) {
+    cells.forEach((cell) => {
+      cell.classList.remove('gray-theme');
+      cell.classList.add('blue-theme');
+    });
+  } else {
+    cells.forEach((cell) => {
+      cell.classList.remove('blue-theme');
+      cell.classList.add('gray-theme');
+    });
+  }
 }
 function changeBombs() {
   const bombsInput = document.querySelector('.footer__settings-bombs');
@@ -270,7 +282,6 @@ function changeDifficulty() {
           cell.classList.remove('medium');
           cell.classList.remove('hard');
           cell.classList.add('easy');
-          cell.style.fontSize = '16px';
         });
       }
       if (e.target.classList.contains('footer__settings-medium')) {
@@ -281,7 +292,6 @@ function changeDifficulty() {
           cell.classList.remove('easy');
           cell.classList.remove('hard');
           cell.classList.add('medium');
-          cell.style.fontSize = '14px';
         });
       }
       if (e.target.classList.contains('footer__settings-hard')) {
@@ -292,7 +302,6 @@ function changeDifficulty() {
           cell.classList.remove('medium');
           cell.classList.remove('easy');
           cell.classList.add('hard');
-          cell.style.fontSize = '9px';
         });
       }
     });
@@ -301,24 +310,39 @@ function changeDifficulty() {
 function changeTheme() {
   const theme = document.querySelector('.game__settings-theme');
   const cells = document.querySelectorAll('.game__cell');
-  theme.addEventListener('click', () => {
-    if (theme.classList.contains('gray')) {
-      theme.textContent = 'blue';
-      theme.classList.remove('gray');
-      theme.classList.add('blue');
-      cells.forEach((el) => {
-        el.style.backgroundColor = 'midnightblue';
-      });
-    } else {
-      theme.textContent = 'gray';
-      theme.classList.remove('blue');
-      theme.classList.add('gray');
-      cells.forEach((el) => {
-        el.style.backgroundColor = 'rgb(179, 179, 179)';
-      });
-    }
-  });
+  const gameBtns = document.querySelectorAll('.game__button');
+  const { body } = document;
+  if (theme.classList.contains('gray')) {
+    theme.textContent = 'blue';
+    theme.classList.remove('gray');
+    theme.classList.add('blue');
+    cells.forEach((el) => {
+      el.classList.remove('gray-theme');
+      el.classList.add('blue-theme');
+    });
+    gameBtns.forEach((el) => {
+      el.classList.remove('btn-gray');
+      el.classList.add('btn-blue');
+    });
+    body.classList.remove('gray-bg');
+    body.classList.add('blue-bg');
+  } else {
+    theme.textContent = 'gray';
+    theme.classList.remove('blue');
+    theme.classList.add('gray');
+    cells.forEach((el) => {
+      el.classList.remove('blue-theme');
+      el.classList.add('gray-theme');
+    });
+    gameBtns.forEach((el) => {
+      el.classList.remove('btn-blue');
+      el.classList.add('btn-gray');
+    });
+    body.classList.remove('blue-bg');
+    body.classList.add('gray-bg');
+  }
 }
+
 export {
   createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme,
 };

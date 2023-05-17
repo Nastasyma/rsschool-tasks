@@ -13,4 +13,4 @@ clickOnCell();
 changeBombs();
 setFlag();
 changeDifficulty();
-changeTheme();
+document.querySelector('.game__settings-theme').addEventListener('click', changeTheme);

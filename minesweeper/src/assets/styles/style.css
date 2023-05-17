@@ -27,10 +27,15 @@ body {
   width: 100vw;
   height: 100vh;
   font-weight: 700;
-  background: url('../images/bg.jpg') center/cover no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.blue-bg {
+  background: url('../images/bg-blue.jpg') center/cover no-repeat;
+}
+.gray-bg {
+  background: url('../images/bg.jpg') center/cover no-repeat;
 }
 .game,
 .header,
@@ -51,9 +56,26 @@ body {
   font-family: 'Press Start 2P';
   font-size: 14px;
   border: 4px outset;
-  background-color:  rgb(200, 200, 200);
   padding: 10px;
   cursor: pointer;
+}
+.game__button:active {
+  border: 4px inset;
+  transform: scale(0.9);
+}
+.btn-gray {
+  background-color:  rgb(200, 200, 200);
+  border-color: rgb(224, 216, 216);
+}
+.btn-blue {
+  background-color: rgb(43, 119, 233);
+  border-color: rgb(73, 141, 243);
+}
+.btn-blue:active {
+  border: 4px inset rgb(33, 118, 245);
+}
+.btn-gray:active {
+  border: 4px inset rgb(224, 216, 216);
 }
 .game__container {
   max-width: 486px;
@@ -101,10 +123,6 @@ body {
   font-family: 'Press Start 2P';
   font-size: 12px;
 }
-.game__button:active {
-  border: 4px inset;
-  transform: scale(0.9);
-}
 .game__wrapper {
   padding: 10px;
 }
@@ -118,23 +136,7 @@ body {
 } */
 .game__cell {
   font-family: 'Press Start 2P';
-  background-color:  rgb(179, 179, 179);
   cursor: pointer;
-}
-.easy {
-  width: 45px;
-  height: 45px;
-  border: 4px outset;
-}
-.medium {
-  width: 30px;
-  height: 30px;
-  border: 3px outset;
-}
-.hard {
-  width: 18px;
-  height: 18px;
-  border: 2px outset;
 }
 .game__cell:active {
   border: none;
@@ -147,13 +149,10 @@ body {
 }
 .level-active {
   background-color:red;
-  border: 4px outset red;;
+  border: 4px outset red;
 }
 .level-active:active {
   border: 4px inset red;
-}
-.checked-cell {
-  border: 1px solid gray;
 }
 .cell-1 {
   color:blue;
@@ -179,9 +178,6 @@ body {
 .cell-8 {
   color:dimgrey;
 }
-.game-over {
-  background: red url('../icons/bomb.svg') center/cover no-repeat;
-}
 .flag {
   background: url('../icons/red-flag.png') center/cover no-repeat;
 }
@@ -201,4 +197,38 @@ body {
 }
 .game__settings-volume.click_mute::before {
   background-image: url("../icons/audio_volume_mute.svg");
+}
+.easy {
+  width: 45px;
+  height: 45px;
+  font-size: 16px;
+  border-width: 4px;
+  border-style: outset ;
+}
+.medium {
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  border: 3px outset;
+}
+.hard {
+  width: 18px;
+  height: 18px;
+  font-size: 9px;
+  border: 2px outset;
+}
+.gray-theme {
+  background-color: rgb(124, 122, 122);
+  border-color: rgb(170, 163, 163);
+}
+.blue-theme {
+  background-color: rgb(0, 60, 150);
+  border-color: rgb(54, 97, 161);
+}
+.checked {
+  border: 1px solid gray;
+  background-color: rgb(179, 179, 179);
+}
+.game-over {
+  background: red url('../icons/bomb.svg') center/cover no-repeat;
 }
