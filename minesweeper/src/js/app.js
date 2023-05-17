@@ -30,6 +30,9 @@ function createMain() {
   main.classList.add('game');
   const gameContainer = document.createElement('div');
   gameContainer.classList.add('game__container');
+  const victoryPopup = document.createElement('div');
+  victoryPopup.classList.add('game-over_popup');
+  gameContainer.appendChild(victoryPopup);
   const gameStats = document.createElement('div');
   gameStats.classList.add('game__stats');
   gameContainer.appendChild(gameStats);
@@ -92,6 +95,9 @@ function createMain() {
   settingsWrapper.appendChild(settingsSize);
   settingsWrapper.appendChild(theme);
   settingsWrapper.appendChild(volume);
+  const hiddenWrapper = document.createElement('div');
+  hiddenWrapper.classList.add('hidden_wrapper');
+  gameContainer.appendChild(hiddenWrapper);
   main.appendChild(gameContainer);
   body.append(main);
 }

@@ -132,6 +132,9 @@ function revealCell(x, y) {
 function clickOnCell() {
   const cells = document.querySelectorAll('.game__cell');
   const gameMovies = document.querySelector('.game__movies-count');
+  const gameTimer = document.querySelector('.game__timer-time');
+  const endPopup = document.querySelector('.game-over_popup');
+  const hiddenWrapper = document.querySelector('.hidden_wrapper');
   let movies = 0;
   cells.forEach((el) => {
     el.addEventListener('click', (e) => {
@@ -179,6 +182,7 @@ function clickOnCell() {
           loseSound.play();
         }
         cells.forEach((cell) => {
+          cell.setAttribute('disabled', 'disabled');
           cell.classList.add('checked');
           cell.classList.remove('flag');
           const count2 = cell.dataset.count;
@@ -197,6 +201,18 @@ function clickOnCell() {
         if (isPlay) {
           winSound.play();
         }
+        cells.forEach((cell) => {
+          cell.setAttribute('disabled', 'disabled');
+        });
+        hiddenWrapper.classList.add('hidden_wrapper_active');
+        endPopup.classList.add('popup_active');
+        const time = gameTimer.textContent;
+        const moves = gameMovies.textContent;
+        endPopup.textContent = `Hooray! You found all mines in ${time} seconds and ${moves} moves!`;
+        hiddenWrapper.addEventListener('click', () => {
+          hiddenWrapper.classList.remove('hidden_wrapper_active');
+          endPopup.classList.remove('popup_active');
+        });
       }
     });
   });
@@ -205,12 +221,12 @@ function setFlag() {
   const cells = document.querySelectorAll('.game__cell');
   const bombsCount = document.querySelector('.game__bombs-count');
   const bombsInput = document.querySelector('.footer__settings-bombs');
-  const movies = document.querySelector('.game__movies-count');
+  const gameMovies = document.querySelector('.game__movies-count');
   let bombs = bombsInput.value;
   cells.forEach((el) => {
     el.addEventListener('contextmenu', (e) => {
       e.preventDefault();
-      if (movies.textContent !== '000') {
+      if (gameMovies.textContent !== '000') {
         if (!e.target.classList.contains('checked')) {
           if (isPlay) {
             flagSound.play();
@@ -230,12 +246,12 @@ function setFlag() {
 }
 function initGame(width) {
   const timer = document.querySelector('.game__timer-time');
-  const movies = document.querySelector('.game__movies-count');
+  const gameMovies = document.querySelector('.game__movies-count');
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombsCount = document.querySelector('.game__bombs-count');
   timer.textContent = '000';
   window.clearTimeout(timeHandler);
-  movies.textContent = '000';
+  gameMovies.textContent = '000';
   bombsCount.textContent = `0${bombsInput.value}`;
   createFieldCells(width);
   clickOnCell(width);
@@ -382,7 +398,6 @@ function setVolume() {
     }
   });
 }
-
 export {
   createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme, setSound, setVolume,
 };

@@ -43,6 +43,40 @@ body {
   display: flex;
   justify-content: center;
 }
+.game-over_popup {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 380px;
+  padding: 30px 10px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  background-color: rgb(200, 200, 200);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px black;
+  transition: all .3s;
+}
+.popup_active {
+  opacity: 1;
+  visibility: visible;
+}
+.hidden_wrapper {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  transition: all .3s;
+}
+.hidden_wrapper_active {
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
 .header__container,
 .footer__container {
   display: flex;
@@ -81,6 +115,7 @@ body {
   border: 4px inset rgb(224, 216, 216);
 }
 .game__container {
+  position: relative;
   max-width: 486px;
   display: flex;
   flex-direction: column;
@@ -225,14 +260,14 @@ body {
   background-color: rgb(0, 60, 150);
   border-color: rgb(54, 97, 161);
 }
-.game__cell:active {
+/* .game__cell:active {
   border: 1px solid gray;
   background-color: rgb(179, 179, 179);
-}
+} */
 .checked {
   border: 1px solid gray;
   background-color: rgb(179, 179, 179);
 }
 .game-over {
-  background: red url('../icons/bomb.svg') center/cover no-repeat;
+  background: red url('../icons/mine.png') center/cover no-repeat;
 }
