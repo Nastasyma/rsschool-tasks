@@ -43,7 +43,7 @@ body {
   display: flex;
   justify-content: center;
 }
-.game-over_popup {
+.game_popup {
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -62,7 +62,8 @@ body {
   opacity: 1;
   visibility: visible;
 }
-.hidden_wrapper {
+.hidden_wrapper,
+.hidden_wrapper_save {
   position: fixed;
   visibility: hidden;
   left: 0;
@@ -140,7 +141,7 @@ body {
   border: 4px inset;
   padding: 10px;
 }
-.game__movies-count,
+.game__moves-count,
 .game__timer-time,
 .game__bombs-count {
   width: 90px;
@@ -154,7 +155,7 @@ body {
   align-items: center;
 }
 .game__bombs-title,
-.game__movies-title,
+.game__moves-title,
 .game__timer-title {
   margin-bottom: 5px;
   text-align: center;

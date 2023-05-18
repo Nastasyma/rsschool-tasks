@@ -30,9 +30,9 @@ function createMain() {
   main.classList.add('game');
   const gameContainer = document.createElement('div');
   gameContainer.classList.add('game__container');
-  const victoryPopup = document.createElement('div');
-  victoryPopup.classList.add('game-over_popup');
-  gameContainer.appendChild(victoryPopup);
+  const popup = document.createElement('div');
+  popup.classList.add('game_popup');
+  gameContainer.appendChild(popup);
   const gameStats = document.createElement('div');
   gameStats.classList.add('game__stats');
   gameContainer.appendChild(gameStats);
@@ -49,16 +49,16 @@ function createMain() {
   bombsCount.textContent = '010';
   gameBombs.appendChild(bombsTitle);
   gameBombs.appendChild(bombsCount);
-  const gameMovies = document.createElement('div');
-  gameMovies.classList.add('game__movies');
-  const moviesTitle = document.createElement('div');
-  moviesTitle.classList.add('game__movies-title');
-  moviesTitle.textContent = 'Movies:';
-  const moviesCount = document.createElement('div');
-  moviesCount.classList.add('game__movies-count');
-  moviesCount.textContent = '000';
-  gameMovies.appendChild(moviesTitle);
-  gameMovies.appendChild(moviesCount);
+  const gameMoves = document.createElement('div');
+  gameMoves.classList.add('game__moves');
+  const movesTitle = document.createElement('div');
+  movesTitle.classList.add('game__moves-title');
+  movesTitle.textContent = 'Moves:';
+  const movesCount = document.createElement('div');
+  movesCount.classList.add('game__moves-count');
+  movesCount.textContent = '000';
+  gameMoves.appendChild(movesTitle);
+  gameMoves.appendChild(movesCount);
   const gameTimer = document.createElement('div');
   gameTimer.classList.add('game__timer');
   const timerTitle = document.createElement('div');
@@ -70,7 +70,7 @@ function createMain() {
   gameTimer.appendChild(timerTitle);
   gameTimer.appendChild(timerCount);
   statsWrapper.appendChild(gameBombs);
-  statsWrapper.appendChild(gameMovies);
+  statsWrapper.appendChild(gameMoves);
   statsWrapper.appendChild(gameTimer);
   const gameWrapper = document.createElement('div');
   gameWrapper.classList.add('game__wrapper');
@@ -98,6 +98,9 @@ function createMain() {
   const hiddenWrapper = document.createElement('div');
   hiddenWrapper.classList.add('hidden_wrapper');
   gameContainer.appendChild(hiddenWrapper);
+  const hiddenWrapperSave = document.createElement('div');
+  hiddenWrapperSave.classList.add('hidden_wrapper_save');
+  gameContainer.appendChild(hiddenWrapperSave);
   main.appendChild(gameContainer);
   body.append(main);
 }

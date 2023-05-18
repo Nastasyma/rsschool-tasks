@@ -6,7 +6,17 @@ import './assets/audio/set-flag.mp3';
 import './assets/audio/game-over-mario.mp3';
 import './assets/audio/victory-mario.mp3';
 import {
-  createFieldCells, changeBombs, clickOnCell, setFlag, changeDifficulty, changeTheme, setSound, setVolume,
+  createFieldCells,
+  changeBombs,
+  clickOnCell,
+  setFlag,
+  changeDifficulty,
+  changeTheme,
+  setSound,
+  setVolume,
+  setNewGame,
+  saveGame,
+  loadGame,
 } from './js/game.js';
 import { createHeader, createFooter, createMain } from './js/app.js';
 
@@ -20,4 +30,7 @@ changeBombs();
 setFlag();
 changeDifficulty();
 setVolume();
+saveGame();
+loadGame();
 document.querySelector('.game__settings-theme').addEventListener('click', changeTheme);
+document.querySelector('.button-newgame').addEventListener('click', setNewGame);
