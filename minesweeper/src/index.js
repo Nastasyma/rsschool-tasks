@@ -17,6 +17,8 @@ import {
   setNewGame,
   saveGame,
   loadGame,
+  showResults,
+  removePopup,
 } from './js/game.js';
 import { createHeader, createFooter, createMain } from './js/app.js';
 
@@ -32,5 +34,7 @@ changeDifficulty();
 setVolume();
 saveGame();
 loadGame();
+showResults();
+removePopup();
 document.querySelector('.game__settings-theme').addEventListener('click', changeTheme);
 document.querySelector('.button-newgame').addEventListener('click', setNewGame);

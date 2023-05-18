@@ -12,6 +12,8 @@ let timeHandler;
 let size = 10;
 let isPlay = true;
 let moves = 0;
+let resultsArr = [];
+let info = {};
 const clickSound = new Audio();
 const flagSound = new Audio();
 const loseSound = new Audio();
@@ -134,6 +136,7 @@ function clickOnCell() {
   const gameTimer = document.querySelector('.game__timer-time');
   const endPopup = document.querySelector('.game_popup');
   const hiddenWrapper = document.querySelector('.hidden_wrapper');
+  const hiddenWrapperVictory = document.querySelector('.hidden_wrapper_victory');
   cells.forEach((el) => {
     el.addEventListener('click', (e) => {
       if (!e.target.classList.contains('checked')) {
@@ -213,17 +216,53 @@ function clickOnCell() {
         });
         const bombsCount = document.querySelector('.game__bombs-count');
         bombsCount.textContent = '000';
-        hiddenWrapper.classList.add('hidden_wrapper_active');
+        hiddenWrapperVictory.classList.add('hidden_wrapper_active');
         endPopup.classList.add('popup_active');
         const time = gameTimer.textContent;
         const movesCounter = gameMoves.textContent;
         endPopup.textContent = `Hooray! You found all mines in ${time} seconds and ${movesCounter} moves!`;
-        hiddenWrapper.addEventListener('click', () => {
-          hiddenWrapper.classList.remove('hidden_wrapper_active');
-          endPopup.classList.remove('popup_active');
-        });
+        let level;
+        if (document.querySelector('.footer__settings-easy').classList.contains('level-active')) {
+          level = '10x10';
+        } else if (document.querySelector('.footer__settings-medium').classList.contains('level-active')) {
+          level = '15x15';
+        } else if (document.querySelector('.footer__settings-hard').classList.contains('level-active')) {
+          level = '25x25';
+        }
+        info = { movesCounter, time, level };
+        // console.log(info);
       }
     });
+  });
+}
+function removePopup() {
+  const endPopup = document.querySelector('.game_popup');
+  const hiddenWrapper = document.querySelector('.hidden_wrapper');
+  const hiddenWrapperVictory = document.querySelector('.hidden_wrapper_victory');
+  const resultsList = document.querySelector('.results_list');
+  const resultsPopup = document.querySelector('.results_popup');
+  hiddenWrapperVictory.addEventListener('click', () => {
+    hiddenWrapperVictory.classList.remove('hidden_wrapper_active');
+    endPopup.classList.remove('popup_active');
+    if (resultsArr.length >= 10) {
+      resultsArr.shift();
+    }
+    resultsArr.push(info);
+    // console.log(resultsArr);
+    localStorage.setItem('nastasyma_results_array', JSON.stringify(resultsArr));
+    resultsList.innerHTML = '';
+    for (let i = 0; i < resultsArr.length; i += 1) {
+      const resultsItem = document.createElement('li');
+      resultsItem.classList.add('results_item');
+      resultsItem.textContent = `Field: ${resultsArr[i].level} Time: ${resultsArr[i].time}s Moves: ${resultsArr[i].movesCounter}.`;
+      resultsList.appendChild(resultsItem);
+      localStorage.setItem('nastasyma_results_list', resultsList.innerHTML);
+    }
+  });
+  hiddenWrapper.addEventListener('click', () => {
+    hiddenWrapper.classList.remove('hidden_wrapper_active');
+    endPopup.classList.remove('popup_active');
+    resultsPopup.classList.remove('popup_active');
   });
 }
 function setFlag() {
@@ -292,15 +331,13 @@ function setNewGame() {
       cell.classList.remove('hard');
       cell.classList.add('easy');
     });
-  } else
-  if (document.querySelector('.footer__settings-medium').classList.contains('level-active')) {
+  } else if (document.querySelector('.footer__settings-medium').classList.contains('level-active')) {
     document.querySelectorAll('.game__cell').forEach((cell) => {
       cell.classList.remove('easy');
       cell.classList.remove('hard');
       cell.classList.add('medium');
     });
-  } else
-  if (document.querySelector('.footer__settings-hard').classList.contains('level-active')) {
+  } else if (document.querySelector('.footer__settings-hard').classList.contains('level-active')) {
     document.querySelectorAll('.game__cell').forEach((cell) => {
       cell.classList.remove('medium');
       cell.classList.remove('easy');
@@ -418,31 +455,31 @@ function setVolume() {
 function saveGame() {
   const saveBtn = document.querySelector('.button-save');
   const endPopup = document.querySelector('.game_popup');
-  const hiddenWrapperSave = document.querySelector('.hidden_wrapper_save');
+  const hiddenWrapper = document.querySelector('.hidden_wrapper');
   saveBtn.addEventListener('click', () => {
-    hiddenWrapperSave.classList.add('hidden_wrapper_active');
+    hiddenWrapper.classList.add('hidden_wrapper_active');
     endPopup.classList.add('popup_active');
-    endPopup.textContent = 'Your game has been saved!';
-    localStorage.setItem('nastasyma_countermoves', moves);
-    localStorage.setItem('nastasyma_countermoves_indicator', document.querySelector('.game__moves-count').textContent);
-    localStorage.setItem('nastasyma_flags_indicator', document.querySelector('.game__bombs-count').textContent);
-    localStorage.setItem('nastasyma_time_indicator', document.querySelector('.game__timer-time').textContent);
-    localStorage.setItem('nastasyma_game_field', document.querySelector('.game__field').innerHTML);
-    localStorage.setItem('nastasyma_bombs_amount', document.querySelector('.footer__settings-bombs').value);
-    localStorage.setItem('nastasyma_gameover', JSON.stringify(gameOver));
-    localStorage.setItem('nastasyma_theme', document.querySelector('.game__settings-theme').textContent);
-  });
-  hiddenWrapperSave.addEventListener('click', () => {
-    hiddenWrapperSave.classList.remove('hidden_wrapper_active');
-    endPopup.classList.remove('popup_active');
+    if (document.querySelector('.game__moves-count').textContent !== '000') {
+      endPopup.textContent = 'Your game has been saved!';
+      localStorage.setItem('nastasyma_countermoves', moves);
+      localStorage.setItem('nastasyma_countermoves_indicator', document.querySelector('.game__moves-count').textContent);
+      localStorage.setItem('nastasyma_flags_indicator', document.querySelector('.game__bombs-count').textContent);
+      localStorage.setItem('nastasyma_time_indicator', document.querySelector('.game__timer-time').textContent);
+      localStorage.setItem('nastasyma_game_field', document.querySelector('.game__field').innerHTML);
+      localStorage.setItem('nastasyma_bombs_amount', document.querySelector('.footer__settings-bombs').value);
+      localStorage.setItem('nastasyma_gameover', JSON.stringify(gameOver));
+      localStorage.setItem('nastasyma_theme', document.querySelector('.game__settings-theme').textContent);
+    } else {
+      endPopup.textContent = 'Start the game before saving!';
+    }
   });
 }
 function loadGame() {
   const loadBtn = document.querySelector('.button-load');
   const endPopup = document.querySelector('.game_popup');
-  const hiddenWrapperSave = document.querySelector('.hidden_wrapper_save');
+  const hiddenWrapper = document.querySelector('.hidden_wrapper');
   loadBtn.addEventListener('click', () => {
-    hiddenWrapperSave.classList.add('hidden_wrapper_active');
+    hiddenWrapper.classList.add('hidden_wrapper_active');
     endPopup.classList.add('popup_active');
     endPopup.textContent = 'Your game has been loaded!';
     if (localStorage.getItem('nastasyma_countermoves'));
@@ -515,11 +552,25 @@ function loadGame() {
       body.classList.add('gray-bg');
     }
   });
-  hiddenWrapperSave.addEventListener('click', () => {
-    hiddenWrapperSave.classList.remove('hidden_wrapper_active');
-    endPopup.classList.remove('popup_active');
+}
+function showResults() {
+  const resultsBtn = document.querySelector('.button-results');
+  const resultsPopup = document.querySelector('.results_popup');
+  const hiddenWrapper = document.querySelector('.hidden_wrapper');
+  resultsBtn.addEventListener('click', () => {
+    hiddenWrapper.classList.add('hidden_wrapper_active');
+    resultsPopup.classList.add('popup_active');
   });
 }
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('nastasyma_results_list')) {
+    document.querySelector('.results_list').innerHTML = localStorage.getItem('nastasyma_results_list');
+  }
+  if (localStorage.getItem('nastasyma_results_array')) {
+    resultsArr = JSON.parse(localStorage.getItem('nastasyma_results_array'));
+  }
+  // console.log(resultsArr);
+});
 export {
   createFieldCells,
   changeBombs,
@@ -532,4 +583,6 @@ export {
   setNewGame,
   saveGame,
   loadGame,
+  showResults,
+  removePopup,
 };

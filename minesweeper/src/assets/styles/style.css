@@ -43,7 +43,8 @@ body {
   display: flex;
   justify-content: center;
 }
-.game_popup {
+.game_popup,
+.results_popup {
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -58,12 +59,15 @@ body {
   box-shadow: 5px 5px 10px black;
   transition: all .3s;
 }
+.results_popup {
+  min-height: 200px;
+}
 .popup_active {
   opacity: 1;
   visibility: visible;
 }
 .hidden_wrapper,
-.hidden_wrapper_save {
+.hidden_wrapper_victory {
   position: fixed;
   visibility: hidden;
   left: 0;
@@ -77,6 +81,12 @@ body {
   visibility: visible;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
+}
+.results_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 .header__container,
 .footer__container {
