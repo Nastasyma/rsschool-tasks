@@ -590,6 +590,19 @@ function loadGame() {
     body.classList.add('gray-bg');
   }
 }
+function clickLoad() {
+  document.querySelector('.button-load').addEventListener('click', () => {
+    if (localStorage.getItem('nastasyma_is-saved')) {
+      isSaved = JSON.parse(localStorage.getItem('nastasyma_is-saved'));
+      const endPopup = document.querySelector('.game_popup');
+      const hiddenWrapper = document.querySelector('.hidden_wrapper');
+      hiddenWrapper.classList.add('hidden_wrapper_active');
+      endPopup.classList.add('popup_active');
+      endPopup.textContent = 'Your game has been loaded!';
+      loadGame();
+    }
+  });
+}
 function showResults() {
   const resultsBtn = document.querySelector('.button-results');
   const resultsPopup = document.querySelector('.results_popup');
@@ -640,8 +653,8 @@ export {
   setVolume,
   setNewGame,
   saveGame,
-  loadGame,
   showResults,
   removePopup,
   setStartButtons,
+  clickLoad,
 };
