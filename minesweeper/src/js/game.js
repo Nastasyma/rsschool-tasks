@@ -65,7 +65,12 @@ function createFieldCells(width) {
 function createBombs(width) {
   reset();
   const bombsInput = document.querySelector('.footer__settings-bombs');
-  const bombs = bombsInput.value;
+  let bombs;
+  if (bombsInput.value < 10) {
+    bombs = 10;
+  } else {
+    bombs = bombsInput.value;
+  }
   const cellsNoClick = document.querySelectorAll('.non-clicked-cell');
   for (let i = 0; i < bombs; i += 1) {
     bombsCellsArr.push('bomb');
@@ -216,10 +221,13 @@ function clickOnCell() {
         });
         const bombsCount = document.querySelector('.game__bombs-count');
         bombsCount.textContent = '000';
+        const flagsCount = document.querySelector('.game__flags-count');
+        const bombsInput = document.querySelector('.footer__settings-bombs');
+        flagsCount.textContent = `0${bombsInput.value}`;
         hiddenWrapperVictory.classList.add('hidden_wrapper_active');
         endPopup.classList.add('popup_active');
-        const time = gameTimer.textContent;
-        const movesCounter = gameMoves.textContent;
+        const time = +gameTimer.textContent.replace(/^0+/, '');
+        const movesCounter = +gameMoves.textContent.replace(/^0+/, '');
         endPopup.textContent = `Hooray! You found all mines in ${time} seconds and ${movesCounter} moves!`;
         let level;
         if (document.querySelector('.footer__settings-easy').classList.contains('level-active')) {
@@ -268,13 +276,20 @@ function removePopup() {
 function setFlag() {
   const cells = document.querySelectorAll('.game__cell');
   const bombsCount = document.querySelector('.game__bombs-count');
+  const flagsCount = document.querySelector('.game__flags-count');
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const gameMoves = document.querySelector('.game__moves-count');
   let bombs;
-  if (localStorage.getItem('nastasyma_flags_indicator')) {
-    bombs = document.querySelector('.game__bombs-count').textContent;
+  if (localStorage.getItem('nastasyma_bombs_indicator')) {
+    bombs = +document.querySelector('.game__bombs-count').textContent;
   } else {
     bombs = bombsInput.value;
+  }
+  let flags;
+  if (localStorage.getItem('nastasyma_flags_indicator')) {
+    flags = +document.querySelector('.game__flags-count').textContent;
+  } else {
+    flags = 0;
   }
   cells.forEach((el) => {
     el.addEventListener('contextmenu', (e) => {
@@ -286,11 +301,18 @@ function setFlag() {
           }
           e.target.classList.toggle('flag');
           if (e.target.classList.contains('flag')) {
+            flags += 1;
             bombs -= 1;
+          } else {
+            flags -= 1;
+            bombs += 1;
+          }
+          flagsCount.textContent = flags.toString().padStart(3, 0);
+          if (bombs >= 0) {
+            bombsCount.classList.remove('bombs_stop');
             bombsCount.textContent = bombs.toString().padStart(3, 0);
           } else {
-            bombs += 1;
-            bombsCount.textContent = bombs.toString().padStart(3, 0);
+            bombsCount.classList.add('bombs_stop');
           }
         }
       }
@@ -302,10 +324,18 @@ function initGame(width) {
   const gameMoves = document.querySelector('.game__moves-count');
   const bombsInput = document.querySelector('.footer__settings-bombs');
   const bombsCount = document.querySelector('.game__bombs-count');
+  const flagsCount = document.querySelector('.game__flags-count');
   timer.textContent = '000';
   window.clearTimeout(timeHandler);
   gameMoves.textContent = '000';
-  bombsCount.textContent = `0${bombsInput.value}`;
+  flagsCount.textContent = '000';
+  if (bombsInput.value < 10) {
+    bombsCount.textContent = '010';
+  } else {
+    bombsCount.textContent = `0${bombsInput.value}`;
+  }
+
+  bombsCount.classList.remove('bombs_stop');
   createFieldCells(width);
   clickOnCell(width);
   setFlag();
@@ -463,7 +493,8 @@ function saveGame() {
       endPopup.textContent = 'Your game has been saved!';
       localStorage.setItem('nastasyma_countermoves', moves);
       localStorage.setItem('nastasyma_countermoves_indicator', document.querySelector('.game__moves-count').textContent);
-      localStorage.setItem('nastasyma_flags_indicator', document.querySelector('.game__bombs-count').textContent);
+      localStorage.setItem('nastasyma_flags_indicator', document.querySelector('.game__flags-count').textContent);
+      localStorage.setItem('nastasyma_bombs_indicator', document.querySelector('.game__bombs-count').textContent);
       localStorage.setItem('nastasyma_time_indicator', document.querySelector('.game__timer-time').textContent);
       localStorage.setItem('nastasyma_game_field', document.querySelector('.game__field').innerHTML);
       localStorage.setItem('nastasyma_bombs_amount', document.querySelector('.footer__settings-bombs').value);
@@ -487,7 +518,9 @@ function loadGame() {
     if (localStorage.getItem('nastasyma_countermoves_indicator'));
     document.querySelector('.game__moves-count').textContent = localStorage.getItem('nastasyma_countermoves_indicator');
     if (localStorage.getItem('nastasyma_flags_indicator'));
-    document.querySelector('.game__bombs-count').textContent = localStorage.getItem('nastasyma_flags_indicator');
+    document.querySelector('.game__flags-count').textContent = localStorage.getItem('nastasyma_flags_indicator');
+    if (localStorage.getItem('nastasyma_bombs_indicator'));
+    document.querySelector('.game__bombs-count').textContent = localStorage.getItem('nastasyma_bombs_indicator');
     if (localStorage.getItem('nastasyma_time_indicator'));
     document.querySelector('.game__timer-time').textContent = localStorage.getItem('nastasyma_time_indicator');
     if (localStorage.getItem('nastasyma_game_field'));

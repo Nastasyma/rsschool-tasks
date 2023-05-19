@@ -37,7 +37,7 @@ function createMain() {
   resultsPopup.classList.add('results_popup');
   const popupTitle = document.createElement('span');
   popupTitle.classList.add('results_title');
-  popupTitle.textContent = 'Last 10 results';
+  popupTitle.textContent = 'Last 10 results:';
   const resultsList = document.createElement('ol');
   resultsList.classList.add('results_list');
   const resultsListItem = document.createElement('div');
@@ -53,6 +53,16 @@ function createMain() {
   const statsWrapper = document.createElement('div');
   statsWrapper.classList.add('game__stats-wrapper');
   gameStats.appendChild(statsWrapper);
+  const gameFlags = document.createElement('div');
+  gameFlags.classList.add('game__flags');
+  const flagsTitle = document.createElement('div');
+  flagsTitle.classList.add('game__flags-title');
+  flagsTitle.textContent = 'Flags:';
+  const flagsCount = document.createElement('div');
+  flagsCount.classList.add('game__flags-count');
+  flagsCount.textContent = '000';
+  gameFlags.appendChild(flagsTitle);
+  gameFlags.appendChild(flagsCount);
   const gameBombs = document.createElement('div');
   gameBombs.classList.add('game__bombs');
   const bombsTitle = document.createElement('div');
@@ -83,6 +93,7 @@ function createMain() {
   timerCount.textContent = '000';
   gameTimer.appendChild(timerTitle);
   gameTimer.appendChild(timerCount);
+  statsWrapper.appendChild(gameFlags);
   statsWrapper.appendChild(gameBombs);
   statsWrapper.appendChild(gameMoves);
   statsWrapper.appendChild(gameTimer);

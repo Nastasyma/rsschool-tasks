@@ -153,10 +153,11 @@ body {
 }
 .game__moves-count,
 .game__timer-time,
-.game__bombs-count {
+.game__bombs-count,
+.game__flags-count {
   width: 90px;
   font-family: 'digital', sans-serif;
-  font-size: 56px;
+  font-size: 48px;
   padding: 3px;
   background-color: black;
   color: red;
@@ -164,9 +165,13 @@ body {
   justify-content: center;
   align-items: center;
 }
+.bombs_stop {
+  color: orange;
+}
 .game__bombs-title,
 .game__moves-title,
-.game__timer-title {
+.game__timer-title,
+.game__flags-title {
   margin-bottom: 5px;
   text-align: center;
   font-family: 'Press Start 2P';
