@@ -310,3 +310,44 @@ body {
 .game-over {
   background: red url('../icons/mine.png') center/cover no-repeat;
 }
+
+@media (max-width: 486px) {
+  .header__container,
+  .footer__container,
+  .game__container {
+    max-width: 330px;
+  }
+  .easy {
+    width: 29.3px;
+    height: 29.3px;
+    font-size: 14px;
+  }
+  .medium {
+    width: 19.5px;
+    height: 19.5px;
+    font-size: 12px;
+  }
+  .hard {
+    width: 11.75px;
+    height: 11.75px;
+    font-size: 7px;
+    padding: 2px;
+  }
+  .game__moves-count,
+  .game__timer-time,
+  .game__bombs-count,
+  .game__flags-count {
+    width: 55px;
+    font-size: 32px;
+  }
+  .game__button {
+    font-size: 10px;
+    padding: 5px;
+  }
+  .game__bombs-title,
+  .game__moves-title,
+  .game__timer-title,
+  .game__flags-title {
+    font-size: 10px;
+  }
+}
