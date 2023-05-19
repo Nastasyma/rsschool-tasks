@@ -19,6 +19,7 @@ import {
   loadGame,
   showResults,
   removePopup,
+  setStartButtons,
 } from './js/game.js';
 import { createHeader, createFooter, createMain } from './js/app.js';
 
@@ -33,8 +34,16 @@ setFlag();
 changeDifficulty();
 setVolume();
 saveGame();
-loadGame();
 showResults();
 removePopup();
+setStartButtons();
 document.querySelector('.game__settings-theme').addEventListener('click', changeTheme);
 document.querySelector('.button-newgame').addEventListener('click', setNewGame);
+document.querySelector('.button-load').addEventListener('click', () => {
+  const endPopup = document.querySelector('.game_popup');
+  const hiddenWrapper = document.querySelector('.hidden_wrapper');
+  hiddenWrapper.classList.add('hidden_wrapper_active');
+  endPopup.classList.add('popup_active');
+  endPopup.textContent = 'Your game has been loaded!';
+  loadGame();
+});

@@ -33,6 +33,17 @@ function createMain() {
   const popup = document.createElement('div');
   popup.classList.add('game_popup');
   gameContainer.appendChild(popup);
+  const loadPopup = document.createElement('div');
+  loadPopup.classList.add('load_popup');
+  gameContainer.appendChild(loadPopup);
+  const newGameBtn = document.createElement('button');
+  newGameBtn.className = 'start_button start-newgame';
+  newGameBtn.textContent = 'NEW GAME';
+  loadPopup.appendChild(newGameBtn);
+  const loadBtn = document.createElement('button');
+  loadBtn.className = 'start_button start-load';
+  loadBtn.textContent = 'LOAD GAME';
+  loadPopup.appendChild(loadBtn);
   const resultsPopup = document.createElement('div');
   resultsPopup.classList.add('results_popup');
   const popupTitle = document.createElement('span');
@@ -126,6 +137,9 @@ function createMain() {
   const hiddenWrapperSave = document.createElement('div');
   hiddenWrapperSave.classList.add('hidden_wrapper_victory');
   gameContainer.appendChild(hiddenWrapperSave);
+  const hiddenWrapperLoad = document.createElement('div');
+  hiddenWrapperLoad.classList.add('hidden_wrapper_load');
+  gameContainer.appendChild(hiddenWrapperLoad);
   main.appendChild(gameContainer);
   body.append(main);
 }

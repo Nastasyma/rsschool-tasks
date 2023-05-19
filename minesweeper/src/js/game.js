@@ -14,6 +14,7 @@ let isPlay = true;
 let moves = 0;
 let resultsArr = [];
 let info = {};
+let isSaved = false;
 const clickSound = new Audio();
 const flagSound = new Audio();
 const loseSound = new Audio();
@@ -491,6 +492,7 @@ function saveGame() {
     endPopup.classList.add('popup_active');
     if (document.querySelector('.game__moves-count').textContent !== '000') {
       endPopup.textContent = 'Your game has been saved!';
+      isSaved = true;
       localStorage.setItem('nastasyma_countermoves', moves);
       localStorage.setItem('nastasyma_countermoves_indicator', document.querySelector('.game__moves-count').textContent);
       localStorage.setItem('nastasyma_flags_indicator', document.querySelector('.game__flags-count').textContent);
@@ -500,91 +502,93 @@ function saveGame() {
       localStorage.setItem('nastasyma_bombs_amount', document.querySelector('.footer__settings-bombs').value);
       localStorage.setItem('nastasyma_gameover', JSON.stringify(gameOver));
       localStorage.setItem('nastasyma_theme', document.querySelector('.game__settings-theme').textContent);
+      localStorage.setItem('nastasyma_is-saved', JSON.stringify(isSaved));
     } else {
       endPopup.textContent = 'Start the game before saving!';
     }
   });
 }
 function loadGame() {
-  const loadBtn = document.querySelector('.button-load');
-  const endPopup = document.querySelector('.game_popup');
-  const hiddenWrapper = document.querySelector('.hidden_wrapper');
-  loadBtn.addEventListener('click', () => {
-    hiddenWrapper.classList.add('hidden_wrapper_active');
-    endPopup.classList.add('popup_active');
-    endPopup.textContent = 'Your game has been loaded!';
-    if (localStorage.getItem('nastasyma_countermoves'));
+  if (localStorage.getItem('nastasyma_countermoves')) {
     moves = +localStorage.getItem('nastasyma_countermoves');
-    if (localStorage.getItem('nastasyma_countermoves_indicator'));
+  }
+  if (localStorage.getItem('nastasyma_countermoves_indicator')) {
     document.querySelector('.game__moves-count').textContent = localStorage.getItem('nastasyma_countermoves_indicator');
-    if (localStorage.getItem('nastasyma_flags_indicator'));
+  }
+  if (localStorage.getItem('nastasyma_flags_indicator')) {
     document.querySelector('.game__flags-count').textContent = localStorage.getItem('nastasyma_flags_indicator');
-    if (localStorage.getItem('nastasyma_bombs_indicator'));
+  }
+  if (localStorage.getItem('nastasyma_bombs_indicator')) {
     document.querySelector('.game__bombs-count').textContent = localStorage.getItem('nastasyma_bombs_indicator');
-    if (localStorage.getItem('nastasyma_time_indicator'));
+  }
+  if (localStorage.getItem('nastasyma_time_indicator')) {
     document.querySelector('.game__timer-time').textContent = localStorage.getItem('nastasyma_time_indicator');
-    if (localStorage.getItem('nastasyma_game_field'));
+  }
+  if (localStorage.getItem('nastasyma_game_field')) {
     document.querySelector('.game__field').innerHTML = localStorage.getItem('nastasyma_game_field');
-    if (localStorage.getItem('nastasyma_bombs_amount'));
+  }
+  if (localStorage.getItem('nastasyma_bombs_amount')) {
     document.querySelector('.footer__settings-bombs').value = localStorage.getItem('nastasyma_bombs_amount');
-    if (localStorage.getItem('nastasyma_gameover'));
+  }
+  if (localStorage.getItem('nastasyma_gameover')) {
     gameOver = JSON.parse(localStorage.getItem('nastasyma_gameover'));
-    if (localStorage.getItem('nastasyma_theme'));
+  }
+  if (localStorage.getItem('nastasyma_theme')) {
     document.querySelector('.game__settings-theme').textContent = localStorage.getItem('nastasyma_theme');
-    clickOnCell();
-    setFlag();
-    window.clearTimeout(timeHandler);
-    drawTimer();
-    const cells = document.querySelectorAll('.game__cell');
-    const levelBtns = document.querySelectorAll('.level-button');
-    for (let i = 0; i < levelBtns.length; i += 1) {
-      levelBtns[i].classList.remove('level-active');
-    }
-    if (cells.length === 100) {
-      document.querySelector('.footer__settings-easy').classList.add('level-active');
-      document.querySelector('.game__settings-field-size').textContent = 'Field size: 10x10';
-      size = 10;
-    } else if (cells.length === 225) {
-      document.querySelector('.footer__settings-medium').classList.add('level-active');
-      document.querySelector('.game__settings-field-size').textContent = 'Field size: 15x15';
-      size = 15;
-    } else if (cells.length === 625) {
-      document.querySelector('.footer__settings-hard').classList.add('level-active');
-      document.querySelector('.game__settings-field-size').textContent = 'Field size: 25x25';
-      size = 25;
-    }
-    const theme = document.querySelector('.game__settings-theme');
-    const gameBtns = document.querySelectorAll('.game__button');
-    const { body } = document;
-    if (theme.textContent === 'blue') {
-      theme.classList.remove('gray');
-      theme.classList.add('blue');
-      cells.forEach((el) => {
-        el.classList.remove('gray-theme');
-        el.classList.add('blue-theme');
-      });
-      gameBtns.forEach((el) => {
-        el.classList.remove('btn-gray');
-        el.classList.add('btn-blue');
-      });
-      body.classList.remove('gray-bg');
-      body.classList.add('blue-bg');
-    } else {
-      theme.textContent = 'gray';
-      theme.classList.remove('blue');
-      theme.classList.add('gray');
-      cells.forEach((el) => {
-        el.classList.remove('blue-theme');
-        el.classList.add('gray-theme');
-      });
-      gameBtns.forEach((el) => {
-        el.classList.remove('btn-blue');
-        el.classList.add('btn-gray');
-      });
-      body.classList.remove('blue-bg');
-      body.classList.add('gray-bg');
-    }
-  });
+  }
+  clickOnCell();
+  setFlag();
+  window.clearTimeout(timeHandler);
+  drawTimer();
+  const cells = document.querySelectorAll('.game__cell');
+  const levelBtns = document.querySelectorAll('.level-button');
+  for (let i = 0; i < levelBtns.length; i += 1) {
+    levelBtns[i].classList.remove('level-active');
+  }
+  if (cells.length === 100) {
+    document.querySelector('.footer__settings-easy').classList.add('level-active');
+    document.querySelector('.game__settings-field-size').textContent = 'Field size: 10x10';
+    size = 10;
+  } else if (cells.length === 225) {
+    document.querySelector('.footer__settings-medium').classList.add('level-active');
+    document.querySelector('.game__settings-field-size').textContent = 'Field size: 15x15';
+    size = 15;
+  } else if (cells.length === 625) {
+    document.querySelector('.footer__settings-hard').classList.add('level-active');
+    document.querySelector('.game__settings-field-size').textContent = 'Field size: 25x25';
+    size = 25;
+  }
+  const theme = document.querySelector('.game__settings-theme');
+  const gameBtns = document.querySelectorAll('.game__button');
+  const { body } = document;
+  if (theme.textContent === 'blue') {
+    theme.classList.remove('gray');
+    theme.classList.add('blue');
+    cells.forEach((el) => {
+      el.classList.remove('gray-theme');
+      el.classList.add('blue-theme');
+    });
+    gameBtns.forEach((el) => {
+      el.classList.remove('btn-gray');
+      el.classList.add('btn-blue');
+    });
+    body.classList.remove('gray-bg');
+    body.classList.add('blue-bg');
+  } else {
+    theme.textContent = 'gray';
+    theme.classList.remove('blue');
+    theme.classList.add('gray');
+    cells.forEach((el) => {
+      el.classList.remove('blue-theme');
+      el.classList.add('gray-theme');
+    });
+    gameBtns.forEach((el) => {
+      el.classList.remove('btn-blue');
+      el.classList.add('btn-gray');
+    });
+    body.classList.remove('blue-bg');
+    body.classList.add('gray-bg');
+  }
 }
 function showResults() {
   const resultsBtn = document.querySelector('.button-results');
@@ -595,12 +599,33 @@ function showResults() {
     resultsPopup.classList.add('popup_active');
   });
 }
+function setStartButtons() {
+  const startGameBtn = document.querySelector('.start-newgame');
+  const loadGameBtn = document.querySelector('.start-load');
+  const hiddenWrapperLoad = document.querySelector('.hidden_wrapper_load');
+  const loadPopup = document.querySelector('.load_popup');
+  startGameBtn.addEventListener('click', () => {
+    setNewGame();
+    hiddenWrapperLoad.classList.remove('hidden_wrapper_active');
+    loadPopup.classList.remove('popup_active');
+  });
+  loadGameBtn.addEventListener('click', () => {
+    loadGame();
+    hiddenWrapperLoad.classList.remove('hidden_wrapper_active');
+    loadPopup.classList.remove('popup_active');
+  });
+}
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('nastasyma_results_list')) {
     document.querySelector('.results_list').innerHTML = localStorage.getItem('nastasyma_results_list');
   }
   if (localStorage.getItem('nastasyma_results_array')) {
     resultsArr = JSON.parse(localStorage.getItem('nastasyma_results_array'));
+  }
+  if (localStorage.getItem('nastasyma_is-saved')) {
+    isSaved = JSON.parse(localStorage.getItem('nastasyma_is-saved'));
+    document.querySelector('.load_popup').classList.add('popup_active');
+    document.querySelector('.hidden_wrapper_load').classList.add('hidden_wrapper_active');
   }
   // console.log(resultsArr);
 });
@@ -618,4 +643,5 @@ export {
   loadGame,
   showResults,
   removePopup,
+  setStartButtons,
 };

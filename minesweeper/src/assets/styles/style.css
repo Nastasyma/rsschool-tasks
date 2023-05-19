@@ -44,7 +44,8 @@ body {
   justify-content: center;
 }
 .game_popup,
-.results_popup {
+.results_popup,
+.load_popup {
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -59,6 +60,10 @@ body {
   box-shadow: 5px 5px 10px black;
   transition: all .3s;
 }
+.load_popup {
+  display: flex;
+  justify-content: space-around;
+}
 .results_popup {
   min-height: 200px;
 }
@@ -66,8 +71,26 @@ body {
   opacity: 1;
   visibility: visible;
 }
+.start_button {
+  font-family: 'Press Start 2P';
+  font-size: 14px;
+  border: 4px outset;
+  padding: 10px;
+  background-color: rgb(124, 122, 122);
+  border-color: rgb(170, 163, 163);
+  cursor: pointer;
+}
+.start_button:active {
+  border: 4px inset;
+  border-color: rgb(170, 163, 163);
+  transform: scale(0.9);
+}
+.start_button:hover {
+  filter: brightness(80%);
+}
 .hidden_wrapper,
-.hidden_wrapper_victory {
+.hidden_wrapper_victory,
+.hidden_wrapper_load {
   position: fixed;
   visibility: hidden;
   left: 0;
