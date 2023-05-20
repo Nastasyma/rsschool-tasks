@@ -230,8 +230,7 @@ function clickOnCell() {
         const bombsCount = document.querySelector('.game__bombs-count');
         bombsCount.textContent = '000';
         const flagsCount = document.querySelector('.game__flags-count');
-        const bombsInput = document.querySelector('.footer__settings-bombs');
-        flagsCount.textContent = `0${bombsInput.value}`;
+        flagsCount.textContent = bombs.toString().padStart(3, 0);
         hiddenWrapperVictory.classList.add('hidden_wrapper_active');
         endPopup.classList.add('popup_active');
         const time = +gameTimer.textContent.replace(/^0+/, '');

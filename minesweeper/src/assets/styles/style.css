@@ -80,6 +80,7 @@ body {
   background-color: rgb(124, 122, 122);
   border-color: rgb(170, 163, 163);
   cursor: pointer;
+  text-decoration: none;
 }
 .start_button:active {
   border: 4px inset;
@@ -127,6 +128,7 @@ body {
   border: 4px outset;
   padding: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 .game__button:active {
   border: 4px inset;
