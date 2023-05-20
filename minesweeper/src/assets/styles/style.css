@@ -81,6 +81,7 @@ body {
   border-color: rgb(170, 163, 163);
   cursor: pointer;
   text-decoration: none;
+  color: #000000;
 }
 .start_button:active {
   border: 4px inset;
@@ -129,6 +130,7 @@ body {
   padding: 10px;
   cursor: pointer;
   text-decoration: none;
+  color: #000000;
 }
 .game__button:active {
   border: 4px inset;
