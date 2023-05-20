@@ -27,6 +27,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-weight: 700;
+  color: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -349,5 +350,18 @@ body {
   .game__timer-title,
   .game__flags-title {
     font-size: 10px;
+  }
+  .footer__settings-bombs {
+    width: 100px;
+    font-size: 12px;
+    border: 2px outset;
+    background-color: rgb(200, 200, 200);
+    padding: 5px;
+  }
+  .game_popup,
+  .results_popup,
+  .load_popup {
+    width: 330px;
+    padding: 20px 10px;
   }
 }

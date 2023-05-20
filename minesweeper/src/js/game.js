@@ -207,7 +207,14 @@ function clickOnCell() {
           cell.classList.add('game-over');
         });
       }
-      if (document.querySelectorAll('.checked').length === (cells.length - document.querySelector('.footer__settings-bombs').value)) {
+      const bombsInput = document.querySelector('.footer__settings-bombs');
+      let bombs;
+      if (bombsInput.value < 10) {
+        bombs = 10;
+      } else {
+        bombs = bombsInput.value;
+      }
+      if (document.querySelectorAll('.checked').length === (cells.length - bombs)) {
         console.log('Victory!!');
         gameOver = true;
         if (isPlay) {
@@ -503,6 +510,7 @@ function saveGame() {
       localStorage.setItem('nastasyma_gameover', JSON.stringify(gameOver));
       localStorage.setItem('nastasyma_theme', document.querySelector('.game__settings-theme').textContent);
       localStorage.setItem('nastasyma_is-saved', JSON.stringify(isSaved));
+      localStorage.setItem('nastasyma_is-play', JSON.stringify(isPlay));
     } else {
       endPopup.textContent = 'Start the game before saving!';
     }
@@ -533,6 +541,9 @@ function loadGame() {
   if (localStorage.getItem('nastasyma_gameover')) {
     gameOver = JSON.parse(localStorage.getItem('nastasyma_gameover'));
   }
+  if (localStorage.getItem('nastasyma_is-play')) {
+    isPlay = JSON.parse(localStorage.getItem('nastasyma_is-play'));
+  }
   if (localStorage.getItem('nastasyma_theme')) {
     document.querySelector('.game__settings-theme').textContent = localStorage.getItem('nastasyma_theme');
   }
@@ -540,6 +551,12 @@ function loadGame() {
   setFlag();
   window.clearTimeout(timeHandler);
   drawTimer();
+  const volumeBtn = document.querySelector('.game__settings-volume');
+  if (!isPlay) {
+    volumeBtn.classList.add('click_mute');
+  } else {
+    volumeBtn.classList.remove('click_mute');
+  }
   const cells = document.querySelectorAll('.game__cell');
   const levelBtns = document.querySelectorAll('.level-button');
   for (let i = 0; i < levelBtns.length; i += 1) {
