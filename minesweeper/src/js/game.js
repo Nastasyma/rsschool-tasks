@@ -574,6 +574,12 @@ function loadGame() {
     document.querySelector('.game__settings-field-size').textContent = 'Field size: 25x25';
     size = 25;
   }
+  cellsArray.length = 0;
+  cellsMatrix.length = 0;
+  cellsArray.push(...cells);
+  for (let i = 0; i < cellsArray.length; i += size) {
+    cellsMatrix.push(cellsArray.slice(i, i + size));
+  }
   const theme = document.querySelector('.game__settings-theme');
   const gameBtns = document.querySelectorAll('.game__button');
   const { body } = document;
