@@ -27,6 +27,7 @@ const baseConfig = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      favicon: 'src/assets/icons/favicon.ico',
       template: path.resolve(__dirname, './src/index.html'),
       filename: 'index.html',
     }),
