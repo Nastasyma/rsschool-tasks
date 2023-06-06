@@ -12,6 +12,7 @@
         "sourceType": "module",
         "project": "./tsconfig.json"
     },
+    "parser": "@typescript-eslint/parser",
     "env": {
         "es6": true,
         "browser": true,
