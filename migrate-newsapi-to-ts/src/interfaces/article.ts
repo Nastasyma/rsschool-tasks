@@ -10,4 +10,5 @@ export interface IArticle {
   url: string;
   urlToImage: string;
   content: string;
+  status: string;
 }

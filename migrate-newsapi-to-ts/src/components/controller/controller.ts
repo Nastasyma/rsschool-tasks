@@ -4,7 +4,7 @@ import ApiEndPoints from '../../types/endpoints';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-  public getSources(callback: (data?: ISource) => void): void {
+  public getSources(callback: (data: ISource) => void) {
     super.getResp(
       {
         endpoint: ApiEndPoints.sources,
@@ -13,7 +13,7 @@ class AppController extends AppLoader {
     );
   }
 
-  public getNews(e: MouseEvent, callback: (data?: IArticle) => void) {
+  public getNews(e: MouseEvent, callback: (data: IArticle) => void) {
     let { target } = e;
     const newsContainer = e.currentTarget;
 

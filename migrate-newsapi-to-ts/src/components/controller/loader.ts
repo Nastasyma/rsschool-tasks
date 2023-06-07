@@ -12,13 +12,13 @@ class Loader {
     this.options = options;
   }
 
-  getResp(
+  getResp<T>(
     { endpoint, options = {} }: { endpoint: string; options?: IOptions },
-    callback = () => {
+    callback: (data: T) => void = () => {
       console.error('No callback for GET response');
     },
   ) {
-    this.load(HttpMethod.GET, endpoint, callback, options);
+    this.load<T>(HttpMethod.GET, endpoint, callback, options);
   }
 
   errorHandler(res: Response): Response {

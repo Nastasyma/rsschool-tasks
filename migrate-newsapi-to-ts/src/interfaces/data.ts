@@ -6,6 +6,6 @@ export interface IData {
   sources?: ISource[];
   totalResults?: number;
   status: string;
-  drawNews(data: IData): void;
-  drawSources(data: IData): void;
+  drawNews?(data: IData): void;
+  drawSources?(data: IData): void;
 }

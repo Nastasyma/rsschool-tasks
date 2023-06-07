@@ -25,7 +25,7 @@ class Sources {
       fragment.append(sourceClone);
     });
 
-    const sources = document.querySelector('.sources');
+    const sources: TypeHtmlElement = document.querySelector('.sources');
     if (sources) {
       sources.append(fragment);
     }

@@ -6,4 +6,5 @@ export interface ISource {
   category: string;
   language: string;
   country: string;
+  status: string;
 }
