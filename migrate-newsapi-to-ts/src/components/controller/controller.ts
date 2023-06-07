@@ -13,7 +13,7 @@ class AppController extends AppLoader {
     );
   }
 
-  getNews(e: MouseEvent, callback: (data?: IArticle) => void) {
+  public getNews(e: MouseEvent, callback: (data?: IArticle) => void) {
     let { target } = e;
     const newsContainer = e.currentTarget;
 
