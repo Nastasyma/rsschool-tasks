@@ -9,15 +9,11 @@ class News {
     const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
 
     news.forEach((item: IArticle, idx: number) => {
-      if (!newsItemTemp) {
-        throw Error('newsItemTemp not found');
-      }
+      if (!newsItemTemp) throw new Error();
 
       const newsClone = newsItemTemp.content.cloneNode(true);
 
-      if (!(newsClone instanceof DocumentFragment)) {
-        throw Error('newsClone is not DocumentFragment');
-      }
+      if (!(newsClone instanceof DocumentFragment)) throw new Error();
 
       if (idx % 2) {
         newsClone.querySelector('.news__item')?.classList.add('alt');
@@ -29,27 +25,20 @@ class News {
       const newsDescSource: TypeHtmlElement = newsClone.querySelector('.news__description-source');
       const newsDescContent: TypeHtmlElement = newsClone.querySelector('.news__description-content');
       const newsReadMore: TypeHtmlElement = newsClone.querySelector('.news__read-more');
-      if (newsImg) {
-        newsImg.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
-      }
-      if (newsAuthor) {
-        newsAuthor.textContent = item.author || item.source.name;
-      }
-      if (newsDate) {
-        newsDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
-      }
-      if (newsDescTitle) {
-        newsDescTitle.textContent = item.title;
-      }
-      if (newsDescSource) {
-        newsDescSource.textContent = item.source.name;
-      }
-      if (newsDescContent) {
-        newsDescContent.textContent = item.description;
-      }
-      if (newsReadMore) {
-        newsReadMore.setAttribute('href', item.url);
-      }
+      if (!newsImg) throw new Error();
+      newsImg.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
+      if (!newsAuthor) throw new Error();
+      newsAuthor.textContent = item.author || item.source.name;
+      if (!newsDate) throw new Error();
+      newsDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
+      if (!newsDescTitle) throw new Error();
+      newsDescTitle.textContent = item.title;
+      if (!newsDescSource) throw new Error();
+      newsDescSource.textContent = item.source.name;
+      if (!newsDescContent) throw new Error();
+      newsDescContent.textContent = item.description;
+      if (!newsReadMore) throw new Error();
+      newsReadMore.setAttribute('href', item.url);
 
       fragment.append(newsClone);
     });
