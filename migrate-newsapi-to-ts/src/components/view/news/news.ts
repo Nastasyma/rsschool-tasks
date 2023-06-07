@@ -1,6 +1,7 @@
 import { IArticle } from '../../../interfaces/article';
 import { TypeHtmlElement } from '../../../types/types';
 import './news.css';
+import '../../../img/news_placeholder.png';
 
 class News {
   draw(data: Readonly<IArticle[]>): void {
@@ -35,7 +36,7 @@ class News {
         !newsReadMore
       )
         throw new Error();
-      newsMetaImg.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.jpg'})`;
+      newsMetaImg.style.backgroundImage = `url(${item.urlToImage || 'img/news_placeholder.png'})`;
       newsMetaAuthor.textContent = item.author || item.source.name;
       newsMetaDate.textContent = item.publishedAt.slice(0, 10).split('-').reverse().join('-');
       newsDescTitle.textContent = item.title;
