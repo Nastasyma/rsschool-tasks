@@ -1,4 +1,4 @@
-import { IArticle } from '../../../interfaces/interfaces';
+import { IArticle } from '../../../interfaces/article';
 import { TypeHtmlElement } from '../../../types/types';
 import './news.css';
 
@@ -53,7 +53,7 @@ class News {
 
       fragment.append(newsClone);
     });
-    const newsItem: HTMLElement | null = document.querySelector('.news');
+    const newsItem: TypeHtmlElement = document.querySelector('.news');
     if (newsItem) {
       newsItem.innerHTML = '';
       newsItem.appendChild(fragment);
