@@ -1,13 +1,13 @@
-import { ISource } from '../../../interfaces/source';
+import { TypeSource } from '../../../types/source';
 import { TypeHtmlElement } from '../../../types/types';
 import './sources.css';
 
 class Sources {
-  draw(data: Readonly<ISource[]>): void {
+  draw(data: Readonly<TypeSource[]>): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
 
-    data.forEach((item: ISource) => {
+    data.forEach((item: TypeSource) => {
       if (!sourceItemTemp) throw new Error();
 
       const sourceClone = sourceItemTemp.content.cloneNode(true);

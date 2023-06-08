@@ -1,15 +1,15 @@
-import { IArticle } from '../../../interfaces/article';
+import { TypeArticle } from '../../../types/article';
 import { TypeHtmlElement } from '../../../types/types';
 import './news.css';
 import '../../../img/news_placeholder.png';
 
 class News {
-  draw(data: Readonly<IArticle[]>): void {
-    const news = data.length >= 10 ? data.filter((_item: IArticle, idx: number) => idx < 10) : data;
+  draw(data: Readonly<TypeArticle[]>): void {
+    const news = data.length >= 10 ? data.filter((_item: TypeArticle, idx: number) => idx < 10) : data;
     const fragment: DocumentFragment = document.createDocumentFragment();
     const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
 
-    news.forEach((item: IArticle, idx: number) => {
+    news.forEach((item: TypeArticle, idx: number) => {
       if (!newsItemTemp) throw new Error();
 
       const newsClone = newsItemTemp.content.cloneNode(true);

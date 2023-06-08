@@ -1,5 +1,5 @@
-import { IData } from '../../interfaces/data';
-import { ISource } from '../../interfaces/source';
+import { IRecievedData } from '../../interfaces/recievedData';
+import { TypeSource } from '../../types/source';
 import { TypeHtmlElement } from '../../types/types';
 import AppController from '../controller/controller';
 import AppView from '../view/appView';
@@ -20,11 +20,11 @@ class App {
 
     if (sources instanceof HTMLDivElement) {
       sources.addEventListener('click', (e: MouseEvent) =>
-        this.controller.getNews(e, (data: IData) => this.view.drawNews(data)),
+        this.controller.getNews(e, (data: Partial<IRecievedData>) => this.view.drawNews(data)),
       );
     }
 
-    this.controller.getSources((data: ISource) => this.view.drawSources(data));
+    this.controller.getSources((data: TypeSource) => this.view.drawSources(data));
   }
 }
 

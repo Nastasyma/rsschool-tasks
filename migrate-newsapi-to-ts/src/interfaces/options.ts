@@ -1,4 +1,4 @@
 export interface IOptions {
-  sources?: string;
-  apiKey?: string;
+  sources: string;
+  apiKey: string;
 }
