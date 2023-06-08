@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1400px;
-  height: 152px;
+  height: 147px;
   margin: 0 auto;
   padding-right: 10px;
   overflow: auto;
@@ -46,4 +46,12 @@
   font-weight: 400;
   white-space: nowrap;
   font-family: 'Amarante';
+}
+@media (max-width: 640px) {
+  .sources {
+    height: 157px;
+  }
+  .source__item {
+    padding: 0.4em 0.4em;
+  }
 }
