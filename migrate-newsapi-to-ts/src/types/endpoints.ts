@@ -1,7 +1,7 @@
 enum ApiEndPoints {
   everything = 'everything',
-  topHeadlines = 'top-headlines',
   sources = 'sources',
+  topHeadlines = 'top-headlines',
 }
 
 export default ApiEndPoints;

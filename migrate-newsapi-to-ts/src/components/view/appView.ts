@@ -4,7 +4,7 @@ import { IData } from '../../interfaces/data';
 import { IArticle } from '../../interfaces/article';
 import { ISource } from '../../interfaces/source';
 
-export class AppView {
+class AppView {
   private news: News;
 
   private sources: Sources;

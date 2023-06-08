@@ -2,7 +2,7 @@ import { IData } from '../../interfaces/data';
 import { ISource } from '../../interfaces/source';
 import { TypeHtmlElement } from '../../types/types';
 import AppController from '../controller/controller';
-import { AppView } from '../view/appView';
+import AppView from '../view/appView';
 
 class App {
   private controller: AppController;
