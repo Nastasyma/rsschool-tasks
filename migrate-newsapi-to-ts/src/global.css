@@ -24,6 +24,10 @@ body {
 
 header {
   padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  gap: 20px;
 }
 
 header h1 {
@@ -69,8 +73,15 @@ footer .copyright:before {
   width: 80px;
   height: 45px;
 }
+.news-logo {
+  width: 100px;
+  height: 100px;
+}
 .github-logo:hover,
 .rsschool-logo:hover {
   position: relative;
   bottom: 3px;
+}
+.news-logo:hover {
+  transform: scale(1.1);
 }
