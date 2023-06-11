@@ -1,1 +1,2 @@
-https://nastasyma.github.io/cssBayan/cssBayan/index.html
+# cssBayan task 
+An accordion created with HTML and CSS only.
