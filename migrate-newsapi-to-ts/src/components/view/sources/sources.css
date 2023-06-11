@@ -1,14 +1,40 @@
 .sources {
   display: flex;
   flex-wrap: wrap;
-  max-width: 1400px;
-  height: 147px;
+  max-width: 1100px;
+  height: 149px;
   margin: 0 auto;
   padding-right: 10px;
   overflow: auto;
-  align-items: center;
-  justify-content: space-between;
+  align-items: start;
+  justify-content: center;
   font: 300 1em 'Fira Sans', sans-serif;
+}
+
+.sources-alfabet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1100px;
+  margin-bottom: 20px;
+}
+
+.button-letter {
+  cursor: pointer;
+  background: black;
+  border: 2px solid #30c5ff;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  margin: 3px;
+  color: #70d6ff;
+  font-family: 'Amarante';
+}
+
+.letter-all {
+  width: 60px;
 }
 
 .sources::-webkit-scrollbar {
@@ -26,6 +52,7 @@
   border: 2px solid #30c5ff;
   border-radius: 10px;
   font: inherit;
+  text-align: center;
   line-height: 1;
   margin: 0.2em;
   padding: 0.7em 0.7em;
@@ -35,10 +62,22 @@
 }
 
 .source__item:hover,
-.source__item:focus {
+.source__item:focus,
+.button-letter:hover {
   border-color: #9de3ff;
   color: #9de3ff;
   box-shadow: 0 0.5em 0.5em -0.4em #9de3ff;
+  transform: scale(0.95);
+}
+
+.item-hide {
+  display: none;
+}
+
+.letter-active {
+  border-color: #d6f3ff;
+  color: #d6f3ff;
+  box-shadow: 2px 2px 4px #d6f3ff, 0 0 5px #d6f3ff;
   transform: scale(0.95);
 }
 

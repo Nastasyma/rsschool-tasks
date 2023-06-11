@@ -18,6 +18,7 @@ body {
   background: center/cover no-repeat, rgba(0, 0, 0, 0.5);
   background-image: url('../src/img/news_bg.png');
   background-blend-mode: multiply;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
 }
