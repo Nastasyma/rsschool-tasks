@@ -1,0 +1,232 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-weight: 700;
+  background-color: bisque;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: url('../assets/bg.jpg') center/cover no-repeat;
+}
+.header_container,
+.main_container,
+.footer_container {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.header_container {
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.main_container {
+  margin-bottom: 20px;
+  position: relative;
+}
+.shuffle_btn,
+.load_btn,
+.save_btn,
+.results_btn,
+.size_btn,
+.volume_btn {
+  background-color: midnightblue;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid black;
+  box-shadow: 1px 1px 5px black;
+}
+.shuffle_btn,
+.results_btn {
+  padding: 5px 2px;
+}
+.shuffle_btn,
+.results_btn {
+  width: 90px;
+}
+.load_btn,
+.save_btn {
+  width: 50px;
+}
+.shuffle_btn:hover,
+.load_btn:hover,
+.save_btn:hover,
+.results_btn:hover {
+  background-color: orange;
+  color: black;
+  font-weight: 900;
+}
+.size_btn:hover {
+  background-color: orange;
+  color: black;
+  font-weight: 900;
+}
+.volume_btn:hover  {
+  background-color: orange;
+}
+.volume_btn:hover:before {
+  filter: invert(0);
+}
+.shuffle_btn:active,
+.load_btn:active,
+.save_btn:active,
+.results_btn:active,
+.size_btn:active,
+.volume_btn:active {
+  transform: scale(0.95);
+}
+.volume_btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.volume_btn:before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 5px;
+  background: url("../assets/audio_volume.svg") no-repeat center/contain;
+  width: 20px;
+  height: 15px;
+  filter: invert(100%);
+}
+.volume_btn.click_mute::before {
+  background-image: url("../assets/audio_volume_mute.svg");
+}
+.btn_active {
+  background-color: orange;
+  color: black;
+  font-weight: 900;
+}
+.game_stats {
+  max-width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+canvas {
+  border: 2px solid black;
+  cursor: pointer;
+  box-shadow: 5px 5px 12px black;
+  border-radius: 10px;
+}
+.game_field {
+  max-width: 304px;
+  margin: 0 auto;
+}
+.victory_popup,
+.saved_popup,
+.loaded_popup {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 250px;
+  height: 100px;
+  padding: 30px 10px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  background-color: orange;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition: all .3s;
+}
+.results_popup {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  width: 290px;
+  min-height: 200px;
+  padding: 20px 10px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 20;
+  background-color: bisque;
+  border-radius: 10px;
+  border: 2px solid black;
+  transition: all .3s;
+}
+.popup_active {
+  opacity: 1;
+  visibility: visible;
+}
+.results_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  color: midnightblue;
+  font-size: 900;
+  text-shadow: 1px 1px 2px black;
+}
+.results_list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+}
+.results_item {
+  max-width: 270px;
+}
+.hidden_wrapper {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  transition: all .3s;
+}
+.hidden_wrapper_victory {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+  transition: all .3s;
+}
+.hidden_wrapper_active {
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+.current_field_size {
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  margin-left: 100px;
+  padding-top: 10px;
+}
+.change_size {
+  margin-left: 10px;
+  margin-right: 45px;
+}
+.frame_size {
+  min-width: 95px;
+}
+.footer_container {
+  max-width: 300px;
+  display: flex;
+  justify-content: space-around;
+}
+.footer_container > span {
+  display: flex;
+  align-items: center;
+}
+.sizes_wrapper {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+}

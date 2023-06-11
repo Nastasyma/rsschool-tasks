@@ -1,0 +1,726 @@
+/* ------------ section_donate start ----------- */
+
+.panda_bg {
+  background: url('../../assets/images/giant_panda_donat_bg.png') no-repeat center/cover;
+  min-height: 390px;
+  margin-top: -4px;
+}
+
+.section_donate {
+  background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
+}
+
+.donate_wrapper {
+  max-width: 1181px;
+  padding: 40px 10px 180px 10px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 60px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-right: 11px;
+  color:#FE9013;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 46.8px;
+  margin: 0;
+}
+
+.donate_info {
+  color:#FE9013;
+}
+
+.donate_description {
+  font-weight: 500;
+  line-height: 22px;
+  font-size: 16px;
+  margin: 9px 10px 46px 0;
+}
+
+.donate_description span {
+  font-weight: 400;
+}
+
+.donate_pay_wrapper {
+  padding: 40px 92px 63px 92px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.52);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+  color:#333B41;
+}
+
+.subtitle{
+  font-weight: 400;
+  line-height: 28.8px;
+  font-size: 24px;
+  margin-bottom: 58px;
+}
+
+.panda_diet {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  padding-right: 15px;
+  margin-bottom: 48px;
+}
+
+.panda_widget {
+  width: 100%;
+}
+
+.diets_count {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 55px;
+}
+
+.amount_of_days_donate {
+  width: 100%;
+}
+
+.x_icon {
+  width: 14px;
+  height: 14px;
+  margin: 25px 64px 0 11px;
+}
+
+.input_gray {
+  width: 100%;
+  height: 27px;
+  margin: 17px 0 14px 0;
+  background: #404950;
+  position: relative;
+}
+
+.input_gray_line {
+  position: absolute;
+  height: 2px;
+  top: 12px;
+  right: 30px;
+  width: 94.2%;
+  background: #72828E;
+}
+
+.donate_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input2 {
+  display: none;
+}
+.input3 {
+  display: none;
+}
+
+#donate_input_value {
+  width: 97.5%;
+  height: 45px;
+  top: -10px;
+  margin-left: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: transparent;
+  position: relative;
+  z-index: 5;
+}
+#donate_input_value::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url('../../assets/images/roller_icon.png');
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#donate_input_value::-moz-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  background-image: url('../../assets/images/roller_icon.png');
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.yellow_points {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 94.3%;
+  top: 8px;
+  left: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.input_point {
+  width: 10px;
+  height: 10px;
+  background-size: 10px;
+  background: #FFEE2E;
+  border-radius: 50%;
+  position: relative;
+  z-index: 6;
+  transition: .2s;
+}
+.input_point:hover {
+  cursor: pointer;
+  z-index: 4;
+  background:#72828E;
+  transform: scale(1.5);
+}
+
+.amount {
+  padding-left: 4px;
+  color: #000000;
+}
+
+.donate_money {
+  width: 100%;
+  margin-bottom: 47px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pay_number {
+  width: 72px;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 36px;
+  transition: all .2s;
+}
+
+.pay_number:nth-child(1) {
+  margin-left: -2px;
+}
+
+.pay_number:hover {
+  color: #FE9013;
+}
+
+.active_number {
+  color: #FE9013;
+}
+/*.pay_number:nth-child(1) {
+  margin-right: -15px;
+}
+.pay_number:nth-child(2) {
+  margin-right: -16px;
+}
+.pay_number:nth-child(3) {
+  margin-right: -12px;
+}
+.pay_number:nth-child(7) {
+  margin-right: 15px;
+}*/
+
+.another_amount {
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 23px;
+}
+
+.another_amount_input {
+  width: 268px;
+  padding: 17px 10px 17px 6px;
+  border-radius: 5px;
+  background: transparent;
+  border-color: #929699;
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.another_amount_input::-webkit-outer-spin-button,
+.another_amount_input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.another_amount::after {
+  content: "Введите число от 0 до 9999";
+  position: absolute;
+  left: 0;
+  top: 110%;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #929699;
+  text-align: center;
+  visibility: var(--visibility);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 15px 0;
+  width: 100%;
+  z-index: 555;
+}
+
+.dollars_gray {
+  position: absolute;
+  top: 17px;
+  right: 10px;
+}
+
+.pay_days {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding: 3px 14px 0 0;
+  gap: 50px;
+}
+
+.radiobtn_wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.pay_radiobtn {
+	position: absolute;
+	z-index: -1;
+  opacity: 0;
+}
+
+.pay_radiobtn + label::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  display: inline-block;
+  visibility: visible;
+  cursor: pointer;
+  border: 1px solid #FE9013;
+}
+
+.pay_radiobtn:checked + label::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: green;
+  border: none;
+  display: inline-block;
+  visibility: visible;
+}
+
+.btn {
+  text-transform: uppercase;
+  color:#ffffff;
+  border: none;
+  background: #F9804B linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 16px 0px 16px 9px;
+  margin: 0 auto;
+  margin-bottom: 31px;
+  width: 298px;
+  font-weight: 500;
+  line-height: 22px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #E47209;
+  transform: scale(1.05);
+}
+
+.btn:focus, .btn:active {
+  background: #4B9200;
+  transform: scale(1.05);
+}
+
+.share {
+  margin: 0 auto;
+  padding-left: 5px;
+}
+
+/* ------------ section_donate end ----------- */
+
+/* ------------ footer start ----------- */
+
+.footer_container {
+  padding: 42px 10px 49px 10px;
+}
+
+.donate_volunteers_btn {
+  border-radius: 5px;
+  margin-bottom: 45px;
+  padding-top: 17px;
+  padding-left: 0;
+}
+
+/* ------------ footer end ----------- */
+
+/* --- media queries start --- */
+
+@media (max-width: 1000px) {
+
+  .panda_bg {
+    margin-top: 0;
+    margin-left: 0;
+    background: url('../../assets/images/giant_panda_donat_bg_1000.png') no-repeat center/cover;
+    min-height: 390px;
+  }
+  .donate_wrapper {
+    max-width: 960px;
+    padding-bottom: 29px;
+  }
+  h3 {
+    padding-right: 100px;
+  }
+  .donate_description {
+    margin-top: 30px;
+  }
+  h2 {
+    padding-right: 16px;
+    margin-bottom: 10px;
+  }
+  .donate_pay_wrapper {
+    margin-top: 40px;
+    padding: 20px 44px 48px 47px;
+  }
+  .panda_diet {
+    padding-right: 17px;
+    margin-bottom: 47px;
+  }
+  .diets_count {
+    padding-top: 50px;
+  }
+  .donate_input {
+    padding: 0 20px 0 18px;
+  }
+  .amount {
+    padding-left: 0;
+  }
+  .input_point:nth-child(1) {
+    display: none;
+  }
+  .pay_number:nth-child(1) {
+    display: none;
+  }
+  .input1 {
+    display: none;
+  }
+  .input2 {
+    display: block;
+    top: 50%;
+    left: 0;
+  }
+  .yellow_points {
+    width: 97.4%;
+    left: 10px;
+  }
+  #donate_input_value {
+    margin-left: -4px;
+    width: 101.1%;
+  }
+  .input_gray_line {
+    width: 96%;
+    left: 12px;
+  }
+  .donate_money {
+    margin-left: -4px;
+    width: 105%;
+    margin-bottom: 48px;
+  }
+  .another_amount_input {
+    padding-bottom: 16px;
+    margin-right: 3px;
+  }
+  .dollars_gray {
+    right: 12px;
+  }
+  .pay_days {
+    padding: 5px 18px 0 0;
+    margin-bottom: 28px;
+  }
+  .feed_friend_btn {
+    padding: 16px 0px 16px 7px;
+  }
+  .share {
+    padding-left: 0;
+  }
+  .footer_top_right {
+    padding-right: 31px;
+  }
+  .footer_nav {
+    margin-left: 119px;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .money_amount {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 36px;
+  }
+  .donate_volunteers_btn {
+    margin-bottom: 67px;
+  }
+  .panda_bg {
+    margin-top: 0;
+    margin-left: 0;
+    background: url('../../assets/images/giant_panda_donat_bg_small.png') no-repeat center/cover;
+    min-height: 335px;
+    margin-top: 34px;
+  }
+  .donate_wrapper {
+    max-width: 620px;
+    padding-top: 30px;
+    padding-bottom: 47px;
+  }
+  h3 {
+    font-size: 24px;
+    line-height: 28.8px;
+    padding-right: 0;
+  }
+  .donate_description {
+    margin: 20px 0 30px 0;
+  }
+  .donate_info {
+    font-size: 36px;
+    line-height: 46.8px;
+  }
+  .donate_pay_wrapper {
+    margin-top: 30px;
+    padding: 30px 0 31px 0;
+  }
+  h2 {
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+  .subtitle {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .panda_diet {
+    padding-right: 12px;
+    margin-bottom: 38px;
+  }
+  .donate_input {
+    padding: 0;
+  }
+  .amount {
+    padding-left: 10px;
+  }
+  .input_gray {
+    width: 100%;
+    margin: 9px 0 11px 0;
+  }
+  .input_point:nth-child(2) {
+    display: none;
+  }
+  .input_point:nth-child(3) {
+    display: none;
+  }
+  .yellow_points {
+    width: 88.2%;
+    left: 35px;
+  }
+  .input_gray_line {
+    width: 88%;
+    left: 35px;
+  }
+  .pay_number:nth-child(2) {
+    display: none;
+  }
+  .pay_number:nth-child(3) {
+    display: none;
+  }
+  .pay_number:nth-child(6) {
+    color: #FE9013;
+  }
+  .donate_money {
+    margin-left: 13px;
+    width: 98.5%;
+  }
+  .input2 {
+    display: none;
+  }
+  .input3 {
+    display: block;
+  }
+  #donate_input_value {
+    margin-left: 20px;
+    width: 93.3%;
+  }
+  .another_amount_input {
+    width: 180px;
+    padding: 10px 10px 12px 5px;
+  }
+  .dollars_gray {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+  }
+  .another_amount {
+    margin-bottom: 33px;
+  }
+  .pay_days {
+    padding: 0 17px 0 0;
+  }
+  .footer_container {
+    padding: 13px 20px 12px 20px;
+  }
+  .footer_top_right {
+    padding-right: 0;
+  }
+  .footer_nav {
+    margin-left: 0;
+  }
+}
+@media (max-width: 430px) {
+  .footer_container {
+    padding: 20px 11px 20px 10px;
+  }
+  .panda_bg {
+    margin-top: 0;
+    margin-left: 0;
+    background: url('../../assets/images/giant_panda_donat_bg_verysmall.png') no-repeat center/cover;
+    min-height: 187px;
+    margin-top: 34px;
+  }
+  .donate_wrapper {
+    padding-right: 9px;
+    padding-bottom: 22px;
+  }
+  .donate_info {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+  .donate_pay_wrapper {
+    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 22px;
+  }
+  h2 {
+    font-size: 24px;
+    line-height: 28.8px;
+    margin-bottom: 10px;
+  }
+  .subtitle {
+    line-height: 22.4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .footer_top_right {
+    position: absolute;
+    top: 27%;
+    left: 18%;
+  }
+  .footer_nav {
+    gap: 30px;
+  }
+  .diets_count {
+    flex: 0 0 32%;
+    padding-top: 28px;
+    gap: 3px;
+  }
+  .diets_count > span {
+    font-size: 9.02px;
+    line-height: 12.63px;
+  }
+  .amount_of_days_donate {
+    padding-left: 20px;
+    width: 75%;
+  }
+  .x_icon {
+    width: 7.89px;
+    height: 7.89px;
+    margin: 13px 38px 0 3px;
+  }
+  .panda_icon_wrapper {
+    flex: 0 0 55.5%
+  }
+  .panda_diet {
+    margin-bottom: 3px;
+  }
+  .amount {
+    padding-left: 0;
+  }
+  .input_gray {
+    height: 13.5px;
+    margin: 10px 0 6px 0;
+  }
+  .pay_number {
+    width: 28.5px;
+    font-size: 13px;
+    line-height: 18.2px;
+  }
+  #donate_input_value::-webkit-slider-thumb {
+    background-image: url('../../assets/images/roller_icon_small.png');
+    width: 20px;
+    height: 20px;
+  }
+  .input_point {
+    width: 5px;
+    height: 5px;
+  }
+  .yellow_points {
+    width: 88.2%;
+    left: 17px;
+    top: 4px;
+  }
+  #donate_input_value {
+    width: 92%;
+    height: 25px;
+    top: -7px;
+    margin-left: 10px;
+  }
+  .input_gray_line {
+    height: 1px;
+    top: 6px;
+    left: 17px;
+    width: 88%;
+  }
+  .donate_money {
+    margin-left: 5px;
+    width: 96.3%;
+    margin-bottom: 22px;
+  }
+  .another_amount {
+    margin-bottom: 25px;
+  }
+  .another_amount_input {
+    margin-right: 0;
+    padding-top: 11px;
+    padding-bottom: 10px;
+  }
+  .pay_days {
+    padding: 2px 20px 0 0;
+    margin-bottom: 26px;
+  }
+  .donate_volunteers_btn {
+    margin-bottom: 30px;
+  }
+  .footer_nav {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 320px) {
+  #donate_input_value {
+    width: 92.9%;
+  }
+}
+/* --- media queries end --- */

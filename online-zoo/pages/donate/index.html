@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../assets/styles/normalize.css" />
+  <link rel="stylesheet" href="../../assets/styles/main.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="../../favicon.ico">
+  <title>Donate</title>
+</head>
+<body>
+  <div class="mobile_wrapper"></div>
+  <header class="header">
+    <div class="container header_container">
+      <div class="logonav_wrapper">
+        <div class="zoo_logo">
+          <h1><a href="../main/index.html" class="logo_title">PetStory online</a></h1>
+          <img src="../../assets/icons/bamboo.svg" class="petstory_logo" alt="petstory_logo">
+        </div>
+        <nav class="nav">
+          <ul class="nav_list">
+            <li class="zoo_logo_wrapper">
+              <span><a href="../main/index.html" class="logo_title3">PetStory online</a></span>
+              <img src="../../assets/icons/bamboo.svg" class="petstory_logo3" alt="petstory_logo">
+            </li>
+            <li class="nav_item"><a href="../main/index.html" class="nav_link header_link">About</a></li>
+            <li class="nav_item"><a href="#" class="nav_link header_link">Map</a></li>
+            <li class="nav_item"><a href="#" class="nav_link header_link">Zoos</a></li>
+            <li class="nav_item"><a href="#" class="nav_link header_link active_link">Donate</a></li>
+            <li class="nav_item"><a href="#contacts" class="nav_link header_link">Contact us</a></li>
+            <li class="nav_item"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="figma_link">Designed by ©</a></li>
+          </ul>
+        </nav>
+      </div>
+        <div class="disigned_by"><a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="figma_link">Designed by ©</a></div>
+        <div class="burger_menu">
+          <span class="burger_line line_first"></span>
+          <span class="burger_line line_second"></span>
+          <span class="burger_line line_third"></span>
+        </div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="container main_container">
+      <section class="section_donate">
+        <div class="panda_bg"></div>
+        <div class="donate_wrapper">
+          <h3>THE ZOO HAS OFFICIALLY REOPENED BUT WE STILL NEED YOUR HELP!</h3>
+          <p class="donate_description">Even though the Zoo has been able to reopen, we are at a greatly reduced capacity with educational programs and public and private events cancelled or postponed for additional months. <span>We need you now more than ever to help ensure that we overcome these challenges. We have been actively raising funds in the community, and we are grateful for the generosity.</span> &nbsp;But much more support is still needed, and we need your help! Please consider a gift today – no matter what size – to help us sustain our mission.</p>
+          <h3 class="donate_info">Donation Information</h3>
+          <div class="donate_pay_wrapper">
+            <h2>Pick and feed a friend</h2>
+            <span class="subtitle">We know the animals bring you joy, and in these extraordinary times, we’re glad.</span>
+            <div class="panda_diet">
+              <div class="diets_count">
+                <div><img src="../../assets/images/amount_of_days_donate.png" class="amount_of_days_donate" alt="amount_of_days_donate"></div>
+                <span>Panda diet for the day.</span>
+              </div>
+              <img src="../../assets/images/x_icon.png" class="x_icon" alt="x_icon">
+              <div class="panda_icon_wrapper"><img src="../../assets/images/animals-widget.png" class="panda_widget" alt="panda_widget"></div>
+            </div>
+            <div class="donate_input">
+              <label for="donate_input_gray" class="amount">Amount</label>
+              <div class="input_gray">
+                <div class="input_gray_line"></div>
+                <input type="range" name="donate_input_gray" id="donate_input_value" class="input1" list="donate_money" min="0" max="7" value="2" step="1"/>
+                <input type="range" name="donate_input_gray" id="donate_input_value" class="input2" list="donate_money" min="0" max="6" value="1" step="1"/>
+                <input type="range" name="donate_input_gray" id="donate_input_value" class="input3" list="donate_money" min="0" max="4" value="2" step="1"/>
+                <ul class="yellow_points">
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                  <li class="input_point"></li>
+                </ul>
+              </div>
+              <datalist id="donate_money" class="donate_money">
+                <option class="pay_number" value="1">$5000</option>
+                <option class="pay_number" value="2">$2000</option>
+                <option class="pay_number active_number" value="3">$1000</option>
+                <option class="pay_number" value="4">$500</option>
+                <option class="pay_number" value="5">$250</option>
+                <option class="pay_number" value="6">$100</option>
+                <option class="pay_number" value="7">$50</option>
+                <option class="pay_number" value="8">$25</option>
+              </datalist>
+            </div>
+            <div class="another_amount">
+              <input type="number" class="another_amount_input" min="0" max="9999" placeholder="Another amount"/>
+              <img src="../../assets/icons/dollars_gray.svg" class="dollars_gray" alt="dollars_gray_icon">
+            </div>
+            <div class="pay_days">
+              <div class="radiobtn_wrapper">
+                <input type="radio" class="pay_radiobtn" name="pay_check" id="monthly_btn" value="monthly_btn">
+                <label for="monthly_btn"></label>
+                <span>Monthly</span>
+              </div>
+              <div class="radiobtn_wrapper">
+                <input type="radio" class="pay_radiobtn" name="pay_check" id="once_btn" value="once_btn" checked>
+                <label for="once_btn"></label>
+                <span>Once</span>
+              </div>
+            </div>
+            <button class="btn feed_friend_btn"><span>Feed a friend now</span></button>
+            <span class="share">Share with your friends on social networks</span>
+          </div>
+        </div>
+      </section>
+    </div>
+    </main>
+    <footer class="footer">
+      <div class="container footer_container">
+        <div class="footer_top">
+          <div class="footer_top_left">
+            <div class="petstory_logo_wrapper">
+              <span><a href="../main/index.html" class="logo_title2">PetStory online</a></span>
+              <img src="../../assets/icons/bamboo2.svg" class="petstory_logo2" alt="petstory_logo2">
+            </div>
+            <button class="btn donate_volunteers_btn" onclick="window.location.href = '../donate/index.html'"><span>donate for volunteers</span></button>
+          </div>
+          <div class="footer_top_right">
+            <ul class="social_nav nav2" id="contacts">
+              <li class="social_nav_link">
+                <div class="footer_icon_wrapper">
+                  <img src="../../assets/icons/facebook.svg" class="social_logo fb_logo" alt="facebook_logo">
+                </div>
+              </li>
+              <li class="social_nav_link">
+                <div class="footer_icon_wrapper">
+                  <img src="../../assets/icons/twitter.svg" class="social_logo twitter_logo" alt="twitter_logo">
+                </div>
+              </li>
+              <li class="social_nav_link">
+                <div class="footer_icon_wrapper">
+                  <img src="../../assets/icons/instagram.svg" class="social_logo instagram_logo" alt="instagram_logo">
+                </div>
+              </li>
+              <li class="social_nav_link">
+                <div class="footer_icon_wrapper">
+                  <img src="../../assets/icons/youtube.svg" class="social_logo youtube_logo" alt="youtube_logo">
+                </div>
+              </li>
+            </ul>
+            <span class="subtitle2">Subscribe to our news</span>
+            <form class="enter_email">
+              <input type="email" id="email" class="email" onkeyup="validate()" placeholder="Enter your email" required>
+              <button class="submit_btn"><span class="submit">Submit</span></button>
+            </form>
+          </div>
+        </div>
+        <div class="footer_bottom">
+          <ul class="social_nav nav1" id="contacts">
+            <li class="social_nav_link">
+              <div class="footer_icon_wrapper">
+                <img src="../../assets/icons/facebook.svg" class="social_logo fb_logo" alt="facebook_logo">
+              </div>
+              <a href="https://www.facebook.com" class="soc_web"><span class="social_title">Facebook</span></a>
+            </li>
+            <li class="social_nav_link">
+              <div class="footer_icon_wrapper">
+                <img src="../../assets/icons/twitter.svg" class="social_logo twitter_logo" alt="twitter_logo">
+              </div>
+              <a href="https://www.twitter.com" class="soc_web"><span class="social_title">Twitter</span></a>
+            </li>
+            <li class="social_nav_link">
+              <div class="footer_icon_wrapper">
+                <img src="../../assets/icons/instagram.svg" class="social_logo instagram_logo" alt="instagram_logo">
+              </div>
+              <a href="https://www.instagram.com" class="soc_web"><span class="social_title">Instagram</span></a>
+            </li>
+            <li class="social_nav_link">
+              <div class="footer_icon_wrapper">
+                <img src="../../assets/icons/youtube.svg" class="social_logo youtube_logo" alt="youtube_logo">
+              </div>
+              <a href="https://www.youtube.com" class="soc_web"><span class="social_title">YouTube</span></a>
+            </li>
+          </ul>
+          <ul class="footer_nav">
+            <li class="footer_nav_item"><a href="../main/index.html" class="nav_link">About</a></li>
+            <li class="footer_nav_item"><a href="#" class="nav_link">Map</a></li>
+            <li class="footer_nav_item"><a href="#" class="nav_link">Zoos</a></li>
+            <li class="footer_nav_item"><a href="#contacts" class="nav_link">Contact us</a></li>
+          </ul>
+          <div class="project_author">
+            <span>Designed by Alisa Samborskaya</span>
+            <span>©RSSchool & ©Yem Digital 2021</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="../../assets/styles/main.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
