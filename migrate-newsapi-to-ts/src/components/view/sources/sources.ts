@@ -50,9 +50,9 @@ class Sources {
       btn.addEventListener('click', (e) => {
         const targetEl: EventTarget | null = e.target;
         btnLetter.forEach((el: Element) => {
-          el.classList.remove('letter-active');
+          el.classList.remove('btn-active');
         });
-        btn.classList.add('letter-active');
+        btn.classList.add('btn-active');
         if (targetEl instanceof HTMLElement && targetEl.textContent === 'ALL') {
           sourceItem.forEach((item: Element) => {
             item.classList.remove('item-hide');
@@ -72,9 +72,9 @@ class Sources {
     sourceItem.forEach((item: Element) => {
       item.addEventListener('click', () => {
         sourceItem.forEach((el: Element) => {
-          el.classList.remove('letter-active');
+          el.classList.remove('btn-active');
         });
-        item.classList.add('letter-active');
+        item.classList.add('btn-active');
       });
     });
   }

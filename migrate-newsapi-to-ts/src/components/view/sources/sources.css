@@ -74,7 +74,7 @@
   display: none;
 }
 
-.letter-active {
+.btn-active {
   border-color: #d6f3ff;
   color: #d6f3ff;
   box-shadow: 2px 2px 4px #d6f3ff, 0 0 5px #d6f3ff;

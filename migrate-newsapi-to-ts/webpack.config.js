@@ -53,10 +53,8 @@ const baseConfig = {
     }),
     new CleanWebpackPlugin(),
     new CopyPlugin({
-      patterns: [
-        { from: 'src/img', to: 'img' },
-      ]
-    })
+      patterns: [{ from: 'src/img', to: 'img' }],
+    }),
   ],
 };
 
