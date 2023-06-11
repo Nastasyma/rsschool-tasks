@@ -78,6 +78,7 @@ body {
   font-style: normal;
   font-weight: normal;
 }
+
 .container {
   margin: 0 auto;
 }
@@ -94,13 +95,26 @@ p {
   height: 100vh;
   width: 100vw;
   z-index: 90;
-  background-color: #000000;
-  opacity: 0;
+
+  transition: all .3s;
+}
+.mobile_wrapper_popup {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 90;
+
+  display: none;
   transition: all .3s;
 }
 .popup_active {
-  opacity: 0.5;
+
   visibility: visible;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
 }
 /* ------------ header start ------------ */
 .header {
@@ -609,7 +623,11 @@ h1 {
     left: 5px;
   }
 }
-
+@media (max-width: 830px) {
+  .mobile_wrapper_popup {
+    display: block;
+  }
+}
 @media (max-width: 640px) {
   .header {
     position: fixed;
