@@ -1,1 +1,0 @@
-(()=>{"use strict";function n(){for(var n=0,o=0;o<arguments.length;o++)n+=o<0||arguments.length<=o?void 0:arguments[o];return n}console.log(function(){return n.apply(void 0,arguments)/arguments.length}(1,4,8)),console.log(3)})();
