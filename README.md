@@ -1,5 +1,5 @@
 # Travel portal  
-[Двухстраничный лендинг](https://www.figma.com/file/BhULVGGIachSAjoBazhP9P/Travel?type=design)  
+[Одностраничный лендинг](https://www.figma.com/file/BhULVGGIachSAjoBazhP9P/Travel?type=design)  
 
 **Дополнительный функционал:**  
 - слайдер в секции "Popular Destinations"  
