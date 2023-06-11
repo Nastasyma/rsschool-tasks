@@ -1,4 +1,6 @@
-# nastasyma-JSFEPRESCHOOL2022Q2
-Private repository for @nastasyma
+# Travel portal  
+[Двухстраничный лендинг](https://www.figma.com/file/BhULVGGIachSAjoBazhP9P/Travel?type=design)  
 
-https://rolling-scopes-school.github.io/nastasyma-JSFEPRESCHOOL2022Q2/travel/
+**Дополнительный функционал:**  
+- слайдер в секции "Popular Destinations"  
+- интерактивность кнопки Login, после нажатия которой появляется Login pop up и register
