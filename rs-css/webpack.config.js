@@ -3,9 +3,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 const conf = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, './src/index'),
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
@@ -33,6 +34,10 @@ const conf = {
             presets: ['@babel/preset-env'],
           },
         },
+      },
+      {
+        test: /\.ts$/i,
+        use: 'ts-loader',
       },
       {
         test: /\.html$/,
@@ -90,8 +95,13 @@ const conf = {
     }),
     new CleanWebpackPlugin(),
     new CopyPlugin({
-      patterns: [{ from: 'src/assets/images/', to: 'images' }],
+      patterns: [{ from: 'src/assets/images/', to: 'assets/images/' }],
+      patterns: [{ from: 'src/assets/icons/', to: 'assets/icons/' }],
     }),
+    new ESLintPlugin({
+      extensions: 'ts',
+      fix: true
+    })
   ],
   performance: {
     hints: false,
