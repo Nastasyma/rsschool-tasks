@@ -84,7 +84,7 @@ const conf = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      // favicon: 'src/assets/icons/favicon.ico',
+      favicon: 'src/assets/icons/favicon.ico',
       template: './src/index.html',
       filename: './index.html',
       minify: false,
