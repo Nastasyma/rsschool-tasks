@@ -1,12 +1,43 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   min-height: 100vh;
   background: center/cover no-repeat, rgba(0, 0, 0, 0.5);
-  background-image: url('../images/bg.jpeg');
+  background-image: url('../images/bg.jpg');
   background-blend-mode: multiply;
   background-attachment: fixed;
   color: #fff;
+}
+.app {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+.header__btn {
+  cursor: pointer;
+}
+.burger-btn {
+  position: relative;
+  width: 35px;
+}
+.burger-btn span:first-child {
+  top: 0;
+}
+.burger-btn span:last-child {
+  top: auto;
+  bottom: 0;
+}
+.burger-btn span {
+  top: calc(50% - 1px);
+  left: 0;
+  position: absolute;
+  height: 2px;
+  background-color: #fff;
+  width: 100%;
+  transition: all .3s ease;
 }
