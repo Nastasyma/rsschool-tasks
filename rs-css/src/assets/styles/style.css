@@ -277,21 +277,22 @@ pyramid {
   background-color: rgb(78, 78, 78);
   font-size: 15px;
 }
-.html-numbers,
 .editor__numbers-wrapper {
   padding: 10px;
   background-color: rgb(27, 27, 27);
   color: gray;
 }
-.html-markup,
 .editor__markup-wrapper {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
-.html-markup div,
 .editor__markup-wrapper div {
   padding-left: 10px;
+}
+.editor__markup {
+  display: flex;
+  flex-direction: column;
 }
 .footer {
   background: rgba(0, 0, 0, 0.3);
