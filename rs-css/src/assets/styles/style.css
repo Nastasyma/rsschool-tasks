@@ -1,8 +1,9 @@
+@import url("animation.css");
+
 * {
   box-sizing: border-box;
 }
 body {
-  min-height: 100vh;
   background: center/cover no-repeat, rgba(0, 0, 0, 0.5);
   background-image: url('../images/bg.jpg');
   background-blend-mode: multiply;
@@ -10,13 +11,17 @@ body {
   color: #fff;
 }
 .app {
+  min-height: 100vh;
   margin: 0 auto;
   padding-right: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .header,
 .main,
 .footer {
-  padding: 20px;
+  padding: 15px;
 }
 .game__levels {
   width: 320px;
@@ -24,14 +29,50 @@ body {
   top: 0;
   right: 0;
   height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  transition: all .5s ease-out;
+}
+.levels__title {
+  text-align: center;
+}
+.levels__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+.levels__item {
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+.levels__item::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 900;
+  opacity: .4;
+}
+.levels__number {
+  opacity: .7;
+  margin-right: 10px;
 }
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  background: rgba(0, 0, 0, 0.3);
 }
-.header__title {
+.header__title,
+.game__title,
+.editor__title {
   margin: 0;
 }
 .header__btn {
@@ -64,7 +105,7 @@ body {
   justify-content: center;
   flex-direction: column;
 }
-.game-title {
+.game__title {
   text-align: center;
 }
 .game__wrapper {
@@ -72,16 +113,58 @@ body {
 }
 .game__table {
   position: relative;
-  width: 300px;
-  height: 150px;
-  background-color: black;
+  width: 600px;
+  min-height: 150px;
+  background-color: rgb(180, 139, 91);
   margin: 0 auto;
 }
-.plate {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #fff;
+box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: url('../icons/box-icon.png') center/cover no-repeat;
+}
+cube {
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 30px);
+}
+horse {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url('../icons/horse-icon.svg') center/cover no-repeat;
+  top: 20px;
+  left: calc(50% - 30px);
+}
+.big {
+  width: 60px;
+  height: 60px;
+}
+.mid {
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+}
+.small {
+  position: absolute;
+  top: -18px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  z-index: 2;
+}
+.navy {
+  background: url('../icons/blue-cube.svg') center/cover no-repeat;
+}
+.green {
+  background: url('../icons/green-cube.svg') center/cover no-repeat;
+}
+.orange {
+  background: url('../icons/orange-cube.svg') center/cover no-repeat;
 }
 .game__level-wrapper {
   position: absolute;
@@ -94,11 +177,85 @@ body {
 .editor {
   max-width: 700px;
   margin: 0 auto;
+  background-color: black;
+  padding: 15px;
+}
+.editor__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.editor__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 6px;
+}
+.editor__input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+  background: none;
+  width: calc(100% - 50px);
+  height: 25px;
+}
+.editor__btn {
+  padding: 5px;
+  width: 50px;
+  cursor: pointer;
 }
 .editor__html-wrapper {
   display: flex;
+  background-color: rgb(78, 78, 78);
+}
+.html-numbers {
+  padding: 10px;
+  background-color: rgb(27, 27, 27);
 }
 .html-markup {
   display: flex;
   flex-direction: column;
+  padding: 10px;
+}
+.html-markup span {
+  padding-left: 10px;
+}
+.footer {
+  background: rgba(0, 0, 0, 0.3);
+}
+.github-logo {
+  width: 40px;
+  height: 40px;
+}
+.rsschool-logo {
+  width: 80px;
+  height: 45px;
+}
+.rsschool-logo:hover,
+.github-logo:hover {
+  position: relative;
+  bottom: 3px;
+}
+.my_page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto;
+}
+.active {
+  transform-origin: bottom;
+  animation: shake 1.1s infinite;
+  animation-delay: 0s, 0.5s;
+}
+@media (max-width: 1100px) {
+  .app {
+    padding-right: 0;
+  }
+  .game__levels {
+    transform: translate(100%);
+    z-index: 50;
+  }
 }

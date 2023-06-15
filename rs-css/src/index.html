@@ -7,9 +7,17 @@
 </head>
 <body>
   <div class="app">
-    <nav class="game__levels"></nav>
+    <nav class="game__levels">
+      <h3 class="levels__title">Levels</h3>
+      <ul class="levels__list">
+        <li class="levels__item">
+          <span class="levels__number">1</span>
+          Universal selector
+        </li>
+      </ul>
+    </nav>
     <header class="header">
-      <div class="header__btn help-btn">HEPL</div>
+      <div class="header__btn help-btn">HELP</div>
       <h1 class="header__title">RSS-CSS-Selectors</h1>
       <div class="header__btn burger-btn">
         <span></span>
@@ -19,41 +27,76 @@
     </header>
     <main class="main">
       <div class="game">
-        <span class="game-title">Select the plates</span>
+        <h3 class="game__title">Select the box</h3>
         <div class="game__wrapper">
           <div class="game__table">
             <div class="game__level-wrapper">
-              <div class="plate"></div>
-              <div class="plate"></div>
+              <box>
+                <cube class="big navy active"></cube>
+              </box>
+              <box>
+                <cube class="big navy">
+                  <cube class="mid green"></cube>
+                </cube>
+              </box>
+              <box class="active">
+                <cube class="big navy">
+                  <cube class="mid green">
+                    <cube class="small orange"></cube>
+                  </cube>
+                </cube>
+              </box>
+              <box>
+                <horse class="active"></horse>
+              </box>
             </div>
           </div>
         </div>
       </div>
       <div class="editor">
-        <span class="editor__title">CSS Editor</span>
-        <input>
-        <span class="editor__title">HTML Viewer</span>
-        <div class="editor__html-wrapper">
-          <div class="html-numbers">
-            1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>
-          </div>
-          <div class="html-markup">
-            <code>
-              <span>
-                &lt;<span>plate</span>&gt;&lt;&frasl;<span>plate</span>&gt;
-              </span>
-            </code>
-            <code>
-              <span>
-                &lt;<span>plate</span>&gt;&lt;&frasl;<span>plate</span>&gt;
-              </span>
-            </code>
-            <plate></plate>
+        <div class="editor__wrapper">
+          <h4 class="editor__title">CSS Editor</h4>
+          <form class="editor__form">
+            <input type="text" class="editor__input" placeholder="Type in a CSS selector">
+            <button class="editor__btn">Enter</button>
+          </form>
+          <h4 class="editor__title">HTML Viewer</h4>
+          <div class="editor__html-wrapper">
+            <div class="html-numbers">
+              1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>
+            </div>
+            <div class="html-markup">
+              <code>&lt;table&gt;</code>
+              <code>
+                <span>&lt;box&gt;&lt;&frasl;box&gt;</span>
+              </code>
+              <code>
+                <span>&lt;box&gt;&lt;&frasl;box&gt;</span>
+              </code>
+              <code>&lt;&frasl;table&gt;</code>
+              <plate></plate>
+            </div>
           </div>
         </div>
       </div>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="my_page">
+        <a href="https://github.com/Nastasyma">
+          <img
+          src="../src/assets/icons/github_logo.svg"
+          class="github-logo"
+          alt="github logo">
+        </a>
+        <div class="footer-text"><b>© 2023</b></div>
+        <a href="https://rs.school/js/">
+          <img
+          src="../src/assets/icons/rs_school_js_logo.svg"
+          class="rsschool-logo"
+          alt="rsschool js logo">
+        </a>
+      </div>
+    </footer>
   </div>
 </body>
 </html>
