@@ -6,13 +6,13 @@
   <title>RS-CSS</title>
 </head>
 <body>
-  <div class="app">
+  <!-- <div class="app">
     <nav class="game__levels">
       <h3 class="levels__title">Levels</h3>
       <ul class="levels__list">
         <li class="levels__item">
           <span class="levels__number">1</span>
-          Universal selector
+          Universal selectors
         </li>
       </ul>
     </nav>
@@ -31,21 +31,23 @@
         <div class="game__wrapper">
           <div class="game__table">
             <div class="game__level-wrapper">
+              <box class="shake"></box>
+              <box class="shake"></box>
               <box>
                 <cube class="big navy"></cube>
               </box>
               <box>
-                <pyramid class="active"></pyramid>
+                <pyramid></pyramid>
               </box>
               <box>
-                <cube class="big navy">
+                <cube class="big navy shake">
                   <cube class="mid green">
-                    <cube class="small orange active"></cube>
+                    <cube class="small orange"></cube>
                   </cube>
                 </cube>
               </box>
               <box>
-                <horse class="active"></horse>
+                <horse></horse>
               </box>
             </div>
           </div>
@@ -68,14 +70,10 @@
               1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>
             </div>
             <div class="html-markup">
-              <code>&lt;table&gt;</code>
-              <code>
-                <span>&lt;box&gt;&lt;&frasl;box&gt;</span>
-              </code>
-              <code>
-                <span>&lt;box&gt;&lt;&frasl;box&gt;</span>
-              </code>
-              <code>&lt;&frasl;table&gt;</code>
+              &lt;table&gt;
+              <div>&lt;box&gt;&lt;&frasl;box&gt;</div>
+              <div>&lt;box&gt;&lt;&frasl;box&gt;</div>
+              &lt;&frasl;table&gt;
               <plate></plate>
             </div>
           </div>
@@ -83,14 +81,14 @@
       </div>
     </main>
     <footer class="footer">
-      <div class="my_page">
+      <div class="footer__my-page">
         <a href="https://github.com/Nastasyma">
           <img
           src="../src/assets/icons/github_logo.svg"
           class="github-logo"
           alt="github logo">
         </a>
-        <div class="footer-text"><b>© 2023</b></div>
+        <div class="footer__text"><b>© 2023</b></div>
         <a href="https://rs.school/js/">
           <img
           src="../src/assets/icons/rs_school_js_logo.svg"
@@ -99,6 +97,6 @@
         </a>
       </div>
     </footer>
-  </div>
+  </div> -->
 </body>
 </html>
