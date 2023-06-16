@@ -4,27 +4,27 @@ const markupLevelObject: IMarkupObject[] = [
   {
     content: `
     <div class="html-element">
-    &lt;table&gt;
-    <div>&lt;box&gt;&lt;&frasl;box&gt;</div>
-    <div>&lt;box&gt;
-      <div>&lt;cube&gt;&lt;&frasl;cube&gt;</div>
-      &lt;&frasl;box&gt;
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"table"</span>&gt;
+    <div>&lt;<span class="tag">box</span>&gt;&lt;&frasl;<span class="tag">box</span>&gt;</div>
+    <div>&lt;<span class="tag">box</span>&gt;
+      <div>&lt;<span class="tag">cube</span>&gt;&lt;&frasl;<span class="tag">cube</span>&gt;</div>
+      &lt;&frasl;<span class="tag">box</span>&gt;
     </div>
-    <div>&lt;box&gt;
-    <div>&lt;pyramid&gt;&lt;&frasl;pyramid&gt;</div>
-    &lt;&frasl;box&gt;
+    <div>&lt;<span class="tag">box</span>&gt;
+    <div>&lt;<span class="tag">pyramid</span>&gt;&lt;&frasl;<span class="tag">pyramid</span>&gt;</div>
+    &lt;&frasl;<span class="tag">box</span>&gt;
     </div>
-    <div>&lt;box&gt;
-    <div>&lt;cube&gt;&lt;&frasl;cube&gt;</div>
-    <div>&lt;cube&gt;&lt;&frasl;cube&gt;</div>
-    <div>&lt;cube&gt;&lt;&frasl;cube&gt;</div>
-    &lt;&frasl;box&gt;
+    <div>&lt;<span class="tag">box</span>&gt;
+    <div>&lt;<span class="tag">cube</span> <span class="attribute">class=<span class="value">"small"</span></span>&gt;&lt;&frasl;<span class="tag">cube</span>&gt;</div>
+    <div>&lt;<span class="tag">cube</span> <span class="attribute">class=<span class="value">"mid"</span></span>&gt;&lt;&frasl;<span class="tag">cube</span>&gt;</div>
+    <div>&lt;<span class="tag">cube</span>&gt;&lt;&frasl;<span class="tag">cube</span>&gt;</div>
+    &lt;&frasl;<span class="tag">box</span>&gt;
     </div>
-    <div>&lt;box&gt;
-    <div>&lt;horse&gt;&lt;&frasl;horse&gt;</div>
-    &lt;&frasl;box&gt;
+    <div>&lt;<span class="tag">box</span>&gt;
+    <div>&lt;<span class="tag">horse</span>&gt;&lt;&frasl;<span class="tag">horse</span>&gt;</div>
+    &lt;&frasl;<span class="tag">box</span>&gt;
     </div>
-    &lt;&frasl;table&gt;
+    &lt;&frasl;<span class="tag">div</span>&gt;
     </div>
     `,
   },
