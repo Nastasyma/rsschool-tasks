@@ -13,6 +13,7 @@ function createNav() {
   for (let i = 0; i < navObject.length; i += 1) {
     const level: HTMLLIElement = document.createElement('li');
     level.classList.add('levels__item');
+    level.setAttribute('data-level', i.toString());
     const levelCheck: HTMLDivElement = document.createElement('div');
     levelCheck.classList.add('levels__check');
     level.appendChild(levelCheck);

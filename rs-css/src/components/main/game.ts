@@ -3,7 +3,6 @@ function createGameElement() {
   game.classList.add('game');
   const gameTitle: HTMLHeadingElement = document.createElement('h3');
   gameTitle.classList.add('game__title');
-  gameTitle.textContent = 'Select all items on the table';
   game.appendChild(gameTitle);
   const gameWrapper: HTMLDivElement = document.createElement('div');
   gameWrapper.classList.add('game__wrapper');

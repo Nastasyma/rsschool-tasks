@@ -6,25 +6,40 @@ let rule = false;
 function setLevel() {
   const gameTable: HTMLDivElement | null = document.querySelector('.game__table');
   const tableBottom: HTMLDivElement | null = document.querySelector('.table__bottom');
+  const editorMarkup: HTMLDivElement | null = document.querySelector('.editor__markup');
+  const editorMarkupText: HTMLElement = document.createElement('code');
+  const table: HTMLDivElement | null = document.querySelector('.table');
+  const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
+  const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
+  const gameTitle = document.querySelector('.game__title');
+  if (gameTitle) gameTitle.textContent = gameLevelObject[level].title;
+  if (levelItem) levelItem[level].classList.add('level-active');
   if (gameTable && tableBottom) {
     gameTable.style.width = gameLevelObject[level].width;
     tableBottom.style.width = gameLevelObject[level].width;
   }
-  const table: HTMLDivElement | null = document.querySelector('.table');
   if (table) {
     table.innerHTML = gameLevelObject[level].content;
   }
-  const editorMarkup: HTMLDivElement | null = document.querySelector('.editor__markup');
-  const editorMarkupText: HTMLElement = document.createElement('code');
   editorMarkupText.innerHTML = markupLevelObject[level].content;
-  if (editorMarkup) {
-    editorMarkup.appendChild(editorMarkupText);
+  if (editorMarkup) editorMarkup.appendChild(editorMarkupText);
+  if (gameWrapper) {
+    gameWrapper.classList.add('init');
+    gameWrapper.addEventListener('animationend', () => {
+      gameWrapper.classList.remove('init');
+    });
   }
 }
 
 function resetLevel() {
   const editorMarkupText: HTMLElement | null = document.querySelector('.editor__markup');
+  const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
   if (editorMarkupText) editorMarkupText.innerHTML = '';
+  if (levelItem) {
+    levelItem.forEach((item) => {
+      item.classList.remove('level-active');
+    });
+  }
 }
 
 function checkInputValue() {
@@ -53,7 +68,9 @@ function checkInputValue() {
 function sumbit(event: Event) {
   const editorForm: HTMLFormElement | null = document.querySelector('.editor__form');
   const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
-  if (editorForm && editorInput) {
+  const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
+  const levelsCheck: NodeListOf<Element> = document.querySelectorAll('.levels__check');
+  if (editorForm && editorInput && gameWrapper) {
     event.preventDefault();
     console.log('submit');
     console.log('correct value: ', gameLevelObject[level].help);
@@ -64,8 +81,23 @@ function sumbit(event: Event) {
       level += 1;
       resetLevel();
       setLevel();
+      levelsCheck[level - 1].classList.add('checked');
     }
   }
 }
 
-export { setLevel, sumbit };
+function changeLevel() {
+  const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
+  if (levelItem) {
+    levelItem.forEach((item) => {
+      item.addEventListener('click', () => {
+        const currentLevel: string | null = item.getAttribute('data-level');
+        if (currentLevel) level = +currentLevel;
+        resetLevel();
+        setLevel();
+      });
+    });
+  }
+}
+
+export { setLevel, sumbit, changeLevel };
