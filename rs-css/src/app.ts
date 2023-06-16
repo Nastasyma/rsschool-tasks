@@ -6,6 +6,9 @@ import nav from './components/nav/nav';
 function createApp() {
   const app: HTMLDivElement = document.createElement('div');
   app.classList.add('app');
+  const wrapper: HTMLDivElement = document.createElement('div');
+  wrapper.classList.add('mobile_wrapper');
+  app.appendChild(wrapper);
   app.appendChild(nav());
   app.appendChild(header());
   app.appendChild(main());

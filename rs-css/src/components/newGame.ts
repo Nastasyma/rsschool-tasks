@@ -15,8 +15,13 @@ function setLevel() {
   if (gameTitle) gameTitle.textContent = gameLevelObject[level].title;
   if (levelItem) levelItem[level].classList.add('level-active');
   if (gameTable && tableBottom) {
-    gameTable.style.width = gameLevelObject[level].width;
-    tableBottom.style.width = gameLevelObject[level].width;
+    if (window.innerWidth <= 770) {
+      gameTable.style.width = '420px';
+      tableBottom.style.width = '420px';
+    } else {
+      gameTable.style.width = gameLevelObject[level].width;
+      tableBottom.style.width = gameLevelObject[level].width;
+    }
   }
   if (table) {
     table.innerHTML = gameLevelObject[level].content;

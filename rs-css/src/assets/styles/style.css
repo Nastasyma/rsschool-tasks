@@ -20,6 +20,25 @@ body {
   font-family: 'Armata';
   color: #fff;
 }
+.mobile_wrapper {
+  position: fixed;
+  visibility: hidden;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: all .3s ease-in-out;
+}
+.mobile_wrapper {
+  display: none;
+}
+.popup_active {
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.6);
+}
+.burger_active {
+  transform: rotate(90deg);
+}
 .app {
   min-height: 100vh;
   margin: 0 auto;
@@ -42,6 +61,7 @@ body {
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   flex-direction: column;
+  transition: all .3s ease;
 }
 .levels__title {
   text-align: center;
@@ -112,6 +132,7 @@ body {
   width: 35px;
   height: 25px;
   visibility: hidden;
+  transition: all .3s ease;
 }
 .burger-btn span:first-child {
   top: 0;
@@ -180,9 +201,11 @@ body {
 .table {
   position: absolute;
   display: flex;
+  align-items:center;
+  justify-content:center;
   gap: 15px;
-  top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   transition: all .3s ease-out;
 }
 box {
@@ -194,7 +217,10 @@ box {
 cube {
   position: absolute;
   top: 20px;
+  width: 60px;
+  height: 60px;
   left: calc(50% - 30px);
+  background: url('../icons/blue-cube.svg') center/cover no-repeat;
 }
 cube:hover,
 horse:hover,
@@ -218,33 +244,22 @@ pyramid {
   top: -10px;
   left: calc(50% - 50px);
 }
-.big {
-  width: 60px;
-  height: 60px;
-}
 .mid {
   position: absolute;
-  top: -20px;
-  left: 10px;
+  top: 0;
+  left: 40px;
   width: 40px;
   height: 40px;
   z-index: 1;
+  background: url('../icons/green-cube.svg') center/cover no-repeat;
 }
 .small {
   position: absolute;
   top: -18px;
-  left: 5px;
+  left: 45px;
   width: 30px;
   height: 30px;
   z-index: 2;
-}
-.navy {
-  background: url('../icons/blue-cube.svg') center/cover no-repeat;
-}
-.green {
-  background: url('../icons/green-cube.svg') center/cover no-repeat;
-}
-.orange {
   background: url('../icons/orange-cube.svg') center/cover no-repeat;
 }
 .editor {
@@ -350,10 +365,74 @@ pyramid {
     padding-right: 0;
   }
   .game__levels {
-    transform: translate(100%);
+    transform: translateX(100%);
     z-index: 50;
+    background: rgb(0, 0, 0);
+  }
+  .levels__item:hover,
+  .level-active {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  .open_menu {
+    transform: translateX(0);
   }
   .burger-btn {
     visibility: visible;
+    z-index: 55;
+  }
+  .mobile_wrapper {
+    display: block;
+    z-index: 40;
+  }
+}
+@media (max-width: 770px) {
+  .header__title {
+    font-size: 26px;
+  }
+  box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+  }
+  cube {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    width: 40px;
+    height: 40px;;
+  }
+  horse {
+    width: 50px;
+    height: 50px;
+    top: -5px;
+    left: 6px;
+  }
+  pyramid {
+    width: 70px;
+    height: 70px;
+    top: -20px;
+    left: -5px;
+  }
+  .mid {
+    top: -15px;
+    left: 15px;
+    width: 30px;
+    height: 30px;
+  }
+  .small {
+    top: -25px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+  }
+  .table__bottom {
+    width: 300px;
+  }
+  .table {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .game__wrapper {
+    padding: 5px;
   }
 }

@@ -7,17 +7,15 @@ const gameLevelObject: IGameObject[] = [
     content: `
     <box class="shake"></box>
     <box class="shake">
-      <cube class="big navy"></cube>
+      <cube></cube>
     </box>
     <box class="shake">
       <pyramid></pyramid>
     </box>
     <box class="shake">
-      <cube class="big navy">
-        <cube class="mid green">
-          <cube class="small orange"></cube>
-        </cube>
-      </cube>
+      <cube class="small"></cube>
+      <cube class="mid"></cube>
+      <cube></cube>
     </box>
     <box class="shake">
       <horse></horse>
