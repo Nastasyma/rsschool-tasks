@@ -28,6 +28,17 @@ const markupLevelObject: IMarkupObject[] = [
     </div>
     `,
   },
+  {
+    content: `
+    <div class="html-element">
+    &lt;<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"table"</span>&gt;
+    <div>&lt;<span class="tag">box</span>&gt;&lt;&frasl;<span class="tag">box</span>&gt;</div>
+    <div>&lt;<span class="tag">box</span>&gt;&lt;&frasl;<span class="tag">box</span>&gt;</div>
+    </div>
+    &lt;&frasl;<span class="tag">div</span>&gt;
+    </div>
+    `,
+  },
 ];
 
 export default markupLevelObject;

@@ -22,6 +22,17 @@ const gameLevelObject: IGameObject[] = [
       <horse></horse>
     </box>
     `,
+    elements: '.table *',
+    help: '*',
+  },
+  {
+    width: '300px',
+    content: `
+    <box class="shake"></box>
+    <box class="shake"></box>
+    `,
+    elements: 'table box',
+    help: 'box',
   },
 ];
 

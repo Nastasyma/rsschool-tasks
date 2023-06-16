@@ -9,9 +9,9 @@ function createGameElement() {
   gameWrapper.classList.add('game__wrapper');
   const gameTable: HTMLDivElement = document.createElement('div');
   gameTable.classList.add('game__table');
-  const gameLevelWrapper: HTMLDivElement = document.createElement('div');
-  gameLevelWrapper.classList.add('game__level-wrapper');
-  gameTable.appendChild(gameLevelWrapper);
+  const table: HTMLDivElement = document.createElement('div');
+  table.classList.add('table');
+  gameTable.appendChild(table);
   gameWrapper.appendChild(gameTable);
   const tableBottom: HTMLDivElement = document.createElement('div');
   tableBottom.classList.add('table__bottom');
