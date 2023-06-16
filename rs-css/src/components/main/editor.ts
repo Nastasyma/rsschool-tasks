@@ -1,5 +1,3 @@
-import markupLevelObject from './markupLevelObj';
-
 function createEditorElement() {
   const editor: HTMLDivElement = document.createElement('div');
   editor.classList.add('editor');
@@ -37,17 +35,9 @@ function createEditorElement() {
   editorHtmlWrapper.appendChild(editorNumbersWrapper);
   const editorMarkupWrapper: HTMLDivElement = document.createElement('div');
   editorMarkupWrapper.classList.add('editor__markup-wrapper');
-  for (let i = 0; i < markupLevelObject.length; i += 1) {
-    const editorMarkup: HTMLDivElement = document.createElement('div');
-    editorMarkup.classList.add('editor__markup');
-    for (let j = 0; j < markupLevelObject[i].code.length; j += 1) {
-      console.log(markupLevelObject[i].code[j]);
-      const editorMarkupText: HTMLElement = document.createElement('code');
-      editorMarkupText.textContent = markupLevelObject[i].code[j].textcontent;
-      editorMarkup.appendChild(editorMarkupText);
-    }
-    editorMarkupWrapper.appendChild(editorMarkup);
-  }
+  const editorMarkup: HTMLDivElement = document.createElement('div');
+  editorMarkup.classList.add('editor__markup');
+  editorMarkupWrapper.appendChild(editorMarkup);
   editorHtmlWrapper.appendChild(editorMarkupWrapper);
   editorWrapper.appendChild(editorHtmlWrapper);
   editor.appendChild(editorWrapper);
