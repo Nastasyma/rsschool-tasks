@@ -12,6 +12,7 @@ function setLevel() {
   const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
   const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
   const gameTitle = document.querySelector('.game__title');
+  editorMarkupText.classList.add('editor__code');
   if (gameTitle) gameTitle.textContent = gameLevelObject[level].title;
   if (levelItem) levelItem[level].classList.add('level-active');
   if (gameTable && tableBottom) {
@@ -70,6 +71,41 @@ function checkInputValue() {
   }
   return rule;
 }
+function addHover() {
+  const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
+  const murkupEl: NodeListOf<Element> = document.querySelectorAll('.html-element div');
+  for (let i = 0; i < tableEl.length; i += 1) {
+    tableEl[i].addEventListener('mouseover', (e) => {
+      e.stopPropagation();
+      // const elTag = tableEl[i].tagName.toLocaleLowerCase();
+      // const elClass = tableEl[i].className;
+      // if (tableEl[i].className && !tableEl[i].classList.contains('shake')) {
+      //   const a = `<${elTag} class="${elClass}"></${elTag}>`;
+      //   console.log(a);
+      // } else {
+      //   const a = `<${elTag}></${elTag}>`;
+      //   console.log(a);
+      // }
+      tableEl[i].classList.add('hovered');
+      murkupEl[i].classList.add('hovered-html');
+    });
+    tableEl[i].addEventListener('mouseout', (e) => {
+      e.stopPropagation();
+      tableEl[i].classList.remove('hovered');
+      murkupEl[i].classList.remove('hovered-html');
+    });
+  }
+  // tableEl.forEach((el) => {
+  //   el.addEventListener('mouseover', (e) => {
+  //     e.stopPropagation();
+  //     el.classList.add('hovered');
+  //   });
+  //   el.addEventListener('mouseout', (e) => {
+  //     e.stopPropagation();
+  //     el.classList.remove('hovered');
+  //   });
+  // });
+}
 function sumbit(event: Event) {
   const editorForm: HTMLFormElement | null = document.querySelector('.editor__form');
   const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
@@ -77,7 +113,6 @@ function sumbit(event: Event) {
   const levelsCheck: NodeListOf<Element> = document.querySelectorAll('.levels__check');
   if (editorForm && editorInput && gameWrapper) {
     event.preventDefault();
-    console.log('submit');
     console.log('correct value: ', gameLevelObject[level].help);
     checkInputValue();
     if (rule) {
@@ -86,6 +121,7 @@ function sumbit(event: Event) {
       level += 1;
       resetLevel();
       setLevel();
+      addHover();
       levelsCheck[level - 1].classList.add('checked');
     }
   }
@@ -100,9 +136,10 @@ function changeLevel() {
         if (currentLevel) level = +currentLevel;
         resetLevel();
         setLevel();
+        addHover();
       });
     });
   }
 }
 
-export { setLevel, sumbit, changeLevel };
+export { setLevel, sumbit, changeLevel, addHover };

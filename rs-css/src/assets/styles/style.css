@@ -222,10 +222,7 @@ cube {
   left: calc(50% - 30px);
   background: url('../icons/blue-cube.svg') center/cover no-repeat;
 }
-cube:hover,
-horse:hover,
-pyramid:hover,
-box:hover {
+.hovered {
   filter: drop-shadow(3px 0 3px white) drop-shadow(-3px 0 3px white);
 }
 horse {
@@ -351,6 +348,9 @@ pyramid {
 }
 .value {
   color: rgb(235, 195, 18);
+}
+.hovered-html {
+  background-color: rgb(112, 112, 112);
 }
 .shake {
   transform-origin: bottom;
