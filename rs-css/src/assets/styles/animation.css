@@ -66,3 +66,9 @@
     transform: translate(0, 0px) rotate(-1deg);
   }
 }
+
+@keyframes write {
+  from {
+    width: 0
+  }
+}

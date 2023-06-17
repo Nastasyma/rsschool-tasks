@@ -39,6 +39,7 @@ function setLevel() {
 
 function resetLevel() {
   const editorMarkupText: HTMLElement | null = document.querySelector('.editor__markup');
+  const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
   const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
   if (editorMarkupText) editorMarkupText.innerHTML = '';
   if (levelItem) {
@@ -46,6 +47,8 @@ function resetLevel() {
       item.classList.remove('level-active');
     });
   }
+  if (editorInput) editorInput.value = '';
+  rule = false;
 }
 
 function checkInputValue() {
@@ -101,6 +104,20 @@ function checkInputValue() {
   return rule;
 }
 
+function addHelpMessage() {
+  const help: HTMLElement | null = document.querySelector('.help-btn');
+  const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
+
+  help?.addEventListener('click', () => {
+    if (editorInput) {
+      editorInput.value = gameLevelObject[level].help;
+      editorInput.classList.add('write');
+      setTimeout(() => {
+        editorInput.classList.remove('write');
+      }, 5000);
+    }
+  });
+}
 function addTooltip(arr: NodeListOf<Element>) {
   const tooltip: HTMLElement | null = document.querySelector('.tooltip');
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
@@ -169,7 +186,6 @@ function submit(event: Event) {
     if (rule) {
       console.log('correct');
       setTimeout(() => {
-        editorInput.value = '';
         level += 1;
         resetLevel();
         setLevel();
@@ -195,4 +211,4 @@ function changeLevel() {
   }
 }
 
-export { setLevel, submit, changeLevel, addHover };
+export { setLevel, submit, changeLevel, addHover, addHelpMessage };

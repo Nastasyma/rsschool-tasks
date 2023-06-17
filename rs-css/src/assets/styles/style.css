@@ -381,6 +381,9 @@ pyramid {
   animation: error;
   animation-duration: .3s;
 }
+.write {
+  animation: write 5s;
+}
 .init {
   animation: init .3s;
 }
