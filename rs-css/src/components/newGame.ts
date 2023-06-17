@@ -56,8 +56,8 @@ function checkInputValue() {
   if (editorInput) {
     try {
       const valueArray: NodeListOf<Element> = document.querySelectorAll(`.table ${editorInput.value}`);
-      console.log(originalArray);
-      console.log(valueArray);
+      console.log('target items: ', [...originalArray]);
+      console.log('selected items: ', [...valueArray]);
       if (!valueArray) console.log('error');
       if (originalArray.length !== valueArray.length) rule = false;
       for (let i = 0; i < originalArray.length; i += 1) {
@@ -69,14 +69,17 @@ function checkInputValue() {
       }
       for (let i = 0; i < originalArray.length; i += 1) {
         if (!rule) {
-          document.querySelectorAll(`.table ${editorInput.value}`).forEach((item) => {
-            if (!item.classList.contains('table')) {
-              item.classList.add('error');
-            }
-          });
-          editor.classList.add('error');
+          if (valueArray.length !== 0 && !valueArray[0].classList.contains('table')) {
+            valueArray.forEach((item) => {
+              if (!item.classList.contains('table')) {
+                item.classList.add('error');
+              }
+            });
+          } else {
+            editor.classList.add('error');
+          }
           setTimeout(() => {
-            document.querySelectorAll(`.table ${editorInput.value}`).forEach((item) => {
+            valueArray.forEach((item) => {
               item.classList.remove('error');
             });
             editor.classList.remove('error');
@@ -87,6 +90,7 @@ function checkInputValue() {
         }
       }
     } catch (error) {
+      // console.error(error);
       console.log('invalid value');
       editor.classList.add('error');
       setTimeout(() => {

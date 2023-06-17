@@ -7,18 +7,18 @@ const gameLevelObject: IGameObject[] = [
     content: `
     <box class="shake"></box>
     <box class="shake">
-      <cube></cube>
+      <cube class="shake"></cube>
     </box>
     <box class="shake">
-      <pyramid></pyramid>
+      <pyramid class="shake"></pyramid>
     </box>
     <box class="shake">
-      <cube class="small"></cube>
-      <cube class="mid"></cube>
-      <cube></cube>
+      <cube class="small shake"></cube>
+      <cube class="mid shake"></cube>
+      <cube class="shake"></cube>
     </box>
     <box class="shake">
-      <horse></horse>
+      <horse class="shake"></horse>
     </box>
     `,
     elements: '.table *',
