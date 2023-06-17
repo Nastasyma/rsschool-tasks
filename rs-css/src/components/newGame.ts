@@ -51,7 +51,9 @@ function resetLevel() {
 function checkInputValue() {
   const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
   const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[level].elements);
-  if (editorInput && editorInput.value !== ' ') {
+  const editor: HTMLDivElement | null = document.querySelector('.editor');
+  if (!editor) throw new Error();
+  if (editorInput) {
     try {
       const valueArray: NodeListOf<Element> = document.querySelectorAll(`.table ${editorInput.value}`);
       console.log(originalArray);
@@ -65,23 +67,49 @@ function checkInputValue() {
           rule = true;
         }
       }
+      for (let i = 0; i < originalArray.length; i += 1) {
+        if (!rule) {
+          document.querySelectorAll(`.table ${editorInput.value}`).forEach((item) => {
+            if (!item.classList.contains('table')) {
+              item.classList.add('error');
+            }
+          });
+          editor.classList.add('error');
+          setTimeout(() => {
+            document.querySelectorAll(`.table ${editorInput.value}`).forEach((item) => {
+              item.classList.remove('error');
+            });
+            editor.classList.remove('error');
+          }, 500);
+        } else {
+          originalArray[i].classList.remove('shake');
+          originalArray[i].classList.add('fly');
+        }
+      }
     } catch (error) {
       console.log('invalid value');
+      editor.classList.add('error');
+      setTimeout(() => {
+        editor.classList.remove('error');
+      }, 500);
     }
   }
   return rule;
 }
 
-function addTooltip() {
+function addTooltip(arr: NodeListOf<Element>) {
   const tooltip: HTMLElement | null = document.querySelector('.tooltip');
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
-  for (let i = 0; i < tableEl.length; i += 1) {
-    tableEl[i].addEventListener('mouseover', (e) => {
+  for (let i = 0; i < arr.length; i += 1) {
+    arr[i].addEventListener('mouseover', (e: Event) => {
       e.stopPropagation();
       const elTag = tableEl[i].tagName.toLocaleLowerCase();
       const elClass = tableEl[i].className;
+      const posEl = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
+        tooltip.style.left = `${(posEl.left + 50).toString()}px`;
+        tooltip.style.top = `${(posEl.top - 30).toString()}px`;
         if (tableEl[i].className && !tableEl[i].classList.contains('shake')) {
           tooltip.textContent = `<${elTag} class="${elClass}"></${elTag}>`;
         } else {
@@ -89,7 +117,7 @@ function addTooltip() {
         }
       }
     });
-    tableEl[i].addEventListener('mouseout', (e) => {
+    arr[i].addEventListener('mouseout', (e: Event) => {
       e.stopPropagation();
       if (tooltip) tooltip.style.display = 'none';
     });
@@ -109,6 +137,7 @@ function addHover() {
       tableEl[i].removeAttribute('data');
       markupEl[i].removeAttribute('data');
     });
+    addTooltip(tableEl);
   }
   for (let i = 0; i < markupEl.length; i += 1) {
     markupEl[i].addEventListener('mouseover', (e) => {
@@ -121,9 +150,10 @@ function addHover() {
       tableEl[i].removeAttribute('data');
       markupEl[i].removeAttribute('data');
     });
+    addTooltip(markupEl);
   }
 }
-function sumbit(event: Event) {
+function submit(event: Event) {
   const editorForm: HTMLFormElement | null = document.querySelector('.editor__form');
   const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
   const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
@@ -134,12 +164,14 @@ function sumbit(event: Event) {
     checkInputValue();
     if (rule) {
       console.log('correct');
-      editorInput.value = '';
-      level += 1;
-      resetLevel();
-      setLevel();
-      addHover();
-      levelsCheck[level - 1].classList.add('checked');
+      setTimeout(() => {
+        editorInput.value = '';
+        level += 1;
+        resetLevel();
+        setLevel();
+        addHover();
+        levelsCheck[level - 1].classList.add('checked');
+      }, 1000);
     }
   }
 }
@@ -159,4 +191,4 @@ function changeLevel() {
   }
 }
 
-export { setLevel, sumbit, changeLevel, addHover, addTooltip };
+export { setLevel, submit, changeLevel, addHover };
