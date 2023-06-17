@@ -6,7 +6,7 @@ function createFooter() {
   const githubLink: HTMLAnchorElement = document.createElement('a');
   githubLink.href = 'https://github.com/Nastasyma';
   const githubLogo = document.createElement('img');
-  githubLogo.src = 'assets/icons/github_logo.svg';
+  githubLogo.src = 'assets/icons/github-logo.svg';
   githubLogo.alt = 'github logo';
   githubLogo.classList.add('github-logo');
   githubLink.appendChild(githubLogo);
@@ -18,7 +18,7 @@ function createFooter() {
   const rssLink: HTMLAnchorElement = document.createElement('a');
   rssLink.href = 'https://rs.school/js/';
   const rssLogo = document.createElement('img');
-  rssLogo.src = 'assets/icons/rs_school_js_logo.svg';
+  rssLogo.src = 'assets/icons/rsschool-js-logo.svg';
   rssLogo.alt = 'rsschool js logo';
   rssLogo.classList.add('rsschool-logo');
   rssLink.appendChild(rssLogo);

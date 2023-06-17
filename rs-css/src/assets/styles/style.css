@@ -225,7 +225,7 @@ box {
   position: relative;
   width: 120px;
   height: 120px;
-  background: url('../icons/box-icon.png') center/cover no-repeat;
+  background: url('../icons/box-icon.svg') center/cover no-repeat;
 }
 cube {
   position: absolute;
