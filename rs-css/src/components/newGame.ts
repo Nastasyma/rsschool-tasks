@@ -71,40 +71,57 @@ function checkInputValue() {
   }
   return rule;
 }
-function addHover() {
+
+function addTooltip() {
+  const tooltip: HTMLElement | null = document.querySelector('.tooltip');
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
-  const murkupEl: NodeListOf<Element> = document.querySelectorAll('.html-element div');
   for (let i = 0; i < tableEl.length; i += 1) {
     tableEl[i].addEventListener('mouseover', (e) => {
       e.stopPropagation();
-      // const elTag = tableEl[i].tagName.toLocaleLowerCase();
-      // const elClass = tableEl[i].className;
-      // if (tableEl[i].className && !tableEl[i].classList.contains('shake')) {
-      //   const a = `<${elTag} class="${elClass}"></${elTag}>`;
-      //   console.log(a);
-      // } else {
-      //   const a = `<${elTag}></${elTag}>`;
-      //   console.log(a);
-      // }
-      tableEl[i].classList.add('hovered');
-      murkupEl[i].classList.add('hovered-html');
+      const elTag = tableEl[i].tagName.toLocaleLowerCase();
+      const elClass = tableEl[i].className;
+      if (tooltip) {
+        tooltip.style.display = 'block';
+        if (tableEl[i].className && !tableEl[i].classList.contains('shake')) {
+          tooltip.textContent = `<${elTag} class="${elClass}"></${elTag}>`;
+        } else {
+          tooltip.textContent = `<${elTag}></${elTag}>`;
+        }
+      }
     });
     tableEl[i].addEventListener('mouseout', (e) => {
       e.stopPropagation();
-      tableEl[i].classList.remove('hovered');
-      murkupEl[i].classList.remove('hovered-html');
+      if (tooltip) tooltip.style.display = 'none';
     });
   }
-  // tableEl.forEach((el) => {
-  //   el.addEventListener('mouseover', (e) => {
-  //     e.stopPropagation();
-  //     el.classList.add('hovered');
-  //   });
-  //   el.addEventListener('mouseout', (e) => {
-  //     e.stopPropagation();
-  //     el.classList.remove('hovered');
-  //   });
-  // });
+}
+function addHover() {
+  const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
+  const markupEl: NodeListOf<Element> = document.querySelectorAll('.html-element div');
+  for (let i = 0; i < tableEl.length; i += 1) {
+    tableEl[i].addEventListener('mouseover', (e) => {
+      e.stopPropagation();
+      tableEl[i].setAttribute('data', 'shine');
+      markupEl[i].setAttribute('data', 'select');
+    });
+    tableEl[i].addEventListener('mouseout', (e) => {
+      e.stopPropagation();
+      tableEl[i].removeAttribute('data');
+      markupEl[i].removeAttribute('data');
+    });
+  }
+  for (let i = 0; i < markupEl.length; i += 1) {
+    markupEl[i].addEventListener('mouseover', (e) => {
+      e.stopPropagation();
+      tableEl[i].setAttribute('data', 'shine');
+      markupEl[i].setAttribute('data', 'select');
+    });
+    markupEl[i].addEventListener('mouseout', (e) => {
+      e.stopPropagation();
+      tableEl[i].removeAttribute('data');
+      markupEl[i].removeAttribute('data');
+    });
+  }
 }
 function sumbit(event: Event) {
   const editorForm: HTMLFormElement | null = document.querySelector('.editor__form');
@@ -142,4 +159,4 @@ function changeLevel() {
   }
 }
 
-export { setLevel, sumbit, changeLevel, addHover };
+export { setLevel, sumbit, changeLevel, addHover, addTooltip };

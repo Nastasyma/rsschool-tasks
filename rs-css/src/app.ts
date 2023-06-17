@@ -8,6 +8,9 @@ function createApp() {
   app.classList.add('app');
   const wrapper: HTMLDivElement = document.createElement('div');
   wrapper.classList.add('mobile_wrapper');
+  const tooltip: HTMLDivElement = document.createElement('div');
+  tooltip.classList.add('tooltip');
+  app.appendChild(tooltip);
   app.appendChild(wrapper);
   app.appendChild(nav());
   app.appendChild(header());

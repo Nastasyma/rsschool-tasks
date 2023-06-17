@@ -20,6 +20,18 @@ body {
   font-family: 'Armata';
   color: #fff;
 }
+.tooltip {
+  position: absolute;
+  top: 120px;
+  left: 482px;
+  background: white;
+  border-radius: 5px;
+  padding: 7px 15px;
+  z-index: 666;
+  color: gray;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.6);
+  display: none;
+}
 .mobile_wrapper {
   position: fixed;
   visibility: hidden;
@@ -40,6 +52,7 @@ body {
   transform: rotate(90deg);
 }
 .app {
+  position: relative;
   min-height: 100vh;
   margin: 0 auto;
   padding-right: 320px;
@@ -222,7 +235,7 @@ cube {
   left: calc(50% - 30px);
   background: url('../icons/blue-cube.svg') center/cover no-repeat;
 }
-.hovered {
+[data="shine"] {
   filter: drop-shadow(3px 0 3px white) drop-shadow(-3px 0 3px white);
 }
 horse {
@@ -316,6 +329,7 @@ pyramid {
 .editor__markup {
   display: flex;
   flex-direction: column;
+  cursor: default;
 }
 .footer {
   background: rgba(0, 0, 0, 0.3);
@@ -349,7 +363,7 @@ pyramid {
 .value {
   color: rgb(235, 195, 18);
 }
-.hovered-html {
+[data="select"] {
   background-color: rgb(112, 112, 112);
 }
 .shake {
