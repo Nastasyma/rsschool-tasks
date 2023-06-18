@@ -5,20 +5,20 @@ const gameLevelObject: IGameObject[] = [
     title: 'Select all items on the table',
     width: '700px',
     content: `
-    <box class="shake"></box>
-    <box class="shake">
-      <cube class="shake"></cube>
+    <box animation="shake"></box>
+    <box animation="shake">
+      <cube animation="shake"></cube>
     </box>
-    <box class="shake">
-      <pyramid class="shake"></pyramid>
+    <box animation="shake">
+      <pyramid animation="shake"></pyramid>
     </box>
-    <box class="shake">
-      <cube class="small shake"></cube>
-      <cube class="mid shake"></cube>
-      <cube class="shake"></cube>
+    <box animation="shake">
+      <cube animation="shake" class="small"></cube>
+      <cube animation="shake" class="mid"></cube>
+      <cube animation="shake"></cube>
     </box>
-    <box class="shake">
-      <horse class="shake"></horse>
+    <box animation="shake">
+      <horse animation="shake"></horse>
     </box>
     `,
     elements: '.table *',
@@ -28,8 +28,8 @@ const gameLevelObject: IGameObject[] = [
     title: 'Select the boxes',
     width: '300px',
     content: `
-    <box class="shake"></box>
-    <box class="shake"></box>
+    <box animation="shake"></box>
+    <box animation="shake"></box>
     `,
     elements: '.table box',
     help: 'box',

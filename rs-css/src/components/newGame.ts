@@ -88,8 +88,8 @@ function checkInputValue() {
             editor.classList.remove('error');
           }, 500);
         } else {
-          originalArray[i].classList.remove('shake');
-          originalArray[i].classList.add('fly');
+          originalArray[i].removeAttribute('animation');
+          originalArray[i].setAttribute('animation', 'fly');
         }
       }
     } catch (error) {
@@ -110,11 +110,11 @@ function addHelpMessage() {
 
   help?.addEventListener('click', () => {
     if (editorInput) {
-      editorInput.value = gameLevelObject[level].help;
-      editorInput.classList.add('write');
-      setTimeout(() => {
-        editorInput.classList.remove('write');
-      }, 5000);
+      // editorInput.value = gameLevelObject[level].help;
+      // editorInput.classList.add('write');
+      // setTimeout(() => {
+      //   editorInput.classList.remove('write');
+      // }, 5000);
     }
   });
 }
@@ -126,12 +126,13 @@ function addTooltip(arr: NodeListOf<Element>) {
       e.stopPropagation();
       const elTag = tableEl[i].tagName.toLocaleLowerCase();
       const elClass = tableEl[i].className;
+      console.log(elClass);
       const posEl = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
         tooltip.style.left = `${(posEl.left + 50).toString()}px`;
         tooltip.style.top = `${(posEl.top - 30).toString()}px`;
-        if (tableEl[i].className && !tableEl[i].classList.contains('shake')) {
+        if (elClass) {
           tooltip.textContent = `<${elTag} class="${elClass}"></${elTag}>`;
         } else {
           tooltip.textContent = `<${elTag}></${elTag}>`;
@@ -150,26 +151,26 @@ function addHover() {
   for (let i = 0; i < tableEl.length; i += 1) {
     tableEl[i].addEventListener('mouseover', (e) => {
       e.stopPropagation();
-      tableEl[i].setAttribute('data', 'shine');
-      markupEl[i].setAttribute('data', 'select');
+      tableEl[i].setAttribute('hover', 'shine');
+      markupEl[i].setAttribute('hover', 'select');
     });
     tableEl[i].addEventListener('mouseout', (e) => {
       e.stopPropagation();
-      tableEl[i].removeAttribute('data');
-      markupEl[i].removeAttribute('data');
+      tableEl[i].removeAttribute('hover');
+      markupEl[i].removeAttribute('hover');
     });
     addTooltip(tableEl);
   }
   for (let i = 0; i < markupEl.length; i += 1) {
     markupEl[i].addEventListener('mouseover', (e) => {
       e.stopPropagation();
-      tableEl[i].setAttribute('data', 'shine');
-      markupEl[i].setAttribute('data', 'select');
+      tableEl[i].setAttribute('hover', 'shine');
+      markupEl[i].setAttribute('hover', 'select');
     });
     markupEl[i].addEventListener('mouseout', (e) => {
       e.stopPropagation();
-      tableEl[i].removeAttribute('data');
-      markupEl[i].removeAttribute('data');
+      tableEl[i].removeAttribute('hover');
+      markupEl[i].removeAttribute('hover');
     });
     addTooltip(markupEl);
   }
