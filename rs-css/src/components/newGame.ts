@@ -75,17 +75,17 @@ function checkInputValue() {
           if (valueArray.length !== 0 && !valueArray[0].classList.contains('table')) {
             valueArray.forEach((item) => {
               if (!item.classList.contains('table')) {
-                item.classList.add('error');
+                item.setAttribute('animation', 'error');
               }
             });
           } else {
-            editor.classList.add('error');
+            editor.setAttribute('animation', 'error');
           }
           setTimeout(() => {
             valueArray.forEach((item) => {
-              item.classList.remove('error');
+              item.removeAttribute('animation');
             });
-            editor.classList.remove('error');
+            editor.removeAttribute('animation');
           }, 500);
         } else {
           originalArray[i].removeAttribute('animation');
@@ -95,9 +95,9 @@ function checkInputValue() {
     } catch (error) {
       // console.error(error);
       console.log('invalid value');
-      editor.classList.add('error');
+      editor.setAttribute('animation', 'error');
       setTimeout(() => {
-        editor.classList.remove('error');
+        editor.removeAttribute('animation');
       }, 500);
     }
   }

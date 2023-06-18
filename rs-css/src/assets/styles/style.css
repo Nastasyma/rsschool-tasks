@@ -376,7 +376,7 @@ pyramid {
   animation-duration: .5s;
   animation-fill-mode: both;
 }
-.error {
+[animation="error"]  {
   transform-origin: top center;
   animation: error;
   animation-duration: .3s;
