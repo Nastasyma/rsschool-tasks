@@ -155,12 +155,16 @@ function addHover() {
     tableEl[i].addEventListener('mouseover', (e) => {
       e.stopPropagation();
       tableEl[i].setAttribute('hover', 'shine');
-      markupEl[i].setAttribute('hover', 'select');
+      markupEl[i].querySelectorAll('span').forEach((item) => {
+        item.setAttribute('hover', 'select');
+      });
     });
     tableEl[i].addEventListener('mouseout', (e) => {
       e.stopPropagation();
       tableEl[i].removeAttribute('hover');
-      markupEl[i].removeAttribute('hover');
+      markupEl[i].querySelectorAll('span').forEach((item) => {
+        item.removeAttribute('hover');
+      });
     });
     addTooltip(tableEl);
   }
@@ -168,12 +172,16 @@ function addHover() {
     markupEl[i].addEventListener('mouseover', (e) => {
       e.stopPropagation();
       tableEl[i].setAttribute('hover', 'shine');
-      markupEl[i].setAttribute('hover', 'select');
+      markupEl[i].querySelectorAll('span').forEach((item) => {
+        item.setAttribute('hover', 'select');
+      });
     });
     markupEl[i].addEventListener('mouseout', (e) => {
       e.stopPropagation();
       tableEl[i].removeAttribute('hover');
-      markupEl[i].removeAttribute('hover');
+      markupEl[i].querySelectorAll('span').forEach((item) => {
+        item.removeAttribute('hover');
+      });
     });
     addTooltip(markupEl);
   }

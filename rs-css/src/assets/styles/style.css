@@ -366,7 +366,7 @@ pyramid {
   color: rgb(235, 195, 18);
 }
 [hover="select"] {
-  background-color: rgb(112, 112, 112);
+  color: aqua;
 }
 [animation="shake"] {
   transform-origin: bottom;
