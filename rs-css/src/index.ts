@@ -9,5 +9,5 @@ setLevel();
 changeLevel();
 createBurger();
 addHover();
-addHelpMessage();
 document.querySelector('.editor__form')?.addEventListener('submit', submit);
+document.querySelector('.help-btn')?.addEventListener('click', addHelpMessage);

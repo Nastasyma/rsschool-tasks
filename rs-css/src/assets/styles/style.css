@@ -139,6 +139,9 @@ body {
 .header__btn {
   cursor: pointer;
 }
+.help-btn:hover {
+  color: rgb(9, 226, 9);
+}
 .burger-btn {
   position: relative;
   width: 35px;
@@ -381,9 +384,9 @@ pyramid {
   animation: error;
   animation-duration: .3s;
 }
-.write {
-  animation: write 5s;
-}
+/* [animation="write"] {
+  animation: write 5s steps(3) forwards;
+} */
 .init {
   animation: init .3s;
 }

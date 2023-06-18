@@ -105,18 +105,22 @@ function checkInputValue() {
 }
 
 function addHelpMessage() {
-  const help: HTMLElement | null = document.querySelector('.help-btn');
   const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
 
-  help?.addEventListener('click', () => {
-    if (editorInput) {
-      // editorInput.value = gameLevelObject[level].help;
-      // editorInput.classList.add('write');
-      // setTimeout(() => {
-      //   editorInput.classList.remove('write');
-      // }, 5000);
-    }
-  });
+  if (editorInput) {
+    editorInput.value = '';
+    const str = gameLevelObject[level].help;
+    let count = 0;
+    const typing = setInterval(() => {
+      editorInput.value += str[count];
+      editorInput.focus();
+      count += 1;
+      if (count >= str.length) {
+        editorInput.blur();
+        clearInterval(typing);
+      }
+    }, 200);
+  }
 }
 function addTooltip(arr: NodeListOf<Element>) {
   const tooltip: HTMLElement | null = document.querySelector('.tooltip');
@@ -126,7 +130,6 @@ function addTooltip(arr: NodeListOf<Element>) {
       e.stopPropagation();
       const elTag = tableEl[i].tagName.toLocaleLowerCase();
       const elClass = tableEl[i].className;
-      console.log(elClass);
       const posEl = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
