@@ -34,6 +34,28 @@ const gameLevelObject: IGameObject[] = [
     elements: '.table box',
     help: 'box',
   },
+  {
+    title: 'Select the old box',
+    width: '700px',
+    content: `
+    <box>
+      <horse></horse>
+    </box>
+    <box>
+      <cube class="mid"></cube>
+      <cube></cube>
+    </box>
+    <box>
+      <cube class="mid"></cube>
+    </box>
+    <box>
+      <pyramid></pyramid>
+    </box>
+    <box animation="shake" id="old"></box>
+    `,
+    elements: '.table #old',
+    help: '#old',
+  },
 ];
 
 export default gameLevelObject;
