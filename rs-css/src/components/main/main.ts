@@ -1,11 +1,11 @@
+import createEL from '../baseComponent';
 import editor from './editor';
 import game from './game';
 
-function createMain() {
-  const main: HTMLElement = document.createElement('main');
-  main.classList.add('main');
-  main.appendChild(game());
-  main.appendChild(editor());
+function createMain(parentNode: HTMLElement): HTMLElement {
+  const main = createEL(parentNode, 'div', ['main']);
+  game(main);
+  editor(main);
   return main;
 }
 

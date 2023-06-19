@@ -1,22 +1,17 @@
+import createEL from './components/baseComponent';
 import footer from './components/footer/footer';
 import header from './components/header/header';
 import main from './components/main/main';
 import nav from './components/nav/nav';
 
 function createApp() {
-  const app: HTMLDivElement = document.createElement('div');
-  app.classList.add('app');
-  const wrapper: HTMLDivElement = document.createElement('div');
-  wrapper.classList.add('mobile_wrapper');
-  const tooltip: HTMLDivElement = document.createElement('div');
-  tooltip.classList.add('tooltip');
-  app.appendChild(tooltip);
-  app.appendChild(wrapper);
-  app.appendChild(nav());
-  app.appendChild(header());
-  app.appendChild(main());
+  const app: HTMLElement = createEL(document.body, 'div', ['app']);
+  createEL(app, 'div', ['mobile_wrapper']);
+  createEL(app, 'div', ['tooltip']);
+  nav(app);
+  header(app);
+  main(app);
   app.appendChild(footer());
-  document.body.append(app);
   return app;
 }
 

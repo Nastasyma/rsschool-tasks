@@ -320,6 +320,10 @@ box cube:nth-last-child(2) {
   font-size: 15px;
   background: rgb(78, 78, 78);
   color: #fff;
+  transition: all .2s ease-in-out;
+}
+.editor__btn:hover {
+  background-color: rgb(107, 107, 107);
 }
 .editor__html-wrapper {
   display: flex;

@@ -1,27 +1,15 @@
-function createGameElement() {
-  const game: HTMLDivElement = document.createElement('div');
-  game.classList.add('game');
-  const gameTitle: HTMLHeadingElement = document.createElement('h3');
-  gameTitle.classList.add('game__title');
-  game.appendChild(gameTitle);
-  const gameWrapper: HTMLDivElement = document.createElement('div');
-  gameWrapper.classList.add('game__wrapper');
-  const gameTable: HTMLDivElement = document.createElement('div');
-  gameTable.classList.add('game__table');
-  const table: HTMLDivElement = document.createElement('div');
-  table.classList.add('table');
-  gameTable.appendChild(table);
-  gameWrapper.appendChild(gameTable);
-  const tableBottom: HTMLDivElement = document.createElement('div');
-  tableBottom.classList.add('table__bottom');
-  const tableLeg1: HTMLDivElement = document.createElement('div');
-  tableLeg1.classList.add('table__leg');
-  const tableLeg2: HTMLDivElement = document.createElement('div');
-  tableLeg2.classList.add('table__leg');
-  tableBottom.appendChild(tableLeg1);
-  tableBottom.appendChild(tableLeg2);
-  gameWrapper.appendChild(tableBottom);
-  game.appendChild(gameWrapper);
+import createEL from '../baseComponent';
+
+function createGameElement(parentNode: HTMLElement): HTMLElement {
+  const game: HTMLElement = createEL(parentNode, 'div', ['game']);
+  createEL(game, 'h3', ['game__title']);
+  const gameWrapper: HTMLElement = createEL(game, 'div', ['game__wrapper']);
+  const gameTable = createEL(gameWrapper, 'div', ['game__table']);
+  createEL(gameTable, 'div', ['table']);
+  const tableBottom = createEL(gameWrapper, 'div', ['table__bottom']);
+  for (let i = 0; i < 2; i += 1) {
+    createEL(tableBottom, 'div', ['table__leg']);
+  }
   return game;
 }
 

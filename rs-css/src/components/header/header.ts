@@ -1,19 +1,24 @@
-function createHeader() {
-  const header: HTMLElement = document.createElement('header');
-  header.classList.add('header');
-  const helpBtn: HTMLDivElement = document.createElement('div');
-  helpBtn.className = 'header__btn help-btn';
-  helpBtn.textContent = 'HELP';
-  const headerTitle: HTMLHeadingElement = document.createElement('h1');
-  headerTitle.className = 'header__title';
-  headerTitle.textContent = 'RSS-CSS-Selectors';
-  const burgerBtn: HTMLDivElement = document.createElement('div');
-  burgerBtn.className = 'header__btn burger-btn';
-  burgerBtn.innerHTML = '<span></span><span></span><span></span>';
-  header.appendChild(helpBtn);
-  header.appendChild(headerTitle);
-  header.appendChild(burgerBtn);
-  return header;
+import createEL from '../baseComponent';
+import { addHelpMessage } from '../newGame';
+
+function createHelpBtn(parentNode: HTMLElement): HTMLElement {
+  const helpBtn: HTMLElement = createEL(parentNode, 'div', ['header__btn', 'help-btn'], 'HELP');
+  helpBtn.addEventListener('click', addHelpMessage);
+  return helpBtn;
 }
 
-export default createHeader;
+function createBurgerBtn(parentNode: HTMLElement): HTMLElement {
+  const burgerBtn: HTMLElement = createEL(parentNode, 'div', ['header__btn', 'burger-btn']);
+  for (let i = 0; i < 3; i += 1) {
+    createEL(burgerBtn, 'span');
+  }
+  return burgerBtn;
+}
+
+export default function createHeader(parentNode: HTMLElement): HTMLElement {
+  const header = createEL(parentNode, 'div', ['header']);
+  createHelpBtn(header);
+  createEL(header, 'h1', ['header__title'], 'RSS-CSS-Selectors');
+  createBurgerBtn(header);
+  return header;
+}
