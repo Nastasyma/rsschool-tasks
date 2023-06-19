@@ -16,7 +16,7 @@ function createBurgerBtn(parentNode: HTMLElement): HTMLElement {
 }
 
 export default function createHeader(parentNode: HTMLElement): HTMLElement {
-  const header = createEL(parentNode, 'div', ['header']);
+  const header = createEL(parentNode, 'header', ['header']);
   createHelpBtn(header);
   createEL(header, 'h1', ['header__title'], 'RSS-CSS-Selectors');
   createBurgerBtn(header);
