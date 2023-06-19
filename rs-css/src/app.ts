@@ -11,7 +11,7 @@ function createApp() {
   nav(app);
   header(app);
   main(app);
-  app.appendChild(footer());
+  footer(app);
   return app;
 }
 

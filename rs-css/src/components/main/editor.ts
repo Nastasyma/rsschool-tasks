@@ -14,14 +14,14 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   }
   createEL(editorForm, 'button', ['editor__btn'], 'Enter');
   createEL(editorWrapper, 'h4', ['editor__title'], 'HTML Viewer');
-  const editorHtmlWrapper = createEL(editorWrapper, 'div', ['editor__html-wrapper']);
-  const editorNumbersWrapper = createEL(editorHtmlWrapper, 'div', ['editor__numbers-wrapper']);
+  const editorHtmlWrapper: HTMLElement = createEL(editorWrapper, 'div', ['editor__html-wrapper']);
+  const editorNumbersWrapper: HTMLElement = createEL(editorHtmlWrapper, 'div', ['editor__numbers-wrapper']);
   for (let i = 1; i < 21; i += 1) {
     const editorNumber: HTMLDivElement = document.createElement('div');
     editorNumber.textContent = i.toString();
     editorNumbersWrapper.appendChild(editorNumber);
   }
-  const editorMarkupWrapper = createEL(editorHtmlWrapper, 'div', ['editor__markup-wrapper']);
+  const editorMarkupWrapper: HTMLElement = createEL(editorHtmlWrapper, 'div', ['editor__markup-wrapper']);
   createEL(editorMarkupWrapper, 'div', ['editor__markup']);
   return editor;
 }

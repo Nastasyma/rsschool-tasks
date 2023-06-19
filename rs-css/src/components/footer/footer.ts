@@ -1,29 +1,27 @@
-function createFooter() {
-  const footer: HTMLElement = document.createElement('footer');
-  footer.classList.add('footer');
-  const myPage: HTMLDivElement = document.createElement('div');
-  myPage.classList.add('footer__my-page');
-  const githubLink: HTMLAnchorElement = document.createElement('a');
-  githubLink.href = 'https://github.com/Nastasyma';
-  const githubLogo = document.createElement('img');
-  githubLogo.src = 'assets/icons/github-logo.svg';
-  githubLogo.alt = 'github logo';
-  githubLogo.classList.add('github-logo');
-  githubLink.appendChild(githubLogo);
-  myPage.appendChild(githubLink);
-  const footerText: HTMLDivElement = document.createElement('div');
-  footerText.classList.add('footer__text');
-  footerText.textContent = '© 2023';
-  myPage.appendChild(footerText);
-  const rssLink: HTMLAnchorElement = document.createElement('a');
-  rssLink.href = 'https://rs.school/js/';
-  const rssLogo = document.createElement('img');
-  rssLogo.src = 'assets/icons/rsschool-js-logo.svg';
-  rssLogo.alt = 'rsschool js logo';
-  rssLogo.classList.add('rsschool-logo');
-  rssLink.appendChild(rssLogo);
-  myPage.appendChild(rssLink);
-  footer.appendChild(myPage);
+import createEl from '../baseComponent';
+
+function createFooter(parentNode: HTMLElement): HTMLElement {
+  const footer: HTMLElement = createEl(parentNode, 'footer', ['footer']);
+  const myPage: HTMLElement = createEl(footer, 'div', ['footer__my-page']);
+  const githubLink: HTMLElement = createEl(myPage, 'a', ['footer__link']);
+  if (githubLink instanceof HTMLAnchorElement) {
+    githubLink.href = 'https://github.com/Nastasyma';
+  }
+  const githubLogo: HTMLElement = createEl(githubLink, 'img', ['github-logo']);
+  if (githubLogo instanceof HTMLImageElement) {
+    githubLogo.src = 'assets/icons/github-logo.svg';
+    githubLogo.alt = 'github logo';
+  }
+  createEl(myPage, 'p', ['footer__text'], '© 2023');
+  const rssLink: HTMLElement = createEl(myPage, 'a', ['footer__link']);
+  if (rssLink instanceof HTMLAnchorElement) {
+    rssLink.href = 'https://rs.school/js/';
+  }
+  const rssLogo: HTMLElement = createEl(rssLink, 'img', ['rsschool-logo']);
+  if (rssLogo instanceof HTMLImageElement) {
+    rssLogo.src = 'assets/icons/rsschool-js-logo.svg';
+    rssLogo.alt = 'rsschool js logo';
+  }
   return footer;
 }
 

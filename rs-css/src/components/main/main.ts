@@ -3,7 +3,7 @@ import editor from './editor';
 import game from './game';
 
 function createMain(parentNode: HTMLElement): HTMLElement {
-  const main = createEL(parentNode, 'div', ['main']);
+  const main: HTMLElement = createEL(parentNode, 'div', ['main']);
   game(main);
   editor(main);
   return main;
