@@ -12,8 +12,8 @@ const gameLevelObject: IGameObject[] = [
         <pyramid animation="shake"></pyramid>
       </box>
       <box animation="shake">
-        <cube animation="shake" class="small"></cube>
-        <cube animation="shake" class="mid"></cube>
+        <cube animation="shake" class="small" id="yellow"></cube>
+        <cube animation="shake" class="mid" id="green"></cube>
         <cube animation="shake"></cube>
       </box>
       <box animation="shake">
@@ -39,11 +39,11 @@ const gameLevelObject: IGameObject[] = [
         <horse></horse>
       </box>
       <box>
-        <cube class="mid"></cube>
+        <cube class="mid" id="yellow"></cube>
         <cube></cube>
       </box>
       <box>
-        <cube class="mid"></cube>
+        <cube class="mid" id="green"></cube>
       </box>
       <box>
         <pyramid></pyramid>
@@ -52,6 +52,51 @@ const gameLevelObject: IGameObject[] = [
     `,
     elements: '.table #old',
     help: '#old',
+  },
+  {
+    title: 'Select the small cubes',
+    content: /* html */ `
+      <box>
+        <cube></cube>
+      </box>
+      <box>
+        <cube animation="shake" class="small"></cube>
+        <cube class="mid" id="green"></cube>
+        <cube></cube>
+      </box>
+      <box>
+        <cube animation="shake" class="small" id="green"></cube>
+      </box>
+      <box id="old">
+        <pyramid></pyramid>
+      </box>
+    `,
+    elements: '.table .small',
+    help: '.small',
+  },
+  {
+    title: 'Select all the horses and airplanes',
+    content: /* html */ `
+      <box>
+        <horse animation="shake" class="mid"></horse>
+      </box>
+      <box>
+        <cube></cube>
+      </box>
+      <box>
+        <airplane animation="shake"></airplane>
+      </box>
+      <box>
+        <cube class="small" id="green"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube></cube>
+      </box>
+      <box>
+        <horse animation="shake"></horse>
+      </box>
+    `,
+    elements: '.table horse, airplane',
+    help: 'horse, airplane',
   },
 ];
 

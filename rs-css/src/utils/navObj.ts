@@ -19,7 +19,7 @@ const navObject: INavObject[] = [
   },
   {
     number: '5',
-    title: 'Text',
+    title: 'Selector list',
   },
   {
     number: '6',

@@ -176,7 +176,7 @@ body {
 }
 .game__title {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
 }
 .game__wrapper {
@@ -248,6 +248,12 @@ horse {
   top: 0;
   left: calc(50% - 40px);
 }
+/* box horse.small {
+  top: 30px;
+  left: 35px;
+  width: 50px;
+  height: 50px;
+} */
 pyramid {
   position: absolute;
   background: url('../icons/pyramid-icon.svg') center/cover no-repeat;
@@ -263,11 +269,6 @@ pyramid {
   width: 30px;
   height: 30px;
   z-index: 2;
-  background: url('../icons/orange-cube.svg') center/cover no-repeat;
-}
-box cube:nth-last-child(3) {
-  top: -18px;
-  left: 45px;
 }
 .mid {
   position: absolute;
@@ -276,14 +277,31 @@ box cube:nth-last-child(3) {
   top: 30px;
   left: 40px;
   z-index: 1;
-  background: url('../icons/green-cube.svg') center/cover no-repeat;
 }
 box cube:nth-last-child(2) {
   top: 0;
   left: 40px;
 }
+box cube:nth-last-child(3) {
+  top: -18px;
+  left: 45px;
+}
+airplane {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  left: 20px;
+  background: url('../icons/airplane-icon.svg') center/cover no-repeat;
+}
 #old {
   background: url('../icons/old-box.svg') center/cover no-repeat;
+}
+#green {
+  background: url('../icons/green-cube.svg') center/cover no-repeat;
+}
+#yellow {
+  background: url('../icons/yellow-cube.svg') center/cover no-repeat;
 }
 .editor {
   max-width: 700px;
@@ -458,9 +476,19 @@ box cube:nth-last-child(2) {
     top: -20px;
     left: -5px;
   }
+  airplane {
+    width: 50px;
+    height: 50px;
+    top: -5px;
+    left: 5px;
+  }
   box cube:nth-last-child(3) {
     top: -25px;
     left: 20px;
+  }
+  box cube:nth-last-child(2) {
+    top: -15px;
+    left: 15px;
   }
   .mid {
     width: 30px;
@@ -468,13 +496,11 @@ box cube:nth-last-child(2) {
     top: 5px;
     left: 15px;
   }
-  box cube:nth-last-child(2) {
-    top: -15px;
-    left: 15px;
-  }
   .small {
     width: 20px;
     height: 20px;
+    top: 15px;
+    left: 20px;
   }
   .game__table {
     border-bottom: 100px solid rgb(102, 63, 18);

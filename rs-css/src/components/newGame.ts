@@ -131,13 +131,18 @@ function addTooltip(arr: NodeListOf<Element>) {
       e.stopPropagation();
       const elTag = tableEl[i].tagName.toLocaleLowerCase();
       const elClass = tableEl[i].className;
+      const elId = tableEl[i].id;
       const posEl = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
         tooltip.style.left = `${(posEl.left + 50).toString()}px`;
         tooltip.style.top = `${(posEl.top - 30).toString()}px`;
-        if (elClass) {
+        if (elClass && elId) {
+          tooltip.textContent = `<${elTag} class="${elClass}" id="${elId}"></${elTag}>`;
+        } else if (elClass && !elId) {
           tooltip.textContent = `<${elTag} class="${elClass}"></${elTag}>`;
+        } else if (!elClass && elId) {
+          tooltip.textContent = `<${elTag} id="${elId}"></${elTag}>`;
         } else {
           tooltip.textContent = `<${elTag}></${elTag}>`;
         }
