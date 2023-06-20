@@ -1,23 +1,21 @@
-import flags from '../utils/flags';
+import elements from '../utils/gameElements';
 import gameLevelObject from '../utils/gameLevelObj';
 import markupLevelObject from '../utils/markupLevelObj';
 
 // let level = 0;
 // let rule = false;
 function setLevel() {
-  const { gameTable } = flags.game;
-  const tableBottom: HTMLDivElement | null = document.querySelector('.table__bottom');
-  const editorMarkup: HTMLDivElement | null = document.querySelector('.editor__markup');
-  const editorMarkupText: HTMLElement = document.createElement('code');
-  const table: HTMLDivElement | null = document.querySelector('.table');
-  const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
-  const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
-  const gameTitle = document.querySelector('.game__title');
-  editorMarkupText.classList.add('editor__code');
-  if (gameTitle) gameTitle.textContent = gameLevelObject[flags.level].title;
-  if (levelItem) levelItem[flags.level].classList.add('level-active');
+  const { gameTable } = elements.game;
+  const { tableBottom } = elements.game;
+  const { editorMarkupText } = elements.game;
+  const { table } = elements.game;
+  const { navItems } = elements.game;
+  const { gameWrapper } = elements.game;
+  const { gameTitle } = elements.game;
+  if (gameTitle) gameTitle.textContent = gameLevelObject[elements.level].title;
+  if (navItems) navItems[elements.level].classList.add('level-active');
   if (table) {
-    table.innerHTML = gameLevelObject[flags.level].content;
+    table.innerHTML = gameLevelObject[elements.level].content;
   }
   const boxes: NodeListOf<Element> = document.querySelectorAll(`.table box`);
   const box: HTMLElement | null = document.querySelector(`.table box`);
@@ -29,8 +27,9 @@ function setLevel() {
   }
   addTableSize();
   window.addEventListener('resize', addTableSize);
-  editorMarkupText.innerHTML = markupLevelObject[flags.level].content;
-  if (editorMarkup) editorMarkup.appendChild(editorMarkupText);
+  if (editorMarkupText) {
+    editorMarkupText.innerHTML = markupLevelObject[elements.level].content;
+  }
   if (gameWrapper) {
     gameWrapper.classList.add('init');
     gameWrapper.addEventListener('animationend', () => {
@@ -40,23 +39,23 @@ function setLevel() {
 }
 
 function resetLevel() {
-  const editorMarkupText: HTMLElement | null = document.querySelector('.editor__markup');
-  const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
-  const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
+  const { editorMarkupText } = elements.game;
+  const { editorInput } = elements.game;
+  const { navItems } = elements.game;
   if (editorMarkupText) editorMarkupText.innerHTML = '';
-  if (levelItem) {
-    levelItem.forEach((item) => {
+  if (navItems) {
+    navItems.forEach((item) => {
       item.classList.remove('level-active');
     });
   }
   if (editorInput) editorInput.value = '';
-  flags.rule = false;
+  elements.rule = false;
 }
 
 function checkInputValue() {
-  const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
-  const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[flags.level].elements);
-  const editor: HTMLDivElement | null = document.querySelector('.editor');
+  const { editorInput } = elements.game;
+  const { editor } = elements.game;
+  const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[elements.level].elements);
   if (!editor) throw new Error();
   if (editorInput) {
     try {
@@ -64,16 +63,16 @@ function checkInputValue() {
       console.log('target items: ', [...originalArray]);
       console.log('selected items: ', [...valueArray]);
       if (!valueArray) console.log('error');
-      if (originalArray.length !== valueArray.length) flags.rule = false;
+      if (originalArray.length !== valueArray.length) elements.rule = false;
       for (let i = 0; i < originalArray.length; i += 1) {
         if (originalArray[i] !== valueArray[i]) {
-          flags.rule = false;
+          elements.rule = false;
         } else {
-          flags.rule = true;
+          elements.rule = true;
         }
       }
       for (let i = 0; i < originalArray.length; i += 1) {
-        if (!flags.rule) {
+        if (!elements.rule) {
           if (valueArray.length !== 0 && !valueArray[0].classList.contains('table')) {
             valueArray.forEach((item) => {
               if (!item.classList.contains('table')) {
@@ -103,15 +102,15 @@ function checkInputValue() {
       }, 500);
     }
   }
-  return flags.rule;
+  return elements.rule;
 }
 
 function addHelpMessage() {
-  const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
+  const { editorInput } = elements.game;
 
   if (editorInput) {
     editorInput.value = '';
-    const str = gameLevelObject[flags.level].help;
+    const str = gameLevelObject[elements.level].help;
     let count = 0;
     const typing = setInterval(() => {
       editorInput.value += str[count];
@@ -125,7 +124,7 @@ function addHelpMessage() {
   }
 }
 function addTooltip(arr: NodeListOf<Element>) {
-  const tooltip: HTMLElement | null = document.querySelector('.tooltip');
+  const { tooltip } = elements.game;
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
   for (let i = 0; i < arr.length; i += 1) {
     arr[i].addEventListener('mouseover', (e: Event) => {
@@ -189,35 +188,34 @@ function addHover() {
   }
 }
 function submit(event: Event) {
-  const editorForm: HTMLFormElement | null = document.querySelector('.editor__form');
-  const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
-  const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
-  const levelsCheck: NodeListOf<Element> = document.querySelectorAll('.levels__check');
+  const { editorForm } = elements.game;
+  const { editorInput } = elements.game;
+  const { gameWrapper } = elements.game;
+  const { levelsCheck } = elements.game;
   if (editorForm && editorInput && gameWrapper) {
     event.preventDefault();
-    console.log('correct value: ', gameLevelObject[flags.level].help);
+    console.log('correct value: ', gameLevelObject[elements.level].help);
     checkInputValue();
-    if (flags.rule) {
+    if (elements.rule) {
       console.log('correct');
       setTimeout(() => {
-        flags.level += 1;
+        elements.level += 1;
         resetLevel();
         setLevel();
         addHover();
-        levelsCheck[flags.level - 1].classList.add('checked');
-      }, 1000);
+        levelsCheck[elements.level - 1].classList.add('checked');
+      }, 1400);
     }
   }
 }
 
 function changeLevel() {
-  const levelItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
-  if (levelItem) {
-    levelItem.forEach((item) => {
+  const { navItems } = elements.game;
+  if (navItems) {
+    navItems.forEach((item) => {
       item.addEventListener('click', () => {
         const currentLevel: string | null = item.getAttribute('data-level');
-        if (currentLevel) flags.level = +currentLevel;
-        console.log(flags.level);
+        if (currentLevel) elements.level = +currentLevel;
         resetLevel();
         setLevel();
         addHover();

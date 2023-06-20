@@ -1,4 +1,5 @@
 import createEL from '../baseComponent';
+import elements from '../../utils/gameElements';
 import { submit } from '../newGame';
 
 function createEditorElement(parentNode: HTMLElement): HTMLElement {
@@ -11,6 +12,10 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   if (editorInput instanceof HTMLInputElement) {
     editorInput.type = 'text';
     editorInput.placeholder = 'Type in a CSS selector';
+    elements.game.editorInput = editorInput;
+  }
+  if (editorForm instanceof HTMLFormElement) {
+    elements.game.editorForm = editorForm;
   }
   createEL(editorForm, 'button', ['editor__btn'], 'Enter');
   createEL(editorWrapper, 'h4', ['editor__title'], 'HTML Viewer');
@@ -22,7 +27,10 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
     editorNumbersWrapper.appendChild(editorNumber);
   }
   const editorMarkupWrapper: HTMLElement = createEL(editorHtmlWrapper, 'div', ['editor__markup-wrapper']);
-  createEL(editorMarkupWrapper, 'div', ['editor__markup']);
+  const editorMarkup = createEL(editorMarkupWrapper, 'div', ['editor__markup']);
+  const editorMarkupText = createEL(editorMarkup, 'code', ['editor__code']);
+  elements.game.editor = editor;
+  elements.game.editorMarkupText = editorMarkupText;
   return editor;
 }
 

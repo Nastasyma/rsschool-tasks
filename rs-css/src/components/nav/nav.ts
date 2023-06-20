@@ -1,5 +1,6 @@
 import createEL from '../baseComponent';
 import navObject from '../../utils/navObj';
+import elements from '../../utils/gameElements';
 
 function createNav(parentNode: HTMLElement): HTMLElement {
   const nav: HTMLElement = createEL(parentNode, 'nav', ['game__levels']);
@@ -8,10 +9,13 @@ function createNav(parentNode: HTMLElement): HTMLElement {
   for (let i = 0; i < navObject.length; i += 1) {
     const level: HTMLElement = createEL(levelsList, 'li', ['levels__item']);
     level.setAttribute('data-level', i.toString());
-    createEL(level, 'div', ['levels__check']);
+    const levelsCheck = createEL(level, 'div', ['levels__check']);
     createEL(level, 'span', ['levels__number'], navObject[i].number);
     createEL(level, 'span', ['levels__desc'], navObject[i].title);
+    if (elements.game.navItems) elements.game.navItems.push(level);
+    if (elements.game.levelsCheck) elements.game.levelsCheck.push(levelsCheck);
   }
+  elements.game.menu = nav;
   return nav;
 }
 

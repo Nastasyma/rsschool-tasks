@@ -1,23 +1,23 @@
-import flags from '../../utils/flags';
+import elements from '../../utils/gameElements';
 
 function createBurger() {
-  const { burger } = flags.game;
-  const menu: HTMLElement | null = document.querySelector('.game__levels');
-  const navItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
-  const mobileWrapper: HTMLElement | null = document.querySelector('.mobile_wrapper');
+  const { burger } = elements.game;
+  const { menu } = elements.game;
+  const { navItems } = elements.game;
+  const { appWrapper } = elements.game;
 
   function addBurger() {
-    if (menu && burger && mobileWrapper) {
+    if (menu && burger && appWrapper) {
       menu.classList.add('open_menu');
       burger.classList.add('burger_active');
-      mobileWrapper.classList.add('popup_active');
+      appWrapper.classList.add('popup_active');
     }
   }
 
   function removeBurger() {
-    if (menu && burger && mobileWrapper) {
+    if (menu && burger && appWrapper) {
       menu.classList.remove('open_menu');
-      mobileWrapper.classList.remove('popup_active');
+      appWrapper.classList.remove('popup_active');
       burger.classList.remove('burger_active');
     }
   }
@@ -30,11 +30,11 @@ function createBurger() {
     }
   }
 
-  if (burger && mobileWrapper) {
+  if (burger && appWrapper) {
     burger.addEventListener('click', activeBurger);
-    mobileWrapper.addEventListener('click', activeBurger);
+    appWrapper.addEventListener('click', activeBurger);
   }
-  navItem.forEach((el) => {
+  navItems.forEach((el) => {
     el.addEventListener('click', removeBurger);
   });
 }

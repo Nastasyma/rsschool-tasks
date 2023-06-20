@@ -1,4 +1,4 @@
-import flags from '../../utils/flags';
+import flags from '../../utils/gameElements';
 import createEL from '../baseComponent';
 import { addHelpMessage } from '../newGame';
 

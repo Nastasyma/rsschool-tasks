@@ -391,7 +391,7 @@ box cube:nth-last-child(2) {
 [animation="fly"] {
   transform-origin: bottom;
   animation-name: fly;
-  animation-duration: .5s;
+  animation-duration: 1.2s;
   animation-fill-mode: both;
 }
 [data-error="error"]  {
