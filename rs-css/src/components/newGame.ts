@@ -1,10 +1,11 @@
-import gameLevelObject from './main/gameLevelObj';
-import markupLevelObject from './main/markupLevelObj';
+import flags from '../utils/flags';
+import gameLevelObject from '../utils/gameLevelObj';
+import markupLevelObject from '../utils/markupLevelObj';
 
-let level = 0;
-let rule = false;
+// let level = 0;
+// let rule = false;
 function setLevel() {
-  const gameTable: HTMLDivElement | null = document.querySelector('.game__table');
+  const { gameTable } = flags.game;
   const tableBottom: HTMLDivElement | null = document.querySelector('.table__bottom');
   const editorMarkup: HTMLDivElement | null = document.querySelector('.editor__markup');
   const editorMarkupText: HTMLElement = document.createElement('code');
@@ -13,21 +14,22 @@ function setLevel() {
   const gameWrapper: HTMLDivElement | null = document.querySelector('.game__wrapper');
   const gameTitle = document.querySelector('.game__title');
   editorMarkupText.classList.add('editor__code');
-  if (gameTitle) gameTitle.textContent = gameLevelObject[level].title;
-  if (levelItem) levelItem[level].classList.add('level-active');
-  if (gameTable && tableBottom) {
-    if (window.innerWidth <= 770) {
-      gameTable.style.width = '420px';
-      tableBottom.style.width = '420px';
-    } else {
-      gameTable.style.width = gameLevelObject[level].width;
-      tableBottom.style.width = gameLevelObject[level].width;
+  if (gameTitle) gameTitle.textContent = gameLevelObject[flags.level].title;
+  if (levelItem) levelItem[flags.level].classList.add('level-active');
+  if (table) {
+    table.innerHTML = gameLevelObject[flags.level].content;
+  }
+  const boxes: NodeListOf<Element> = document.querySelectorAll(`.table box`);
+  const box: HTMLElement | null = document.querySelector(`.table box`);
+  function addTableSize() {
+    if (gameTable && tableBottom && box) {
+      gameTable.style.width = `${boxes.length * box.offsetWidth + 100}px`;
+      tableBottom.style.width = `${boxes.length * box.offsetWidth + 100}px`;
     }
   }
-  if (table) {
-    table.innerHTML = gameLevelObject[level].content;
-  }
-  editorMarkupText.innerHTML = markupLevelObject[level].content;
+  addTableSize();
+  window.addEventListener('resize', addTableSize);
+  editorMarkupText.innerHTML = markupLevelObject[flags.level].content;
   if (editorMarkup) editorMarkup.appendChild(editorMarkupText);
   if (gameWrapper) {
     gameWrapper.classList.add('init');
@@ -48,12 +50,12 @@ function resetLevel() {
     });
   }
   if (editorInput) editorInput.value = '';
-  rule = false;
+  flags.rule = false;
 }
 
 function checkInputValue() {
   const editorInput: HTMLInputElement | null = document.querySelector('.editor__input');
-  const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[level].elements);
+  const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[flags.level].elements);
   const editor: HTMLDivElement | null = document.querySelector('.editor');
   if (!editor) throw new Error();
   if (editorInput) {
@@ -62,16 +64,16 @@ function checkInputValue() {
       console.log('target items: ', [...originalArray]);
       console.log('selected items: ', [...valueArray]);
       if (!valueArray) console.log('error');
-      if (originalArray.length !== valueArray.length) rule = false;
+      if (originalArray.length !== valueArray.length) flags.rule = false;
       for (let i = 0; i < originalArray.length; i += 1) {
         if (originalArray[i] !== valueArray[i]) {
-          rule = false;
+          flags.rule = false;
         } else {
-          rule = true;
+          flags.rule = true;
         }
       }
       for (let i = 0; i < originalArray.length; i += 1) {
-        if (!rule) {
+        if (!flags.rule) {
           if (valueArray.length !== 0 && !valueArray[0].classList.contains('table')) {
             valueArray.forEach((item) => {
               if (!item.classList.contains('table')) {
@@ -101,7 +103,7 @@ function checkInputValue() {
       }, 500);
     }
   }
-  return rule;
+  return flags.rule;
 }
 
 function addHelpMessage() {
@@ -109,7 +111,7 @@ function addHelpMessage() {
 
   if (editorInput) {
     editorInput.value = '';
-    const str = gameLevelObject[level].help;
+    const str = gameLevelObject[flags.level].help;
     let count = 0;
     const typing = setInterval(() => {
       editorInput.value += str[count];
@@ -193,16 +195,16 @@ function submit(event: Event) {
   const levelsCheck: NodeListOf<Element> = document.querySelectorAll('.levels__check');
   if (editorForm && editorInput && gameWrapper) {
     event.preventDefault();
-    console.log('correct value: ', gameLevelObject[level].help);
+    console.log('correct value: ', gameLevelObject[flags.level].help);
     checkInputValue();
-    if (rule) {
+    if (flags.rule) {
       console.log('correct');
       setTimeout(() => {
-        level += 1;
+        flags.level += 1;
         resetLevel();
         setLevel();
         addHover();
-        levelsCheck[level - 1].classList.add('checked');
+        levelsCheck[flags.level - 1].classList.add('checked');
       }, 1000);
     }
   }
@@ -214,7 +216,8 @@ function changeLevel() {
     levelItem.forEach((item) => {
       item.addEventListener('click', () => {
         const currentLevel: string | null = item.getAttribute('data-level');
-        if (currentLevel) level = +currentLevel;
+        if (currentLevel) flags.level = +currentLevel;
+        console.log(flags.level);
         resetLevel();
         setLevel();
         addHover();

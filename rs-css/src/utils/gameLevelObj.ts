@@ -1,9 +1,8 @@
-import { IGameObject } from '../../interfaces/gameInterface';
+import { IGameObject } from '../interfaces/gameInterface';
 
 const gameLevelObject: IGameObject[] = [
   {
     title: 'Select all items on the table',
-    width: '700px',
     content: /* html */ `
       <box animation="shake"></box>
       <box animation="shake">
@@ -26,7 +25,6 @@ const gameLevelObject: IGameObject[] = [
   },
   {
     title: 'Select the boxes',
-    width: '300px',
     content: /* html */ `
       <box animation="shake"></box>
       <box animation="shake"></box>
@@ -36,7 +34,6 @@ const gameLevelObject: IGameObject[] = [
   },
   {
     title: 'Select the old box',
-    width: '700px',
     content: /* html */ `
       <box>
         <horse></horse>

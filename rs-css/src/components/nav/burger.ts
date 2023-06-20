@@ -1,5 +1,7 @@
+import flags from '../../utils/flags';
+
 function createBurger() {
-  const burger: HTMLElement | null = document.querySelector('.burger-btn');
+  const { burger } = flags.game;
   const menu: HTMLElement | null = document.querySelector('.game__levels');
   const navItem: NodeListOf<Element> = document.querySelectorAll('.levels__item');
   const mobileWrapper: HTMLElement | null = document.querySelector('.mobile_wrapper');

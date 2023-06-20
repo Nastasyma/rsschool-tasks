@@ -458,25 +458,34 @@ box cube:nth-last-child(2) {
     top: -20px;
     left: -5px;
   }
-  .mid {
-    top: -15px;
-    left: 15px;
-    width: 30px;
-    height: 30px;
-  }
-  .small {
+  box cube:nth-last-child(3) {
     top: -25px;
     left: 20px;
+  }
+  .mid {
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    left: 15px;
+  }
+  box cube:nth-last-child(2) {
+    top: -15px;
+    left: 15px;
+  }
+  .small {
     width: 20px;
     height: 20px;
   }
-  .table__bottom {
-    width: 300px;
+  .game__table {
+    border-bottom: 100px solid rgb(102, 63, 18);
   }
-  .table {
+  /* .table__bottom {
+    width: 300px;
+  } */
+  /* .table {
     flex-wrap: wrap;
     gap: 5px;
-  }
+  } */
   .game__wrapper {
     padding: 5px;
   }

@@ -1,4 +1,4 @@
-import { IMarkupObject } from '../../interfaces/editorInterface';
+import { IMarkupObject } from '../interfaces/editorInterface';
 
 const markupLevelObject: IMarkupObject[] = [
   {
