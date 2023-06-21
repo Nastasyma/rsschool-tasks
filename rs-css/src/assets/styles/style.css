@@ -62,7 +62,7 @@ body {
 .header,
 .main,
 .footer {
-  padding: 10px;
+  padding: 10px 20px;
 }
 .game__levels {
   width: 320px;
@@ -94,10 +94,13 @@ body {
   transition: all .2s ease-out;
   padding: 4px 10px 4px 20px;
   font-size: 15px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
 }
-.levels__item:hover,
+.levels__item:hover {
+  background: rgba(214, 132, 8, 0.5);
+}
 .level-active {
-  background: rgba(0, 0, 0, 0.3);
+  background:  rgba(214, 132, 8, 0.9);
 }
 /* .levels__item::before {
   content: "\2713";
@@ -119,12 +122,13 @@ body {
   transform: rotate(45deg);
 }
 .checked {
-  border-color: rgb(9, 226, 9);
+  border-color: rgb(20, 175, 20);
   opacity: 1;
 }
 .levels__number {
   opacity: .7;
   margin-right: 10px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
 }
 .levels__reset-btn {
   display: flex;
@@ -135,11 +139,9 @@ body {
   flex: 0 0 auto;
   width: 200px;
   cursor: pointer;
+  font-weight: 600;
   background-color: rgb(204, 202, 202);
   border: 4px rgb(173, 173, 173) outset;
-}
-.levels__reset-btn:hover {
-  background-color: rgb(255, 255, 255);
 }
 .levels__reset-btn:active {
   transform: scale(0.95);
@@ -158,6 +160,7 @@ body {
 }
 .header__btn {
   cursor: pointer;
+  font-weight: 700;
 }
 .help-btn:hover {
   color: rgb(9, 226, 9);
@@ -282,6 +285,19 @@ pyramid {
   top: -10px;
   left: calc(50% - 50px);
 }
+basket {
+  position: absolute;
+  background: url('../icons/basket-icon.svg') center/cover no-repeat;
+  /* filter: drop-shadow(2px 0 2px rgb(177, 36, 71)) drop-shadow(-2px 0 2px rgb(177, 36, 71)); */
+  width: 90px;
+  height: 90px;
+  top: -5px;
+  left: 15px;
+}
+basket cube.mid {
+  top: 20px;
+  left: 25px;
+}
 .small {
   position: absolute;
   top: 40px;
@@ -356,15 +372,16 @@ airplane {
   width: 60px;
   cursor: pointer;
   font-size: 15px;
-  background: rgb(78, 78, 78);
-  color: #fff;
-  transition: all .2s ease-in-out;
-  border: 4px rgb(107, 105, 105) outset;
-}
-.editor__btn:hover {
   background-color: rgb(134, 133, 133);
   color: #000;
   font-weight: 700;
+  transition: all .2s ease-in-out;
+  border: 4px rgb(201, 201, 201) outset;
+}
+.editor__btn:hover,
+.levels__reset-btn:hover {
+  background-color: rgba(214, 132, 8, 0.9);
+  border: 4px rgb(226, 141, 14) outset;
 }
 .editor__btn:active {
   transform: scale(0.95);
@@ -458,10 +475,6 @@ airplane {
     z-index: 50;
     background: rgb(0, 0, 0);
   }
-  .levels__item:hover,
-  .level-active {
-    background: rgba(255, 255, 255, 0.3);
-  }
   .open_menu {
     transform: translateX(0);
   }
@@ -543,5 +556,19 @@ airplane {
   }
   .tooltip {
     font-size: 11px;
+  }
+}
+@media (max-width: 490px) {
+  .header__title {
+    font-size: 20px;
+  }
+  .editor__html-wrapper {
+    font-size: 11px;
+  }
+  .editor__markup-wrapper {
+    padding: 10px 5px;
+  }
+  .game__title {
+    margin-bottom: 60px;
   }
 }

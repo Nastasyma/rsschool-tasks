@@ -98,6 +98,25 @@ const gameLevelObject: IGameObject[] = [
     elements: '.table horse, airplane',
     help: 'horse, airplane',
   },
+  {
+    title: 'Select the cubes directly on a box',
+    content: /* html */ `
+      <box></box>
+      <box>
+        <basket>
+          <cube id="yellow" class="mid"></cube>
+        </basket>
+      </box>
+      <box>
+        <airplane></airplane>
+      </box>
+      <box id="old">
+        <cube animation="shake" id="yellow" class="mid"></cube>
+      </box>
+    `,
+    elements: '.table box > cube',
+    help: 'box > cube',
+  },
 ];
 
 export default gameLevelObject;
