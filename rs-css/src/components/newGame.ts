@@ -17,7 +17,7 @@ function setLevel() {
   if (table) {
     table.innerHTML = gameLevelObject[elements.level].content;
   }
-  const boxes: NodeListOf<Element> = document.querySelectorAll(`.table box`);
+  const boxes: NodeListOf<Element> = document.querySelectorAll(`.table box, #orange`);
   const box: HTMLElement | null = document.querySelector(`.table box`);
   function addTableSize() {
     if (gameTable && tableBottom && box) {
@@ -63,9 +63,10 @@ function checkInputValue() {
       console.log('target items: ', [...originalArray]);
       console.log('selected items: ', [...valueArray]);
       if (!valueArray) console.log('error');
-      if (originalArray.length !== valueArray.length) elements.rule = false;
       for (let i = 0; i < originalArray.length; i += 1) {
         if (originalArray[i] !== valueArray[i]) {
+          elements.rule = false;
+        } else if (originalArray.length !== valueArray.length) {
           elements.rule = false;
         } else {
           elements.rule = true;
@@ -132,11 +133,11 @@ function addTooltip(arr: NodeListOf<Element>) {
       const elTag = tableEl[i].tagName.toLocaleLowerCase();
       const elClass = tableEl[i].className;
       const elId = tableEl[i].id;
-      const posEl = tableEl[i].getBoundingClientRect();
+      const elPos = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
-        tooltip.style.left = `${(posEl.left + 30).toString()}px`;
-        tooltip.style.top = `${(posEl.top - 30).toString()}px`;
+        tooltip.style.left = `${(elPos.left + 30).toString()}px`;
+        tooltip.style.top = `${(elPos.top - 30).toString()}px`;
         if (elClass && elId) {
           tooltip.textContent = `<${elTag} class="${elClass}" id="${elId}"></${elTag}>`;
         } else if (elClass && !elId) {

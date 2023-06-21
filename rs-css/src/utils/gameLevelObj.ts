@@ -99,7 +99,7 @@ const gameLevelObject: IGameObject[] = [
     help: 'horse, airplane',
   },
   {
-    title: 'Select the cubes directly on a box',
+    title: 'Select the cube directly in the box',
     content: /* html */ `
       <box></box>
       <box>
@@ -116,6 +116,48 @@ const gameLevelObject: IGameObject[] = [
     `,
     elements: '.table box > cube',
     help: 'box > cube',
+  },
+  {
+    title: 'Select the cubes in the box',
+    content: /* html */ `
+      <box>
+        <basket>
+          <cube animation="shake" id="green" class="mid"></cube>
+        </basket>
+      </box>
+      <box>
+        <horse></horse>
+      </box>
+      <box id="old">
+        <cube animation="shake" id="yellow" class="mid"></cube>
+      </box>
+    `,
+    elements: '.table box cube',
+    help: 'box cube',
+  },
+  {
+    title: 'Select every basket that is next to the box',
+    content: /* html */ `
+      <box></box>
+      <basket animation="shake" id="orange"></basket>
+      <box></box>
+      <basket animation="shake" id="orange"></basket>
+      <basket id="orange"></basket>
+    `,
+    elements: '.table box + basket',
+    help: 'box + basket',
+  },
+  {
+    title: 'Select the baskets beside the box',
+    content: /* html */ `
+      <box></box>
+      <basket animation="shake" id="orange"></basket>
+      <box></box>
+      <basket animation="shake" id="orange"></basket>
+      <basket animation="shake" id="orange"></basket>
+    `,
+    elements: '.table box ~ basket',
+    help: 'box ~ basket',
   },
 ];
 
