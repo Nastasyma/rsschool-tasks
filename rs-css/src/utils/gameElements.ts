@@ -12,6 +12,7 @@ const flagsObject: IGameElemsObject = {
     menu: null,
     navItems: [],
     levelsCheck: [],
+    resetBtn: null,
     appWrapper: null,
     tooltip: null,
     editor: null,

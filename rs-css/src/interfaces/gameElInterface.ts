@@ -10,6 +10,7 @@ export interface IGameElemsObject {
     menu: HTMLElement | null;
     navItems: HTMLElement[];
     levelsCheck: HTMLElement[];
+    resetBtn: HTMLElement | null;
     appWrapper: HTMLElement | null;
     tooltip: HTMLElement | null;
     editor: HTMLElement | null;

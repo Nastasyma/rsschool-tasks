@@ -135,7 +135,7 @@ function addTooltip(arr: NodeListOf<Element>) {
       const posEl = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
-        tooltip.style.left = `${(posEl.left + 50).toString()}px`;
+        tooltip.style.left = `${(posEl.left + 30).toString()}px`;
         tooltip.style.top = `${(posEl.top - 30).toString()}px`;
         if (elClass && elId) {
           tooltip.textContent = `<${elTag} class="${elClass}" id="${elId}"></${elTag}>`;

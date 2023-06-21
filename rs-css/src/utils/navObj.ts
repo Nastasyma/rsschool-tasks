@@ -23,23 +23,63 @@ const navObject: INavObject[] = [
   },
   {
     number: '6',
-    title: 'Text',
+    title: 'Child combinator (>)',
   },
   {
     number: '7',
-    title: 'Text',
+    title: 'Descendant combinator',
   },
   {
     number: '8',
-    title: 'Text',
+    title: 'Adjacent sibling combinator (+)',
   },
   {
     number: '9',
-    title: 'Text',
+    title: 'General sibling combinator (~)',
   },
   {
     number: '10',
-    title: 'Text',
+    title: '[attribute=value]',
+  },
+  {
+    number: '11',
+    title: ':first-of-type',
+  },
+  {
+    number: '12',
+    title: ':last-of-type',
+  },
+  {
+    number: '13',
+    title: ':only-of-type',
+  },
+  {
+    number: '14',
+    title: ':first-child',
+  },
+  {
+    number: '15',
+    title: ':last-child',
+  },
+  {
+    number: '16',
+    title: ':nth-child(n)',
+  },
+  {
+    number: '17',
+    title: ':nth-last-child(n)',
+  },
+  {
+    number: '18',
+    title: ':only-child',
+  },
+  {
+    number: '19',
+    title: ':empty',
+  },
+  {
+    number: '20',
+    title: ':not(selector)',
   },
 ];
 

@@ -24,7 +24,7 @@ body {
   position: absolute;
   background: white;
   border-radius: 5px;
-  padding: 7px 15px;
+  padding: 7px;
   z-index: 666;
   color: gray;
   font-size: 13px;
@@ -83,6 +83,7 @@ body {
   flex-direction: column;
   list-style: none;
   padding: 0;
+  flex: 1 0 auto;
 }
 .levels__item {
   position: relative;
@@ -91,7 +92,8 @@ body {
   align-items: center;
   cursor: pointer;
   transition: all .2s ease-out;
-  padding: 3px 20px;
+  padding: 4px 10px 4px 20px;
+  font-size: 15px;
 }
 .levels__item:hover,
 .level-active {
@@ -123,6 +125,24 @@ body {
 .levels__number {
   opacity: .7;
   margin-right: 10px;
+}
+.levels__reset-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 5px;
+  margin-bottom: 60px;
+  flex: 0 0 auto;
+  width: 200px;
+  cursor: pointer;
+  background-color: rgb(204, 202, 202);
+  border: 4px rgb(173, 173, 173) outset;
+}
+.levels__reset-btn:hover {
+  background-color: rgb(255, 255, 255);
+}
+.levels__reset-btn:active {
+  transform: scale(0.95);
 }
 .header {
   display: flex;
@@ -339,9 +359,15 @@ airplane {
   background: rgb(78, 78, 78);
   color: #fff;
   transition: all .2s ease-in-out;
+  border: 4px rgb(107, 105, 105) outset;
 }
 .editor__btn:hover {
-  background-color: rgb(107, 107, 107);
+  background-color: rgb(134, 133, 133);
+  color: #000;
+  font-weight: 700;
+}
+.editor__btn:active {
+  transform: scale(0.95);
 }
 .editor__html-wrapper {
   display: flex;
@@ -514,5 +540,8 @@ airplane {
   } */
   .game__wrapper {
     padding: 5px;
+  }
+  .tooltip {
+    font-size: 11px;
   }
 }
