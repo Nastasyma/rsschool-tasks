@@ -3,7 +3,7 @@ import { INavObject } from '../interfaces/navInterface';
 const navObject: INavObject[] = [
   {
     number: '1',
-    title: 'Universal selectors',
+    title: 'Universal selector',
   },
   {
     number: '2',
@@ -63,15 +63,15 @@ const navObject: INavObject[] = [
   },
   {
     number: '16',
-    title: ':nth-child(n)',
+    title: ':only-child',
   },
   {
     number: '17',
-    title: ':nth-last-child(n)',
+    title: ':nth-child(n)',
   },
   {
     number: '18',
-    title: ':only-child',
+    title: ':nth-last-child(n)',
   },
   {
     number: '19',

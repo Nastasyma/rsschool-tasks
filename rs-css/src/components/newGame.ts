@@ -133,6 +133,7 @@ function addTooltip(arr: NodeListOf<Element>) {
       const elTag = tableEl[i].tagName.toLocaleLowerCase();
       const elClass = tableEl[i].className;
       const elId = tableEl[i].id;
+      const elAtt = tableEl[i].getAttribute('material');
       const elPos = tableEl[i].getBoundingClientRect();
       if (tooltip) {
         tooltip.style.display = 'block';
@@ -144,6 +145,8 @@ function addTooltip(arr: NodeListOf<Element>) {
           tooltip.textContent = `<${elTag} class="${elClass}"></${elTag}>`;
         } else if (!elClass && elId) {
           tooltip.textContent = `<${elTag} id="${elId}"></${elTag}>`;
+        } else if (elAtt) {
+          tooltip.textContent = `<${elTag} material="${elAtt}"></${elTag}>`;
         } else {
           tooltip.textContent = `<${elTag}></${elTag}>`;
         }

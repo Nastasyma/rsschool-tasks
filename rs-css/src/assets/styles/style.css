@@ -324,6 +324,10 @@ box cube:nth-last-child(3) {
   top: -18px;
   left: 45px;
 }
+basket cube:nth-last-child(2) {
+  top: 10px;
+  left: 45px;
+}
 airplane {
   position: absolute;
   width: 80px;
@@ -345,6 +349,9 @@ airplane {
   background: url('../icons/orange-basket.svg') center/cover no-repeat;
   width: 120px;
   height: 120px;
+}
+[material="wood"] {
+  background: url('../icons/wood-icon.svg') center/cover no-repeat;
 }
 .editor {
   max-width: 700px;

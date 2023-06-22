@@ -159,6 +159,89 @@ const gameLevelObject: IGameObject[] = [
     elements: '.table box ~ basket',
     help: 'box ~ basket',
   },
+  {
+    title: 'Select the wooden cube',
+    content: /* html */ `
+      <box>
+        <cube animation="shake" material="wood"></cube>
+      </box>
+      <box>
+        <airplane></airplane>
+      </box>
+      <box>
+        <cube class="small" id="green"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube></cube>
+      </box>
+      <box></box>
+    `,
+    elements: '.table [material="wood"]',
+    help: '[material="wood"]',
+  },
+  {
+    title: 'Select the first box',
+    content: /* html */ `
+      <basket id="orange">
+        <cube></cube>
+      </basket>
+      <box animation="shake"></box>
+      <box>
+        <pyramid></pyramid>
+      </box>
+      <box>
+        <cube class="small" id="green"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube></cube>
+      </box>
+      <box>
+        <pyramid></pyramid>
+      </box>
+    `,
+    elements: '.table box:first-of-type',
+    help: 'box:first-of-type',
+  },
+  {
+    title: 'Select the last cubes',
+    content: /* html */ `
+      <basket id="orange">
+        <cube class="small" id="yellow"></cube>
+        <cube animation="shake"></cube>
+      </basket>
+      <box></box>
+      <box>
+        <cube class="small" id="green"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube animation="shake"></cube>
+      </box>
+      <box>
+        <airplane></airplane>
+      </box>
+    `,
+    elements: '.table cube:last-of-type',
+    help: 'cube:last-of-type',
+  },
+  {
+    title: 'Select the yellow cube in the 3rd box',
+    content: /* html */ `
+      <box>
+        <cube class="mid" id="green"></cube>
+        <cube></cube>
+      </box>
+      <box>
+        <airplane></airplane>
+      </box>
+      <box>
+        <cube animation="shake" class="small" id="yellow"></cube>
+      </box>
+      <box>
+        <cube class="small" id="green"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube></cube>
+      </box>
+    `,
+    elements: '.table cube:only-of-type',
+    help: 'cube:only-of-type',
+  },
 ];
 
 export default gameLevelObject;
