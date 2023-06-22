@@ -41,14 +41,25 @@ function setLevel() {
 function resetLevel() {
   const { editorMarkupText } = elements.game;
   const { editorInput } = elements.game;
+  const { editorBtn } = elements.game;
+  const { helpBtn } = elements.game;
   const { navItems } = elements.game;
+  const { game } = elements.game;
+  const { editor } = elements.game;
   if (editorMarkupText) editorMarkupText.innerHTML = '';
   if (navItems) {
     navItems.forEach((item) => {
       item.classList.remove('level-active');
     });
   }
-  if (editorInput) editorInput.value = '';
+  if (editorInput && editorBtn && helpBtn) {
+    editorInput.value = '';
+    editorInput.removeAttribute('disabled');
+    editorBtn.removeAttribute('disabled');
+    helpBtn.removeAttribute('disabled');
+  }
+  if (game) game.classList.remove('win');
+  if (editor) editor.classList.remove('win');
   elements.rule = false;
 }
 
@@ -199,20 +210,36 @@ function addHover() {
 function submit(event: Event) {
   const { editorForm } = elements.game;
   const { editorInput } = elements.game;
-  const { gameWrapper } = elements.game;
+  const { editorBtn } = elements.game;
+  const { game } = elements.game;
   const { levelsCheck } = elements.game;
-  if (editorForm && editorInput && gameWrapper) {
+  const { helpBtn } = elements.game;
+  const { editor } = elements.game;
+  if (editorForm && editorInput && editorBtn && helpBtn) {
     event.preventDefault();
     console.log('correct value: ', gameLevelObject[elements.level].help);
     checkInputValue();
     if (elements.rule) {
       console.log('correct');
+      elements.level += 1;
+      if (elements.level === 20) {
+        console.log('the end');
+        editorInput.setAttribute('disabled', 'disabled');
+        editorBtn.setAttribute('disabled', 'disabled');
+        helpBtn.setAttribute('disabled', 'disabled');
+      }
       setTimeout(() => {
-        elements.level += 1;
-        resetLevel();
-        setLevel();
-        addHover();
         levelsCheck[elements.level - 1].classList.add('checked');
+        if (elements.level < 20) {
+          resetLevel();
+          setLevel();
+          addHover();
+        }
+        if (elements.level === 20) {
+          editorInput.value = '';
+          if (game) game.classList.add('win');
+          if (editor) editor.classList.add('win');
+        }
       }, 1400);
     }
   }

@@ -2,11 +2,13 @@ export interface IGameElemsObject {
   level: number;
   rule: boolean;
   game: {
+    game: HTMLElement | null;
     gameWrapper: HTMLElement | null;
     gameTable: HTMLElement | null;
     tableBottom: HTMLElement | null;
     table: HTMLElement | null;
     burger: HTMLElement | null;
+    helpBtn: HTMLElement | null;
     menu: HTMLElement | null;
     navItems: HTMLElement[];
     levelsCheck: HTMLElement[];
@@ -18,5 +20,6 @@ export interface IGameElemsObject {
     gameTitle: HTMLElement | null;
     editorInput: HTMLInputElement | null;
     editorForm: HTMLFormElement | null;
+    editorBtn: HTMLElement | null;
   };
 }

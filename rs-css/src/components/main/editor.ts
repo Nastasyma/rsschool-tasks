@@ -17,7 +17,7 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   if (editorForm instanceof HTMLFormElement) {
     elements.game.editorForm = editorForm;
   }
-  createEL(editorForm, 'button', ['editor__btn'], 'Enter');
+  const editorBtn = createEL(editorForm, 'button', ['editor__btn'], 'Enter');
   createEL(editorWrapper, 'h4', ['editor__title'], 'HTML Viewer');
   const editorHtmlWrapper: HTMLElement = createEL(editorWrapper, 'div', ['editor__html-wrapper']);
   const editorNumbersWrapper: HTMLElement = createEL(editorHtmlWrapper, 'div', ['editor__numbers-wrapper']);
@@ -29,8 +29,10 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   const editorMarkupWrapper: HTMLElement = createEL(editorHtmlWrapper, 'div', ['editor__markup-wrapper']);
   const editorMarkup = createEL(editorMarkupWrapper, 'div', ['editor__markup']);
   const editorMarkupText = createEL(editorMarkup, 'code', ['editor__code']);
+  createEL(editor, 'div', ['editor__win']);
   elements.game.editor = editor;
   elements.game.editorMarkupText = editorMarkupText;
+  elements.game.editorBtn = editorBtn;
   return editor;
 }
 

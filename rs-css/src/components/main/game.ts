@@ -8,6 +8,7 @@ function createGameElement(parentNode: HTMLElement): HTMLElement {
   const gameTable: HTMLElement = createEL(gameWrapper, 'div', ['game__table']);
   const table = createEL(gameTable, 'div', ['table']);
   const tableBottom: HTMLElement = createEL(gameWrapper, 'div', ['table__bottom']);
+  createEL(gameWrapper, 'div', ['win-text'], 'You did it!!');
   for (let i = 0; i < 2; i += 1) {
     createEL(tableBottom, 'div', ['table__leg']);
   }

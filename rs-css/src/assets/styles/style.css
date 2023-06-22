@@ -159,11 +159,14 @@ body {
   margin: 0;
 }
 .header__btn {
-  cursor: pointer;
   font-weight: 700;
+  background: transparent;
+  border: none;
+  color: #fff;
 }
-.help-btn:hover {
+.help-btn:hover:not([disabled="disabled"]) {
   color: rgb(9, 226, 9);
+  cursor: pointer;
 }
 .burger-btn {
   position: relative;
@@ -205,6 +208,7 @@ body {
 .game__wrapper {
   padding: 20px;
   transition: all .3s ease-out;
+  position: relative;
 }
 .game__table {
   position: relative;
@@ -245,6 +249,29 @@ body {
   left: 50%;
   transform: translateX(-50%);
   transition: all .3s ease-out;
+}
+.win-text {
+  position: absolute;
+  font-size: 42px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease-in-out;
+}
+.game.win {
+  height: 205px;
+}
+.game.win .game__table,
+.game.win .table__bottom,
+.game.win .game__title {
+  display: none;
+}
+.game.win .win-text {
+  opacity: 1;
+  visibility: visible;
 }
 box {
   position: relative;
@@ -354,10 +381,26 @@ airplane {
   background: url('../icons/wood-icon.svg') center/cover no-repeat;
 }
 .editor {
+  position: relative;
   max-width: 700px;
   margin: 0 auto;
   background-color: black;
   padding: 15px;
+}
+.editor__win {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/win-bg.jpg') center/cover no-repeat;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .2s ease-in-out;
+}
+.editor.win .editor__win {
+  opacity: 1;
+  visibility: visible;
 }
 .editor__wrapper {
   display: flex;
@@ -384,7 +427,6 @@ airplane {
 .editor__btn {
   padding: 5px;
   width: 60px;
-  cursor: pointer;
   font-size: 15px;
   background-color: rgb(134, 133, 133);
   color: #000;
@@ -392,12 +434,13 @@ airplane {
   transition: all .2s ease-in-out;
   border: 4px rgb(201, 201, 201) outset;
 }
-.editor__btn:hover,
+.editor__btn:hover:not([disabled="disabled"]),
 .levels__reset-btn:hover {
   background-color: rgba(214, 132, 8, 0.9);
   border: 4px rgb(226, 141, 14) outset;
+  cursor: pointer;
 }
-.editor__btn:active {
+.editor__btn:active:not([disabled="disabled"]) {
   transform: scale(0.95);
 }
 .editor__html-wrapper {
@@ -584,6 +627,9 @@ airplane {
   .game__wrapper {
     padding: 5px;
   }
+  .game__wrapper.win {
+    height: 125px;
+  }
   .tooltip {
     font-size: 11px;
   }
@@ -600,5 +646,8 @@ airplane {
   }
   .game__title {
     margin-bottom: 60px;
+  }
+  .win-text {
+    font-size: 26px;
   }
 }

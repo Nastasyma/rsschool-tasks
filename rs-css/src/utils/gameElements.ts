@@ -4,11 +4,13 @@ const flagsObject: IGameElemsObject = {
   level: 0,
   rule: false,
   game: {
+    game: null,
     gameWrapper: null,
     gameTable: null,
     tableBottom: null,
     table: null,
     burger: null,
+    helpBtn: null,
     menu: null,
     navItems: [],
     levelsCheck: [],
@@ -20,6 +22,7 @@ const flagsObject: IGameElemsObject = {
     gameTitle: null,
     editorInput: null,
     editorForm: null,
+    editorBtn: null,
   },
 };
 
