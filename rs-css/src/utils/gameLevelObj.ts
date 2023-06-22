@@ -242,6 +242,130 @@ const gameLevelObject: IGameObject[] = [
     elements: '.table cube:only-of-type',
     help: 'cube:only-of-type',
   },
+  {
+    title: 'Select the top cubes',
+    content: /* html */ `
+      <box>
+        <pyramid></pyramid>
+      </box>
+      <box id="old">
+        <cube animation="shake" class="mid"></cube>
+        <cube id="green"></cube></box>
+      <box>
+        <cube animation="shake" class="small" id="green"></cube>
+        <cube class="mid"></cube>
+        <cube id="yellow"></cube>
+      </box>
+    `,
+    elements: '.table cube:first-child',
+    help: 'cube:first-child',
+  },
+  {
+    title: 'Select the basket in the 1st box and the last basket on the table',
+    content: /* html */ `
+      <box>
+        <basket animation="shake"></basket>
+      </box>
+      <box>
+        <pyramid></pyramid>
+      </box>
+      <basket id="orange"></basket>
+      <basket animation="shake" id="orange"></basket>
+    `,
+    elements: '.table basket:last-child',
+    help: 'basket:last-child',
+  },
+  {
+    title: 'Select the cube in the 1st basket',
+    content: /* html */ `
+      <box>
+        <cube class="small"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube></cube>
+      </box>
+      <box>
+        <horse></horse>
+      </box>
+      <basket id="orange">
+        <cube animation="shake"></cube>
+      </basket>
+      <basket id="orange">
+        <cube class="small" id="yellow"></cube>
+        <cube id="green"></cube>
+      </basket>
+    `,
+    elements: '.table cube:only-child',
+    help: 'cube:only-child',
+  },
+  {
+    title: 'Select the 2nd basket',
+    content: /* html */ `
+      <box></box>
+      <basket id="orange"></basket>
+      <basket animation="shake" id="orange"></basket>
+      <basket id="orange"></basket>
+    `,
+    elements: '.table :nth-child(3)',
+    help: ':nth-child(3)',
+  },
+  {
+    title: 'Select the yellow cube in the last box',
+    content: /* html */ `
+      <box>
+        <cube class="small"></cube>
+        <cube class="mid" id="yellow"></cube>
+        <cube></cube>
+      </box>
+      <basket id="orange">
+        <cube></cube>
+      </basket>
+      <box>
+        <airplane></airplane>
+      </box>
+      <box>
+        <cube animation="shake" class="mid" id="yellow"></cube>
+        <cube id="green"></cube>
+      </box>
+    `,
+    elements: '.table box:last-child cube:nth-last-child(2)',
+    help: 'box:last-child cube:nth-last-child(2)',
+  },
+  {
+    title: 'Select the empty basket',
+    content: /* html */ `
+      <box>
+        <horse></horse>
+      </box>
+      <basket id="orange">
+        <horse class="mid"></horse>
+      </basket>
+      <basket animation="shake" id="orange"></basket>
+      <box>
+        <pyramid></pyramid>
+      </box>
+    `,
+    elements: '.table basket:empty',
+    help: 'basket:empty',
+  },
+  {
+    title: 'Select the cubes in the 2nd and 3rd boxes',
+    content: /* html */ `
+      <box>
+        <cube class="small" id="green"></cube>
+      </box>
+      <box>
+        <cube animation="shake" material="wood"></cube>
+      </box>
+      <box>
+        <cube animation="shake"></cube>
+      </box>
+      <box>
+        <cube class="small" id="yellow"></cube>
+      </box>
+    `,
+    elements: '.table cube:not(.small)',
+    help: 'cube:not(.small)',
+  },
 ];
 
 export default gameLevelObject;
