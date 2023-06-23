@@ -3,7 +3,7 @@ import footer from './components/footer/footer';
 import header from './components/header/header';
 import main from './components/main/main';
 import nav from './components/nav/nav';
-import flags from './utils/gameElements';
+import elements from './utils/gameElements';
 
 function createApp() {
   const app: HTMLElement = createEL(document.body, 'div', ['app']);
@@ -13,8 +13,8 @@ function createApp() {
   header(app);
   main(app);
   footer(app);
-  flags.game.appWrapper = appWrapper;
-  flags.game.tooltip = tooltip;
+  elements.game.appWrapper = appWrapper;
+  elements.game.tooltip = tooltip;
   return app;
 }
 

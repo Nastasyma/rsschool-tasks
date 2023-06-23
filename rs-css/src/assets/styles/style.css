@@ -121,6 +121,10 @@ body {
   opacity: .2;
   transform: rotate(45deg);
 }
+.helped {
+  border-color: rgb(194, 14, 8);
+  opacity: 1;
+}
 .checked {
   border-color: rgb(20, 175, 20);
   opacity: 1;
@@ -597,6 +601,10 @@ airplane {
   basket cube.mid {
     top: 0;
     left: 10px;
+  }
+  basket cube.small {
+    top: -8px;
+    left: 20px;
   }
   #orange {
     width: 60px;

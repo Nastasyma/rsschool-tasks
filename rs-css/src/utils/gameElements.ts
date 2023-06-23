@@ -1,8 +1,10 @@
 import { IGameElemsObject } from '../interfaces/gameElInterface';
 
-const flagsObject: IGameElemsObject = {
+const gameObject: IGameElemsObject = {
   level: 0,
   rule: false,
+  helped: false,
+  checkedStatus: [],
   game: {
     game: null,
     gameWrapper: null,
@@ -26,4 +28,4 @@ const flagsObject: IGameElemsObject = {
   },
 };
 
-export default flagsObject;
+export default gameObject;

@@ -54,7 +54,6 @@ function resetLevel() {
   }
   if (editorInput && editorBtn && helpBtn) {
     editorInput.value = '';
-    editorInput.focus();
     editorInput.removeAttribute('disabled');
     editorBtn.removeAttribute('disabled');
     helpBtn.removeAttribute('disabled');
@@ -134,6 +133,7 @@ function addHelpMessage() {
       }
     }, 200);
   }
+  elements.helped = true;
 }
 function addTooltip(arr: NodeListOf<Element>) {
   const { tooltip } = elements.game;
@@ -207,6 +207,11 @@ function addHover() {
     addTooltip(markupEl);
   }
 }
+function initGame() {
+  resetLevel();
+  setLevel();
+  addHover();
+}
 function submit(event: Event) {
   const { editorForm } = elements.game;
   const { editorInput } = elements.game;
@@ -217,23 +222,32 @@ function submit(event: Event) {
   const { editor } = elements.game;
   if (editorForm && editorInput && editorBtn && helpBtn) {
     event.preventDefault();
-    console.log('correct value: ', gameLevelObject[elements.level].help);
+    // console.log('correct value: ', gameLevelObject[elements.level].help);
     checkInputValue();
     if (elements.rule) {
-      console.log('correct');
+      // console.log('correct');
       elements.level += 1;
+      localStorage.setItem('nastasyma_level', elements.level.toString());
       if (elements.level === 20) {
-        console.log('the end');
+        // console.log('the end');
         editorInput.setAttribute('disabled', 'disabled');
         editorBtn.setAttribute('disabled', 'disabled');
         helpBtn.setAttribute('disabled', 'disabled');
       }
       setTimeout(() => {
-        levelsCheck[elements.level - 1].classList.add('checked');
+        if (elements.helped) {
+          levelsCheck[elements.level - 1].classList.add('helped');
+        } else {
+          levelsCheck[elements.level - 1].classList.add('checked');
+        }
+        if (elements.checkedStatus) elements.checkedStatus.length = 0;
+        levelsCheck.forEach((item) => {
+          elements.checkedStatus?.push(item.className);
+        });
+        localStorage.setItem('nastasyma_checked-status', JSON.stringify(elements.checkedStatus));
+        elements.helped = false;
         if (elements.level < 20) {
-          resetLevel();
-          setLevel();
-          addHover();
+          initGame();
         }
         if (elements.level === 20) {
           editorInput.value = '';
@@ -252,9 +266,8 @@ function changeLevel() {
       item.addEventListener('click', () => {
         const currentLevel: string | null = item.getAttribute('data-level');
         if (currentLevel) elements.level = +currentLevel;
-        resetLevel();
-        setLevel();
-        addHover();
+        localStorage.setItem('nastasyma_level', elements.level.toString());
+        initGame();
       });
     });
   }
@@ -262,11 +275,31 @@ function changeLevel() {
 function resetProgress() {
   const { levelsCheck } = elements.game;
   elements.level = 0;
+  localStorage.setItem('nastasyma_level', elements.level.toString());
   levelsCheck.forEach((item) => {
     item.classList.remove('checked');
+    item.classList.remove('helped');
   });
-  resetLevel();
-  setLevel();
-  addHover();
+  if (elements.checkedStatus) elements.checkedStatus.length = 0;
+  levelsCheck.forEach((item) => {
+    elements.checkedStatus?.push(item.className);
+  });
+  localStorage.setItem('nastasyma_checked-status', JSON.stringify(elements.checkedStatus));
+  initGame();
 }
-export { setLevel, submit, changeLevel, addHover, addHelpMessage, resetProgress };
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('nastasyma_level')) {
+    elements.level = Number(localStorage.getItem('nastasyma_level'));
+  }
+  if (localStorage.getItem('nastasyma_checked-status')) {
+    elements.checkedStatus = JSON.parse(localStorage.getItem('nastasyma_checked-status') as string);
+    for (let i = 0; i < elements.game.levelsCheck.length; i += 1) {
+      if (elements.checkedStatus) elements.game.levelsCheck[i].className = elements.checkedStatus[i];
+    }
+  }
+  initGame();
+  changeLevel();
+});
+
+export { submit, changeLevel, addHelpMessage, resetProgress };
