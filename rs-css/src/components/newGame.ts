@@ -54,6 +54,7 @@ function resetLevel() {
   }
   if (editorInput && editorBtn && helpBtn) {
     editorInput.value = '';
+    editorInput.focus();
     editorInput.removeAttribute('disabled');
     editorBtn.removeAttribute('disabled');
     helpBtn.removeAttribute('disabled');
@@ -129,7 +130,6 @@ function addHelpMessage() {
       editorInput.focus();
       count += 1;
       if (count >= str.length) {
-        editorInput.blur();
         clearInterval(typing);
       }
     }, 200);
@@ -259,5 +259,14 @@ function changeLevel() {
     });
   }
 }
-
-export { setLevel, submit, changeLevel, addHover, addHelpMessage };
+function resetProgress() {
+  const { levelsCheck } = elements.game;
+  elements.level = 0;
+  levelsCheck.forEach((item) => {
+    item.classList.remove('checked');
+  });
+  resetLevel();
+  setLevel();
+  addHover();
+}
+export { setLevel, submit, changeLevel, addHover, addHelpMessage, resetProgress };

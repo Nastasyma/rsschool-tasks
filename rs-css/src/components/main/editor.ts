@@ -12,6 +12,7 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   if (editorInput instanceof HTMLInputElement) {
     editorInput.type = 'text';
     editorInput.placeholder = 'Type in a CSS selector';
+    editorInput.focus();
     elements.game.editorInput = editorInput;
   }
   if (editorForm instanceof HTMLFormElement) {

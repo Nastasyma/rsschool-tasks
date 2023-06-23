@@ -1,6 +1,7 @@
 import createEL from '../baseComponent';
 import navObject from '../../utils/navObj';
 import elements from '../../utils/gameElements';
+import { resetProgress } from '../newGame';
 
 function createNav(parentNode: HTMLElement): HTMLElement {
   const nav: HTMLElement = createEL(parentNode, 'nav', ['game__levels']);
@@ -16,6 +17,7 @@ function createNav(parentNode: HTMLElement): HTMLElement {
     if (elements.game.levelsCheck) elements.game.levelsCheck.push(levelsCheck);
   }
   const resetBtn = createEL(nav, 'button', ['levels__reset-btn'], 'Reset progress');
+  resetBtn.addEventListener('click', resetProgress);
   elements.game.resetBtn = resetBtn;
   elements.game.menu = nav;
   return nav;
