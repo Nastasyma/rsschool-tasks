@@ -25,6 +25,7 @@ const gameObject: IGameElemsObject = {
     editorInput: null,
     editorForm: null,
     editorBtn: null,
+    editorSpan: null,
   },
 };
 

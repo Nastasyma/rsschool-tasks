@@ -412,11 +412,12 @@ airplane {
   gap: 10px;
 }
 .editor__form {
+  position: relative;
   display: flex;
+  padding: 6px;
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.7);
-  padding: 6px;
 }
 .editor__input {
   background-color: transparent;
@@ -424,9 +425,33 @@ airplane {
   outline: none;
   appearance: none;
   background: none;
+  padding: 15px 6px;
   width: calc(100% - 60px);
-  height: 25px;
   font-size: 15px;
+  font-weight: 600;
+  color: transparent;
+  caret-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.editor__span {
+  white-space: pre;
+  height: 100%;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: left;
+  color: rgb(73, 73, 73);
+  background-color: transparent;
+}
+.input-a {
+  color: blue;
+}
+.input-b {
+  color:rgb(10, 151, 10);
+}
+.input-c {
+  color: darkred;
 }
 .editor__btn {
   padding: 5px;

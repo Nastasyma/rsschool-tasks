@@ -23,5 +23,6 @@ export interface IGameElemsObject {
     editorInput: HTMLInputElement | null;
     editorForm: HTMLFormElement | null;
     editorBtn: HTMLElement | null;
+    editorSpan: HTMLElement | null;
   };
 }

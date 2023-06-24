@@ -41,6 +41,7 @@ function setLevel() {
 function resetLevel() {
   const { editorMarkupText } = elements.game;
   const { editorInput } = elements.game;
+  const { editorSpan } = elements.game;
   const { editorBtn } = elements.game;
   const { helpBtn } = elements.game;
   const { navItems } = elements.game;
@@ -52,8 +53,9 @@ function resetLevel() {
       item.classList.remove('level-active');
     });
   }
-  if (editorInput && editorBtn && helpBtn) {
+  if (editorInput && editorBtn && helpBtn && editorSpan) {
     editorInput.value = '';
+    editorSpan.innerHTML = '';
     editorInput.removeAttribute('disabled');
     editorBtn.removeAttribute('disabled');
     helpBtn.removeAttribute('disabled');
@@ -117,15 +119,37 @@ function checkInputValue() {
   return elements.rule;
 }
 
+function setInputValue() {
+  const { editorInput } = elements.game;
+  const { editorSpan } = elements.game;
+  if (editorSpan && editorInput) {
+    editorInput.addEventListener('input', () => {
+      const str = editorInput.value;
+      editorSpan.textContent = str;
+      editorSpan.innerHTML = editorSpan.innerHTML
+        .replace(/([\\.\\#]\w+)/g, (match) => {
+          // console.log(match);
+          const className = match.startsWith('#') ? 'input-b' : 'input-a';
+          return `<span class="${className}">${match}</span>`;
+        })
+        .replace(
+          /(\.input-a:nth-child\(\d+\))(\.input-a:nth-child\(\d+\))/g,
+          (match, a, b) => `${a}</span><span class="input-a">${b}`,
+        );
+    });
+  }
+}
 function addHelpMessage() {
   const { editorInput } = elements.game;
+  const { editorSpan } = elements.game;
 
-  if (editorInput) {
+  if (editorInput && editorSpan) {
     editorInput.value = '';
     const str = gameLevelObject[elements.level].help;
     let count = 0;
     const typing = setInterval(() => {
       editorInput.value += str[count];
+      editorSpan.innerHTML += str[count];
       editorInput.focus();
       count += 1;
       if (count >= str.length) {
@@ -215,12 +239,13 @@ function initGame() {
 function submit(event: Event) {
   const { editorForm } = elements.game;
   const { editorInput } = elements.game;
+  const { editorSpan } = elements.game;
   const { editorBtn } = elements.game;
   const { game } = elements.game;
   const { levelsCheck } = elements.game;
   const { helpBtn } = elements.game;
   const { editor } = elements.game;
-  if (editorForm && editorInput && editorBtn && helpBtn) {
+  if (editorForm && editorInput && editorBtn && helpBtn && editorSpan) {
     event.preventDefault();
     // console.log('correct value: ', gameLevelObject[elements.level].help);
     checkInputValue();
@@ -250,7 +275,9 @@ function submit(event: Event) {
           initGame();
         }
         if (elements.level === 20) {
+          localStorage.setItem('nastasyma_level', '19');
           editorInput.value = '';
+          editorSpan.innerHTML = '';
           if (game) game.classList.add('win');
           if (editor) editor.classList.add('win');
         }
@@ -302,4 +329,4 @@ window.addEventListener('DOMContentLoaded', () => {
   changeLevel();
 });
 
-export { submit, changeLevel, addHelpMessage, resetProgress };
+export { submit, changeLevel, addHelpMessage, resetProgress, setInputValue };
