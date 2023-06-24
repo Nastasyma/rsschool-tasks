@@ -122,34 +122,54 @@ function checkInputValue() {
 function setInputValue() {
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
+
   if (editorSpan && editorInput) {
-    editorInput.addEventListener('input', () => {
-      const str = editorInput.value;
-      editorSpan.textContent = str;
-      editorSpan.innerHTML = editorSpan.innerHTML
-        .replace(/([\\.\\#]\w+)/g, (match) => {
-          // console.log(match);
-          const className = match.startsWith('#') ? 'input-b' : 'input-a';
-          return `<span class="${className}">${match}</span>`;
-        })
-        .replace(
-          /(\.input-a:nth-child\(\d+\))(\.input-a:nth-child\(\d+\))/g,
-          (match, a, b) => `${a}</span><span class="input-a">${b}`,
-        );
-    });
+    const str = editorInput.value;
+    let html = '';
+    const regex = /(:|@)?([.#]?[a-zA-Z0-9-_а-яА-ЯёЁ]+|\[[^\]]*\])/g;
+    let match;
+    let lastIndex = 0;
+    for (match = regex.exec(str); match !== null; match = regex.exec(str)) {
+      const [fullMatch, prefix, word] = match;
+      const { index } = match;
+      // console.log(index);
+      const text = str.substring(lastIndex, index);
+      html += text;
+      if (word) {
+        if (prefix === ':' || prefix === '@') {
+          html += `<span class="input-c">${fullMatch}</span>`;
+        } else if (word.startsWith('.')) {
+          html += `<span class="input-a">${fullMatch}</span>`;
+        } else if (word.startsWith('#')) {
+          html += `<span class="input-b">${fullMatch}</span>`;
+        } else if (word.startsWith('[') && word.endsWith(']')) {
+          html += `<span class="input-d">${fullMatch}</span>`;
+        } else {
+          html += fullMatch;
+        }
+      } else {
+        html += fullMatch;
+      }
+      lastIndex = index + fullMatch.length;
+    }
+    html += str.substring(lastIndex);
+
+    editorSpan.innerHTML = html;
   }
 }
+
 function addHelpMessage() {
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
 
   if (editorInput && editorSpan) {
     editorInput.value = '';
+    editorSpan.innerHTML = '';
     const str = gameLevelObject[elements.level].help;
     let count = 0;
     const typing = setInterval(() => {
       editorInput.value += str[count];
-      editorSpan.innerHTML += str[count];
+      setInputValue();
       editorInput.focus();
       count += 1;
       if (count >= str.length) {

@@ -441,7 +441,7 @@ airplane {
   font-size: 15px;
   font-weight: 600;
   text-align: left;
-  color: rgb(73, 73, 73);
+  color: rgb(90, 52, 16);
   background-color: transparent;
 }
 .input-a {
@@ -452,6 +452,9 @@ airplane {
 }
 .input-c {
   color: darkred;
+}
+.input-d {
+  color: rgb(175, 84, 9);
 }
 .editor__btn {
   padding: 5px;

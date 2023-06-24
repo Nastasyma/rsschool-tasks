@@ -1,6 +1,6 @@
 import createEL from '../baseComponent';
 import elements from '../../utils/gameElements';
-import { submit } from '../newGame';
+import { setInputValue, submit } from '../newGame';
 
 function createEditorElement(parentNode: HTMLElement): HTMLElement {
   const editor: HTMLElement = createEL(parentNode, 'div', ['editor']);
@@ -17,6 +17,7 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   if (editorForm instanceof HTMLFormElement) {
     elements.game.editorForm = editorForm;
   }
+  editorInput.addEventListener('input', setInputValue);
   const editorSpan: HTMLElement = createEL(editorForm, 'span', ['editor__span']);
   const editorBtn = createEL(editorForm, 'button', ['editor__btn'], 'Enter');
   createEL(editorWrapper, 'h4', ['editor__title'], 'HTML Viewer');
