@@ -93,7 +93,7 @@ body {
   cursor: pointer;
   transition: all .2s ease-out;
   padding: 4px 10px 4px 20px;
-  font-size: 15px;
+  font-size: 14px;
   text-shadow: 2px 2px 4px black, 0 0 5px black;
 }
 .levels__item:hover {
@@ -415,28 +415,32 @@ airplane {
   position: relative;
   display: flex;
   padding: 6px;
+  max-height: 65px;
   justify-content: space-between;
   align-items: center;
   background: rgba(255, 255, 255, 0.7);
 }
 .editor__input {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: transparent;
   border: none;
   outline: none;
   appearance: none;
   background: none;
   padding: 15px 6px;
-  width: calc(100% - 60px);
+  width: calc(100% - 70px);
   font-size: 15px;
   font-weight: 600;
   color: transparent;
   caret-color: #000;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 .editor__span {
+  overflow: hidden;
+  text-overflow: ellipsis;
   white-space: pre;
+  width: calc(100% - 70px);
   height: 100%;
   font-size: 15px;
   font-weight: 600;
@@ -460,6 +464,7 @@ airplane {
   padding: 5px;
   width: 60px;
   font-size: 15px;
+  margin-left: 10px;
   background-color: rgb(134, 133, 133);
   color: #000;
   font-weight: 700;
@@ -685,5 +690,11 @@ airplane {
   }
   .win-text {
     font-size: 26px;
+  }
+  .editor__input {
+    font-size: 10px;
+  }
+  .editor__span {
+    font-size: 10px;
   }
 }

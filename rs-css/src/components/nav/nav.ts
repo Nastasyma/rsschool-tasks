@@ -17,7 +17,11 @@ function createNav(parentNode: HTMLElement): HTMLElement {
     if (elements.game.levelsCheck) elements.game.levelsCheck.push(levelsCheck);
   }
   const resetBtn = createEL(nav, 'button', ['levels__reset-btn'], 'Reset progress');
-  resetBtn.addEventListener('click', resetProgress);
+  resetBtn.addEventListener('click', () => {
+    if (!elements.isHelp) {
+      resetProgress();
+    }
+  });
   elements.game.resetBtn = resetBtn;
   elements.game.menu = nav;
   return nav;

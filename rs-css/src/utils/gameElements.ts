@@ -3,6 +3,7 @@ import { IGameElemsObject } from '../interfaces/gameElInterface';
 const gameObject: IGameElemsObject = {
   level: 0,
   rule: false,
+  isHelp: false,
   helped: false,
   checkedStatus: [],
   game: {

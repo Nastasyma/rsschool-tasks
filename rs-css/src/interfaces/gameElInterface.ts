@@ -1,6 +1,7 @@
 export interface IGameElemsObject {
   level: number;
   rule: boolean;
+  isHelp: boolean;
   helped: boolean;
   checkedStatus: string[] | null;
   game: {
