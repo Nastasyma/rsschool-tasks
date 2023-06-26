@@ -60,9 +60,11 @@ body {
   justify-content: space-between;
 }
 .header,
-.main,
 .footer {
   padding: 10px 20px;
+}
+.main {
+  padding: 10px 25px;
 }
 .game__levels {
   width: 320px;

@@ -4,7 +4,7 @@ import markupLevelObject from '../utils/markupLevelObj';
 
 // let level = 0;
 // let rule = false;
-function setLevel() {
+function setLevel(): void {
   const { gameTable } = elements.game;
   const { tableBottom } = elements.game;
   const { editorMarkupText } = elements.game;
@@ -19,7 +19,7 @@ function setLevel() {
   }
   const boxes: NodeListOf<Element> = document.querySelectorAll(`.table box, #orange`);
   const box: HTMLElement | null = document.querySelector(`.table box`);
-  function addTableSize() {
+  function addTableSize(): void {
     if (gameTable && tableBottom && box) {
       gameTable.style.width = `${boxes.length * box.offsetWidth + 100}px`;
       tableBottom.style.width = `${boxes.length * box.offsetWidth + 100}px`;
@@ -38,7 +38,7 @@ function setLevel() {
   }
 }
 
-function resetLevel() {
+function resetLevel(): void {
   const { editorMarkupText } = elements.game;
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
@@ -65,7 +65,7 @@ function resetLevel() {
   elements.rule = false;
 }
 
-function checkInputValue() {
+function checkInputValue(): boolean {
   const { editorInput } = elements.game;
   const { editor } = elements.game;
   const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[elements.level].elements);
@@ -119,7 +119,7 @@ function checkInputValue() {
   return elements.rule;
 }
 
-function setInputValue() {
+function setInputValue(): void {
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
 
@@ -158,7 +158,7 @@ function setInputValue() {
   }
 }
 
-function addHelpMessage() {
+function addHelpMessage(): boolean {
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
   const { helpBtn } = elements.game;
@@ -184,8 +184,9 @@ function addHelpMessage() {
     }, 200);
   }
   elements.helped = true;
+  return elements.helped;
 }
-function addTooltip(arr: NodeListOf<Element>) {
+function addTooltip(arr: NodeListOf<Element>): void {
   const { tooltip } = elements.game;
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
   for (let i = 0; i < arr.length; i += 1) {
@@ -219,7 +220,7 @@ function addTooltip(arr: NodeListOf<Element>) {
     });
   }
 }
-function addHover() {
+function addHover(): void {
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
   const markupEl: NodeListOf<Element> = document.querySelectorAll('.html-element div');
   for (let i = 0; i < tableEl.length; i += 1) {
@@ -257,12 +258,12 @@ function addHover() {
     addTooltip(markupEl);
   }
 }
-function initGame() {
+function initGame(): void {
   resetLevel();
   setLevel();
   addHover();
 }
-function submit(event: Event) {
+function submit(event: Event): void {
   const { editorForm } = elements.game;
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
@@ -312,7 +313,7 @@ function submit(event: Event) {
   }
 }
 
-function changeLevel() {
+function changeLevel(): void {
   const { navItems } = elements.game;
   if (navItems) {
     navItems.forEach((item) => {
@@ -327,7 +328,7 @@ function changeLevel() {
     });
   }
 }
-function resetProgress() {
+function resetProgress(): void {
   const { levelsCheck } = elements.game;
   elements.level = 0;
   localStorage.setItem('nastasyma_level', elements.level.toString());
@@ -343,7 +344,7 @@ function resetProgress() {
   initGame();
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', (): void => {
   if (localStorage.getItem('nastasyma_level')) {
     elements.level = Number(localStorage.getItem('nastasyma_level'));
   }

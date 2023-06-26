@@ -1,12 +1,12 @@
 import elements from '../../utils/gameElements';
 
-function createBurger() {
+function createBurger(): void {
   const { burger } = elements.game;
   const { menu } = elements.game;
   const { navItems } = elements.game;
   const { appWrapper } = elements.game;
 
-  function addBurger() {
+  function addBurger(): void {
     if (menu && burger && appWrapper) {
       menu.classList.add('open_menu');
       burger.classList.add('burger_active');
@@ -14,7 +14,7 @@ function createBurger() {
     }
   }
 
-  function removeBurger() {
+  function removeBurger(): void {
     if (menu && burger && appWrapper) {
       menu.classList.remove('open_menu');
       appWrapper.classList.remove('popup_active');
@@ -22,7 +22,7 @@ function createBurger() {
     }
   }
 
-  function activeBurger() {
+  function activeBurger(): void {
     if (menu && menu.classList.contains('open_menu')) {
       removeBurger();
     } else {
