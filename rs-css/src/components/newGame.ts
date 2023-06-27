@@ -1,6 +1,7 @@
 import elements from '../utils/gameElements';
 import gameLevelObject from '../utils/gameLevelObj';
 import markupLevelObject from '../utils/markupLevelObj';
+import setInputValue from './newGame/setInputValue';
 
 // let level = 0;
 // let rule = false;
@@ -119,44 +120,44 @@ function checkInputValue(): boolean {
   return elements.rule;
 }
 
-function setInputValue(): void {
-  const { editorInput } = elements.game;
-  const { editorSpan } = elements.game;
+// function setInputValue(): void {
+//   const { editorInput } = elements.game;
+//   const { editorSpan } = elements.game;
 
-  if (editorSpan && editorInput) {
-    const str = editorInput.value;
-    let html = '';
-    const regex = /(:|@)?([.#]?[a-zA-Z0-9-_а-яА-ЯёЁ]+|\[[^\]]*\])/g;
-    let match;
-    let lastIndex = 0;
-    for (match = regex.exec(str); match !== null; match = regex.exec(str)) {
-      const [fullMatch, prefix, word] = match;
-      const { index } = match;
-      // console.log(index);
-      const text = str.substring(lastIndex, index);
-      html += text;
-      if (word) {
-        if (prefix === ':' || prefix === '@') {
-          html += `<span class="input-c">${fullMatch}</span>`;
-        } else if (word.startsWith('.')) {
-          html += `<span class="input-a">${fullMatch}</span>`;
-        } else if (word.startsWith('#')) {
-          html += `<span class="input-b">${fullMatch}</span>`;
-        } else if (word.startsWith('[') && word.endsWith(']')) {
-          html += `<span class="input-d">${fullMatch}</span>`;
-        } else {
-          html += fullMatch;
-        }
-      } else {
-        html += fullMatch;
-      }
-      lastIndex = index + fullMatch.length;
-    }
-    html += str.substring(lastIndex);
+//   if (editorSpan && editorInput) {
+//     const str = editorInput.value;
+//     let html = '';
+//     const regex = /(:|@)?([.#]?[a-zA-Z0-9-_а-яА-ЯёЁ]+|\[[^\]]*\])/g;
+//     let match;
+//     let lastIndex = 0;
+//     for (match = regex.exec(str); match !== null; match = regex.exec(str)) {
+//       const [fullMatch, prefix, word] = match;
+//       const { index } = match;
+//       // console.log(index);
+//       const text = str.substring(lastIndex, index);
+//       html += text;
+//       if (word) {
+//         if (prefix === ':' || prefix === '@') {
+//           html += `<span class="input-c">${fullMatch}</span>`;
+//         } else if (word.startsWith('.')) {
+//           html += `<span class="input-a">${fullMatch}</span>`;
+//         } else if (word.startsWith('#')) {
+//           html += `<span class="input-b">${fullMatch}</span>`;
+//         } else if (word.startsWith('[') && word.endsWith(']')) {
+//           html += `<span class="input-d">${fullMatch}</span>`;
+//         } else {
+//           html += fullMatch;
+//         }
+//       } else {
+//         html += fullMatch;
+//       }
+//       lastIndex = index + fullMatch.length;
+//     }
+//     html += str.substring(lastIndex);
 
-    editorSpan.innerHTML = html;
-  }
-}
+//     editorSpan.innerHTML = html;
+//   }
+// }
 
 function addHelpMessage(): boolean {
   const { editorInput } = elements.game;
@@ -358,4 +359,4 @@ window.addEventListener('DOMContentLoaded', (): void => {
   changeLevel();
 });
 
-export { submit, changeLevel, addHelpMessage, resetProgress, setInputValue };
+export { submit, changeLevel, addHelpMessage, resetProgress, /* setInputValue, */ addTooltip };

@@ -1,6 +1,7 @@
 import createEL from '../baseComponent';
 import elements from '../../utils/gameElements';
-import { setInputValue, submit } from '../newGame';
+import { submit } from '../newGame';
+import setInputValue from '../newGame/setInputValue';
 
 function createEditorElement(parentNode: HTMLElement): HTMLElement {
   const editor: HTMLElement = createEL(parentNode, 'div', ['editor']);
