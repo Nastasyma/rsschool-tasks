@@ -1,6 +1,6 @@
 import flags from '../../utils/gameElements';
 import createEL from '../baseComponent';
-import { addHelpMessage } from '../newGame';
+import addHelpMessage from '../newGame/addHelpMessage';
 
 export default function createHeader(parentNode: HTMLElement): HTMLElement {
   const header = createEL(parentNode, 'header', ['header']);

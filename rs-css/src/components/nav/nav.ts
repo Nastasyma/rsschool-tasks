@@ -1,7 +1,7 @@
 import createEL from '../baseComponent';
 import navObject from '../../utils/navObj';
 import elements from '../../utils/gameElements';
-import { resetProgress } from '../newGame';
+import resetProgress from '../newGame/resetProgress';
 
 function createNav(parentNode: HTMLElement): HTMLElement {
   const nav: HTMLElement = createEL(parentNode, 'nav', ['game__levels']);

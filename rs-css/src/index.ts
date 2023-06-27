@@ -1,9 +1,7 @@
 import './assets/styles/style.css';
 import './assets/styles/normalize.css';
 import createApp from './app';
-import createBurger from './components/nav/burger';
-import setInputValue from './components/newGame/setInputValue';
+import appStart from './components/newGame/appStart';
 
 createApp();
-createBurger();
-setInputValue();
+appStart();

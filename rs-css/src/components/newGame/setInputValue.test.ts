@@ -9,4 +9,11 @@ describe('setInputValue', () => {
       expect(elements.game.editorSpan.innerHTML).toBe('<span class="input-d">[attribute="value"]</span>');
     }
   });
+
+  it('should not update the content of the "editorSpan" element if the "editorInput" element does not exist', () => {
+    if (!elements.game.editorInput && elements.game.editorSpan) {
+      setInputValue();
+      expect(elements.game.editorSpan.innerHTML).toBe('');
+    }
+  });
 });
