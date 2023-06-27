@@ -2,7 +2,7 @@ import elements from '../../utils/gameElements';
 import gameLevelObject from '../../utils/gameLevelObj';
 import setInputValue from './setInputValue';
 
-function addHelpMessage(): boolean {
+export default function addHelpMessage(): boolean {
   const { editorInput } = elements.game;
   const { editorSpan } = elements.game;
   const { helpBtn } = elements.game;
@@ -17,7 +17,7 @@ function addHelpMessage(): boolean {
       helpBtn.setAttribute('disabled', 'disabled');
       elements.isHelp = true;
       editorInput.value += str[count];
-      setInputValue();
+      setInputValue(editorInput, editorSpan);
       editorInput.focus();
       count += 1;
       if (count >= str.length) {
@@ -30,5 +30,3 @@ function addHelpMessage(): boolean {
   elements.helped = true;
   return elements.helped;
 }
-
-export default addHelpMessage;

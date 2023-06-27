@@ -10,16 +10,18 @@ function createEditorElement(parentNode: HTMLElement): HTMLElement {
   const editorForm: HTMLElement = createEL(editorWrapper, 'form', ['editor__form']);
   editorForm.addEventListener('submit', submit);
   const editorInput: HTMLElement = createEL(editorForm, 'input', ['editor__input']);
+  const editorSpan: HTMLElement = createEL(editorForm, 'span', ['editor__span']);
   if (editorInput instanceof HTMLInputElement) {
     editorInput.type = 'text';
     editorInput.placeholder = 'Type in a CSS selector';
     elements.game.editorInput = editorInput;
+    editorInput.addEventListener('input', () => {
+      setInputValue(editorInput, editorSpan);
+    });
   }
   if (editorForm instanceof HTMLFormElement) {
     elements.game.editorForm = editorForm;
   }
-  editorInput.addEventListener('input', setInputValue);
-  const editorSpan: HTMLElement = createEL(editorForm, 'span', ['editor__span']);
   const editorBtn = createEL(editorForm, 'button', ['editor__btn'], 'Enter');
   createEL(editorWrapper, 'h4', ['editor__title'], 'HTML Viewer');
   const editorHtmlWrapper: HTMLElement = createEL(editorWrapper, 'div', ['editor__html-wrapper']);

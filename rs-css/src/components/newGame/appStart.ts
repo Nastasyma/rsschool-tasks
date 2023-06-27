@@ -5,6 +5,8 @@ import initGame from './initGame';
 import setInputValue from './setInputValue';
 
 function appStart() {
+  const { editorInput } = elements.game;
+  const { editorSpan } = elements.game;
   window.addEventListener('DOMContentLoaded', (): void => {
     if (localStorage.getItem('nastasyma_level')) {
       elements.level = Number(localStorage.getItem('nastasyma_level'));
@@ -18,7 +20,7 @@ function appStart() {
     initGame();
     changeLevel();
     createBurger();
-    setInputValue();
+    if (editorInput && editorSpan) setInputValue(editorInput, editorSpan);
   });
 }
 

@@ -1,9 +1,4 @@
-import elements from '../../utils/gameElements';
-
-function setInputValue(): void {
-  const { editorInput } = elements.game;
-  const { editorSpan } = elements.game;
-
+function setInputValue(editorInput: HTMLInputElement, editorSpan: HTMLSpanElement): void {
   if (editorSpan && editorInput) {
     const str = editorInput.value;
     let html = '';
@@ -34,7 +29,7 @@ function setInputValue(): void {
       lastIndex = index + fullMatch.length;
     }
     html += str.substring(lastIndex);
-
+    // eslint-disable-next-line no-param-reassign
     editorSpan.innerHTML = html;
   }
 }

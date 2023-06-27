@@ -1,4 +1,4 @@
-function createEl(
+export default function createEl(
   parentNode: HTMLElement,
   tag: keyof HTMLElementTagNameMap = 'div',
   styles: string[] = [],
@@ -13,5 +13,3 @@ function createEl(
 
   return node;
 }
-
-export default createEl;
