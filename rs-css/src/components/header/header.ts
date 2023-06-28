@@ -1,4 +1,4 @@
-import flags from '../../utils/gameElements';
+import elements from '../../utils/gameElements';
 import createEL from '../baseComponent';
 import addHelpMessage from '../newGame/addHelpMessage';
 
@@ -11,7 +11,7 @@ export default function createHeader(parentNode: HTMLElement): HTMLElement {
   for (let i = 0; i < 3; i += 1) {
     createEL(burgerBtn, 'span');
   }
-  flags.game.burger = burgerBtn;
-  flags.game.helpBtn = helpBtn;
+  elements.game.burger = burgerBtn;
+  elements.game.helpBtn = helpBtn;
   return header;
 }

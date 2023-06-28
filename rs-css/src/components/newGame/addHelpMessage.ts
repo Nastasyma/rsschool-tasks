@@ -12,6 +12,7 @@ export default function addHelpMessage(): boolean {
     let count = 0;
     const typing = setInterval(() => {
       helpBtn.setAttribute('disabled', 'disabled');
+      editorInput.setAttribute('disabled', 'disabled');
       elements.isHelp = true;
       editorInput.value += str[count];
       setInputValue(editorInput, editorSpan);
@@ -21,6 +22,7 @@ export default function addHelpMessage(): boolean {
         clearInterval(typing);
         elements.isHelp = false;
         helpBtn.removeAttribute('disabled');
+        editorInput.removeAttribute('disabled');
       }
     }, 200);
   }
