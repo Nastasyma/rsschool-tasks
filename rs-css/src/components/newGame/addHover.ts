@@ -1,8 +1,10 @@
 import addTooltip from './addToolTip';
+import elements from '../../utils/gameElements';
 
 function addHover(): void {
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');
   const markupEl: NodeListOf<Element> = document.querySelectorAll('.html-element div');
+  const { tooltip } = elements.game;
   for (let i = 0; i < tableEl.length; i += 1) {
     tableEl[i].addEventListener('mouseover', (e) => {
       e.stopPropagation();
@@ -18,7 +20,7 @@ function addHover(): void {
         item.removeAttribute('hover');
       });
     });
-    addTooltip(tableEl);
+    if (tooltip) addTooltip(tableEl, tooltip);
   }
   for (let i = 0; i < markupEl.length; i += 1) {
     markupEl[i].addEventListener('mouseover', (e) => {
@@ -35,7 +37,7 @@ function addHover(): void {
         item.removeAttribute('hover');
       });
     });
-    addTooltip(markupEl);
+    if (tooltip) addTooltip(markupEl, tooltip);
   }
 }
 

@@ -1,9 +1,9 @@
-export default function createEl(
+export default function createEl<T extends HTMLElement>(
   parentNode: HTMLElement,
   tag: keyof HTMLElementTagNameMap = 'div',
   styles: string[] = [],
   content = '',
-): HTMLElement {
+) {
   const node = document.createElement(tag);
   node.classList.add(...styles);
   node.textContent = content;
@@ -11,5 +11,5 @@ export default function createEl(
     parentNode.append(node);
   }
 
-  return node;
+  return node as T;
 }
