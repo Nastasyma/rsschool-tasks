@@ -3,14 +3,8 @@ import checkInputValue from './checkInputValue';
 import initGame from './initGame';
 
 function submit(event: Event): void {
-  const { editorForm } = elements.game;
-  const { editorInput } = elements.game;
-  const { editorSpan } = elements.game;
-  const { editorBtn } = elements.game;
-  const { game } = elements.game;
-  const { levelsCheck } = elements.game;
-  const { helpBtn } = elements.game;
-  const { editor } = elements.game;
+  const { editorForm, editorInput, editorSpan, editorBtn, game, levelsCheck, helpBtn, editor } = elements.game;
+
   if (editorForm && editorInput && editorBtn && helpBtn && editorSpan) {
     event.preventDefault();
     // console.log('correct value: ', gameLevelObject[elements.level].help);

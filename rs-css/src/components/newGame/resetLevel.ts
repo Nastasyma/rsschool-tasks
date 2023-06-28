@@ -1,14 +1,8 @@
 import elements from '../../utils/gameElements';
 
 function resetLevel(): void {
-  const { editorMarkupText } = elements.game;
-  const { editorInput } = elements.game;
-  const { editorSpan } = elements.game;
-  const { editorBtn } = elements.game;
-  const { helpBtn } = elements.game;
-  const { navItems } = elements.game;
-  const { game } = elements.game;
-  const { editor } = elements.game;
+  const { editorMarkupText, editorInput, editorSpan, editorBtn, helpBtn, navItems, game, editor } = elements.game;
+
   if (editorMarkupText) editorMarkupText.innerHTML = '';
   if (navItems) {
     navItems.forEach((item) => {

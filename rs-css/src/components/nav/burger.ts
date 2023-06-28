@@ -1,10 +1,7 @@
 import elements from '../../utils/gameElements';
 
 function createBurger(): void {
-  const { burger } = elements.game;
-  const { menu } = elements.game;
-  const { navItems } = elements.game;
-  const { appWrapper } = elements.game;
+  const { burger, menu, navItems, appWrapper } = elements.game;
 
   function addBurger(): void {
     if (menu && burger && appWrapper) {

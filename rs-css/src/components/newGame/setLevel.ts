@@ -3,15 +3,10 @@ import markupLevelObject from '../../utils/markupLevelObj';
 import gameLevelObject from '../../utils/gameLevelObj';
 
 function setLevel(): void {
-  const { gameTable } = elements.game;
-  const { tableBottom } = elements.game;
-  const { editorMarkupText } = elements.game;
-  const { table } = elements.game;
-  const { navItems } = elements.game;
-  const { gameWrapper } = elements.game;
-  const { gameTitle } = elements.game;
+  const { gameTable, tableBottom, editorMarkupText, table, navItems, gameWrapper, gameTitle } = elements.game;
+
   if (gameTitle) gameTitle.textContent = gameLevelObject[elements.level].title;
-  if (navItems) navItems[elements.level].classList.add('level-active');
+  if (navItems && navItems[elements.level]) navItems[elements.level].classList.add('level-active');
   if (table) {
     table.innerHTML = gameLevelObject[elements.level].content;
   }

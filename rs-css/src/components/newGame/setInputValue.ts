@@ -1,6 +1,6 @@
-function setInputValue(editorInput: HTMLInputElement, editorSpan: HTMLSpanElement): void {
-  if (editorSpan && editorInput) {
-    const str = editorInput.value;
+function setInputValue(input: HTMLInputElement, span: HTMLSpanElement): void {
+  if (span && input) {
+    const str = input.value;
     let html = '';
     const regex = /(:|@)?([.#]?[a-zA-Z0-9-_а-яА-ЯёЁ]+|\[[^\]]*\])/g;
     let match;
@@ -30,7 +30,7 @@ function setInputValue(editorInput: HTMLInputElement, editorSpan: HTMLSpanElemen
     }
     html += str.substring(lastIndex);
     // eslint-disable-next-line no-param-reassign
-    editorSpan.innerHTML = html;
+    span.innerHTML = html;
   }
 }
 

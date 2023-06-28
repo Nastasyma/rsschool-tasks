@@ -3,10 +3,7 @@ import gameLevelObject from '../../utils/gameLevelObj';
 import setInputValue from './setInputValue';
 
 export default function addHelpMessage(): boolean {
-  const { editorInput } = elements.game;
-  const { editorSpan } = elements.game;
-  const { helpBtn } = elements.game;
-  const { navItems } = elements.game;
+  const { editorInput, editorSpan, helpBtn, navItems } = elements.game;
 
   if (editorInput && editorSpan && helpBtn && navItems) {
     editorInput.value = '';

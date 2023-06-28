@@ -2,8 +2,8 @@ import elements from '../../utils/gameElements';
 import gameLevelObject from '../../utils/gameLevelObj';
 
 function checkInputValue(): boolean {
-  const { editorInput } = elements.game;
-  const { editor } = elements.game;
+  const { editorInput, editor } = elements.game;
+
   const originalArray: NodeListOf<Element> = document.querySelectorAll(gameLevelObject[elements.level].elements);
   if (!editor) throw new Error();
   if (editorInput) {
