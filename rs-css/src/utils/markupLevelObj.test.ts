@@ -1,7 +1,7 @@
 import markupLevelObject from './markupLevelObj';
 
 describe('markupLevelObject', () => {
-  it('Contains the correct HTML content', () => {
+  it('contains the correct HTML content', () => {
     const expectedContent = `
       <div class="html-element">
         <<span class="tag">div</span> <span class="attribute">class</span>=<span class="value">"table"</span>>

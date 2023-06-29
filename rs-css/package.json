@@ -9,7 +9,7 @@
     "lint": "eslint . --ext .ts",
     "deploy": "gh-pages -d dist -e rs-css",
     "format": "prettier --write .",
-    "test": "jest --coverage"
+    "test": "jest --verbose --coverage"
   },
   "repository": {
     "type": "git",

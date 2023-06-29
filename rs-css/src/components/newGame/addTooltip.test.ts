@@ -9,7 +9,9 @@ describe('addTooltip', () => {
     tooltip = document.createElement('div');
     document.body.appendChild(tooltip);
   });
-
+  it('should be defined', () => {
+    expect(addTooltip).toBeDefined();
+  });
   it('should add mouseover and mouseout event listeners to elements in arr', () => {
     addTooltip(arr as unknown as NodeListOf<Element>, tooltip);
     arr.forEach((el) => {
@@ -17,11 +19,6 @@ describe('addTooltip', () => {
       expect((el as HTMLElement).onmouseout).toBeDefined();
     });
   });
-
-  it('should be defined', () => {
-    expect(addTooltip).toBeDefined();
-  });
-
   it('should set item display property to "none" on mouseout event', () => {
     const mouseoutEvent = new MouseEvent('mouseout');
     addTooltip(arr as unknown as NodeListOf<Element>, tooltip);

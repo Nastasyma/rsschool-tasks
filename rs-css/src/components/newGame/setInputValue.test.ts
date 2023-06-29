@@ -14,12 +14,12 @@ describe('setInputValue', () => {
     setInputValue(editorInput, editorSpan);
     expect(editorSpan.innerHTML).toBe('');
   });
-  it('should update the content of the "editorSpan" element with HTML tags for CSS attribute selectors in the "editorInput" element', () => {
+  it('should update the content of the "editorSpan" for CSS attribute selectors in the "editorInput"', () => {
     editorInput.value = '[attribute="value"]';
     setInputValue(editorInput, editorSpan);
     expect(editorSpan.innerHTML).toBe('<span class="input-d">[attribute="value"]</span>');
   });
-  it('should update the content of the "editorSpan" element with HTML tags for CSS ID selectors in the "editorInput" element', () => {
+  it('should update the content of the "editorSpan"for CSS ID selectors in the "editorInput"', () => {
     editorInput.value = '#test';
     setInputValue(editorInput, editorSpan);
     expect(editorSpan.innerHTML).toBe('<span class="input-b">#test</span>');
