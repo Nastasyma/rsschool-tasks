@@ -306,12 +306,6 @@ horse {
   top: 0;
   left: calc(50% - 40px);
 }
-/* box horse.small {
-  top: 30px;
-  left: 35px;
-  width: 50px;
-  height: 50px;
-} */
 pyramid {
   position: absolute;
   background: url('../icons/pyramid-icon.svg') center/cover no-repeat;
@@ -530,6 +524,9 @@ airplane {
   width: 300px;
   margin: 0 auto;
 }
+.footer__text {
+  margin: 0 auto;
+}
 .tag {
   color: rgb(252, 58, 84);
 }
@@ -573,6 +570,35 @@ airplane {
     z-index: 50;
     background: rgb(0, 0, 0);
   }
+  .editor__title {
+    display: none
+  }
+  .editor__html-wrapper {
+    font-size: 13px;
+  }
+  .header__title {
+    font-size: 22px;
+  }
+  .game__title {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .game {
+    margin-bottom: 5px;
+  }
+  .rsschool-logo {
+    width: 70px;
+    height: 35px;
+  }
+  .github-logo {
+    width: 35px;
+    height: 35px;
+  }
+  .footer,
+  .header {
+    padding: 5px 20px;
+  }
+  .rsschool-logo:hover,
   .open_menu {
     transform: translateX(0);
   }
@@ -586,8 +612,8 @@ airplane {
   }
 }
 @media (max-width: 770px) {
-  .header__title {
-    font-size: 26px;
+  .game__title {
+    margin-bottom: 30px;
   }
   box {
     width: 60px;
@@ -662,15 +688,9 @@ airplane {
   .game__table {
     border-bottom: 100px solid rgb(102, 63, 18);
   }
-  /* .table__bottom {
-    width: 300px;
-  } */
-  /* .table {
-    flex-wrap: wrap;
-    gap: 5px;
-  } */
   .game__wrapper {
     padding: 5px;
+    margin-bottom: 15px;
   }
   .game__wrapper.win {
     height: 125px;
