@@ -1,6 +1,8 @@
 {
+  "verbose": true,
+  "clearMocks": true,
   "testEnvironment": "jsdom",
-  "preset": "ts-jest/presets/default-esm",
+  "preset": "ts-jest/presets/js-with-ts",
   "transform": {
     "^.+\\.m?[tj]s?$": ["ts-jest", { "useESM": true }],
     "^.+\\.(js|jsx)$": "babel-jest"
