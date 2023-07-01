@@ -1,6 +1,4 @@
 /* eslint-disable no-param-reassign */
-// import elements from '../../utils/gameElements';
-
 function addTooltip(arr: NodeListOf<Element>, el: HTMLElement): void {
   // const { tooltip } = elements.game;
   const tableEl: NodeListOf<Element> = document.querySelectorAll('.table *');

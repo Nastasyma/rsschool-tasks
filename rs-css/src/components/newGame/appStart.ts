@@ -1,14 +1,15 @@
 import elements from '../../utils/gameElements';
 import createBurger from '../nav/burger';
-import changeLevel from './changeLevel';
+import { changeLevel, clickArrow } from './changeLevel';
 import initGame from './initGame';
 import setInputValue from './setInputValue';
 
 function appStart() {
-  const { editorInput, editorSpan } = elements.game;
+  const { editorInput, editorSpan, currentLevel } = elements.game;
   window.addEventListener('DOMContentLoaded', (): void => {
     if (localStorage.getItem('nastasyma_level')) {
       elements.level = Number(localStorage.getItem('nastasyma_level'));
+      if (currentLevel) currentLevel.textContent = (elements.level + 1).toString();
     }
     if (localStorage.getItem('nastasyma_checked-status')) {
       elements.checkedStatus = JSON.parse(localStorage.getItem('nastasyma_checked-status') as string);
@@ -18,6 +19,7 @@ function appStart() {
     }
     initGame();
     changeLevel();
+    clickArrow();
     createBurger();
     if (editorInput && editorSpan) setInputValue(editorInput, editorSpan);
   });

@@ -12,6 +12,9 @@ export interface IGameElemsObject {
     table: HTMLElement | null;
     burger: HTMLElement | null;
     helpBtn: HTMLElement | null;
+    arrowLeft: HTMLElement | null;
+    arrowRight: HTMLElement | null;
+    currentLevel: HTMLElement | null;
     menu: HTMLElement | null;
     navItems: HTMLElement[];
     levelsCheck: HTMLElement[];

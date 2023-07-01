@@ -1,9 +1,11 @@
 import elements from '../../utils/gameElements';
+import navObject from '../../utils/navObj';
 import checkInputValue from './checkInputValue';
 import initGame from './initGame';
 
 function submit(event: Event): void {
-  const { editorForm, editorInput, editorSpan, editorBtn, game, levelsCheck, helpBtn, editor } = elements.game;
+  const { editorForm, editorInput, editorSpan, editorBtn, game, levelsCheck, helpBtn, editor, currentLevel } =
+    elements.game;
 
   if (editorForm && editorInput && editorBtn && helpBtn && editorSpan) {
     event.preventDefault();
@@ -31,10 +33,11 @@ function submit(event: Event): void {
         });
         localStorage.setItem('nastasyma_checked-status', JSON.stringify(elements.checkedStatus));
         elements.helped = false;
-        if (elements.level < 20) {
+        if (elements.level < navObject.length) {
+          if (currentLevel) currentLevel.textContent = (elements.level + 1).toString();
           initGame();
         }
-        if (elements.level === 20) {
+        if (elements.level === navObject.length) {
           localStorage.setItem('nastasyma_level', '19');
           editorInput.value = '';
           editorSpan.innerHTML = '';
