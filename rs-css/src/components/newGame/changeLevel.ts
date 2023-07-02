@@ -33,7 +33,7 @@ export function clickArrow(): void {
         localStorage.setItem('nastasyma_level', elements.level.toString());
         initGame();
       }
-      console.log(elements.level);
+      // console.log(elements.level);
     });
     arrowLeft.addEventListener('click', () => {
       if (!elements.isHelp) {
@@ -46,7 +46,7 @@ export function clickArrow(): void {
         localStorage.setItem('nastasyma_level', elements.level.toString());
         initGame();
       }
-      console.log(elements.level);
+      // console.log(elements.level);
     });
   }
 }

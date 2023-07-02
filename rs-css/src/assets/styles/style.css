@@ -232,6 +232,7 @@ body {
   display: flex;
   align-items: center;
   gap: 3px;
+  text-shadow: 2px 2px 4px black, 0 0 5px black;
   opacity: .6;
   visibility: hidden;
 }
