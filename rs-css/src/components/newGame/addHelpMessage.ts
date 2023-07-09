@@ -23,6 +23,7 @@ export default function addHelpMessage(): boolean {
         elements.isHelp = false;
         helpBtn.removeAttribute('disabled');
         editorInput.removeAttribute('disabled');
+        editorInput.focus();
       }
     }, 200);
   }
