@@ -1,6 +1,3 @@
-# nastasyma-JSFE2023Q1
-Private repository for @nastasyma  
+# migrate-newsapi-to-ts/  
+Task: https://github.com/rolling-scopes-school/tasks/blob/master/tasks/migration-newip-to-ts.md
 
-https://rolling-scopes-school.github.io/nastasyma-JSFE2023Q1/shelter/pages/main/  
-https://rolling-scopes-school.github.io/nastasyma-JSFE2023Q1/minesweeper/  
-https://rolling-scopes-school.github.io/nastasyma-JSFE2023Q1/migrate-newsapi-to-ts/
