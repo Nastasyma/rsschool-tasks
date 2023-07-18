@@ -1,9 +1,0 @@
-enum HttpStatus {
-  UNAUTHORIZED_ERROR = 401,
-  NOT_FOUND_ERROR = 404,
-  OK_STATUS = 200,
-  TOO_MANY_REQUESTS_ERROR = 429,
-  SERVER_ERROR = 500,
-}
-
-export default HttpStatus;
