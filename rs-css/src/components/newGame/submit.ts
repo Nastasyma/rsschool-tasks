@@ -1,0 +1,52 @@
+import elements from '../../utils/gameElements';
+import navObject from '../../utils/navObj';
+import checkInputValue from './checkInputValue';
+import initGame from './initGame';
+
+function submit(event: Event): void {
+  const { editorForm, editorInput, editorSpan, editorBtn, game, levelsCheck, helpBtn, editor, currentLevel } =
+    elements.game;
+
+  if (editorForm && editorInput && editorBtn && helpBtn && editorSpan) {
+    event.preventDefault();
+    // console.log('correct value: ', gameLevelObject[elements.level].help);
+    checkInputValue();
+    if (elements.rule) {
+      // console.log('correct');
+      elements.level += 1;
+      localStorage.setItem('nastasyma_level', elements.level.toString());
+      if (elements.level === 20) {
+        // console.log('the end');
+        editorInput.setAttribute('disabled', 'disabled');
+        editorBtn.setAttribute('disabled', 'disabled');
+        helpBtn.setAttribute('disabled', 'disabled');
+      }
+      setTimeout(() => {
+        if (elements.helped) {
+          levelsCheck[elements.level - 1].classList.add('helped');
+        } else {
+          levelsCheck[elements.level - 1].classList.add('checked');
+        }
+        if (elements.checkedStatus) elements.checkedStatus.length = 0;
+        levelsCheck.forEach((item) => {
+          elements.checkedStatus?.push(item.className);
+        });
+        localStorage.setItem('nastasyma_checked-status', JSON.stringify(elements.checkedStatus));
+        elements.helped = false;
+        if (elements.level < navObject.length) {
+          if (currentLevel) currentLevel.textContent = (elements.level + 1).toString();
+          initGame();
+        }
+        if (elements.level === navObject.length) {
+          localStorage.setItem('nastasyma_level', '19');
+          editorInput.value = '';
+          editorSpan.innerHTML = '';
+          if (game) game.classList.add('win');
+          if (editor) editor.classList.add('win');
+        }
+      }, 1400);
+    }
+  }
+}
+
+export default submit;
