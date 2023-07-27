@@ -12,5 +12,5 @@ https://nastasyma.github.io/RSS-tasks/shelter/pages/main/
 https://nastasyma.github.io/RSS-tasks/virtual-keyboard/  
 https://nastasyma.github.io/RSS-tasks/minesweeper/  
 **Stage-2**  
-https://rolling-scopes-school.github.io/nastasyma-JSFE2023Q1/migrate-newsapi-to-ts/  
-https://rolling-scopes-school.github.io/nastasyma-JSFE2023Q1/rs-css/  
+https://nastasyma.github.io/RSS-tasks/migrate-newsapi-to-ts/  
+https://nastasyma.github.io/RSS-tasks/rs-css/  
