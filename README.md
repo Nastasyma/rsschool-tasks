@@ -14,4 +14,4 @@ https://nastasyma.github.io/RSS-tasks/minesweeper/
 **Stage-2**  
 https://nastasyma.github.io/RSS-tasks/migrate-newsapi-to-ts/  
 https://nastasyma.github.io/RSS-tasks/rs-css/  
-https://lucky-coders-e-commerce-sprint-4.netlify.app/
+https://stones-fall-e-commerce.netlify.app/
