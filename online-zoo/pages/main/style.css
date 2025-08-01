@@ -244,6 +244,7 @@ h2 {
   padding-left: 0;
   padding-top: 97px;
   gap: 2%;
+  transform: translateX(-102%);
 }
 
 .pets_btns_wrapper {
