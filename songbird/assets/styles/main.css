@@ -562,6 +562,7 @@ p {
   margin: 0;
   padding-left: 0;
   gap: 4%;
+  transform: translateX(-104%);
 }
 .game__gallery_slide {
   background: rgb(36, 35, 35);
